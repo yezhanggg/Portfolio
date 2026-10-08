@@ -9,8 +9,9 @@ const bleed = n.bleed && !inSlide;
 const hv = hoverBits(n.hover);
 const entering = n.anim && n.anim.some((a) => !a.loop);
 // Extra classes/attributes shared by every node type: animation, hover state, pointer tracking.
-const fx = [...hv.cls, n.anim ? "anim" : "", entering ? "enter" : "", n.sticky ? "sticky" : ""].filter(Boolean);
-const fxAttrs = { ...(n.mouse ? { "data-mouse": n.mouse.k, "data-mouse-y": n.mouse.ky, "data-mouse-ms": n.mouse.ms } : {}), ...(n.scrollK ? { "data-scroll-k": n.scrollK } : {}) };
+const fx = [...hv.cls, n.anim ? "anim" : "", entering ? "enter" : "", n.sticky ? "sticky" : "", n.hshow ? "hb-show" : ""].filter(Boolean);
+// data-mouse = how far (px) a picture travels when it follows the pointer; see interactions.js.
+const fxAttrs = { ...(n.mouse ? { "data-mouse": n.mouse.d, "data-mouse-ms": n.mouse.ms, "data-mouse-inset": n.mouse.inset } : {}), ...(n.scrollK ? { "data-scroll-k": n.scrollK } : {}) };
 // A video that fills the page is a background; anything smaller is a "video box" the visitor can
 // click to play or pause, as on the original site.
 const backgroundVideo = n.type === "video" && (n.bleed || n.fixed || n.sticky || (n.autoplay && n.box[2] >= canvas - 2));
@@ -21,6 +22,8 @@ const frame = {
   height: px(h),
   transform: n.rotate ? `rotate(${n.rotate}deg)` : undefined,
   "transform-origin": n.origin ? `${px(n.origin[0])} ${px(n.origin[1])}` : undefined,
+  // Where a pointer-following picture sits before the pointer has moved (re-done on load for the real window).
+  translate: n.mouse?.at ? `${px(n.mouse.at[0])} ${px(n.mouse.at[1])}` : undefined,
   animation: n.anim ? animationCss(n.anim) : undefined,
   ...hv.vars,
 };
@@ -70,6 +73,12 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
 ---
 
 {n.type === "box" && <div class:list={["n", "bx", fx, { bleed }]} style={css({ ...frame, ...paint })} />}
+
+{n.type === "hbox" && (
+  <div class="n hbox" style={css({ ...frame, "--hb-ms": n.ms ? `${n.ms}ms` : undefined })}>
+    {n.children.map((child) => <Astro.self node={child} canvas={canvas} origin={[n.box[0], n.box[1]]} />)}
+  </div>
+)}
 
 {n.type === "text" && (
   <div class:list={["n", "t", fx, { bleed, nw: n.lines === 1 }]} style={css({ ...frame, height: undefined, "min-height": frame.height, ...fontFix(n.style) })} set:html={rewriteLinks(n.html)} />
@@ -179,12 +188,12 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
     </div>
     {n.slides.length > 1 && n.nav !== false && (
       <Fragment>
-        <button type="button" class="show-nav prev" aria-label="Previous" style={n.prev ? css({ left: px(n.prev[0] - n.box[0] - 15), top: px(n.prev[1] - n.box[1] - 15), color: n.arrowColor }) : "left:0;top:calc(50% - 26px)"}>
+        {(n.prev || n.next) && <button type="button" class="show-nav prev" aria-label="Previous" style={n.prev ? css({ left: px(n.prev[0] - n.box[0] - 15), top: px(n.prev[1] - n.box[1] - 15), color: n.arrowColor }) : "left:0;top:calc(50% - 26px)"}>
           <svg viewBox="0 0 10 20" width="10" height="20"><path d="M9 1 1 10l8 9" fill="none" stroke="currentColor" stroke-width="1" /></svg>
-        </button>
-        <button type="button" class="show-nav next" aria-label="Next" style={n.next ? css({ left: px(n.next[0] - n.box[0] - 15), top: px(n.next[1] - n.box[1] - 15), color: n.arrowColor }) : "right:0;top:calc(50% - 26px)"}>
+        </button>}
+        {(n.prev || n.next) && <button type="button" class="show-nav next" aria-label="Next" style={n.next ? css({ left: px(n.next[0] - n.box[0] - 15), top: px(n.next[1] - n.box[1] - 15), color: n.arrowColor }) : "right:0;top:calc(50% - 26px)"}>
           <svg viewBox="0 0 10 20" width="10" height="20"><path d="m1 1 8 9-8 9" fill="none" stroke="currentColor" stroke-width="1" /></svg>
-        </button>
+        </button>}
         {n.dots && (
           <div class="show-dots" style={css({ left: px(n.dots.first[0] - n.box[0]), top: px(n.dots.first[1] - n.box[1]), gap: px(Math.max(0, n.dots.step - n.dots.first[2])), "--dot": n.dots.idle, "--dot-on": n.dots.active })}>
             {n.slides.map((_, i) => <button type="button" class:list={["dot", { on: i === 0 }]} aria-label={`Slide ${i + 1}`} style={css({ width: px(n.dots.first[2]), height: px(n.dots.first[3]) })} />)}

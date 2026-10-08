@@ -6,10 +6,11 @@
 import { chromium, devices } from "playwright";
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 
 const OUT = path.resolve("src/data/pages");
 const FILTER = process.argv[2];
-const SITES = [
+export const SITES = [
   { key: "yz", base: "https://www.yezhang.net", sitemap: "https://www.yezhang.net/pages-sitemap.xml" },
   { key: "zhaeng", base: "https://yegnahz.wixsite.com/zhaeng", sitemap: "https://yegnahz.wixsite.com/zhaeng/pages-sitemap.xml" },
 ];
@@ -20,7 +21,7 @@ const VIEWS = [
 const CONCURRENCY = 5;
 fs.mkdirSync(OUT, { recursive: true });
 
-async function pageList(site) {
+export async function pageList(site) {
   const xml = await (await fetch(site.sitemap)).text();
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => {
     const url = m[1];
@@ -30,7 +31,7 @@ async function pageList(site) {
 }
 
 // ---- runs inside the page -------------------------------------------------------------------
-function installExtractor() {
+export function installExtractor() {
   const TEXT_PROPS = ["font-family", "font-size", "font-weight", "font-style", "color", "letter-spacing", "line-height", "text-align", "text-transform", "text-shadow"];
   const adsH = document.getElementById("WIX_ADS")?.offsetHeight || 0;
   const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -266,6 +267,12 @@ function installExtractor() {
         nodes: out,
       };
     },
+    // Nodes of one component (used for the hover-state parts of hover boxes).
+    sub(id) {
+      const out = [];
+      walk(document.getElementById(id), { fixed: false, href: undefined }, out);
+      return out;
+    },
     slide(id) {
       const el = document.getElementById(id);
       const out = [];
@@ -412,33 +419,36 @@ async function extractView(browser, pg, view) {
   return { canvas: view.canvas, crawlWidth: data.width, ...data };
 }
 
-let pages = (await Promise.all(SITES.map(pageList))).flat();
-if (FILTER) pages = pages.filter((p) => new RegExp(FILTER).test(`${p.site}__${p.slug}`));
-const browser = await chromium.launch();
-let next = 0;
-await Promise.all(
-  Array.from({ length: CONCURRENCY }, async () => {
-    while (next < pages.length) {
-      const pg = pages[next++];
-      const outFile = path.join(OUT, `${pg.site}__${pg.slug}.json`);
-      // Resumable: SINCE=<epoch ms> re-extracts only files older than that; default skips existing files.
-      if (!FILTER && fs.existsSync(outFile) && fs.statSync(outFile).mtimeMs > Number(process.env.SINCE || 0)) continue;
-      try {
-        const views = {};
-        for (const view of VIEWS) {
-          for (let attempt = 0; attempt < 3; attempt++) {
-            views[view.name] = await extractView(browser, pg, view);
-            if (views[view.name].nodes.some((n) => n.type !== "box")) break; // retry empty captures
+// Run only when this file is the script being executed (hover_audit.mjs imports the extractor).
+if (import.meta.url === pathToFileURL(process.argv[1] || "").href) {
+  let pages = (await Promise.all(SITES.map(pageList))).flat();
+  if (FILTER) pages = pages.filter((p) => new RegExp(FILTER).test(`${p.site}__${p.slug}`));
+  const browser = await chromium.launch();
+  let next = 0;
+  await Promise.all(
+    Array.from({ length: CONCURRENCY }, async () => {
+      while (next < pages.length) {
+        const pg = pages[next++];
+        const outFile = path.join(OUT, `${pg.site}__${pg.slug}.json`);
+        // Resumable: SINCE=<epoch ms> re-extracts only files older than that; default skips existing files.
+        if (!FILTER && fs.existsSync(outFile) && fs.statSync(outFile).mtimeMs > Number(process.env.SINCE || 0)) continue;
+        try {
+          const views = {};
+          for (const view of VIEWS) {
+            for (let attempt = 0; attempt < 3; attempt++) {
+              views[view.name] = await extractView(browser, pg, view);
+              if (views[view.name].nodes.some((n) => n.type !== "box")) break; // retry empty captures
+            }
           }
+          const { title, description } = views.desktop;
+          fs.writeFileSync(path.join(OUT, `${pg.site}__${pg.slug}.json`), JSON.stringify({ site: pg.site, slug: pg.slug, url: pg.url, title, description, views }, null, 1));
+          const count = (v) => v.nodes.reduce((a, n) => ((a[n.type] = (a[n.type] || 0) + 1), a), {});
+          console.log("ok", pg.site, pg.slug, JSON.stringify(count(views.desktop)), "| m", JSON.stringify(count(views.mobile)));
+        } catch (e) {
+          console.log("FAIL", pg.site, pg.slug, e.message.split("\n")[0]);
         }
-        const { title, description } = views.desktop;
-        fs.writeFileSync(path.join(OUT, `${pg.site}__${pg.slug}.json`), JSON.stringify({ site: pg.site, slug: pg.slug, url: pg.url, title, description, views }, null, 1));
-        const count = (v) => v.nodes.reduce((a, n) => ((a[n.type] = (a[n.type] || 0) + 1), a), {});
-        console.log("ok", pg.site, pg.slug, JSON.stringify(count(views.desktop)), "| m", JSON.stringify(count(views.mobile)));
-      } catch (e) {
-        console.log("FAIL", pg.site, pg.slug, e.message.split("\n")[0]);
       }
-    }
-  })
-);
-await browser.close();
+    })
+  );
+  await browser.close();
+}

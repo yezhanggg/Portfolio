@@ -432,7 +432,7 @@ a.svg {
 /* Hover states: each changed property gets a class; values arrive as CSS variables on the node. */
 .hv,
 .hv .lbl {
-  transition: color var(--htr, 0.2s) ease, letter-spacing var(--htr, 0.2s) ease, background-color var(--htr, 0.2s) ease, opacity var(--htr, 0.2s) ease, box-shadow var(--htr, 0.2s) ease, filter var(--htr, 0.2s) ease;
+  transition: color var(--htr, 0.2s) ease, letter-spacing var(--htr, 0.2s) ease, font-size var(--htr, 0.2s) ease, background-color var(--htr, 0.2s) ease, opacity var(--htr, 0.2s) ease, box-shadow var(--htr, 0.2s) ease, filter var(--htr, 0.2s) ease;
 }
 .hv-c:hover .lbl {
   color: var(--hc) !important;
@@ -445,6 +445,13 @@ a.svg {
 }
 .hv-fw:hover .lbl {
   font-weight: var(--hfw) !important;
+  -webkit-text-stroke: var(--hfb, 0) currentColor;
+}
+.hv-fs:hover .lbl {
+  font-style: var(--hfs) !important;
+}
+.hv-fz:hover .lbl {
+  font-size: var(--hfz) !important;
 }
 .hv-bg:hover {
   background-color: var(--hbg) !important;
@@ -460,6 +467,22 @@ a.svg {
 }
 .hv-sh:hover {
   box-shadow: var(--hsh) !important;
+}
+/* Hover boxes: the parts marked hb-show appear while the pointer is over the box (they fade in
+   and leave at once, as on the original), and the box comes to the front. */
+.hbox:hover,
+.hbox:has(:focus-visible) {
+  z-index: 1;
+}
+.hb-show {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--hb-ms, 400ms) ease-in-out;
+}
+.hbox:hover .hb-show,
+.hbox:has(:focus-visible) .hb-show {
+  opacity: 1;
+  visibility: visible;
 }
 /* Entrance animations wait (paused on their first frame) until the element scrolls into view.
    !important: each node's inline `animation` shorthand also sets the play state (to running). */
@@ -495,6 +518,7 @@ div.img[data-mouse] {
   .slide,
   .hv,
   .hv .lbl,
+  .hb-show,
   [data-mouse] {
     transition: none !important;
   }

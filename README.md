@@ -26,6 +26,7 @@ Node 22 and pnpm are required.
 | `src/pages/[...path].astro` | Turns each data file into a page. |
 | `src/components/Node.astro` | Draws one item (text, image, gallery, slideshow, video, form field…). |
 | `src/lib/fixups.js` | Hand-made changes on top of the extracted data (e.g. the ZHAENG and Features entries on `/portfolio`). |
+| `src/data/motion.json`, `src/data/hover.json` | Motion measured on the original site: animations, drifting galleries, hover styles, pictures that follow the pointer. |
 | `src/data/meta.json` | Page descriptions for search engines — edit freely. |
 | `src/styles/fonts.css` | Which open-licensed font stands in for each font Wix used. |
 | `public/media`, `public/video` | Web-sized images and videos. |

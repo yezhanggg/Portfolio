@@ -1,0 +1,1929 @@
+{
+ "yz__about": {
+  "buttons": [
+   {
+    "rect": [
+     224,
+     432,
+     531,
+     40
+    ],
+    "text": "continue exploring my thoughts",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     341,
+     501,
+     275,
+     40
+    ],
+    "text": "or go home",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__aboutme": {
+  "buttons": [
+   {
+    "rect": [
+     216,
+     446,
+     531,
+     40
+    ],
+    "text": "continue exploring my portfolio",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__arcgis": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     45,
+     395,
+     60
+    ],
+    "text": "HOME",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__art": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     45,
+     395,
+     60
+    ],
+    "text": "HOME",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__book-no-1": {
+  "buttons": [
+   {
+    "rect": [
+     395,
+     663,
+     131,
+     40
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   }
+  ],
+  "trackers": [
+   {
+    "rect": [
+     157.6,
+     169,
+     211,
+     215
+    ],
+    "layout": [
+     84,
+     76,
+     211,
+     215
+    ],
+    "d": 250,
+    "ms": 500
+   },
+   {
+    "rect": [
+     407.4,
+     116,
+     600,
+     416
+    ],
+    "layout": [
+     479,
+     38,
+     600,
+     416
+    ],
+    "d": 250,
+    "ms": 500
+   },
+   {
+    "rect": [
+     147.1,
+     177.9,
+     600,
+     416
+    ],
+    "layout": [
+     127,
+     127,
+     600,
+     416
+    ],
+    "d": 250,
+    "ms": 500
+   },
+   {
+    "rect": [
+     -13.7,
+     299,
+     409,
+     416
+    ],
+    "layout": [
+     -101,
+     346,
+     409,
+     416
+    ],
+    "d": 250,
+    "ms": 500
+   },
+   {
+    "rect": [
+     557.3,
+     362.9,
+     360,
+     416
+    ],
+    "layout": [
+     635,
+     439,
+     360,
+     416
+    ],
+    "d": 250,
+    "ms": 500
+   },
+   {
+    "rect": [
+     309,
+     682.8,
+     161,
+     200
+    ],
+    "layout": [
+     268,
+     809,
+     161,
+     200
+    ],
+    "d": 250,
+    "ms": 500
+   }
+  ]
+ },
+ "yz__brain-cell-no-2": {
+  "buttons": [
+   {
+    "rect": [
+     424,
+     52,
+     131,
+     40
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   }
+  ],
+  "trackers": [
+   {
+    "rect": [
+     190,
+     156,
+     600,
+     600
+    ],
+    "layout": [
+     190,
+     163,
+     600,
+     600
+    ],
+    "d": 250,
+    "ms": 500
+   }
+  ]
+ },
+ "yz__brain-cell-no-3": {
+  "buttons": [
+   {
+    "rect": [
+     460,
+     491,
+     131,
+     40
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__cdtc": {
+  "buttons": [
+   {
+    "rect": [
+     473,
+     1656,
+     131,
+     40
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__chill": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     879,
+     395,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(0, 87, 225)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__cloudss": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     78,
+     395,
+     60
+    ],
+    "text": "HOME",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__copy-of-magazine": {
+  "buttons": [
+   {
+    "rect": [
+     370,
+     872,
+     240,
+     60
+    ],
+    "text": "back",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__copy-of-notice": {
+  "buttons": [
+   {
+    "rect": [
+     254,
+     311,
+     471,
+     114
+    ],
+    "text": "UNDER MAINTENANCE",
+    "label": {
+     "letter-spacing": "7px",
+     "text-decoration": "line-through",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     254,
+     579,
+     471,
+     114
+    ],
+    "text": "BACK",
+    "label": {
+     "letter-spacing": "7px",
+     "text-decoration": "line-through",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__copy-of-vol-1": {
+  "buttons": [
+   {
+    "rect": [
+     369,
+     872,
+     240,
+     60
+    ],
+    "text": "back",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__copy-of-vol-2": {
+  "buttons": [
+   {
+    "rect": [
+     369,
+     874,
+     240,
+     60
+    ],
+    "text": "back",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__dance": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     879,
+     395,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(0, 87, 225)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__dream": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     7654,
+     395,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__fire": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     894,
+     395,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(0, 87, 225)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__green": {
+  "buttons": [
+   {
+    "rect": [
+     448,
+     577,
+     131,
+     40
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__hmm": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     4256,
+     395,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__home": {
+  "buttons": [
+   {
+    "rect": [
+     47,
+     370,
+     240,
+     60
+    ],
+    "text": "THOUGHTS",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     621,
+     205,
+     285,
+     94
+    ],
+    "text": "NOTEpad",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.7px",
+     "text-decoration": "line-through",
+     "font-weight": "700",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     -29,
+     504,
+     359,
+     109
+    ],
+    "text": "「CITY VISION」",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "4.6px",
+     "font-style": "italic",
+     "font-size": "46px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     175,
+     210,
+     240,
+     60
+    ],
+    "text": "magaZINE",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     579,
+     476,
+     368,
+     65
+    ],
+    "text": "I SHOOT PHOTOS NOW",
+    "label": {
+     "letter-spacing": "4.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     387,
+     319,
+     263,
+     89
+    ],
+    "text": "ARTWORK",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "5.4px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     340.4,
+     284.7,
+     186.1,
+     85.6
+    ],
+    "text": "untitled",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     108,
+     682,
+     432,
+     72
+    ],
+    "text": "some RANDOM photos edits",
+    "label": {
+     "letter-spacing": "4.05px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     540,
+     744,
+     283,
+     60
+    ],
+    "text": "session.ARCHIVE",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__ideation": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     90,
+     395,
+     60
+    ],
+    "text": "HOME",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     232,
+     834,
+     518,
+     90
+    ],
+    "text": "PROJECT GREEN",
+    "label": {
+     "letter-spacing": "9.45px",
+     "font-weight": "700",
+     "font-style": "italic",
+     "font-size": "63px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     311,
+     1231,
+     336,
+     40
+    ],
+    "text": "brain cell no.2",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "2.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     274,
+     1652,
+     433,
+     40
+    ],
+    "text": "\"CAN'T DRAW TOO COLD\"",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   },
+   {
+    "rect": [
+     274,
+     1614,
+     433,
+     40
+    ],
+    "text": "ICELAND",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   },
+   {
+    "rect": [
+     274,
+     1687,
+     433,
+     40
+    ],
+    "text": "BRAINCELL",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   },
+   {
+    "rect": [
+     282,
+     2206,
+     433,
+     40
+    ],
+    "text": "brain cell no.3",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "2.7px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__index": {
+  "buttons": [
+   {
+    "rect": [
+     218,
+     604,
+     227,
+     50
+    ],
+    "text": "WELCOME",
+    "label": {
+     "color": "rgb(0, 87, 225)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "line-through",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__magazine": {
+  "buttons": [
+   {
+    "rect": [
+     369,
+     219,
+     240,
+     60
+    ],
+    "text": "vol .1",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     369,
+     939,
+     240,
+     60
+    ],
+    "text": "vol .2",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     370,
+     1682,
+     240,
+     60
+    ],
+    "text": "vol .3",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__motion": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     87,
+     395,
+     60
+    ],
+    "text": "HOME",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     292,
+     561,
+     395,
+     47
+    ],
+    "text": "IMMERSE",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     292,
+     1071,
+     395,
+     47
+    ],
+    "text": "IMMERSE",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     292,
+     1612,
+     395,
+     47
+    ],
+    "text": "IMMERSE",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     292,
+     2290,
+     395,
+     47
+    ],
+    "text": "IMMERSE",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__my-clothing-brand": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     73,
+     395,
+     60
+    ],
+    "text": "HOME",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     22,
+     168,
+     468,
+     69
+    ],
+    "text": "WEBSITE PORTAL",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "4.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "30px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     490,
+     168,
+     468,
+     69
+    ],
+    "text": "GALLERY",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "4.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "30px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__notice": {
+  "buttons": [
+   {
+    "rect": [
+     0,
+     333,
+     471,
+     114
+    ],
+    "text": "PORTFOLIO MODE",
+    "label": {
+     "letter-spacing": "7px",
+     "text-decoration": "line-through",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     509,
+     333,
+     471,
+     114
+    ],
+    "text": "EXPLORE WITH CURIOSITY",
+    "label": {
+     "letter-spacing": "7px",
+     "text-decoration": "line-through",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__order": {
+  "buttons": [
+   {
+    "rect": [
+     370,
+     60,
+     240,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__photography": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     62,
+     395,
+     60
+    ],
+    "text": "HOME",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     292,
+     1953,
+     395,
+     60
+    ],
+    "text": "everyday shooting",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__photomagazine": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     62,
+     395,
+     60
+    ],
+    "text": "HOME",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     42,
+     246,
+     201,
+     50
+    ],
+    "text": "vol .1",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     389,
+     255,
+     201,
+     50
+    ],
+    "text": "vol .2",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     741,
+     249,
+     198,
+     50
+    ],
+    "text": "vol .3",
+    "label": {
+     "letter-spacing": "3.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__portfolio": {
+  "buttons": [
+   {
+    "rect": [
+     173,
+     123,
+     259,
+     79
+    ],
+    "text": "Zine",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     108,
+     202,
+     389,
+     79
+    ],
+    "text": "Motion Edits",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     128,
+     281,
+     348,
+     79
+    ],
+    "text": "Illutrations",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     128,
+     360,
+     348,
+     79
+    ],
+    "text": "Photography",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "5.25px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     173,
+     439,
+     259,
+     79
+    ],
+    "text": "ArcGIS Project",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     108,
+     518,
+     389,
+     79
+    ],
+    "text": "Clothing & Fabrics",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     174,
+     597,
+     128,
+     79
+    ],
+    "text": "Clouds",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     302,
+     597,
+     128,
+     79
+    ],
+    "text": "Archive",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     619,
+     173,
+     316,
+     50
+    ],
+    "text": "name is Ye Zhang",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "2px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     157,
+     676,
+     291,
+     59
+    ],
+    "text": "random ideation",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__sessionarchive": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     85,
+     395,
+     60
+    ],
+    "text": "HOME",
+    "label": {
+     "color": "rgb(232, 230, 230)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__shuffle": {
+  "buttons": [
+   {
+    "rect": [
+     386,
+     730,
+     208,
+     40
+    ],
+    "text": "HOME",
+    "label": {
+     "letter-spacing": "4.7px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__skin": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     879,
+     395,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(0, 87, 225)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__thoughtss": {
+  "buttons": [
+   {
+    "rect": [
+     232,
+     834,
+     518,
+     90
+    ],
+    "text": "PROJECT GREEN",
+    "label": {
+     "letter-spacing": "9.45px",
+     "font-weight": "700",
+     "font-style": "italic",
+     "font-size": "63px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     311,
+     1231,
+     336,
+     40
+    ],
+    "text": "brain cell no.2",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "2.5px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     274,
+     1652,
+     433,
+     40
+    ],
+    "text": "\"CAN'T DRAW TOO COLD\"",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   },
+   {
+    "rect": [
+     274,
+     1614,
+     433,
+     40
+    ],
+    "text": "ICELAND",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   },
+   {
+    "rect": [
+     274,
+     1687,
+     433,
+     40
+    ],
+    "text": "BRAINCELL",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   },
+   {
+    "rect": [
+     282,
+     2206,
+     433,
+     40
+    ],
+    "text": "brain cell no.3",
+    "label": {
+     "color": "rgb(0, 0, 0)",
+     "letter-spacing": "2.7px",
+     "font-style": "italic"
+    },
+    "root": {
+     "background-color": "rgb(255, 255, 255)"
+    },
+    "base": {
+     "background-color": "rgba(0, 0, 0, 0)"
+    },
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__typeface": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     73,
+     395,
+     60
+    ],
+    "text": "HOME",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     292,
+     683,
+     395,
+     60
+    ],
+    "text": "DOWNLOAD IT NOW",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__who": {
+  "buttons": [
+   {
+    "rect": [
+     292,
+     9634,
+     395,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic",
+     "font-size": "35px"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__zineone": {
+  "buttons": [
+   {
+    "rect": [
+     370,
+     60,
+     240,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     348,
+     900,
+     283,
+     60
+    ],
+    "text": "GET A FREE PHYSICAL COPY",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "1.8px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__zinethree": {
+  "buttons": [
+   {
+    "rect": [
+     370,
+     60,
+     240,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     348,
+     911,
+     283,
+     60
+    ],
+    "text": "GET A FREE PHYSICAL COPY",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "1.8px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__zinetwo": {
+  "buttons": [
+   {
+    "rect": [
+     370,
+     60,
+     240,
+     60
+    ],
+    "text": "BACK",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "3.5px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   },
+   {
+    "rect": [
+     348,
+     900,
+     283,
+     60
+    ],
+    "text": "GET A FREE PHYSICAL COPY",
+    "label": {
+     "color": "rgb(199, 199, 199)",
+     "letter-spacing": "1.8px",
+     "text-decoration": "underline",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "yz__可以": {
+  "buttons": [
+   {
+    "rect": [
+     424,
+     469,
+     131,
+     40
+    ],
+    "text": "BACK",
+    "label": {
+     "letter-spacing": "3.2px",
+     "font-style": "italic"
+    },
+    "root": {},
+    "base": {},
+    "tr": 200
+   }
+  ],
+  "trackers": []
+ },
+ "zhaeng__index": {
+  "buttons": [],
+  "trackers": [
+   {
+    "rect": [
+     190,
+     169.1,
+     600,
+     433
+    ],
+    "layout": [
+     190,
+     204,
+     600,
+     433
+    ],
+    "d": 800,
+    "ms": 0,
+    "inset": 50
+   }
+  ]
+ }
+}

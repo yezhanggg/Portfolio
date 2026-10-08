@@ -2,6 +2,7 @@
 // inside Wix (its widgets, its hosted icons) are swapped for self-hosted equivalents here.
 import { siSpotify, siInstagram } from "simple-icons";
 import motion from "../data/motion.json";
+import hover from "../data/hover.json";
 
 const LINKEDIN_PATH =
   "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z";
@@ -74,6 +75,7 @@ function fixNodes(nodes, page) {
       }
     }
     if (n.slides) n.slides = n.slides.map((s) => fixNodes(s, page));
+    if (n.children) n.children = fixNodes(n.children, page);
     out.push(n);
   }
   return out;
@@ -118,8 +120,17 @@ function applyMotion(page) {
     const mv = m[name];
     if (!mv) continue;
     const all = [];
-    const visit = (nodes) => nodes.forEach((n) => (all.push(n), n.slides?.forEach(visit)));
+    const visit = (nodes) => nodes.forEach((n) => (all.push(n), n.slides?.forEach(visit), n.children && visit(n.children)));
     visit(view.nodes);
+    const atRect = (rect, types) => all.find((x) => types.includes(x.type) && Math.abs(x.box[0] - rect[0]) <= 3 && Math.abs(x.box[1] - rect[1]) <= 3 && Math.abs(x.box[2] - rect[2]) <= 4);
+    const setHover = (n, h) => {
+      const root = { ...h.root }, base = { ...h.base };
+      if (base.opacity === "0") delete root.opacity; // hover-only overlays are not rebuilt
+      // The first audit caught fades and cross-fades mid-way; no picture changes opacity on hover.
+      if (n.type === "image") delete root.opacity;
+      if (root.opacity !== undefined) n.opacity = String(Math.round(Number(base.opacity) * 20) / 20);
+      if (Object.keys(h.label).length || Object.keys(root).length) n.hover = { label: h.label, root, tr: h.tr };
+    };
 
     for (const a of mv.anims) {
       const [cx, cy] = centre(a.box);
@@ -142,14 +153,24 @@ function applyMotion(page) {
       }
     }
     for (const h of mv.hovers) {
-      if (!h.rect) continue;
-      const n = all.find((x) => ["button", "image", "svg"].includes(x.type) && Math.abs(x.box[0] - h.rect[0]) <= 3 && Math.abs(x.box[1] - h.rect[1]) <= 3 && Math.abs(x.box[2] - h.rect[2]) <= 4);
-      if (!n) continue;
-      const root = { ...h.root }, base = { ...h.base };
-      if (base.opacity === "0") delete root.opacity; // hover-only overlays are not rebuilt
-      if (root.opacity !== undefined) n.opacity = String(Math.round(Number(base.opacity) * 20) / 20);
-      if (Object.keys(h.label).length || Object.keys(root).length) n.hover = { label: h.label, root, tr: h.tr };
-      if (h.mouse) n.mouse = h.mouse;
+      const n = h.rect && atRect(h.rect, ["button", "image", "svg"]);
+      if (n) setHover(n, h);
+    }
+    // Re-measured on the live pages (migration/scripts/hover_audit.mjs): every button's hover
+    // style, and the pictures that follow the pointer. A follower is stored where it really rests;
+    // the page data mostly has it where it sat with the pointer mid-window.
+    const hv = name === "desktop" && hover[`${page.site}__${page.slug}`];
+    if (hv) {
+      for (const b of hv.buttons) {
+        const n = atRect(b.rect, ["button"]);
+        if (n) (delete n.hover, setHover(n, b));
+      }
+      for (const t of hv.trackers) {
+        const n = atRect(t.rect, ["image", "video", "svg", "button"]) || atRect(t.layout, ["image", "video", "svg", "button"]);
+        if (!n) continue;
+        n.mouse = { d: t.d, ms: t.ms, inset: t.inset, at: [t.rect[0] - t.layout[0], t.rect[1] - t.layout[1]] };
+        n.box = t.layout;
+      }
     }
     for (const g of mv.galleries) {
       const n = all.find((x) => x.type === "gallery" && Math.abs(x.box[1] - g.box[1]) < 10);
@@ -166,18 +187,30 @@ function applyMotion(page) {
   }
 }
 
-// ZHAENG home: the top picture follows the pointer (and uncovers the one beneath it). Factors were
-// measured on the original: it moves 1.11x the pointer's horizontal and 1.7x its vertical offset
-// from the picture's own centre.
+// ZHAENG home: the top picture follows the pointer and uncovers the one beneath it (hover.json).
+// On phones the same picture drifts down as the page scrolls (0.44px per pixel scrolled).
 function zhaengHome(page) {
-  const pics = page.views.desktop.nodes.filter((n) => n.type === "image" && n.href);
-  const top = pics.pop(), under = pics.pop();
-  if (!top) return;
-  if (under) top.box = [...under.box]; // it was photographed mid-move; at rest it covers the other exactly
-  top.mouse = { k: 1.111, ky: 1.7, ms: 120 };
-  // On phones the same picture drifts down as the page scrolls (0.44px per pixel scrolled).
   const phoneTop = page.views.mobile.nodes.filter((n) => n.type === "image" && n.href).pop();
   if (phoneTop) phoneTop.scrollK = 0.437;
+}
+
+// Hover boxes: a link that exists only on the hover picture (first tile of /photography) can never
+// be reached on a phone, where the hover picture is not shown. Give it to the picture that is.
+function hoverLinksOnPhones(page) {
+  const mediaId = (src) => (String(src || "").match(/\/media\/([^/?]+)/) || [])[1];
+  for (const box of page.views.desktop.nodes.filter((n) => n.type === "hbox")) {
+    const shown = box.children.find((c) => c.type === "image" && !c.hshow && !c.href);
+    const onHover = box.children.find((c) => c.hshow && c.href);
+    if (!shown || !onHover) continue;
+    for (const n of page.views.mobile.nodes) if (n.type === "image" && !n.href && mediaId(n.src) === mediaId(shown.src)) n.href = onHover.href;
+  }
+}
+
+// /photomagazine: the banner at the bottom was captured mid-cycle; it opens on "click on the magazine".
+function zineBanner(page) {
+  const banner = page.views.desktop.nodes.find((n) => n.type === "slideshow" && n.bleed);
+  const first = banner ? banner.slides.findIndex((s) => s.some((n) => /magazine/.test(n.html || ""))) : -1;
+  if (first > 0) banner.slides = [...banner.slides.slice(first), ...banner.slides.slice(0, first)];
 }
 
 // ZHAENG's phone pages had a three-bar button opening this list of pages.
@@ -193,6 +226,8 @@ export function applyFixups(page) {
   for (const view of Object.values(page.views)) view.nodes = fixNodes(view.nodes, page);
   if (page.site === "zhaeng" && page.slug === "index") zhaengHome(page);
   if (page.site === "zhaeng") zhaengPhoneMenu(page);
+  if (page.site === "yz" && page.slug === "photomagazine") zineBanner(page);
+  hoverLinksOnPhones(page);
   applyMotion(page);
   if (page.site === "yz" && page.slug === "portfolio") addPortfolioEntries(page);
   return page;

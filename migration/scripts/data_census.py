@@ -16,6 +16,7 @@ def visit(nodes, page, view):
         if n['type']=='input': inputs.append((page,view,n['tag'],n.get('inputType'),n.get('label'),n.get('placeholder'),n.get('value'),n['box']))
         if n.get('fixed'): fixed.append((page,view,n['type'],n['box'],n.get('vw'),n.get('vh')))
         for sl in n.get('slides',[]): visit(sl,page,view)
+        visit(n.get('children',[]),page,view)
 for f in sorted(glob.glob('src/data/pages/*.json')):
     d=json.load(open(f))
     for v in ('desktop','mobile'): visit(d['views'][v]['nodes'], os.path.basename(f)[:-5], v)

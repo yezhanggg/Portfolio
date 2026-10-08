@@ -96,10 +96,12 @@ export const animationCss = (list) =>
 // Hover state as CSS variables + one class per property that changes.
 export function hoverBits(h) {
   if (!h) return { cls: [], vars: {} };
-  const map = { color: ["hv-c", "--hc"], "letter-spacing": ["hv-ls", "--hls"], "text-decoration": ["hv-td", "--htd"], "font-weight": ["hv-fw", "--hfw"] };
+  const map = { color: ["hv-c", "--hc"], "letter-spacing": ["hv-ls", "--hls"], "text-decoration": ["hv-td", "--htd"], "font-weight": ["hv-fw", "--hfw"], "font-style": ["hv-fs", "--hfs"], "font-size": ["hv-fz", "--hfz"] };
   const rmap = { "background-color": ["hv-bg", "--hbg"], "border-color": ["hv-bc", "--hbc"], opacity: ["hv-o", "--ho"], filter: ["hv-f", "--hf"], "box-shadow": ["hv-sh", "--hsh"] };
   const cls = ["hv"], vars = { "--htr": `${h.tr || 200}ms` };
   for (const [k, v] of Object.entries(h.label || {})) if (map[k]) (cls.push(map[k][0]), (vars[map[k][1]] = v));
+  // The stand-in fonts have one weight; the original's browser thickened its single weight too.
+  if (Number(h.label?.["font-weight"]) >= 600) vars["--hfb"] = "0.03em";
   for (const [k, v] of Object.entries(h.root || {})) if (rmap[k]) (cls.push(rmap[k][0]), (vars[rmap[k][1]] = v));
   return { cls, vars };
 }

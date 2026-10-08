@@ -44,6 +44,7 @@ function prepare(view, name) {
         n.fieldId = `${name}-f${fields++}`;
       }
       if (n.slides) n.slides.forEach(visit);
+      if (n.children) visit(n.children);
     }
   };
   visit(view.nodes);
@@ -62,7 +63,8 @@ function prepare(view, name) {
 }
 const views = [prepare(page.views.desktop, "desktop"), prepare(page.views.mobile, "mobile")];
 
-const firstImage = page.views.desktop.nodes.find((n) => n.type === "image" && n.box[2] > 200 && mediaFor(n.src));
+const flat = (nodes) => nodes.flatMap((n) => (n.children ? flat(n.children) : [n]));
+const firstImage = flat(page.views.desktop.nodes).find((n) => n.type === "image" && n.box[2] > 200 && mediaFor(n.src));
 const formKind = page.slug === "order" ? "zine" : "contact";
 ---
 

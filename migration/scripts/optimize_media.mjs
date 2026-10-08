@@ -32,6 +32,7 @@ const visit = (nodes) => {
     }
     if (n.type === "video" && n.id) videoIds.set(n.id, (videoIds.get(n.id) || false) || !n.autoplay);
     for (const s of n.slides || []) visit(s);
+    visit(n.children || []);
   }
 };
 for (const f of fs.readdirSync(PAGES).filter((f) => f.endsWith(".json"))) {

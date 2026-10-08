@@ -121,34 +121,72 @@
      "target": "_self"
     },
     {
-     "type": "image",
+     "type": "hbox",
+     "id": "comp-lc5do7yb",
      "box": [
-      310,
-      266,
-      359,
-      359
+      302,
+      260,
+      376,
+      375
      ],
-     "src": "https://static.wixstatic.com/media/f8d0cd_28bf9ad66ce3465f9fcee5edd6ed68da~mv2.jpeg/v1/crop/x_0,y_224,w_1080,h_1080/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WechatIMG412.jpeg",
-     "alt": "WechatIMG412.jpeg",
-     "natural": [
-      359,
-      359
-     ],
-     "fit": "cover",
-     "position": "50% 50%",
-     "mask": {
-      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
-      "size": "100% 100%",
-      "position": "0% 0%",
-      "repeat": "no-repeat",
-      "box": [
-       540,
-       266,
-       359,
-       359
-      ]
-     },
-     "href": "https://www.yezhang.net/book-no-1"
+     "ms": 400,
+     "children": [
+      {
+       "type": "image",
+       "box": [
+        310,
+        266,
+        359,
+        359
+       ],
+       "src": "https://static.wixstatic.com/media/f8d0cd_28bf9ad66ce3465f9fcee5edd6ed68da~mv2.jpeg/v1/crop/x_0,y_224,w_1080,h_1080/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WechatIMG412.jpeg",
+       "alt": "WechatIMG412.jpeg",
+       "natural": [
+        359,
+        359
+       ],
+       "fit": "cover",
+       "position": "50% 50%",
+       "mask": {
+        "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+        "size": "100% 100%",
+        "position": "0% 0%",
+        "repeat": "no-repeat",
+        "box": [
+         540,
+         266,
+         359,
+         359
+        ]
+       },
+       "href": "https://www.yezhang.net/book-no-1"
+      },
+      {
+       "type": "image",
+       "box": [
+        310,
+        266,
+        359,
+        359
+       ],
+       "src": "https://static.wixstatic.com/media/f8d0cd_b7945fe6fa95447e883f9b9ecbfaaaca~mv2.jpeg/v1/crop/x_0,y_224,w_1080,h_1080/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WechatIMG413.jpeg",
+       "alt": "WechatIMG413.jpeg",
+       "natural": [
+        359,
+        359
+       ],
+       "fit": "cover",
+       "position": "50% 50%",
+       "mask": {
+        "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+        "size": "100% 100%",
+        "position": "0% 0%",
+        "repeat": "no-repeat"
+       },
+       "href": "https://www.yezhang.net/book-no-1",
+       "hshow": true
+      }
+     ]
     },
     {
      "type": "button",
@@ -213,65 +251,103 @@
      "target": "_self"
     },
     {
-     "type": "image",
+     "type": "hbox",
+     "id": "comp-lcgsocwe",
      "box": [
-      311,
-      1108,
-      359,
-      359
+      303,
+      1102,
+      376,
+      375
      ],
-     "src": "https://static.wixstatic.com/media/f8d0cd_32e7573a579142d39f828fbe44915a6f~mv2.jpg/v1/crop/x_360,y_0,w_1640,h_1640/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%202.jpg",
-     "alt": "Untitled_Artwork 2.jpg",
-     "natural": [
-      359,
-      359
-     ],
-     "fit": "cover",
-     "position": "50% 50%",
-     "mask": {
-      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
-      "size": "100% 100%",
-      "position": "0% 0%",
-      "repeat": "no-repeat",
-      "box": [
-       541,
-       1108,
-       359,
-       359
-      ]
-     },
-     "href": "https://www.yezhang.net/brain-cell-no-2"
-    },
-    {
-     "type": "button",
-     "box": [
-      311,
-      1231,
-      336,
-      40
-     ],
-     "label": "brain cell no.2",
-     "labelBox": [
-      419,
-      1237,
-      121,
-      29
-     ],
-     "style": {
-      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
-      "font-size": "25px",
-      "font-weight": "400",
-      "font-style": "normal",
-      "color": "rgb(40, 38, 38)",
-      "letter-spacing": "normal",
-      "line-height": "normal",
-      "text-align": "center",
-      "text-transform": "none",
-      "text-shadow": "none"
-     },
-     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
-     "href": "https://www.yezhang.net/brain-cell-no-2",
-     "target": "_self"
+     "ms": 400,
+     "children": [
+      {
+       "type": "image",
+       "box": [
+        311,
+        1108,
+        359,
+        359
+       ],
+       "src": "https://static.wixstatic.com/media/f8d0cd_32e7573a579142d39f828fbe44915a6f~mv2.jpg/v1/crop/x_360,y_0,w_1640,h_1640/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%202.jpg",
+       "alt": "Untitled_Artwork 2.jpg",
+       "natural": [
+        359,
+        359
+       ],
+       "fit": "cover",
+       "position": "50% 50%",
+       "mask": {
+        "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+        "size": "100% 100%",
+        "position": "0% 0%",
+        "repeat": "no-repeat",
+        "box": [
+         541,
+         1108,
+         359,
+         359
+        ]
+       },
+       "href": "https://www.yezhang.net/brain-cell-no-2"
+      },
+      {
+       "type": "image",
+       "box": [
+        311,
+        1108,
+        359,
+        359
+       ],
+       "src": "https://static.wixstatic.com/media/f8d0cd_d4e43c373cf34e6e938adbde0dcf1f5f~mv2.jpg/v1/crop/x_360,y_0,w_1640,h_1640/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork.jpg",
+       "alt": "Untitled_Artwork.jpg",
+       "natural": [
+        359,
+        359
+       ],
+       "fit": "cover",
+       "position": "50% 50%",
+       "mask": {
+        "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+        "size": "100% 100%",
+        "position": "0% 0%",
+        "repeat": "no-repeat"
+       },
+       "href": "https://www.yezhang.net/brain-cell-no-2",
+       "hshow": true
+      },
+      {
+       "type": "button",
+       "box": [
+        311,
+        1231,
+        336,
+        40
+       ],
+       "label": "brain cell no.2",
+       "labelBox": [
+        419,
+        1237,
+        121,
+        29
+       ],
+       "style": {
+        "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+        "font-size": "25px",
+        "font-weight": "400",
+        "font-style": "normal",
+        "color": "rgb(40, 38, 38)",
+        "letter-spacing": "normal",
+        "line-height": "normal",
+        "text-align": "center",
+        "text-transform": "none",
+        "text-shadow": "none"
+       },
+       "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+       "href": "https://www.yezhang.net/brain-cell-no-2",
+       "target": "_self"
+      }
+     ]
     },
     {
      "type": "button",
@@ -367,34 +443,72 @@
      "target": "_self"
     },
     {
-     "type": "image",
+     "type": "hbox",
+     "id": "comp-lcliylto",
      "box": [
-      319,
-      1847,
-      359,
-      359
+      331,
+      1841,
+      376,
+      375
      ],
-     "src": "https://static.wixstatic.com/media/f8d0cd_a2565a1dabe1430d8486b4c9385d0d20~mv2.jpg/v1/crop/x_0,y_721,w_1640,h_1639/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2012.jpg",
-     "alt": "Untitled_Artwork 12.jpg",
-     "natural": [
-      359,
-      359
-     ],
-     "fit": "cover",
-     "position": "50% 50%",
-     "mask": {
-      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
-      "size": "100% 100%",
-      "position": "0% 0%",
-      "repeat": "no-repeat",
-      "box": [
-       549,
-       1847,
-       359,
-       359
-      ]
-     },
-     "href": "https://www.yezhang.net/brain-cell-no-3"
+     "ms": 400,
+     "children": [
+      {
+       "type": "image",
+       "box": [
+        319,
+        1847,
+        359,
+        359
+       ],
+       "src": "https://static.wixstatic.com/media/f8d0cd_a2565a1dabe1430d8486b4c9385d0d20~mv2.jpg/v1/crop/x_0,y_721,w_1640,h_1639/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2012.jpg",
+       "alt": "Untitled_Artwork 12.jpg",
+       "natural": [
+        359,
+        359
+       ],
+       "fit": "cover",
+       "position": "50% 50%",
+       "mask": {
+        "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+        "size": "100% 100%",
+        "position": "0% 0%",
+        "repeat": "no-repeat",
+        "box": [
+         549,
+         1847,
+         359,
+         359
+        ]
+       },
+       "href": "https://www.yezhang.net/brain-cell-no-3"
+      },
+      {
+       "type": "image",
+       "box": [
+        319,
+        1847,
+        359,
+        359
+       ],
+       "src": "https://static.wixstatic.com/media/f8d0cd_8781ebf9d08145beac8a8e23ae96ade9~mv2.jpg/v1/crop/x_0,y_721,w_1640,h_1639/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2014.jpg",
+       "alt": "Untitled_Artwork 14.jpg",
+       "natural": [
+        359,
+        359
+       ],
+       "fit": "cover",
+       "position": "50% 50%",
+       "mask": {
+        "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+        "size": "100% 100%",
+        "position": "0% 0%",
+        "repeat": "no-repeat"
+       },
+       "href": "https://www.yezhang.net/brain-cell-no-3",
+       "hshow": true
+      }
+     ]
     },
     {
      "type": "button",

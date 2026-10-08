@@ -10,7 +10,8 @@ All scripts are run from the repository root. Large outputs go to
 | 2. Archive the rendered pages | `node migration/scripts/crawl_pages.mjs` | `inventory/screenshots`, `rendered`, `tree`, `page-assets.json` in the archive: all 57 pages at desktop and phone widths |
 | 3. Extract page content | `node migration/scripts/extract_pages.mjs` | `src/data/pages/*.json` |
 | 4. Make web-sized media | `node migration/scripts/optimize_media.mjs` | `public/media`, `public/video`, `src/data/media.json`, `inventory/rename-map.csv` |
-| 4b. Measure motion | `node migration/scripts/motion_audit.mjs` then `node migration/scripts/apply_motion.mjs` | raw measurements in the archive under `inventory/motion`; `src/data/motion.json` (entrance and loop animations, hover states, pointer tracking, gallery drift, slideshow autoplay), merged into the pages by `src/lib/fixups.js` |
+| 4b. Measure motion | `node migration/scripts/motion_audit.mjs` then `node migration/scripts/apply_motion.mjs` | raw measurements in the archive under `inventory/motion`; `src/data/motion.json` (entrance and loop animations, hover states, gallery drift, slideshow autoplay), merged into the pages by `src/lib/fixups.js` |
+| 4c. Read hover behaviour | `node migration/scripts/hover_audit.mjs`, then step 4 again for any new pictures | hover boxes (a second picture shown on hover) added to `src/data/pages/*.json` as `hbox` nodes; `src/data/hover.json` (each button's hover style, and how far the pointer-following pictures travel) |
 | 5. Compare with the originals | `pnpm build && pnpm preview`, then `node migration/scripts/compare.mjs` | side-by-side images in the archive under `inventory/compare` |
 
 Notes:
@@ -18,6 +19,9 @@ Notes:
 - 16 images were uploaded to Wix as HEIC; Wix only keeps a PNG conversion, so their sizes differ
   from the manifest (`wix-media/size-differs.csv`).
 - `inventory/rename-map.csv` maps each Wix media ID to its original file and its name on this site.
-- Steps 2, 3 and 5 need the Wix sites to still be published.
+- Steps 2, 3, 4b, 4c and 5 need the Wix sites to still be published.
+- Step 4c reads the pages' own CSS with `:hover` forced, which is exact; the hover part of 4b samples
+  with a real pointer and misses italics, hover boxes and the true pointer-following distances.
+  Run 4c after step 3: a fresh extraction does not contain the hover boxes.
 - `migration/scripts/data_census.py` prints which fonts, media, videos, embeds and form fields the
   extracted pages use.

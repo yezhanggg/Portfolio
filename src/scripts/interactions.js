@@ -188,30 +188,54 @@ if (entering.length) {
   release();
 }
 
-// ---- Elements that follow the pointer ("track mouse") -------------------------------------------
-// Each one shifts by a multiple of the pointer's offset from its own resting centre.
-const trackers = [...document.querySelectorAll("[data-mouse]")].filter((el) => el.offsetParent);
-if (trackers.length && !reduceMotion && matchMedia("(pointer: fine)").matches) {
+// ---- Pictures that follow the pointer ("track mouse") -------------------------------------------
+// The original's rule, per axis: shift = distance (data-mouse) × the pointer's offset from where
+// the picture rests on screen ÷ that point's distance to the farther edge of the window. Until
+// the pointer moves it counts as being in the middle of the window. (data-mouse-inset: ZHAENG
+// was measured with Wix's 50px banner above the page; keep its pictures where they sat.)
+const trackers = [...document.querySelectorAll("[data-mouse]")];
+if (trackers.length) {
   const rest = new Map();
+  let shown = [], pointer = null;
+  const still = (el, fn) => {
+    el.style.transition = "none";
+    fn();
+    void el.offsetWidth;
+    el.style.transition = "";
+  };
   const measure = () => {
-    for (const el of trackers) {
-      el.style.translate = "none";
-      const r = el.getBoundingClientRect();
-      rest.set(el, [r.left + scrollX + r.width / 2, r.top + scrollY + r.height / 2]);
-      el.style.translate = "";
+    shown = trackers.filter((el) => el.offsetParent);
+    for (const el of shown) {
+      const was = el.style.translate;
+      still(el, () => {
+        el.style.translate = "none";
+        const r = el.getBoundingClientRect();
+        rest.set(el, [r.left + scrollX + r.width / 2, r.top + scrollY + r.height / 2]);
+        el.style.translate = was;
+      });
     }
   };
-  for (const el of trackers) el.style.setProperty("--mouse-ms", (el.dataset.mouseMs || 500) + "ms");
-  measure();
-  addEventListener("resize", measure);
-  addEventListener("pointermove", (e) => {
-    const z = zoom();
-    for (const el of trackers) {
-      const [cx, cy] = rest.get(el);
-      const kx = Number(el.dataset.mouse), ky = Number(el.dataset.mouseY || kx * 1.53);
-      el.style.translate = `${(((e.clientX + scrollX - cx) * kx) / z).toFixed(1)}px ${(((e.clientY + scrollY - cy) * ky) / z).toFixed(1)}px`;
+  const place = (px, py, instantly) => {
+    for (const el of shown) {
+      const [x, y] = rest.get(el), cx = x - scrollX, cy = y - scrollY + Number(el.dataset.mouseInset || 0), d = Number(el.dataset.mouse);
+      const to = `${((d * (px - cx)) / Math.max(cx, innerWidth - cx)).toFixed(1)}px ${((d * (py - cy)) / Math.max(cy, innerHeight - cy)).toFixed(1)}px`;
+      if (instantly) still(el, () => (el.style.translate = to));
+      else el.style.translate = to;
     }
-  }, { passive: true });
+  };
+  const settle = () => {
+    measure();
+    place(...(pointer || [innerWidth / 2, innerHeight / 2]), true);
+  };
+  for (const el of trackers) el.style.setProperty("--mouse-ms", (el.dataset.mouseMs || 500) + "ms");
+  settle();
+  addEventListener("resize", settle);
+  if (!reduceMotion && matchMedia("(pointer: fine)").matches) {
+    addEventListener("pointermove", (e) => {
+      pointer = [e.clientX, e.clientY];
+      place(e.clientX, e.clientY);
+    }, { passive: true });
+  }
 }
 
 // ---- Pictures that drift with the scroll position ----------------------------------------------
