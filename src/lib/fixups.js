@@ -18,10 +18,15 @@ const CITY_VISION_SLIDES = [
 const inside = (inner, outer) =>
   inner[0] >= outer[0] - 1 && inner[1] >= outer[1] - 1 && inner[0] + inner[2] <= outer[0] + outer[2] + 1 && inner[1] + inner[3] <= outer[1] + outer[3] + 1;
 
+// The typeface used to be a Google Drive link; the same file is now served from this site.
+const TYPEFACE_DRIVE_ID = "15RBA6kJRwmavLavlhPaU0UvsdnrbD1E-";
+const TYPEFACE_FILE = "/downloads/NewFont-Regular.otf";
+
 function fixNodes(nodes, page) {
   const videos = nodes.filter((n) => n.type === "video");
   const out = [];
   for (const n of nodes) {
+    if (n.href && n.href.includes(TYPEFACE_DRIVE_ID)) n.href = TYPEFACE_FILE;
     if (n.opacity === "0" && (n.type === "button" || n.type === "box")) continue; // hover-only overlays
     // Wix's phone menu icon on ZHAENG (three thin bars); ZHAENG pages link to each other directly.
     if (page.site === "zhaeng" && n.type === "box" && n.box[2] <= 24 && n.box[3] <= 3) continue;
