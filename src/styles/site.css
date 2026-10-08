@@ -143,6 +143,133 @@ a.zoom {
   background: #000;
 }
 
+/* Video boxes: click to play/pause; the icon shows while paused or under the pointer. */
+.vbox {
+  overflow: hidden;
+  cursor: pointer;
+}
+.vbox video {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.vb-play,
+.vb-sound {
+  position: absolute;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  fill: #fff;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.45));
+  transition: opacity 0.3s cubic-bezier(0.12, 0, 0.39, 0), transform 0.3s cubic-bezier(0.12, 0, 0.39, 0);
+}
+.vb-play {
+  left: 50%;
+  top: 50%;
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+}
+.vb-play svg,
+.vb-sound svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: #fff;
+}
+/* Boxes that play by themselves only show the icon under the pointer. */
+.vbox.auto:not(:hover) .vb-play {
+  opacity: 0;
+}
+.vbox .i-pause,
+.vbox.playing .i-play,
+.vbox.sound .i-off,
+.vbox:not(.sound) .i-on {
+  display: none;
+}
+.vbox.playing .i-pause {
+  display: block;
+}
+/* While playing, the icon hides until the pointer comes back. */
+.vbox.playing .vb-play {
+  opacity: 0;
+  transform: scale(1.07);
+}
+.vbox.playing:hover .vb-play {
+  opacity: 1;
+  transform: none;
+}
+.vb-sound {
+  left: 10px;
+  bottom: 10px;
+  width: 26px;
+  height: 26px;
+  opacity: 0;
+}
+.vbox.playing .vb-sound,
+.vbox:hover .vb-sound {
+  opacity: 1;
+}
+@media (max-width: 749px) {
+  .vb-play {
+    width: 48px;
+    height: 48px;
+    margin: -24px 0 0 -24px;
+  }
+}
+
+/* Thumbnails that open a larger view get the original's white veil on hover. */
+.slide a.zoom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.slide a.zoom:hover::after {
+  opacity: 1;
+}
+
+/* Phone menu (ZHAENG): the three bars are drawn by the page; this is the click area and panel. */
+.menu-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+.menu-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font: 17px/1.2 "helvetica-w01-roman", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.08em;
+}
+.menu-panel[hidden] {
+  display: none;
+}
+.menu-panel a {
+  padding: 4px 12px;
+}
+.menu-close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  border: 0;
+  background: none;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
 /* Galleries: items keep their original positions; long strips scroll sideways. */
 .gal {
   overflow: hidden;
@@ -340,6 +467,7 @@ a.zoom {
 /* Elements that follow the pointer. */
 [data-mouse] {
   transition: translate var(--mouse-ms, 500ms) ease-out;
+  will-change: translate;
 }
 /* Background media pinned to the screen while the page scrolls over it. */
 .sticky {

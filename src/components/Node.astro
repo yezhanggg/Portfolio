@@ -10,7 +10,10 @@ const hv = hoverBits(n.hover);
 const entering = n.anim && n.anim.some((a) => !a.loop);
 // Extra classes/attributes shared by every node type: animation, hover state, pointer tracking.
 const fx = [...hv.cls, n.anim ? "anim" : "", entering ? "enter" : "", n.sticky ? "sticky" : ""].filter(Boolean);
-const fxAttrs = n.mouse ? { "data-mouse": n.mouse.k, "data-mouse-ms": n.mouse.ms } : {};
+const fxAttrs = { ...(n.mouse ? { "data-mouse": n.mouse.k, "data-mouse-y": n.mouse.ky, "data-mouse-ms": n.mouse.ms } : {}), ...(n.scrollK ? { "data-scroll-k": n.scrollK } : {}) };
+// A video that fills the page is a background; anything smaller is a "video box" the visitor can
+// click to play or pause, as on the original site.
+const backgroundVideo = n.type === "video" && (n.bleed || n.fixed || n.sticky || (n.autoplay && n.box[2] >= canvas - 2));
 const frame = {
   left: bleed ? undefined : px(x),
   top: px(y),
@@ -101,16 +104,42 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
   )
 )}
 
-{n.type === "video" && n.file && (
+{n.type === "video" && n.file && backgroundVideo && (
   <video
     class:list={["n", "vid", fx, { bleed }]}
     style={css({ ...frame, "object-fit": n.fit && n.fit !== "fill" ? n.fit : "cover", ...maskCss(n.mask), background: n.mask ? "none" : undefined })}
     src={n.file}
     poster={n.posterFile}
     playsinline
-    preload={n.autoplay ? "auto" : "none"}
-    {...(n.autoplay ? { autoplay: true, muted: true, loop: true } : { controls: true })}
+    preload="auto"
+    autoplay
+    muted
+    loop
   />
+)}
+
+{n.type === "video" && n.file && !backgroundVideo && (
+  <div class:list={["n", "vbox", fx, { auto: n.autoplay }]} {...fxAttrs} style={css({ ...frame, ...maskCss(n.mask) })} data-vbox>
+    <video
+      style={css({ "object-fit": n.fit && n.fit !== "fill" ? n.fit : "cover" })}
+      src={n.file}
+      poster={n.posterFile}
+      playsinline
+      preload={n.autoplay ? "auto" : "none"}
+      loop={n.loop !== false}
+      {...(n.autoplay ? { autoplay: true, muted: true } : {})}
+    />
+    <button type="button" class="vb-play" aria-label="Play or pause">
+      <svg class="i-play" viewBox="0 0 40 40" aria-hidden="true"><path d="M15 10l15 10-15 10z" /></svg>
+      <svg class="i-pause" viewBox="0 0 40 40" aria-hidden="true"><rect x="13" y="10" width="5" height="20" /><rect x="22" y="10" width="5" height="20" /></svg>
+    </button>
+    {!n.autoplay && (
+      <button type="button" class="vb-sound" aria-label="Sound on or off">
+        <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a4 4 0 0 0-2-3.5v7a4 4 0 0 0 2-3.5zM13.5 3.3v2.1a7 7 0 0 1 0 13.2v2.1a9 9 0 0 0 0-17.4z" /></svg>
+        <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm16.6 3 2.2-2.2-1.4-1.4-2.2 2.2-2.2-2.2-1.4 1.4 2.2 2.2-2.2 2.2 1.4 1.4 2.2-2.2 2.2 2.2 1.4-1.4z" /></svg>
+      </button>
+    )}
+  </div>
 )}
 
 {n.type === "iframe" && n.src && (
@@ -187,4 +216,14 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
   <a class="n img yt" style={css(frame)} href={`https://www.youtube.com/watch?v=${n.vid}`} data-yt={n.vid} target="_blank" rel="noopener">
     <img src={`/media/yt-${n.vid}.jpg`} alt={n.alt || ""} style="width:100%;height:100%;object-fit:cover" loading="lazy" decoding="async" />
   </a>
+)}
+
+{n.type === "menu" && (
+  <Fragment>
+    <button type="button" class="n menu-btn" style={css(frame)} aria-label="Open navigation menu" aria-expanded="false" data-menu />
+    <nav class="menu-panel" hidden>
+      <button type="button" class="menu-close" aria-label="Close menu">×</button>
+      {n.items.map((it) => <a href={it.href}>{it.label}</a>)}
+    </nav>
+  </Fragment>
 )}

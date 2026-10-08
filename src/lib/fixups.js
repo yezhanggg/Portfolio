@@ -29,13 +29,8 @@ function fixNodes(nodes, page) {
   for (const n of nodes) {
     if (n.href && n.href.includes(TYPEFACE_DRIVE_ID)) n.href = TYPEFACE_FILE;
     if (n.opacity === "0" && (n.type === "button" || n.type === "box")) continue; // hover-only overlays
-    // Wix's phone menu icon on ZHAENG (three thin bars); ZHAENG pages link to each other directly.
-    if (page.site === "zhaeng" && n.type === "box" && n.box[2] <= 24 && n.box[3] <= 3) continue;
-    // Anything else at opacity 0 was waiting for a Wix scroll-in animation: show it.
-    if (n.opacity === "0") n.opacity = undefined;
-    // Play/pause glyphs Wix draws over its video boxes.
+    // Play/pause and sound glyphs Wix draws over its video boxes (rebuilt as real controls).
     if (n.type === "svg" && videos.some((v) => inside(n.box, v.box) && n.box[2] < 120)) continue;
-
     // Wix widget chrome that has no meaning off Wix: gallery page counters, "Now Playing" badge.
     if (n.type === "text" && n.plain && (/^\d+\/\d+$/.test(n.html) || n.html === "Now Playing")) continue;
 
@@ -160,8 +155,33 @@ function applyMotion(page) {
   }
 }
 
+// ZHAENG home: the top picture follows the pointer (and uncovers the one beneath it). Factors were
+// measured on the original: it moves 1.11x the pointer's horizontal and 1.7x its vertical offset
+// from the picture's own centre.
+function zhaengHome(page) {
+  const pics = page.views.desktop.nodes.filter((n) => n.type === "image" && n.href);
+  const top = pics.pop(), under = pics.pop();
+  if (!top) return;
+  if (under) top.box = [...under.box]; // it was photographed mid-move; at rest it covers the other exactly
+  top.mouse = { k: 1.111, ky: 1.7, ms: 120 };
+  // On phones the same picture drifts down as the page scrolls (0.44px per pixel scrolled).
+  const phoneTop = page.views.mobile.nodes.filter((n) => n.type === "image" && n.href).pop();
+  if (phoneTop) phoneTop.scrollK = 0.437;
+}
+
+// ZHAENG's phone pages had a three-bar button opening this list of pages.
+const ZHAENG_MENU = [["peace", "/zhaeng"], ["2", "/zhaeng/2"], ["3", "/zhaeng/3"], ["still", "/zhaeng/still"], ["electron", "/zhaeng/blank"], ["cautious", "/zhaeng/cautious"], ["sec 33", "/zhaeng/33-sec"], ["me", "/zhaeng/me"]];
+function zhaengPhoneMenu(page) {
+  const m = page.views.mobile;
+  const bars = m.nodes.filter((n) => n.type === "box" && n.box[2] <= 24 && n.box[3] <= 3);
+  if (bars.length < 3) return;
+  m.nodes.push({ type: "menu", box: [259, 10, 50, 50], items: ZHAENG_MENU.map(([label, href]) => ({ label, href })), fixed: bars[0].fixed, vw: bars[0].vw, vh: bars[0].vh });
+}
+
 export function applyFixups(page) {
   for (const view of Object.values(page.views)) view.nodes = fixNodes(view.nodes, page);
+  if (page.site === "zhaeng" && page.slug === "index") zhaengHome(page);
+  if (page.site === "zhaeng") zhaengPhoneMenu(page);
   applyMotion(page);
   if (page.site === "yz" && page.slug === "portfolio") addPortfolioEntries(page);
   return page;

@@ -178,16 +178,76 @@ if (entering.length) {
 }
 
 // ---- Elements that follow the pointer ("track mouse") -------------------------------------------
-const trackers = [...document.querySelectorAll("[data-mouse]")];
+// Each one shifts by a multiple of the pointer's offset from its own resting centre.
+const trackers = [...document.querySelectorAll("[data-mouse]")].filter((el) => el.offsetParent);
 if (trackers.length && !reduceMotion && matchMedia("(pointer: fine)").matches) {
-  for (const el of trackers) el.style.setProperty("--mouse-ms", (el.dataset.mouseMs || 500) + "ms");
-  addEventListener("pointermove", (e) => {
-    const dx = e.clientX - innerWidth / 2, dy = e.clientY - innerHeight / 2;
+  const rest = new Map();
+  const measure = () => {
     for (const el of trackers) {
-      const k = Number(el.dataset.mouse);
-      el.style.translate = `${(dx * k).toFixed(1)}px ${(dy * k).toFixed(1)}px`;
+      el.style.translate = "none";
+      const r = el.getBoundingClientRect();
+      rest.set(el, [r.left + scrollX + r.width / 2, r.top + scrollY + r.height / 2]);
+      el.style.translate = "";
+    }
+  };
+  for (const el of trackers) el.style.setProperty("--mouse-ms", (el.dataset.mouseMs || 500) + "ms");
+  measure();
+  addEventListener("resize", measure);
+  addEventListener("pointermove", (e) => {
+    const z = zoom();
+    for (const el of trackers) {
+      const [cx, cy] = rest.get(el);
+      const kx = Number(el.dataset.mouse), ky = Number(el.dataset.mouseY || kx * 1.53);
+      el.style.translate = `${(((e.clientX + scrollX - cx) * kx) / z).toFixed(1)}px ${(((e.clientY + scrollY - cy) * ky) / z).toFixed(1)}px`;
     }
   }, { passive: true });
+}
+
+// ---- Pictures that drift with the scroll position ----------------------------------------------
+const drifters = [...document.querySelectorAll("[data-scroll-k]")];
+if (drifters.length && !reduceMotion) {
+  const place = () => {
+    const z = zoom();
+    for (const el of drifters) if (el.offsetParent) el.style.translate = `0 ${((scrollY * Number(el.dataset.scrollK)) / z).toFixed(1)}px`;
+  };
+  addEventListener("scroll", place, { passive: true });
+  place();
+}
+
+// ---- Phone menu ---------------------------------------------------------------------------------
+for (const btn of document.querySelectorAll("[data-menu]")) {
+  const panel = btn.nextElementSibling;
+  if (!panel) continue;
+  const set = (open) => {
+    panel.hidden = !open;
+    btn.setAttribute("aria-expanded", String(open));
+  };
+  btn.addEventListener("click", () => set(true));
+  panel.querySelector(".menu-close")?.addEventListener("click", () => set(false));
+  addEventListener("keydown", (e) => e.key === "Escape" && set(false));
+}
+
+// ---- Video boxes: click to play or pause, with a sound switch -----------------------------------
+for (const box of document.querySelectorAll("[data-vbox]")) {
+  const video = box.querySelector("video");
+  if (!video) continue;
+  const sync = () => {
+    box.classList.toggle("playing", !video.paused);
+    box.classList.toggle("sound", !video.muted);
+  };
+  ["play", "pause", "volumechange", "ended"].forEach((ev) => video.addEventListener(ev, sync));
+  box.addEventListener("click", (e) => {
+    if (e.target.closest(".vb-sound")) {
+      video.muted = !video.muted;
+      return;
+    }
+    if (video.paused) {
+      // One box at a time, like the original.
+      document.querySelectorAll("[data-vbox] video").forEach((v) => v !== video && !v.autoplay && v.pause());
+      video.play().catch(() => {});
+    } else video.pause();
+  });
+  sync();
 }
 
 // ---- YouTube thumbnails switch the player on the same page -------------------------------------
