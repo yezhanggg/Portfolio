@@ -116,6 +116,10 @@ for (const strip of document.querySelectorAll(".gal.scrolls")) {
     strip.scrollLeft = down.left - dx;
   });
   addEventListener("pointerup", () => (down = null));
+  addEventListener("pointercancel", () => (down = null));
+  // Links and pictures are draggable by default; that native drag would take over the pointer
+  // (no more pointermove, and no pointerup to end the scroll).
+  strip.addEventListener("dragstart", (e) => e.preventDefault());
   // A drag shouldn't open the lightbox.
   strip.addEventListener("click", (e) => moved && (e.preventDefault(), e.stopPropagation()), true);
 
@@ -143,6 +147,13 @@ for (const strip of document.querySelectorAll(".gal.scrolls")) {
 
 // ---- Lightbox ---------------------------------------------------------------------------------
 for (const gallery of document.querySelectorAll(".gal")) {
+  // Some strips were captured with the original's own loop copies; the lightbox shows each
+  // picture once, and a repeat opens the first one (below).
+  const seen = new Set();
+  for (const item of gallery.querySelectorAll("a.gal-item:not([data-clone])")) {
+    if (seen.has(item.getAttribute("href"))) item.dataset.clone = "1";
+    seen.add(item.getAttribute("href"));
+  }
   const lightbox = new PhotoSwipeLightbox({ gallery, children: "a.gal-item:not([data-clone])", pswpModule: () => import("photoswipe"), bgOpacity: 0.92 });
   lightbox.init();
   // Clicking a looped copy opens the matching original.

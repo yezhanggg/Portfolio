@@ -20,6 +20,7 @@ const frame = {
   width: bleed ? undefined : px(w),
   height: px(h),
   transform: n.rotate ? `rotate(${n.rotate}deg)` : undefined,
+  "transform-origin": n.origin ? `${px(n.origin[0])} ${px(n.origin[1])}` : undefined,
   animation: n.anim ? animationCss(n.anim) : undefined,
   ...hv.vars,
 };

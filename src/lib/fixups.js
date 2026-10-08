@@ -123,7 +123,18 @@ function applyMotion(page) {
 
     for (const a of mv.anims) {
       const [cx, cy] = centre(a.box);
-      const hits = all.filter((n) => !n.bleed && ["image", "text", "button", "svg", "video", "box"].includes(n.type) && Math.abs(centre(n.box)[0] - cx) < 10 && Math.abs(centre(n.box)[1] - cy) < 10 && n.box[2] <= a.box[2] * 1.6 + 10 && n.box[3] <= a.box[3] * 1.6 + 10);
+      const movable = all.filter((n) => !n.bleed && ["image", "text", "button", "svg", "video", "box"].includes(n.type));
+      const hits = movable.filter((n) => Math.abs(centre(n.box)[0] - cx) < 10 && Math.abs(centre(n.box)[1] - cy) < 10 && n.box[2] <= a.box[2] * 1.6 + 10 && n.box[3] <= a.box[3] * 1.6 + 10);
+      // A box holding several items, none of them its own size, is a group that moves as one piece
+      // (the footer on the phone /portfolio): each item turns about the group's centre.
+      const members = movable.filter((n) => inside(n.box, a.box));
+      if (members.length > 1 && !hits.some((n) => n.box[2] >= a.box[2] * 0.75 && n.box[3] >= a.box[3] * 0.75)) {
+        for (const n of members) {
+          n.anim = a.list;
+          n.origin = [cx - n.box[0], cy - n.box[1]];
+        }
+        continue;
+      }
       for (const n of hits) {
         n.anim = a.list;
         // A spinning element was photographed mid-turn; use its resting box instead.

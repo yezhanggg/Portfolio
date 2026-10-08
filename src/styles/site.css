@@ -139,6 +139,10 @@ a.zoom {
   width: 100%;
   height: 100%;
 }
+/* Icon links stay on top: on /home the transparent edge of a bigger picture overlaps one. */
+a.svg {
+  z-index: 1;
+}
 .vid {
   background: #000;
 }
@@ -457,17 +461,23 @@ a.zoom {
 .hv-sh:hover {
   box-shadow: var(--hsh) !important;
 }
-/* Entrance animations wait (paused on their first frame) until the element scrolls into view. */
+/* Entrance animations wait (paused on their first frame) until the element scrolls into view.
+   !important: each node's inline `animation` shorthand also sets the play state (to running). */
 .enter {
-  animation-play-state: paused;
+  animation-play-state: paused !important;
 }
 .enter.go {
-  animation-play-state: running;
+  animation-play-state: running !important;
 }
 /* Elements that follow the pointer. */
 [data-mouse] {
   transition: translate var(--mouse-ms, 500ms) ease-out;
   will-change: translate;
+}
+/* A following picture that is not a link must not take clicks meant for what it drifts over
+   (the BACK link on /book-no-1 sits under the corner of one). */
+div.img[data-mouse] {
+  pointer-events: none;
 }
 /* Background media pinned to the screen while the page scrolls over it. */
 .sticky {
