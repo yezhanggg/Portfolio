@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hairline · saved figures</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { color-scheme: light; --ground: #ffffff; --ink: #232327; --muted: #6f6f78; --line: #e0e0e4; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { color-scheme: dark; --ground: #08090a; --ink: #d0d6e0; --muted: #8a8c95; --line: #29292d; }
+  }
+  :root[data-theme="dark"] { color-scheme: dark; --ground: #08090a; --ink: #d0d6e0; --muted: #8a8c95; --line: #29292d; }
+  :root[data-theme="light"] { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px 16px 80px; background: var(--ground); color: var(--ink);
+    font: 13px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 1120px; margin: 0 auto; }
+  h1 { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.01em; }
+  h2 { margin: 56px 0 4px; font-size: 13px; font-weight: 500; }
+  .mono, .tag, output, button, h2 small { font: 11px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 0.02em; }
+  .lede { max-width: 62ch; margin: 8px 0 0; color: var(--muted); text-wrap: pretty; }
+  .lede a { color: inherit; }
+  h2 small { margin-left: 8px; color: var(--muted); }
+  .note { margin: 0 0 18px; color: var(--muted); }
+
+  .controls {
+    position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px;
+    margin: 24px 0 0; padding: 10px 0; background: var(--ground); border-bottom: 1px solid var(--line);
+  }
+  .controls .mono { color: var(--muted); }
+  input[type="range"] { flex: 0 1 180px; min-width: 0; height: 32px; margin: 0; background: transparent; cursor: pointer; -webkit-appearance: none; appearance: none; }
+  input[type="range"]::-webkit-slider-runnable-track { height: 1px; background: var(--muted); }
+  input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 13px; height: 13px; margin-top: -6px; border-radius: 50%; border: 1px solid var(--ink); background: var(--ground); }
+  input[type="range"]::-moz-range-track { height: 1px; background: var(--muted); }
+  input[type="range"]::-moz-range-thumb { width: 11px; height: 11px; border-radius: 50%; border: 1px solid var(--ink); background: var(--ground); }
+  input[type="range"]:focus-visible, button:focus-visible { outline: 1.5px solid var(--ink); outline-offset: 2px; }
+  output { min-width: 4ch; font-variant-numeric: tabular-nums; }
+  button { height: 32px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--ink); cursor: pointer; }
+  button[aria-pressed="true"] { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+  .spacer { flex: 1 1 0; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px 16px; }
+  figure { margin: 0; min-width: 0; }
+  .plate { position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .tag { position: absolute; top: 12px; z-index: 1; color: var(--muted); pointer-events: none; }
+  .tag.name { left: 14px; }
+  .tag.read { right: 14px; color: var(--ink); font-variant-numeric: tabular-nums; }
+  figcaption { margin: 10px 2px 0; color: var(--muted); text-wrap: pretty; }
+  #error { margin: 16px 0 0; padding-left: 10px; border-left: 1px solid var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Hairline</h1>
+  <p class="lede">The fourteen figures saved from 21st.dev, running from the copy of the source in this folder, then the other nineteen in the set. By Lucas Marques, MIT licensed: <a href="https://hairline.lucasmarkes.com">hairline.lucasmarkes.com</a>.</p>
+
+  <div class="controls">
+    <label class="mono" for="intensity">intensity</label>
+    <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.5">
+    <output id="value" for="intensity">0.50</output>
+    <span class="spacer"></span>
+    <span class="mono">theme</span>
+    <button id="theme" type="button" aria-label="Switch between the light and the dark theme"></button>
+    <span class="mono">play</span>
+    <button id="play" type="button" aria-pressed="false">play</button>
+  </div>
+  <p id="error" role="alert" hidden></p>
+
+  <h2>Saved <small id="n-saved"></small></h2>
+  <p class="note">Move the pointer over a figure.</p>
+  <div class="grid" id="saved"></div>
+
+  <h2>The rest of the set <small id="n-rest"></small></h2>
+  <p class="note">Not bookmarked, but in the same package and drawn by the same rules.</p>
+  <div class="grid" id="rest"></div>
+</main>
+
+<script src="hairline.js"></script>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const root = document.documentElement;
+
+  addEventListener("error", (e) => {
+    $("error").hidden = false;
+    $("error").textContent = String((e.error && e.error.message) || e.message);
+  });
+
+  /* what each figure is, from the package's own README */
+  const WHAT = {
+    riffle: "A tray of eight cards. The card under the pointer stands up; the arrow keys walk the cards.",
+    terrain: "Eighty-one pillars on a plinth that rise around the pointer.",
+    exploded: "An app window in four layers. Moving across opens the gap; moving down picks a layer.",
+    phosphor: "A dot matrix that plays a loop, and fades like phosphor where the pointer paints it.",
+    slow: "Crates riding a belt through a gate. Hovering slows the clock without stopping it.",
+    turntable: "Blocks on a turntable. A flick spins it; it settles on the nearest quarter turn.",
+    keyboard: "A sixty-key board. The key under the pointer sinks, and its neighbours follow it down.",
+    elevator: "Four floors beside an open shaft. The pointer's height picks a floor; the car travels there.",
+    phone: "A phone in layers: glass, board, battery, shell. Moving across opens the gap; moving down picks a layer.",
+    laptop: "A thin laptop, open on its hinge. The pointer's height sets the lid; it follows on a spring.",
+    terminal: "A terminal window with its history in rows. The pointer's height scrolls back; the line under it lifts.",
+    cabinet: "A rack of twelve blades, a few half out. The pointer's height pulls the nearest ones out.",
+    branches: "A commit graph with a branch forking off main and merging back. The commit under the pointer rises.",
+    vault: "A vault door with a dial and three bolts. The pointer turns the dial; on the combination the bolts draw back.",
+    lockers: "A bank of twelve lockers, one ajar at rest. The locker under the pointer opens.",
+    loupe: "A stand loupe on a blank ruled sheet. The pointer drags it across; the rules pass enlarged under the glass.",
+    padlock: "A padlock with its shackle in. As the pointer comes near the shackle lifts out and swings open.",
+    patch: "A patch panel of twenty-four ports with cables. The cable under the pointer lifts and its neighbours lean away.",
+    dish: "A parabolic dish on a two-axis gimbal. The pointer aims the dish; it follows on a spring.",
+    router: "A router with its antennas up. Each antenna leans toward the pointer, the nearest most.",
+    sieve: "Three test sieves stacked over a pan. The pointer's height picks one; it rises clear of the stack.",
+    rail: "A garment rail with seven bare hangers. The pointer brushes them; each rocks away and settles.",
+    plug: "A wall socket, and a plug on the floor at the end of its cord. The pointer draws the plug up toward the socket.",
+    query: "A question mark built as a bent bar over a loose ball. The hook turns toward the pointer.",
+    drawer: "A cabinet of three drawers. The pointer's height picks one; it slides out.",
+    basket: "A wire basket under a bail handle. It tilts toward the pointer and shows its bare floor.",
+    plot: "A bar chart with seven flat tabs where the bars would stand. The pointer brushes them; each lifts a little.",
+    hub: "A hub with eight tiles around it on dashed links. The tile under the pointer rises and its link turns solid.",
+    relay: "A hub with four branches of tiles. The path to the leaf under the pointer lights hop by hop.",
+    settle: "Twelve tiles lie crooked round a hub. As the pointer nears it, they slide into a tree.",
+    format: "A file of ten crooked lines. The pointer runs the formatter down it, and every line above snaps square.",
+    rebuild: "A tree of packages. The one under the pointer rises, and every package that depends on it rises after it.",
+    stack: "A call stack of five frames. The pointer's height picks one, and the frames above lift away to open it.",
+  };
+  /* the fourteen bookmarked on 21st.dev, in the order they were saved */
+  const SAVED = ["phone", "terminal", "router", "plot", "elevator", "query", "vault", "padlock", "lockers", "turntable", "slow", "rail", "riffle", "sieve"];
+  const REST = Object.keys(WHAT).filter((id) => !SAVED.includes(id));
+
+  const dark = () => (root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches);
+  const label = () => { $("theme").textContent = dark() ? "dark" : "light"; };
+  $("theme").addEventListener("click", () => { root.dataset.theme = dark() ? "light" : "dark"; label(); });
+  label();
+
+  const figures = [];
+  function card(id, parent) {
+    const fig = document.createElement("figure");
+    fig.innerHTML = '<div class="plate"><span class="tag name"></span><span class="tag read"></span><div class="stage"></div></div><figcaption></figcaption>';
+    fig.querySelector(".name").textContent = id;
+    fig.querySelector("figcaption").textContent = WHAT[id];
+    parent.appendChild(fig);
+    const read = fig.querySelector(".read");
+    figures.push(Hairline[id](fig.querySelector(".stage"), {
+      intensity: Number($("intensity").value),
+      onRead: (text) => { read.textContent = text; },
+    }));
+  }
+  SAVED.forEach((id) => card(id, $("saved")));
+  REST.forEach((id) => card(id, $("rest")));
+  $("n-saved").textContent = String(SAVED.length);
+  $("n-rest").textContent = String(REST.length);
+
+  $("intensity").addEventListener("input", (e) => {
+    const intensity = Number(e.target.value);
+    $("value").textContent = intensity.toFixed(2);
+    figures.forEach((f) => f.update({ intensity }));
+  });
+  $("play").addEventListener("click", () => {
+    const play = $("play").getAttribute("aria-pressed") !== "true";
+    $("play").setAttribute("aria-pressed", String(play));
+    figures.forEach((f) => f.update({ play }));
+  });
+})();
+</script>
+</body>
+</html>
