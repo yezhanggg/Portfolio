@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ZHAENG Fortune Cookie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+            font-feature-settings: 'ss01', 'cv01';
+            background: #c9c9c9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Animated background particles */
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float linear forwards;
+            animation-duration: 1.5s; /* Fast initially */
+        }
+
+        .particle.slow {
+            animation-duration: 4s; /* Slow down after 2 seconds */
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.8;
+            }
+            95% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(var(--drift));
+                opacity: 0;
+            }
+        }
+
+        #app {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            display: none;
+        }
+
+        /* Cookie Container */
+        #cookie-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        #cookie {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+
+        #cookie.shaking {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translate(-10px, 0) rotate(-5deg);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translate(10px, 0) rotate(5deg);
+            }
+        }
+
+        .cookie-half {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .cookie-half:nth-child(2) {
+            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+        }
+
+        /* Cookie cracked state */
+        #cookie.cracked .cookie-half:nth-child(1) {
+            transform: translateX(-60px) rotate(-15deg);
+        }
+
+        #cookie.cracked .cookie-half:nth-child(2) {
+            transform: translateX(60px) rotate(15deg);
+        }
+
+        /* Fortune Paper */
+        #fortune-paper {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(1rem);
+            -webkit-backdrop-filter: blur(1rem);
+            padding: 25px 20px;
+            border-radius: 1.2rem;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 450px;
+            flex-shrink: 0;
+        }
+
+        #fortune-paper.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        #fortune-text {
+            font-size: 18px;
+            line-height: 1.5;
+            color: rgba(0, 0, 0, 0.75);
+            font-weight: 500;
+            font-style: italic;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #lucky-numbers {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.6);
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        #lucky-numbers strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Instruction text */
+        #instruction {
+            display: none;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease 0.3s;
+            width: 100%;
+            max-width: 500px;
+            padding: 0 10px;
+        }
+
+        .button-group.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn {
+            flex: 1;
+            max-width: 180px;
+            min-width: 120px;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+            touch-action: manipulation;
+        }
+
+        #new-fortune-btn {
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+        }
+
+        #new-fortune-btn:hover {
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        #share-btn {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(1rem);
+            -webkit-backdrop-filter: blur(1rem);
+            color: rgba(0, 0, 0, 0.75);
+        }
+
+        #share-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Confetti particles */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #f6d365;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(300px) rotate(360deg);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hidden state */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Footer */
+        footer {
+            display: none;
+        }
+
+        /* Cookie sparkles */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkleAnim 1.5s ease-out forwards;
+        }
+
+        @keyframes sparkleAnim {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0);
+            }
+        }
+
+        /* Lucky number styling */
+        .lucky-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            border-radius: 50%;
+            margin: 0 4px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            #cookie {
+                width: 180px;
+                height: 180px;
+            }
+
+            .cookie-half {
+                font-size: 100px;
+            }
+
+            #fortune-paper {
+                max-width: 400px;
+                padding: 20px 18px;
+            }
+
+            #fortune-text {
+                font-size: 17px;
+            }
+
+            #lucky-numbers {
+                font-size: 12px;
+            }
+
+            .lucky-number {
+                width: 26px;
+                height: 26px;
+                line-height: 26px;
+                font-size: 12px;
+                margin: 0 3px;
+            }
+
+            .button-group {
+                gap: 12px;
+                padding: 0 15px;
+            }
+
+            .btn {
+                padding: 12px 18px;
+                font-size: 14px;
+                min-width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #app {
+                padding: 15px;
+            }
+
+            #cookie {
+                width: 160px;
+                height: 160px;
+            }
+
+            .cookie-half {
+                font-size: 90px;
+            }
+
+            #cookie.cracked .cookie-half:nth-child(1) {
+                transform: translateX(-50px) rotate(-15deg);
+            }
+
+            #cookie.cracked .cookie-half:nth-child(2) {
+                transform: translateX(50px) rotate(15deg);
+            }
+
+            #fortune-paper {
+                max-width: calc(100% - 20px);
+                padding: 18px 15px;
+                margin-bottom: 15px;
+            }
+
+            #fortune-text {
+                font-size: 15px;
+                line-height: 1.4;
+            }
+
+            #lucky-numbers {
+                font-size: 11px;
+                margin-top: 10px;
+                padding-top: 10px;
+            }
+
+            #lucky-numbers strong {
+                font-size: 11px;
+                margin-bottom: 5px;
+            }
+
+            .lucky-number {
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+                font-size: 11px;
+                margin: 0 2px;
+            }
+
+            .button-group {
+                gap: 10px;
+                padding: 0 10px;
+                max-width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                padding: 11px 16px;
+                font-size: 13px;
+                min-width: 130px;
+                flex: 1 1 auto;
+            }
+        }
+
+        @media (max-width: 360px) {
+            #cookie {
+                width: 140px;
+                height: 140px;
+            }
+
+            .cookie-half {
+                font-size: 80px;
+            }
+
+            #fortune-paper {
+                padding: 15px 12px;
+            }
+
+            #fortune-text {
+                font-size: 14px;
+            }
+
+            .btn {
+                font-size: 12px;
+                padding: 10px 14px;
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background particles -->
+    <div id="particles"></div>
+
+    <div id="app">
+        <header>
+            <h1>🥠 ZHAENG</h1>
+            <p>Fortune Cookie</p>
+        </header>
+
+        <div id="cookie-container">
+            <div id="cookie">
+                <div class="cookie-half">🥠</div>
+                <div class="cookie-half">🥠</div>
+            </div>
+        </div>
+
+        <div id="instruction">Tap the cookie to reveal your fortune</div>
+
+        <div id="fortune-paper">
+            <div id="fortune-text"></div>
+            <div id="lucky-numbers"></div>
+        </div>
+
+        <div class="button-group">
+            <button id="new-fortune-btn" class="btn">Another Cookie</button>
+            <button id="share-btn" class="btn">Share</button>
+        </div>
+
+        <footer>
+            <p>✨ ZHAENG - Your daily dose of positivity ✨</p>
+        </footer>
+    </div>
+
+    <script>
+        // 200 Positive Fortune Cookie Messages
+        const fortunes = [
+            "Your creativity will lead you to extraordinary places.",
+            "A beautiful friendship is blossoming in your life.",
+            "Success is just around the corner, keep going!",
+            "Your kindness will return to you tenfold.",
+            "An exciting opportunity is heading your way.",
+            "Your positive attitude is your greatest asset.",
+            "Trust yourself, you know more than you think you do.",
+            "The best is yet to come, stay optimistic!",
+            "Your smile brightens everyone's day.",
+            "Adventure awaits those who seek it, and that's you!",
+            "You will soon receive wonderful news.",
+            "Your hard work is about to pay off magnificently.",
+            "Love is coming into your life in unexpected ways.",
+            "Your dreams are valid and within reach.",
+            "Someone admires your strength and courage.",
+            "A pleasant surprise is waiting for you soon.",
+            "Your generosity will be rewarded.",
+            "New doors are opening for you every day.",
+            "You inspire others more than you know.",
+            "Your intuition will guide you to the right path.",
+            "Happiness is a choice, and you're making it daily.",
+            "Your talents are about to be recognized.",
+            "Good things come to those who believe in themselves.",
+            "Your authenticity attracts the right people.",
+            "A moment of pure joy is coming your way.",
+            "Your persistence will create miracles.",
+            "You are exactly where you need to be right now.",
+            "Your wisdom grows deeper each day.",
+            "Someone is thinking of you with love and admiration.",
+            "Your energy is magnetic and inspiring.",
+            "A wonderful journey is about to begin.",
+            "Your laughter heals hearts, including your own.",
+            "You have the power to make today amazing.",
+            "Your compassion makes the world a better place.",
+            "Great fortune follows you wherever you go.",
+            "Your unique perspective is needed in this world.",
+            "You will soon discover a hidden talent.",
+            "Your positive energy attracts abundance.",
+            "A cherished dream is closer than you think.",
+            "Your courage will inspire others to be brave.",
+            "Wonderful changes are on the horizon.",
+            "Your friendship is a treasure to those around you.",
+            "You are becoming the person you've always wanted to be.",
+            "A special moment will take your breath away soon.",
+            "Your optimism creates your reality.",
+            "You deserve all the good things coming to you.",
+            "Your inner light shines brighter every day.",
+            "Someone will soon thank you for being you.",
+            "Your resilience is your superpower.",
+            "Beautiful synchronicities are aligning for you.",
+            "Your presence makes every room better.",
+            "A creative breakthrough is coming soon.",
+            "Your heart knows the way, trust it.",
+            "You will make a positive impact today.",
+            "Your journey is unfolding perfectly.",
+            "Someone sees your true value and potential.",
+            "Your patience will be rewarded beyond expectation.",
+            "A special connection is about to deepen.",
+            "Your enthusiasm is contagious in the best way.",
+            "You are loved more than you realize.",
+            "Your determination will overcome any obstacle.",
+            "A stroke of good luck is heading your way.",
+            "Your ideas have the power to change lives.",
+            "Someone will soon make you laugh with pure joy.",
+            "Your growth this year has been remarkable.",
+            "A meaningful conversation will open new doors.",
+            "Your honesty is refreshing and appreciated.",
+            "You will soon feel deeply grateful for this moment.",
+            "Your goals are aligning with divine timing.",
+            "A wonderful surprise will delight you this week.",
+            "Your kindness creates ripples of goodness.",
+            "You are on the path to something extraordinary.",
+            "Your confidence is growing stronger each day.",
+            "Someone is about to enter your life who truly gets you.",
+            "Your self-belief is your strongest foundation.",
+            "A moment of clarity will illuminate your path.",
+            "Your efforts are creating lasting positive change.",
+            "You will soon experience a moment of perfect peace.",
+            "Your uniqueness is your greatest strength.",
+            "A long-awaited dream is starting to manifest.",
+            "Your instincts are guiding you correctly.",
+            "Someone needs your light today, shine bright!",
+            "Your potential is unlimited and expanding.",
+            "A beautiful chapter is beginning in your story.",
+            "Your perseverance inspires everyone around you.",
+            "You will soon have a reason to celebrate.",
+            "Your energy is attracting amazing opportunities.",
+            "A happy coincidence will make you smile soon.",
+            "Your presence is a gift to the world.",
+            "You are creating the life you've always imagined.",
+            "Your authenticity attracts genuine connections.",
+            "A moment of magic is just ahead.",
+            "Your wisdom helps others more than you know.",
+            "You will soon discover something that delights you.",
+            "Your optimism is your secret weapon.",
+            "Someone is grateful for your existence today.",
+            "Your journey is teaching you beautiful lessons.",
+            "A wonderful opportunity will present itself soon.",
+            "Your passion is about to ignite something special.",
+            "You are enough, exactly as you are.",
+            "Your kindness will create a beautiful chain reaction.",
+            "A joyful reunion is in your near future.",
+            "Your creativity knows no bounds.",
+            "You will soon feel a deep sense of accomplishment.",
+            "Your spirit is unbreakable and beautiful.",
+            "Someone will soon share exciting news with you.",
+            "Your growth mindset attracts success.",
+            "A cherished wish is about to come true.",
+            "Your love makes others feel seen and valued.",
+            "You are building something meaningful and lasting.",
+            "Your intuition is stronger than ever right now.",
+            "A delightful surprise is waiting around the corner.",
+            "Your resilience turns challenges into triumphs.",
+            "You will soon experience unexpected joy.",
+            "Your light helps others find their way.",
+            "A beautiful connection is strengthening.",
+            "Your dedication is about to bear fruit.",
+            "You are attracting your tribe of kindred spirits.",
+            "Your courage to be yourself inspires others.",
+            "A moment of serendipity is approaching.",
+            "Your heart's desires are being heard.",
+            "You will soon laugh until your face hurts.",
+            "Your positive mindset creates miracles daily.",
+            "Someone admires you from afar.",
+            "Your talents are about to shine brilliantly.",
+            "A door you've been waiting for is about to open.",
+            "Your generosity of spirit is remarkable.",
+            "You will soon feel deeply understood.",
+            "Your vision is clearer than ever before.",
+            "A wonderful adventure is calling your name.",
+            "Your presence brings comfort to those around you.",
+            "You are making progress even when you can't see it.",
+            "Your joy is about to multiply exponentially.",
+            "Someone will soon make a day-brightening gesture.",
+            "Your faith in yourself is well-placed.",
+            "A lucky break is coming at the perfect time.",
+            "Your evolution is beautiful to witness.",
+            "You will soon have a lightbulb moment.",
+            "Your contribution matters more than you realize.",
+            "A special memory is about to be created.",
+            "Your energy shifts rooms when you enter them.",
+            "You are worthy of all your dreams coming true.",
+            "Your strength has been quietly building.",
+            "Someone sees your potential and believes in you.",
+            "A season of abundance is beginning for you.",
+            "Your authenticity is magnetic.",
+            "You will soon feel a wave of gratitude.",
+            "Your path is illuminated with possibility.",
+            "A wonderful surprise will exceed your expectations.",
+            "Your growth is inspiring to witness.",
+            "You are exactly the person someone needs today.",
+            "Your dreams are taking shape behind the scenes.",
+            "A moment of pure happiness awaits you.",
+            "Your kindness is changing lives, one person at a time.",
+            "You will soon receive validation you've been seeking.",
+            "Your unique gifts are needed now more than ever.",
+            "A beautiful synchronicity will make you believe in magic.",
+            "Your resilience has forged unshakeable strength.",
+            "You are on the brink of a breakthrough.",
+            "Your love and light heal everyone you meet.",
+            "A cherished goal is within your grasp.",
+            "Your positivity is your most powerful tool.",
+            "You will soon feel incredibly proud of yourself.",
+            "Your journey is unfolding in divine order.",
+            "Someone is about to brighten your day unexpectedly.",
+            "Your courage to keep going is admirable.",
+            "A wave of good fortune is heading your way.",
+            "Your presence creates positive change effortlessly.",
+            "You are becoming stronger with each challenge.",
+            "Your dreams are valid and achievable.",
+            "A meaningful encounter is just around the corner.",
+            "Your inner wisdom is your best guide.",
+            "You will soon laugh at how perfectly things worked out.",
+            "Your heart is full of love that's ready to overflow.",
+            "A special opportunity is seeking you out.",
+            "Your energy attracts what you desire.",
+            "You are more powerful than any challenge you face.",
+            "Your story will inspire others someday soon.",
+            "A moment of clarity will change everything.",
+            "Your kindness has created more impact than you know.",
+            "You will soon celebrate a well-deserved victory.",
+            "Your light cannot be dimmed by anything or anyone.",
+            "A beautiful chapter is about to begin.",
+            "Your persistence is about to pay off beautifully.",
+            "You are surrounded by love and support.",
+            "Your potential is limitless and waiting to unfold.",
+            "A happy surprise will make your heart smile.",
+            "Your authenticity inspires others to be themselves.",
+            "You will soon discover a hidden blessing.",
+            "Your journey is leading you exactly where you need to go.",
+            "A wonderful person is about to enter your life.",
+            "Your positive attitude creates positive outcomes.",
+            "You are worthy of everything you desire and more.",
+            "Your strength, courage, and grace are remarkable.",
+            "A magical moment is waiting just ahead."
+        ];
+
+        // Elements
+        const cookie = document.getElementById('cookie');
+        const fortunePaper = document.getElementById('fortune-paper');
+        const fortuneText = document.getElementById('fortune-text');
+        const luckyNumbers = document.getElementById('lucky-numbers');
+        const instruction = document.getElementById('instruction');
+        const buttonGroup = document.querySelector('.button-group');
+        const newFortuneBtn = document.getElementById('new-fortune-btn');
+        const shareBtn = document.getElementById('share-btn');
+
+        let currentFortune = '';
+        let isOpen = false;
+
+        // Initialize
+        createParticles();
+
+        // Generate random lucky numbers
+        function generateLuckyNumbers() {
+            const numbers = [];
+            while (numbers.length < 6) {
+                const num = Math.floor(Math.random() * 49) + 1;
+                if (!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+            }
+            return numbers.sort((a, b) => a - b);
+        }
+
+        // Get random fortune
+        function getRandomFortune() {
+            return fortunes[Math.floor(Math.random() * fortunes.length)];
+        }
+
+        let isSlowMode = false;
+
+        // Create a single bubble
+        function createBubble() {
+            const particlesContainer = document.getElementById('particles');
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            // Random horizontal position
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+
+            // Random sizes like soda bubbles (some tiny, some large)
+            const sizeRandom = Math.random();
+            let size;
+            if (sizeRandom < 0.3) {
+                size = Math.random() * 8 + 4; // small bubbles
+            } else if (sizeRandom < 0.7) {
+                size = Math.random() * 12 + 12; // medium bubbles
+            } else {
+                size = Math.random() * 15 + 20; // large bubbles
+            }
+
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+
+            // Random horizontal drift
+            const drift = (Math.random() - 0.5) * 100;
+            particle.style.setProperty('--drift', drift + 'px');
+
+            // Set duration based on mode (2x slower)
+            if (isSlowMode) {
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's'; // 6-10s (was 3-5s)
+                particle.classList.add('slow');
+            } else {
+                particle.style.animationDuration = '3s'; // 3s (was 1.5s)
+            }
+
+            particlesContainer.appendChild(particle);
+
+            // Remove bubble when animation ends and create a new one
+            particle.addEventListener('animationend', () => {
+                particle.remove();
+                createBubble();
+            });
+        }
+
+        // Create background particles (soda bubbles)
+        function createParticles() {
+            // Create initial set of bubbles with continuous staggering
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    createBubble();
+                }, i * 50); // Create one every 50ms for continuous flow
+            }
+
+            // Slow down all bubbles after 0.5 seconds
+            setTimeout(() => {
+                isSlowMode = true;
+            }, 500);
+        }
+
+        // Create sparkle effect
+        function createSparkles() {
+            const rect = cookie.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = centerX + 'px';
+                sparkle.style.top = centerY + 'px';
+
+                const angle = (Math.PI * 2 * i) / 20;
+                const distance = 50 + Math.random() * 50;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+
+                sparkle.style.setProperty('--tx', tx + 'px');
+                sparkle.style.setProperty('--ty', ty + 'px');
+
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => sparkle.remove(), 1500);
+            }
+        }
+
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#667eea', '#764ba2', '#f6d365', '#fda085', '#fff'];
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '0';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animation = `confettiFall ${2 + Math.random() * 2}s ease-out forwards`;
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 30);
+            }
+        }
+
+        // Open cookie
+        function openCookie() {
+            if (isOpen) return;
+            isOpen = true;
+
+            // Get fortune
+            currentFortune = getRandomFortune();
+            const numbers = generateLuckyNumbers();
+
+            // Shake cookie (but don't crack it)
+            cookie.classList.add('shaking');
+
+            setTimeout(() => {
+                cookie.classList.remove('shaking');
+            }, 500);
+
+            // Show fortune after shake
+            setTimeout(() => {
+                fortuneText.textContent = `"${currentFortune}"`;
+
+                // Create lucky numbers HTML
+                const numbersHTML = numbers.map(num =>
+                    `<span class="lucky-number">${num}</span>`
+                ).join('');
+                luckyNumbers.innerHTML = `<strong>Lucky Numbers:</strong>${numbersHTML}`;
+
+                fortunePaper.classList.add('show');
+                buttonGroup.classList.add('show');
+                createConfetti();
+            }, 600);
+        }
+
+        // Reset for new fortune
+        function resetCookie() {
+            isOpen = false;
+            cookie.classList.remove('cracked');
+            fortunePaper.classList.remove('show');
+            buttonGroup.classList.remove('show');
+
+            setTimeout(() => {
+                instruction.classList.remove('hidden');
+                instruction.style.opacity = '1';
+                instruction.style.transform = 'translateY(0)';
+            }, 300);
+        }
+
+        // Share fortune
+        function shareFortune() {
+            const text = `${currentFortune}\n\n🥠 Get your fortune at www.zhaeng.net`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'ZHAENG Fortune Cookie',
+                    text: text
+                }).catch(() => {
+                    // Fallback to clipboard
+                    copyToClipboard(text);
+                });
+            } else {
+                copyToClipboard(text);
+            }
+        }
+
+        // Copy to clipboard
+        function copyToClipboard(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Fortune copied to clipboard! Share it with your friends!');
+                });
+            } else {
+                // Fallback
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('Fortune copied to clipboard! Share it with your friends!');
+            }
+        }
+
+        // Event listeners
+        cookie.addEventListener('click', openCookie);
+        newFortuneBtn.addEventListener('click', resetCookie);
+        shareBtn.addEventListener('click', shareFortune);
+
+        // Prevent pinch zoom on iOS
+        document.addEventListener('gesturestart', (e) => e.preventDefault());
+        document.addEventListener('gesturechange', (e) => e.preventDefault());
+    </script>
+</body>
+</html>
