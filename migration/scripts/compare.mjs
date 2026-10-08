@@ -43,6 +43,8 @@ for (const view of VIEWS) {
     }
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.waitForTimeout(700);
+    // Entrance animations start when their element scrolls into view; let them finish (4s at most).
+    await page.evaluate(() => Promise.race([Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => {}))), new Promise((r) => setTimeout(r, 4000))])).catch(() => {});
     // Desktop: grow the window to the page height instead of fullPage capture, which re-picks
     // srcset candidates mid-shot and can photograph images while they reload.
     if (view.name === "desktop") {
@@ -50,6 +52,9 @@ for (const view of VIEWS) {
       await page.waitForLoadState("networkidle", { timeout: 8000 }).catch(() => {});
       await page.waitForTimeout(900);
     }
+    // Chromium's first full-page capture can leave out pictures whose entrance animation has just
+    // ended (seen on /brain-cell-no-3); a second capture is complete.
+    if (view.name !== "desktop") await page.screenshot({ fullPage: true });
     const shot = await page.screenshot({ fullPage: view.name !== "desktop" });
     await page.close();
     if (errors.length) problems.push([name, [...new Set(errors)].slice(0, 4)]);
