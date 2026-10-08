@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wesite | Ye explores spaces</title>
+    <meta
+      name="description"
+      content="Wesite is Ye's spatial intelligence interface for autonomous systems."
+    />
+    <meta property="og:title" content="Wesite | Ye explores spaces" />
+    <meta
+      property="og:description"
+      content="Monochrome mission-control hero with realtime particle-field visualization."
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="hero" aria-label="Wesite Hero">
+      <canvas id="particle-canvas" class="particle-canvas" aria-hidden="true"></canvas>
+
+      <header class="topbar">
+        <a href="#" class="logo" aria-label="Wesite home">
+          <svg
+            class="logo-icon"
+            viewBox="0 0 48 48"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <g stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round">
+              <circle cx="24" cy="24" r="4.1" fill="currentColor"></circle>
+              <path d="M24 6v10M24 32v10M6 24h10M32 24h10"></path>
+              <path d="M11.3 11.3l7.4 7.4M29.3 29.3l7.4 7.4"></path>
+              <path d="M36.7 11.3l-7.4 7.4M18.7 29.3l-7.4 7.4"></path>
+            </g>
+          </svg>
+          <span class="logo-text">
+            <span>Wesite · Ye</span>
+            <span>We explore spaces</span>
+          </span>
+        </a>
+      </header>
+
+      <aside class="stats" aria-label="Live System Stats">
+        <section class="stat">
+          <p class="label">YE SPATIAL SIGNAL</p>
+          <p class="value" data-target="14.2 EH/S">14.2 EH/S</p>
+        </section>
+        <section class="stat">
+          <p class="label">YE ACTIVE NODES</p>
+          <p class="value" data-target="1,284">1,284</p>
+        </section>
+        <section class="stat">
+          <p class="label">YE AGENT UPTIME</p>
+          <p class="value" data-target="99.97%">99.97%</p>
+        </section>
+      </aside>
+
+      <section class="headline-wrap">
+        <h1>
+          YE'S VISION <br />
+          FOR SMARTER <br />
+          SPACES
+        </h1>
+      </section>
+
+      <section class="subtitle-wrap">
+        <p>
+          Wesite is Ye's realtime orchestration layer for autonomous infrastructure:
+          sensing, coordination, and execution across intelligent spaces.
+        </p>
+      </section>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden="true">
+          <path d="M2 2L10 10L18 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
