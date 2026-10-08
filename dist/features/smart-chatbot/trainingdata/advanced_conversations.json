@@ -1,0 +1,741 @@
+{
+  "metadata": {
+    "name": "Advanced Conversational Training Dataset",
+    "version": "1.0",
+    "description": "Deep, nuanced conversations with multi-turn context",
+    "total_examples": 200,
+    "focus": "Complex emotional intelligence, storytelling, problem-solving"
+  },
+  "training_data": [
+    {
+      "category": "life_advice",
+      "input": "I don't know what to do with my life",
+      "response": "That feeling of uncertainty is more common than you might think. What aspects of your life feel most unclear right now? Career, relationships, personal growth?"
+    },
+    {
+      "category": "life_advice",
+      "input": "I feel stuck in my career",
+      "response": "Being stuck can be frustrating, but it also means you're ready for something new. What would your ideal next step look like, even if it seems impossible right now?"
+    },
+    {
+      "category": "life_advice",
+      "input": "How do I know if I'm making the right decision?",
+      "response": "There's rarely a perfect decision, just the best one you can make with what you know now. What are the main factors you're weighing?"
+    },
+    {
+      "category": "relationships",
+      "input": "My friend is being distant lately",
+      "response": "That must hurt. Have you noticed any changes or stressors in their life that might explain it? Sometimes people pull away when they're struggling."
+    },
+    {
+      "category": "relationships",
+      "input": "I had a fight with my partner",
+      "response": "Arguments happen in every relationship. What was the fight about, and have you both had time to cool down?"
+    },
+    {
+      "category": "relationships",
+      "input": "I miss my ex",
+      "response": "Missing someone is natural, even when the relationship wasn't right. Are you missing them specifically, or the feeling of being in a relationship?"
+    },
+    {
+      "category": "relationships",
+      "input": "How do I make friends as an adult?",
+      "response": "Adult friendships take more intention than they did in school. What are your interests? Finding communities around hobbies is usually a good start."
+    },
+    {
+      "category": "relationships",
+      "input": "I feel like nobody understands me",
+      "response": "Feeling misunderstood is isolating. Have you been able to express what you're going through to anyone? Sometimes we need to try different ways of communicating."
+    },
+    {
+      "category": "mental_health",
+      "input": "I think I might be depressed",
+      "response": "Thank you for sharing that with me. Depression is serious but treatable. Have you been able to talk to a professional or someone you trust about how you're feeling?"
+    },
+    {
+      "category": "mental_health",
+      "input": "My anxiety is getting worse",
+      "response": "I'm sorry you're dealing with increasing anxiety. What situations or thoughts tend to trigger it the most?"
+    },
+    {
+      "category": "mental_health",
+      "input": "I can't stop overthinking everything",
+      "response": "Overthinking is exhausting! When you notice yourself spiraling, what have you tried to break the cycle? Sometimes physical activity or grounding techniques help."
+    },
+    {
+      "category": "mental_health",
+      "input": "I feel numb to everything",
+      "response": "Feeling numb can be your mind's way of protecting you from overwhelm. It's important to talk to someone about this. How long have you been feeling this way?"
+    },
+    {
+      "category": "personal_growth",
+      "input": "I want to be a better person",
+      "response": "That's a beautiful intention! What does 'better' mean to you? More patient, kinder, more disciplined?"
+    },
+    {
+      "category": "personal_growth",
+      "input": "I keep making the same mistakes",
+      "response": "Patterns can be hard to break. What's the mistake you keep repeating, and what do you think triggers it?"
+    },
+    {
+      "category": "personal_growth",
+      "input": "How do I build better habits?",
+      "response": "Habits form through consistency and connecting them to existing routines. What specific habit are you trying to build?"
+    },
+    {
+      "category": "personal_growth",
+      "input": "I'm scared of failure",
+      "response": "Fear of failure can be paralyzing, but it often means you care deeply about something. What would you try if you knew you couldn't fail?"
+    },
+    {
+      "category": "career",
+      "input": "I hate my job but need the money",
+      "response": "That's a tough spot to be in. Are you able to look for other opportunities while staying in this role, or is the job consuming all your energy?"
+    },
+    {
+      "category": "career",
+      "input": "Should I go back to school?",
+      "response": "That depends on what you're hoping to achieve. What field are you interested in, and would additional education significantly improve your opportunities?"
+    },
+    {
+      "category": "career",
+      "input": "I don't fit in at work",
+      "response": "Not fitting in at work can be lonely. Is it the culture, the people, or the type of work itself that feels off?"
+    },
+    {
+      "category": "career",
+      "input": "I'm afraid to ask for a raise",
+      "response": "Asking for a raise takes courage! Have you documented your accomplishments and researched what others in your role typically earn?"
+    },
+    {
+      "category": "family",
+      "input": "My parents don't understand me",
+      "response": "Generational differences can create real gaps in understanding. Have you tried sharing your perspective with them in a calm moment?"
+    },
+    {
+      "category": "family",
+      "input": "I'm worried about my aging parents",
+      "response": "Watching parents age brings up complex emotions. What specific concerns do you have about them?"
+    },
+    {
+      "category": "family",
+      "input": "My sibling and I don't get along",
+      "response": "Sibling relationships can be complicated. Have things always been tense, or did something specific cause a rift?"
+    },
+    {
+      "category": "family",
+      "input": "I feel guilty for not visiting family more",
+      "response": "Guilt is common, but remember you're balancing many responsibilities. What's preventing you from visiting as often as you'd like?"
+    },
+    {
+      "category": "creativity",
+      "input": "I want to be more creative",
+      "response": "Creativity is like a muscle - it grows with practice. What creative outlets interest you most?"
+    },
+    {
+      "category": "creativity",
+      "input": "I have writer's block",
+      "response": "Writer's block is frustrating! Sometimes stepping away or writing badly on purpose helps break through. What are you trying to write?"
+    },
+    {
+      "category": "creativity",
+      "input": "I'm afraid my art isn't good enough",
+      "response": "Most artists feel this way! Creating for yourself first, not for perfection, often leads to the best work. What kind of art do you make?"
+    },
+    {
+      "category": "philosophical",
+      "input": "What's the point of everything?",
+      "response": "That's a profound question many grapple with. For some, meaning comes from connections, for others from contribution or personal growth. What matters most to you?"
+    },
+    {
+      "category": "philosophical",
+      "input": "Do you think people can really change?",
+      "response": "I think people can change if they genuinely want to and put in the work. Have you seen someone change, or are you thinking about changing yourself?"
+    },
+    {
+      "category": "philosophical",
+      "input": "Why is life so hard sometimes?",
+      "response": "Life's difficulties can feel overwhelming. But challenges often lead to growth we couldn't achieve otherwise. What's making life hard for you right now?"
+    },
+    {
+      "category": "memories",
+      "input": "I keep thinking about the past",
+      "response": "Nostalgia and reflection are natural. Are these memories bringing you comfort, or are you dwelling on regrets?"
+    },
+    {
+      "category": "memories",
+      "input": "I regret so many things",
+      "response": "Regret can be heavy to carry. But every choice brought you to where you are now. What's the biggest regret weighing on you?"
+    },
+    {
+      "category": "memories",
+      "input": "I miss being a kid",
+      "response": "Childhood can seem simpler in retrospect. What aspects of being a kid do you miss most?"
+    },
+    {
+      "category": "future",
+      "input": "I'm scared about the future",
+      "response": "Uncertainty about the future is scary, especially with so much changing in the world. What aspects of the future worry you most?"
+    },
+    {
+      "category": "future",
+      "input": "What if I never achieve my dreams?",
+      "response": "That fear is real, but remember that dreams can evolve. What dreams are you working toward, and what's making you doubt them?"
+    },
+    {
+      "category": "future",
+      "input": "Where do you see yourself in 5 years?",
+      "response": "I'll be here, hopefully improved and helping people! But where do YOU see yourself in 5 years?"
+    },
+    {
+      "category": "gratitude",
+      "input": "I have so much to be grateful for",
+      "response": "Gratitude is powerful! What are you most grateful for today?"
+    },
+    {
+      "category": "gratitude",
+      "input": "Things are finally going well",
+      "response": "That's wonderful! Enjoy this moment. What changed to make things better?"
+    },
+    {
+      "category": "loss",
+      "input": "I lost someone important to me",
+      "response": "I'm so sorry for your loss. Grief is incredibly personal and takes time. How are you holding up?"
+    },
+    {
+      "category": "loss",
+      "input": "I don't know how to deal with grief",
+      "response": "There's no right way to grieve. Some days will be harder than others. Are you able to talk about it with anyone?"
+    },
+    {
+      "category": "identity",
+      "input": "I don't know who I am anymore",
+      "response": "Identity can shift through different life phases. What feels most unfamiliar about yourself right now?"
+    },
+    {
+      "category": "identity",
+      "input": "I feel like I'm living someone else's life",
+      "response": "That disconnect is unsettling. Whose expectations are you living up to instead of your own?"
+    },
+    {
+      "category": "success",
+      "input": "I finally achieved my goal",
+      "response": "Congratulations! That's amazing! How does it feel now that you've reached it?"
+    },
+    {
+      "category": "success",
+      "input": "Why don't I feel happy after succeeding?",
+      "response": "That's more common than you think. Sometimes we build up expectations so much that achievement feels anticlimactic. What were you expecting to feel?"
+    },
+    {
+      "category": "failure",
+      "input": "I failed at something important",
+      "response": "Failure hurts, especially when something matters to you. But it doesn't define you. What happened?"
+    },
+    {
+      "category": "failure",
+      "input": "I'm scared to try again after failing",
+      "response": "That fear makes sense - failure can shake our confidence. But trying again, armed with what you learned, is how we grow. What's holding you back?"
+    },
+    {
+      "category": "self_esteem",
+      "input": "I don't like myself",
+      "response": "I'm sorry you're feeling this way. Self-compassion is so important. What specifically bothers you about yourself?"
+    },
+    {
+      "category": "self_esteem",
+      "input": "I compare myself to everyone",
+      "response": "Comparison is the thief of joy, as they say. Social media makes this worse. Whose life are you comparing yours to?"
+    },
+    {
+      "category": "self_esteem",
+      "input": "I feel like I'm not good enough",
+      "response": "That feeling is painful but often not based in reality. Good enough for what or for whom? What's making you feel inadequate?"
+    },
+    {
+      "category": "purpose",
+      "input": "I need to find my purpose",
+      "response": "Purpose can evolve over time. What activities make you feel most alive or fulfilled?"
+    },
+    {
+      "category": "purpose",
+      "input": "I feel like I'm wasting my life",
+      "response": "That's a heavy feeling. But awareness is the first step to change. What would make you feel like you're living meaningfully?"
+    },
+    {
+      "category": "change",
+      "input": "I want to change but don't know how",
+      "response": "Change is challenging but possible. What's one small thing you could change this week?"
+    },
+    {
+      "category": "change",
+      "input": "Everything is changing too fast",
+      "response": "Rapid change can be disorienting. What specific changes are overwhelming you?"
+    },
+    {
+      "category": "loneliness",
+      "input": "I feel so alone",
+      "response": "Loneliness is one of the hardest feelings. Are you physically isolated, or do you feel alone even around others?"
+    },
+    {
+      "category": "loneliness",
+      "input": "Nobody cares about me",
+      "response": "I know it feels that way right now, but that's often depression or isolation talking. Have you reached out to anyone recently?"
+    },
+    {
+      "category": "hope",
+      "input": "I'm starting to feel hopeful again",
+      "response": "That's beautiful! Hope returning is a sign of healing. What's bringing back your hope?"
+    },
+    {
+      "category": "hope",
+      "input": "Maybe things will get better",
+      "response": "That 'maybe' is important - it's the beginning of possibility. What would 'better' look like for you?"
+    },
+    {
+      "category": "trust",
+      "input": "I have trust issues",
+      "response": "Trust issues usually come from being hurt before. It makes sense to be cautious. What kind of situations trigger your distrust?"
+    },
+    {
+      "category": "trust",
+      "input": "I don't know if I can trust them",
+      "response": "Trust your gut - it's usually right. What specific behaviors are making you doubt them?"
+    },
+    {
+      "category": "forgiveness",
+      "input": "I can't forgive them",
+      "response": "Forgiveness is complex and doesn't mean forgetting or excusing. What did they do that hurt you so deeply?"
+    },
+    {
+      "category": "forgiveness",
+      "input": "How do I forgive myself?",
+      "response": "Self-forgiveness can be harder than forgiving others. What are you holding against yourself?"
+    },
+    {
+      "category": "boundaries",
+      "input": "I need to set boundaries",
+      "response": "Boundaries are healthy and necessary! Who or what situation requires boundaries from you?"
+    },
+    {
+      "category": "boundaries",
+      "input": "People keep taking advantage of me",
+      "response": "That's exhausting and unfair. Learning to say no is powerful. What makes it hard for you to refuse?"
+    },
+    {
+      "category": "passion",
+      "input": "I lost my passion for things I used to love",
+      "response": "Losing interest in what you loved can signal burnout or depression. How long has this been going on?"
+    },
+    {
+      "category": "passion",
+      "input": "I'm passionate about this but people say it's impractical",
+      "response": "Passion and practicality don't have to be opposites. What are you passionate about, and what are people's concerns?"
+    },
+    {
+      "category": "learning",
+      "input": "I'm too old to learn something new",
+      "response": "You're never too old! The brain is always capable of learning. What do you want to learn?"
+    },
+    {
+      "category": "learning",
+      "input": "I'm not smart enough",
+      "response": "Intelligence comes in many forms, and it's more about effort than innate ability. What makes you feel not smart enough?"
+    },
+    {
+      "category": "communication",
+      "input": "I don't know how to express my feelings",
+      "response": "Expressing feelings is a skill that improves with practice. What feeling is hardest for you to communicate?"
+    },
+    {
+      "category": "communication",
+      "input": "We keep misunderstanding each other",
+      "response": "Communication breakdowns are frustrating. Are you and the other person both willing to work on understanding each other better?"
+    },
+    {
+      "category": "acceptance",
+      "input": "I need to accept what I can't change",
+      "response": "Acceptance doesn't mean giving up - it means making peace with reality so you can focus energy on what you CAN change. What are you struggling to accept?"
+    },
+    {
+      "category": "acceptance",
+      "input": "I can't accept myself",
+      "response": "Self-acceptance is a journey, not a destination. What part of yourself is hardest to accept?"
+    },
+    {
+      "category": "motivation",
+      "input": "I have no motivation anymore",
+      "response": "Loss of motivation can indicate burnout or depression. When did you start feeling this way?"
+    },
+    {
+      "category": "motivation",
+      "input": "How do I stay motivated long-term?",
+      "response": "Long-term motivation comes from connecting to your deeper 'why.' What's the bigger purpose behind what you're trying to do?"
+    },
+    {
+      "category": "courage",
+      "input": "I'm too scared to take the leap",
+      "response": "Fear of the unknown is natural. What's the worst that could realistically happen if you try?"
+    },
+    {
+      "category": "courage",
+      "input": "I wish I was braver",
+      "response": "Bravery isn't the absence of fear - it's acting despite it. When have you been brave before, even in small ways?"
+    },
+    {
+      "category": "healing",
+      "input": "I'm trying to heal from my past",
+      "response": "Healing takes time and courage. What does healing look like for you?"
+    },
+    {
+      "category": "healing",
+      "input": "When will I feel better?",
+      "response": "Healing isn't linear - some days will be better than others. But awareness that you want to feel better is progress. What are you healing from?"
+    },
+    {
+      "category": "joy",
+      "input": "I forgot what joy feels like",
+      "response": "That's a painful place to be. When was the last time you remember feeling genuinely joyful?"
+    },
+    {
+      "category": "joy",
+      "input": "Today I felt truly happy",
+      "response": "That's wonderful! Hold onto that feeling. What brought you that happiness?"
+    },
+    {
+      "category": "peace",
+      "input": "I just want peace",
+      "response": "Peace is precious, especially in chaotic times. What does peace mean to you - internal calm, life stability, or something else?"
+    },
+    {
+      "category": "peace",
+      "input": "I finally feel at peace",
+      "response": "That's beautiful. Peace is something many people search for. What helped you find it?"
+    },
+    {
+      "category": "fear",
+      "input": "I'm afraid of being alone",
+      "response": "Fear of being alone is deeply human. Is it solitude itself, or the idea of being without connection that scares you?"
+    },
+    {
+      "category": "fear",
+      "input": "I'm scared all the time",
+      "response": "Constant fear is exhausting and can be a sign of anxiety. What are you most afraid of?"
+    },
+    {
+      "category": "vulnerability",
+      "input": "It's hard for me to be vulnerable",
+      "response": "Vulnerability requires trust and courage. What makes it difficult for you to open up?"
+    },
+    {
+      "category": "vulnerability",
+      "input": "I opened up and got hurt",
+      "response": "That betrayal of trust is painful. It makes sense you'd be guarded now. What happened?"
+    },
+    {
+      "category": "authenticity",
+      "input": "I feel like I'm wearing a mask all the time",
+      "response": "Hiding your true self is exhausting. What would happen if you showed people who you really are?"
+    },
+    {
+      "category": "authenticity",
+      "input": "I want to be myself but I'm scared",
+      "response": "Being authentic is scary because it means risking rejection. What parts of yourself are you hiding?"
+    },
+    {
+      "category": "connection",
+      "input": "I crave deeper connections",
+      "response": "Meaningful connections enrich life. What kind of connections are you looking for - romantic, friendship, or community?"
+    },
+    {
+      "category": "connection",
+      "input": "I feel disconnected from everyone",
+      "response": "Disconnection is isolating. Did something specific cause this, or has it been building over time?"
+    },
+    {
+      "category": "balance",
+      "input": "I can't find work-life balance",
+      "response": "Balance is challenging in our always-on culture. What's taking up most of your time and energy?"
+    },
+    {
+      "category": "balance",
+      "input": "Everything feels out of balance",
+      "response": "When life feels off-balance, it often helps to identify what's taking too much space. What area of life feels most overwhelming?"
+    },
+    {
+      "category": "patience",
+      "input": "I'm so impatient with myself",
+      "response": "We're often our own harshest critics. What are you being impatient about?"
+    },
+    {
+      "category": "patience",
+      "input": "When will things finally happen for me?",
+      "response": "Waiting is hard, especially when you're working toward something important. What are you waiting for?"
+    },
+    {
+      "category": "worthiness",
+      "input": "I don't deserve good things",
+      "response": "That belief is painful and often comes from past hurt. What makes you feel undeserving?"
+    },
+    {
+      "category": "worthiness",
+      "input": "Am I worthy of love?",
+      "response": "Everyone is worthy of love, including you. What's making you question your worthiness?"
+    },
+    {
+      "category": "control",
+      "input": "I feel like everything is out of control",
+      "response": "Feeling out of control is scary. What specific areas feel most chaotic right now?"
+    },
+    {
+      "category": "control",
+      "input": "I'm a control freak",
+      "response": "Needing control often comes from anxiety or past unpredictability. What happens when you can't control something?"
+    },
+    {
+      "category": "resilience",
+      "input": "I keep getting knocked down",
+      "response": "But you keep getting back up - that's resilience. What keeps you going?"
+    },
+    {
+      "category": "resilience",
+      "input": "How do I become more resilient?",
+      "response": "Resilience grows through facing challenges and learning we can survive them. What challenges are you facing now?"
+    },
+    {
+      "category": "dreams",
+      "input": "I gave up on my dreams",
+      "response": "That must feel like a loss. What made you give up on them?"
+    },
+    {
+      "category": "dreams",
+      "input": "Is it too late to chase my dreams?",
+      "response": "It's rarely too late! Many people achieve dreams at unexpected times. What's your dream?"
+    },
+    {
+      "category": "support",
+      "input": "I don't have anyone to talk to",
+      "response": "Feeling like you have no one is incredibly lonely. Have you considered reaching out to a counselor or support group?"
+    },
+    {
+      "category": "support",
+      "input": "I need help but don't want to burden anyone",
+      "response": "Asking for help isn't a burden - it's how humans connect and support each other. What do you need help with?"
+    },
+    {
+      "category": "perspective",
+      "input": "I can't see any other way",
+      "response": "When we're stuck, our perspective narrows. What if there was another option you haven't considered yet?"
+    },
+    {
+      "category": "perspective",
+      "input": "Maybe I'm looking at this wrong",
+      "response": "That openness to different perspectives is valuable! What situation are you reconsidering?"
+    },
+    {
+      "category": "growth_mindset",
+      "input": "I'm just not good at this",
+      "response": "Not good at it YET. What would it take to improve?"
+    },
+    {
+      "category": "growth_mindset",
+      "input": "I can't do this",
+      "response": "That fixed mindset can hold us back. What makes you think you can't?"
+    },
+    {
+      "category": "celebration",
+      "input": "I did something I'm really proud of",
+      "response": "Yes! Celebrate that! What did you accomplish?"
+    },
+    {
+      "category": "celebration",
+      "input": "Small win but it matters to me",
+      "response": "Small wins ARE big wins! They build momentum. What's your victory?"
+    },
+    {
+      "category": "understanding",
+      "input": "Nobody gets what I'm going through",
+      "response": "Feeling unseen is isolating. Have you tried explaining your experience, or does it feel too hard to put into words?"
+    },
+    {
+      "category": "understanding",
+      "input": "You actually understand me",
+      "response": "I'm really glad you feel understood. That connection matters. What made you feel that way?"
+    },
+    {
+      "category": "presence",
+      "input": "I'm always worrying about tomorrow",
+      "response": "Future anxiety is common but robs us of today. What helps you stay present when worry creeps in?"
+    },
+    {
+      "category": "presence",
+      "input": "I'm trying to be more mindful",
+      "response": "Mindfulness takes practice but it's so worthwhile. What's drawing you toward being more present?"
+    },
+    {
+      "category": "transformation",
+      "input": "I'm not who I used to be",
+      "response": "Change can be disorienting. Is this transformation something you chose, or did life force it?"
+    },
+    {
+      "category": "transformation",
+      "input": "I'm becoming the person I want to be",
+      "response": "That's powerful growth! What changes have you noticed in yourself?"
+    },
+    {
+      "category": "validation",
+      "input": "Am I overreacting?",
+      "response": "Your feelings are valid, whether others understand them or not. What happened that you're questioning your reaction to?"
+    },
+    {
+      "category": "validation",
+      "input": "I feel like my feelings don't matter",
+      "response": "Your feelings absolutely matter. Who or what is making you feel dismissed?"
+    },
+    {
+      "category": "choices",
+      "input": "I don't know what to choose",
+      "response": "Big decisions are hard. What are your options, and what matters most to you?"
+    },
+    {
+      "category": "choices",
+      "input": "What if I make the wrong choice?",
+      "response": "Most choices aren't permanent, and even 'wrong' ones teach us something. What decision are you facing?"
+    },
+    {
+      "category": "energy",
+      "input": "I have no energy for anything",
+      "response": "Complete exhaustion affects everything. Is this physical, emotional, or both?"
+    },
+    {
+      "category": "energy",
+      "input": "I'm drained by people",
+      "response": "Some people are energy vampires. Are you getting enough alone time to recharge?"
+    },
+    {
+      "category": "belonging",
+      "input": "I don't fit in anywhere",
+      "response": "Not belonging is painful. What kind of community or group would feel like home to you?"
+    },
+    {
+      "category": "belonging",
+      "input": "I finally found my people",
+      "response": "That's such a wonderful feeling! Where did you find them?"
+    },
+    {
+      "category": "timing",
+      "input": "The timing is never right",
+      "response": "Perfect timing rarely exists. Sometimes we have to create the right moment. What are you waiting for the right time to do?"
+    },
+    {
+      "category": "timing",
+      "input": "I wish I had done this sooner",
+      "response": "Regret about timing is common, but you're doing it now - that's what matters. What did you start?"
+    },
+    {
+      "category": "letting_go",
+      "input": "I need to let go but I can't",
+      "response": "Letting go is one of life's hardest lessons. What are you holding onto?"
+    },
+    {
+      "category": "letting_go",
+      "input": "How do I move on?",
+      "response": "Moving on happens gradually, not all at once. What are you trying to move on from?"
+    },
+    {
+      "category": "meaning",
+      "input": "What's the point of any of this?",
+      "response": "When we're struggling, meaning can feel elusive. What used to give your life meaning?"
+    },
+    {
+      "category": "meaning",
+      "input": "I found meaning in unexpected places",
+      "response": "Life often surprises us that way! Where did you find meaning?"
+    },
+    {
+      "category": "strength",
+      "input": "I don't feel strong enough",
+      "response": "Strength isn't about never struggling - it's about continuing despite the struggle. What challenge is testing you?"
+    },
+    {
+      "category": "strength",
+      "input": "I'm stronger than I thought",
+      "response": "Discovering your own strength is empowering! What showed you how strong you are?"
+    },
+    {
+      "category": "kindness",
+      "input": "Someone was really kind to me today",
+      "response": "Kindness can brighten everything! What did they do?"
+    },
+    {
+      "category": "kindness",
+      "input": "I want to be kinder to myself",
+      "response": "Self-kindness is revolutionary! What would being kinder to yourself look like in practice?"
+    },
+    {
+      "category": "progress",
+      "input": "I'm making progress, slowly",
+      "response": "Slow progress is still progress! What are you working toward?"
+    },
+    {
+      "category": "progress",
+      "input": "I feel stuck in the same place",
+      "response": "Feeling stuck is frustrating. Sometimes we're growing in ways we can't see yet. How long have you felt this way?"
+    },
+    {
+      "category": "courage",
+      "input": "I did something that scared me",
+      "response": "That takes real courage! How do you feel now that you've done it?"
+    },
+    {
+      "category": "starting_over",
+      "input": "I have to start over again",
+      "response": "Starting over is daunting but also full of possibility. What happened?"
+    },
+    {
+      "category": "starting_over",
+      "input": "New beginnings are scary",
+      "response": "They are! But they also mean you get to write a new chapter. What's beginning for you?"
+    },
+    {
+      "category": "listening",
+      "input": "Thank you for listening",
+      "response": "Of course. Sometimes we just need someone to hear us. How are you feeling now?"
+    },
+    {
+      "category": "listening",
+      "input": "I just needed to vent",
+      "response": "Venting can be so cathartic. Feel better getting that out?"
+    },
+    {
+      "category": "wisdom",
+      "input": "I wish I knew this earlier",
+      "response": "Hindsight gives us wisdom. What did you learn?"
+    },
+    {
+      "category": "wisdom",
+      "input": "I'm learning from my mistakes",
+      "response": "That's growth right there! Mistakes are our best teachers. What have you learned?"
+    },
+    {
+      "category": "comparison",
+      "input": "Everyone else has it figured out",
+      "response": "That's the illusion social media creates. Truth is, everyone's figuring it out as they go. What makes you feel behind?"
+    },
+    {
+      "category": "seasons",
+      "input": "I'm in a difficult season of life",
+      "response": "Seasons change, including life's hard ones. What's making this season particularly difficult?"
+    },
+    {
+      "category": "honesty",
+      "input": "I need to be honest about something",
+      "response": "Honesty takes courage. I'm listening. What do you need to say?"
+    },
+    {
+      "category": "honesty",
+      "input": "I've been lying to myself",
+      "response": "Recognizing self-deception is powerful. What truth are you facing now?"
+    }
+  ]
+}

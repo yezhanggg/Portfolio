@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Setup - ZHAENG Chatbot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 0.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .info {
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 0.5rem;
+            margin-bottom: 20px;
+        }
+
+        .info p {
+            color: #374151;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .info p:last-child {
+            margin-bottom: 0;
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 0.8rem;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 0.8rem;
+            background: #f9fafb;
+            display: none;
+        }
+
+        .status.show {
+            display: block;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .status-item:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            color: #6b7280;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .value {
+            color: #1f2937;
+            font-size: 14px;
+            font-family: monospace;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔑 Local API Setup</h1>
+
+        <div class="success">
+            ✓ Your API key has been configured locally!
+        </div>
+
+        <div class="info">
+            <p><strong>🔒 Security Notice:</strong></p>
+            <p>Your API key is stored in your browser's localStorage and will <strong>NOT</strong> be pushed to GitHub.</p>
+            <p>This configuration is local to your machine only.</p>
+        </div>
+
+        <div class="info">
+            <p><strong>📝 What was configured:</strong></p>
+            <p>• Provider: <code>OpenRouter</code></p>
+            <p>• Model: <code>openrouter/sherlock-dash-alpha</code></p>
+            <p>• API Key: <code>sk-or-v1-8621...db1810</code> (hidden for security)</p>
+        </div>
+
+        <button class="btn" onclick="checkStatus()">Check Configuration Status</button>
+
+        <div id="status" class="status">
+            <div class="status-item">
+                <span class="label">AI Enabled:</span>
+                <span class="value" id="ai-enabled"></span>
+            </div>
+            <div class="status-item">
+                <span class="label">Provider:</span>
+                <span class="value" id="provider"></span>
+            </div>
+            <div class="status-item">
+                <span class="label">API Key:</span>
+                <span class="value" id="api-key"></span>
+            </div>
+            <div class="status-item">
+                <span class="label">Status:</span>
+                <span class="value" id="config-status"></span>
+            </div>
+        </div>
+
+        <div class="info" style="margin-top: 20px;">
+            <p><strong>🚀 Next Steps:</strong></p>
+            <p>1. Open <code>admin.html</code> to verify settings</p>
+            <p>2. Start using the chatbot!</p>
+            <p>3. Your API key is safe and won't be committed to Git</p>
+        </div>
+    </div>
+
+    <script src="local-config.js"></script>
+    <script>
+        function checkStatus() {
+            const enabled = localStorage.getItem('ai_enabled');
+            const provider = localStorage.getItem('ai_provider');
+            const apiKey = localStorage.getItem('ai_api_key');
+
+            const statusDiv = document.getElementById('status');
+            statusDiv.classList.add('show');
+
+            document.getElementById('ai-enabled').innerHTML = enabled === 'true'
+                ? '<span class="badge badge-success">Yes</span>'
+                : '<span class="badge badge-warning">No</span>';
+
+            document.getElementById('provider').textContent = provider || 'Not set';
+
+            if (apiKey && apiKey.length > 0) {
+                const masked = apiKey.substring(0, 12) + '...' + apiKey.substring(apiKey.length - 6);
+                document.getElementById('api-key').textContent = masked;
+                document.getElementById('config-status').innerHTML = '<span class="badge badge-success">Configured</span>';
+            } else {
+                document.getElementById('api-key').textContent = 'Not set';
+                document.getElementById('config-status').innerHTML = '<span class="badge badge-warning">Not configured</span>';
+            }
+        }
+
+        // Auto-check on page load
+        setTimeout(checkStatus, 500);
+    </script>
+</body>
+</html>

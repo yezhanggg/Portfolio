@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - ZHAENG Chatbot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .admin-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .admin-header h1 {
+            color: #667eea;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .admin-header p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Login Screen */
+        #login-screen {
+            text-align: center;
+        }
+
+        #login-screen h2 {
+            color: #1f2937;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #374151;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.8rem;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 0.8rem;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c00;
+            padding: 10px;
+            border-radius: 0.5rem;
+            margin-bottom: 15px;
+            font-size: 13px;
+            display: none;
+        }
+
+        .success-message {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 10px;
+            border-radius: 0.5rem;
+            margin-bottom: 15px;
+            font-size: 13px;
+            display: none;
+        }
+
+        /* Admin Panel */
+        #admin-panel {
+            display: none;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 1rem;
+        }
+
+        .section h3 {
+            color: #1f2937;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .info-value {
+            color: #1f2937;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #667eea;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-small {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 0.8rem;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-danger {
+            background: #fee;
+            color: #c00;
+        }
+
+        .btn-danger:hover {
+            background: #fcc;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-enabled {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-disabled {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        @media (max-width: 480px) {
+            .admin-container {
+                padding: 25px;
+            }
+
+            .admin-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>🔐 Admin Panel</h1>
+            <p>ZHAENG Chatbot Settings</p>
+        </div>
+
+        <!-- Login Screen -->
+        <div id="login-screen">
+            <h2>Authentication Required</h2>
+            <div id="login-error" class="error-message"></div>
+            <div class="form-group">
+                <label for="admin-password">Admin Password</label>
+                <input type="password" id="admin-password" placeholder="Enter admin password" autofocus>
+            </div>
+            <button class="btn btn-primary" onclick="login()">Unlock Admin Panel</button>
+            <p style="margin-top: 20px; color: #6b7280; font-size: 13px;">
+                Your password: <code style="background: #f3f4f6; padding: 2px 6px; border-radius: 4px;">••••</code>
+            </p>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="admin-panel">
+            <div id="success-msg" class="success-message"></div>
+
+            <!-- AI Configuration -->
+            <div class="section">
+                <h3>🤖 AI Configuration</h3>
+                <div class="info-row">
+                    <span class="info-label">Status</span>
+                    <span class="status-badge status-enabled" id="ai-status-badge">Enabled</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Provider</span>
+                    <select id="provider-select" class="form-group input" style="border: 1px solid #e5e7eb; padding: 8px; border-radius: 6px;">
+                        <option value="openrouter">OpenRouter (Sherlock Alpha)</option>
+                        <option value="gemini">Google Gemini</option>
+                        <option value="groq">Groq</option>
+                    </select>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Model</span>
+                    <span class="info-value" id="model-name">openrouter/sherlock-dash-alpha</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">API Key</span>
+                    <span class="info-value" id="api-key-display" style="font-size: 11px;">••••••••••••••••••••</span>
+                </div>
+                <div class="form-group" style="margin-top: 15px;">
+                    <label>Update API Key</label>
+                    <input type="password" id="api-key-input" placeholder="Enter new API key">
+                </div>
+            </div>
+
+            <!-- Toggle Settings -->
+            <div class="section">
+                <h3>⚙️ Settings</h3>
+                <div class="info-row">
+                    <span class="info-label">AI Fallback</span>
+                    <div class="toggle-switch">
+                        <label class="switch">
+                            <input type="checkbox" id="ai-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">GitHub Logging</span>
+                    <div class="toggle-switch">
+                        <label class="switch">
+                            <input type="checkbox" id="github-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="btn-group">
+                <button class="btn-small btn-primary" onclick="saveSettings()">💾 Save Changes</button>
+                <button class="btn-small btn-secondary" onclick="showApiKey()">👁️ Show API Key</button>
+                <button class="btn-small btn-danger" onclick="logout()">🚪 Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple password hash (SHA-256)
+        async function hashPassword(password) {
+            const msgBuffer = new TextEncoder().encode(password);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // Correct password hash for "0033"
+        const CORRECT_HASH = '052bfcbedb83a7bc346225946e335411197a2c81f9e220f6e4b3d4b939661bce';
+
+        // Check if already logged in
+        if (sessionStorage.getItem('admin_auth') === CORRECT_HASH) {
+            showAdminPanel();
+        }
+
+        // Login function
+        async function login() {
+            const password = document.getElementById('admin-password').value;
+            const errorDiv = document.getElementById('login-error');
+
+            if (!password) {
+                errorDiv.textContent = 'Please enter a password';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            const hash = await hashPassword(password);
+
+            if (hash === CORRECT_HASH) {
+                sessionStorage.setItem('admin_auth', hash);
+                showAdminPanel();
+            } else {
+                errorDiv.textContent = 'Incorrect password. Please try again.';
+                errorDiv.style.display = 'block';
+                document.getElementById('admin-password').value = '';
+            }
+        }
+
+        // Show admin panel
+        function showAdminPanel() {
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('admin-panel').style.display = 'block';
+            loadSettings();
+        }
+
+        // Load current settings
+        function loadSettings() {
+            const aiEnabled = localStorage.getItem('ai_enabled') === 'true';
+            const provider = localStorage.getItem('ai_provider') || 'openrouter';
+            const apiKey = localStorage.getItem('ai_api_key') || '';
+            const githubEnabled = localStorage.getItem('github_enabled') === 'true';
+
+            document.getElementById('ai-toggle').checked = aiEnabled;
+            document.getElementById('provider-select').value = provider;
+            document.getElementById('github-toggle').checked = githubEnabled;
+
+            const models = {
+                openrouter: 'openrouter/sherlock-dash-alpha',
+                gemini: 'gemini-2.0-flash-exp',
+                groq: 'llama-3.3-70b-versatile'
+            };
+            document.getElementById('model-name').textContent = models[provider];
+
+            // Update status badge
+            const badge = document.getElementById('ai-status-badge');
+            if (aiEnabled) {
+                badge.className = 'status-badge status-enabled';
+                badge.textContent = 'Enabled';
+            } else {
+                badge.className = 'status-badge status-disabled';
+                badge.textContent = 'Disabled';
+            }
+        }
+
+        // Save settings
+        function saveSettings() {
+            const aiEnabled = document.getElementById('ai-toggle').checked;
+            const provider = document.getElementById('provider-select').value;
+            const newApiKey = document.getElementById('api-key-input').value;
+            const githubEnabled = document.getElementById('github-toggle').checked;
+
+            localStorage.setItem('ai_enabled', aiEnabled.toString());
+            localStorage.setItem('ai_provider', provider);
+            localStorage.setItem('github_enabled', githubEnabled.toString());
+
+            if (newApiKey) {
+                localStorage.setItem('ai_api_key', newApiKey);
+                document.getElementById('api-key-input').value = '';
+            }
+
+            const successMsg = document.getElementById('success-msg');
+            successMsg.textContent = '✓ Settings saved successfully!';
+            successMsg.style.display = 'block';
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 3000);
+
+            loadSettings();
+        }
+
+        // Show API key
+        function showApiKey() {
+            const apiKey = localStorage.getItem('ai_api_key') || 'Not set';
+            const display = document.getElementById('api-key-display');
+
+            if (display.textContent.includes('••••')) {
+                display.textContent = apiKey;
+                setTimeout(() => {
+                    display.textContent = '••••••••••••••••••••';
+                }, 5000);
+            } else {
+                display.textContent = '••••••••••••••••••••';
+            }
+        }
+
+        // Logout
+        function logout() {
+            sessionStorage.removeItem('admin_auth');
+            location.reload();
+        }
+
+        // Provider change updates model display
+        document.getElementById('provider-select').addEventListener('change', function() {
+            const models = {
+                openrouter: 'openrouter/sherlock-dash-alpha',
+                gemini: 'gemini-2.0-flash-exp',
+                groq: 'llama-3.3-70b-versatile'
+            };
+            document.getElementById('model-name').textContent = models[this.value];
+        });
+
+        // Enter key to login
+        document.getElementById('admin-password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                login();
+            }
+        });
+    </script>
+</body>
+</html>
