@@ -2,7 +2,7 @@
 // One route for every page of the old Wix sites (yezhang.net + ZHAENG under /zhaeng/).
 import Base from "../layouts/Base.astro";
 import Node from "../components/Node.astro";
-import { pages, routeOf, mediaFor, largest } from "../lib/site.js";
+import { pages, routeOf, mediaFor, largest, keyframeCss } from "../lib/site.js";
 import media from "../data/media.json";
 import meta from "../data/meta.json";
 
@@ -28,10 +28,12 @@ function fieldKey(n) {
   return "name";
 }
 
+const keyframes = new Set();
 function prepare(view, name) {
   let fields = 0;
   const visit = (nodes) => {
     for (const n of nodes) {
+      for (const a of n.anim || []) keyframes.add(keyframeCss(a));
       if (n.type === "video") {
         const v = media[n.id];
         n.file = v?.file;
@@ -86,6 +88,8 @@ const formKind = page.slug === "order" ? "zine" : "contact";
       </Fragment>
     );
   })}
+  {keyframes.size > 0 && <style set:html={[...keyframes].join("")} />}
+  {keyframes.size > 0 && <noscript><style>{".enter{animation:none!important}"}</style></noscript>}
   <div class="form-note" role="status" aria-live="polite"></div>
   <script>
     import "../scripts/interactions.js";

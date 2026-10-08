@@ -10,6 +10,7 @@ All scripts are run from the repository root. Large outputs go to
 | 2. Archive the rendered pages | `node migration/scripts/crawl_pages.mjs` | `inventory/screenshots`, `rendered`, `tree`, `page-assets.json` in the archive: all 57 pages at desktop and phone widths |
 | 3. Extract page content | `node migration/scripts/extract_pages.mjs` | `src/data/pages/*.json` |
 | 4. Make web-sized media | `node migration/scripts/optimize_media.mjs` | `public/media`, `public/video`, `src/data/media.json`, `inventory/rename-map.csv` |
+| 4b. Measure motion | `node migration/scripts/motion_audit.mjs` then `node migration/scripts/apply_motion.mjs` | raw measurements in the archive under `inventory/motion`; `src/data/motion.json` (entrance and loop animations, hover states, pointer tracking, gallery drift, slideshow autoplay), merged into the pages by `src/lib/fixups.js` |
 | 5. Compare with the originals | `pnpm build && pnpm preview`, then `node migration/scripts/compare.mjs` | side-by-side images in the archive under `inventory/compare` |
 
 Notes:

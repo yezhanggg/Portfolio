@@ -79,3 +79,27 @@ export const css = (obj) =>
     .filter(([, v]) => v !== undefined && v !== null && v !== "")
     .map(([k, v]) => `${k}:${v}`)
     .join(";");
+
+// --- motion helpers -----------------------------------------------------------------------------
+const kebab = (k) => (k === "cssFloat" ? "float" : k.replace(/[A-Z]/g, (c) => "-" + c.toLowerCase()));
+export function keyframeName(a) {
+  let h = 0;
+  for (const c of JSON.stringify(a.keyframes)) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return "k" + h.toString(36);
+}
+export const keyframeCss = (a) =>
+  `@keyframes ${keyframeName(a)}{${a.keyframes
+    .map((k) => `${Math.round(k.offset * 1000) / 10}%{${Object.entries(k.props).map(([p, v]) => `${kebab(p)}:${v}`).join(";")};animation-timing-function:${k.easing || "linear"}}`)
+    .join("")}}`;
+export const animationCss = (list) =>
+  list.map((a) => `${keyframeName(a)} ${a.duration}ms ${a.easing || "linear"} ${a.delay}ms ${a.loop ? "infinite" : "1"} ${a.direction || "normal"} both`).join(", ");
+// Hover state as CSS variables + one class per property that changes.
+export function hoverBits(h) {
+  if (!h) return { cls: [], vars: {} };
+  const map = { color: ["hv-c", "--hc"], "letter-spacing": ["hv-ls", "--hls"], "text-decoration": ["hv-td", "--htd"], "font-weight": ["hv-fw", "--hfw"] };
+  const rmap = { "background-color": ["hv-bg", "--hbg"], "border-color": ["hv-bc", "--hbc"], opacity: ["hv-o", "--ho"], filter: ["hv-f", "--hf"], "box-shadow": ["hv-sh", "--hsh"] };
+  const cls = ["hv"], vars = { "--htr": `${h.tr || 200}ms` };
+  for (const [k, v] of Object.entries(h.label || {})) if (map[k]) (cls.push(map[k][0]), (vars[map[k][1]] = v));
+  for (const [k, v] of Object.entries(h.root || {})) if (rmap[k]) (cls.push(rmap[k][0]), (vars[rmap[k][1]] = v));
+  return { cls, vars };
+}

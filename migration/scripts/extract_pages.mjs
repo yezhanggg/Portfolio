@@ -300,6 +300,22 @@ async function extractView(browser, pg, view) {
 
   for (const node of data.nodes.filter((n) => n.type === "slideshow" && n.id)) {
     const dots = page.locator(`#${node.id} a[href*='#comp-']`);
+    if ((await dots.count()) === 0) {
+      // No dots: an autoplay banner. Watch it and keep each slide once it has settled in place.
+      const seen = new Map();
+      for (let i = 0; i < 80; i++) {
+        const settled = await page.evaluate((sid) => {
+          const s = document.getElementById(sid);
+          const kids = [...s.querySelectorAll(":scope > [id^='comp-'], :scope > div > [id^='comp-']")].filter((k) => k.getBoundingClientRect().width > 0);
+          return kids.length === 1 && Math.abs(kids[0].getBoundingClientRect().left - s.getBoundingClientRect().left) < 2 ? kids[0].id : null;
+        }, node.id);
+        if (settled && !seen.has(settled)) seen.set(settled, await page.evaluate((id) => window.__ex.slide(id), node.id));
+        else if (settled && seen.size > 1 && settled === [...seen.keys()][0] && i > 12) break;
+        await page.waitForTimeout(250);
+      }
+      node.slides = seen.size ? [...seen.values()] : [await page.evaluate((id) => window.__ex.slide(id), node.id)];
+      continue;
+    }
     const count = (await dots.count()) || 1;
     for (let i = 0; i < Math.min(count, 60); i++) {
       if (i > 0) {

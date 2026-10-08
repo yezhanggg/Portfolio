@@ -1,17 +1,24 @@
 ---
 // Renders one positioned node from the extracted page data. Coordinates are canvas pixels
 // (980 wide on desktop, 320 on phones); `origin` shifts children of a slideshow slide.
-import { css, px, localHref, isExternal, rewriteLinks, fontFix, maskCss, mediaFor, parseTransform, srcset, largest, smallest } from "../lib/site.js";
+import { css, px, localHref, isExternal, rewriteLinks, fontFix, maskCss, mediaFor, parseTransform, srcset, largest, smallest, animationCss, hoverBits } from "../lib/site.js";
 
 const { node: n, canvas, origin = [0, 0], inSlide = false } = Astro.props;
 const [x, y, w, h] = [n.box[0] - origin[0], n.box[1] - origin[1], n.box[2], n.box[3]];
 const bleed = n.bleed && !inSlide;
+const hv = hoverBits(n.hover);
+const entering = n.anim && n.anim.some((a) => !a.loop);
+// Extra classes/attributes shared by every node type: animation, hover state, pointer tracking.
+const fx = [...hv.cls, n.anim ? "anim" : "", entering ? "enter" : "", n.sticky ? "sticky" : ""].filter(Boolean);
+const fxAttrs = n.mouse ? { "data-mouse": n.mouse.k, "data-mouse-ms": n.mouse.ms } : {};
 const frame = {
   left: bleed ? undefined : px(x),
   top: px(y),
   width: bleed ? undefined : px(w),
   height: px(h),
   transform: n.rotate ? `rotate(${n.rotate}deg)` : undefined,
+  animation: n.anim ? animationCss(n.anim) : undefined,
+  ...hv.vars,
 };
 const visibleShadow = (s) => (s && !/rgba\([^)]*,\s*0\)/.test(s) ? s : undefined);
 const [bt, br, bb, bl] = n.borders || [];
@@ -58,29 +65,29 @@ const labelPos = (n) =>
 const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "div";
 ---
 
-{n.type === "box" && <div class:list={["n", "bx", { bleed }]} style={css({ ...frame, ...paint })} />}
+{n.type === "box" && <div class:list={["n", "bx", fx, { bleed }]} style={css({ ...frame, ...paint })} />}
 
 {n.type === "text" && (
-  <div class:list={["n", "t", { bleed, nw: n.lines === 1 }]} style={css({ ...frame, height: undefined, "min-height": frame.height, ...fontFix(n.style) })} set:html={rewriteLinks(n.html)} />
+  <div class:list={["n", "t", fx, { bleed, nw: n.lines === 1 }]} style={css({ ...frame, height: undefined, "min-height": frame.height, ...fontFix(n.style) })} set:html={rewriteLinks(n.html)} />
 )}
 
 {n.type === "button" && (
-  <Tag class:list={["n", "btn", { bleed }]} style={css({ ...frame, ...paint })} {...(Tag === "a" ? linkAttrs : {})} {...(Tag === "button" ? { type: "submit" } : {})}>
+  <Tag class:list={["n", "btn", fx, { bleed }]} {...fxAttrs} style={css({ ...frame, ...paint })} {...(Tag === "a" ? linkAttrs : {})} {...(Tag === "button" ? { type: "submit" } : {})}>
     {n.label ? <span class="lbl" style={labelPos(n)}>{n.label}</span> : n.icon ? <Fragment set:html={n.icon} /> : null}
   </Tag>
 )}
 
 {n.type === "image" && img && (
   href ? (
-    <a class:list={["n", "img", { bleed }]} style={css({ ...frame, "border-radius": n.radius, opacity: n.opacity, ...maskCss(n.mask) })} {...linkAttrs}>
+    <a class:list={["n", "img", fx, { bleed }]} {...fxAttrs} style={css({ ...frame, "border-radius": n.radius, opacity: n.opacity, ...maskCss(n.mask) })} {...linkAttrs}>
       <img src={smallest(img.m)} srcset={srcset(img.m)} sizes={sizes(img.shownW)} alt={n.alt || ""} style={img.style} loading={eager ? "eager" : "lazy"} decoding="async" />
     </a>
   ) : n.zoom ? (
-    <a class:list={["n", "img", "zoom", { bleed }]} href={largest(img.m)} data-pswp-width={img.m.w} data-pswp-height={img.m.h} target="_blank" style={css({ ...frame, "border-radius": n.radius, opacity: n.opacity, ...maskCss(n.mask) })}>
+    <a class:list={["n", "img", "zoom", fx, { bleed }]} {...fxAttrs} href={largest(img.m)} data-pswp-width={img.m.w} data-pswp-height={img.m.h} target="_blank" style={css({ ...frame, "border-radius": n.radius, opacity: n.opacity, ...maskCss(n.mask) })}>
       <img src={smallest(img.m)} srcset={srcset(img.m)} sizes={sizes(img.shownW)} alt={n.alt || ""} style={img.style} loading={eager ? "eager" : "lazy"} decoding="async" />
     </a>
   ) : (
-    <div class:list={["n", "img", { bleed }]} style={css({ ...frame, "border-radius": n.radius, opacity: n.opacity, ...maskCss(n.mask) })}>
+    <div class:list={["n", "img", fx, { bleed }]} {...fxAttrs} style={css({ ...frame, "border-radius": n.radius, opacity: n.opacity, ...maskCss(n.mask) })}>
       <img src={smallest(img.m)} srcset={srcset(img.m)} sizes={sizes(img.shownW)} alt={n.alt || ""} style={img.style} loading={eager ? "eager" : "lazy"} decoding="async" />
     </div>
   )
@@ -88,15 +95,15 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
 
 {n.type === "svg" && (
   href ? (
-    <a class="n svg" style={css({ ...frame, fill: n.fill, color: n.color })} {...linkAttrs} aria-label={n.label} set:html={n.html} />
+    <a class:list={["n", "svg", fx]} style={css({ ...frame, fill: n.fill, color: n.color })} {...linkAttrs} aria-label={n.label} set:html={n.html} />
   ) : (
-    <div class="n svg" style={css({ ...frame, fill: n.fill, color: n.color })} set:html={n.html} />
+    <div class:list={["n", "svg", fx]} style={css({ ...frame, fill: n.fill, color: n.color })} set:html={n.html} />
   )
 )}
 
 {n.type === "video" && n.file && (
   <video
-    class:list={["n", "vid", { bleed }]}
+    class:list={["n", "vid", fx, { bleed }]}
     style={css({ ...frame, "object-fit": n.fit && n.fit !== "fill" ? n.fit : "cover", ...maskCss(n.mask), background: n.mask ? "none" : undefined })}
     src={n.file}
     poster={n.posterFile}
@@ -116,7 +123,7 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
   const maxY = Math.max(...n.items.map((i) => i.box[1] + i.box[3]));
   const scrolls = maxX - minX > w + 2;
   return (
-    <div class:list={["n", "gal", { bleed, scrolls }]} style={css({ ...frame, height: px(Math.max(h, maxY)) })} data-start={scrolls ? Math.max(0, -minX) : undefined}>
+    <div class:list={["n", "gal", { bleed, scrolls }]} style={css({ ...frame, height: px(Math.max(h, maxY)) })} data-start={scrolls ? Math.max(0, -minX) : undefined} data-speed={scrolls ? n.speed : undefined}>
       <div class="gal-inner" style={css({ width: px(maxX - minX), height: px(maxY) })}>
         {n.items.map((it) => {
           const m = mediaFor(it.src);
@@ -132,12 +139,14 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
 })()}
 
 {n.type === "slideshow" && (
-  <div class:list={["n", "show", { bleed }]} style={css(frame)} data-slideshow data-auto={n.auto}>
-    {n.slides.map((slide, i) => (
-      <div class:list={["slide", { on: i === 0 }]} aria-hidden={i === 0 ? undefined : "true"}>
-        {slide.map((child) => <Astro.self node={child} canvas={canvas} origin={[n.box[0], n.box[1]]} inSlide />)}
-      </div>
-    ))}
+  <div class:list={["n", "show", { bleed, sx: n.slideMs }]} style={css({ ...frame, "--slide-ms": n.slideMs ? `${n.slideMs}ms` : undefined })} data-slideshow data-auto={n.auto} data-slide={n.slideMs}>
+    <div class="slides">
+      {n.slides.map((slide, i) => (
+        <div class:list={["slide", { on: i === 0 }]} aria-hidden={i === 0 ? undefined : "true"}>
+          {slide.map((child) => <Astro.self node={child} canvas={canvas} origin={[n.box[0], n.box[1]]} inSlide />)}
+        </div>
+      ))}
+    </div>
     {n.slides.length > 1 && n.nav !== false && (
       <Fragment>
         <button type="button" class="show-nav prev" aria-label="Previous" style={n.prev ? css({ left: px(n.prev[0] - n.box[0] - 15), top: px(n.prev[1] - n.box[1] - 15), color: n.arrowColor }) : "left:0;top:calc(50% - 26px)"}>

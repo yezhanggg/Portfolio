@@ -1,28 +1,57 @@
-// Client-side behaviour for the page canvases: zine slideshows, gallery strips + lightbox, forms.
+// Client-side behaviour for the page canvases: zine slideshows, gallery strips + lightbox, forms,
+// and the motion carried over from the original site (entrances, drift, pointer tracking).
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const zoom = () => Number(getComputedStyle(document.documentElement).getPropertyValue("--z")) || 1;
+const lightboxOpen = () => !!document.querySelector(".pswp--open");
+
 // ---- Slideshows ------------------------------------------------------------------------------
 for (const show of document.querySelectorAll("[data-slideshow]")) {
-  const slides = [...show.querySelectorAll(":scope > .slide")];
+  const slides = [...show.querySelectorAll(":scope > .slides > .slide")];
   const dots = [...show.querySelectorAll(".show-dots .dot")];
   if (slides.length < 2) continue;
+  const slideMs = reduceMotion ? 0 : Number(show.dataset.slide || 0);
   let current = 0;
-  const go = (i) => {
+  let busy = false;
+
+  const go = (i, dir = 1) => {
     const next = (i + slides.length) % slides.length;
-    slides[current].classList.remove("on");
-    slides[current].setAttribute("aria-hidden", "true");
+    if (next === current || busy) return;
+    const from = slides[current], to = slides[next];
     dots[current]?.classList.remove("on");
+    dots[next]?.classList.add("on");
+    from.setAttribute("aria-hidden", "true");
+    to.removeAttribute("aria-hidden");
+    if (slideMs) {
+      // Sideways slide: the new page enters from the side the visitor is heading to.
+      busy = true;
+      to.style.transform = `translateX(${dir * 100}%)`;
+      to.classList.add("on");
+      void to.offsetWidth;
+      to.classList.add("moving");
+      from.classList.add("moving");
+      to.style.transform = "translateX(0)";
+      from.style.transform = `translateX(${-dir * 100}%)`;
+      setTimeout(() => {
+        from.classList.remove("on", "moving");
+        to.classList.remove("moving");
+        from.style.transform = "";
+        to.style.transform = "";
+        busy = false;
+      }, slideMs + 40);
+    } else {
+      from.classList.remove("on");
+      to.classList.add("on");
+    }
     current = next;
-    slides[current].classList.add("on");
-    slides[current].removeAttribute("aria-hidden");
-    dots[current]?.classList.add("on");
     // Warm the following slide so flipping stays instant.
     slides[(current + 1) % slides.length].querySelectorAll("img[loading='lazy']").forEach((img) => (img.loading = "eager"));
   };
-  show.querySelector(".show-nav.prev")?.addEventListener("click", () => go(current - 1));
-  show.querySelector(".show-nav.next")?.addEventListener("click", () => go(current + 1));
-  dots.forEach((dot, i) => dot.addEventListener("click", () => go(i)));
+  show.querySelector(".show-nav.prev")?.addEventListener("click", () => go(current - 1, -1));
+  show.querySelector(".show-nav.next")?.addEventListener("click", () => go(current + 1, 1));
+  dots.forEach((dot, i) => dot.addEventListener("click", () => go(i, i > current ? 1 : -1)));
 
   let startX = null;
   show.addEventListener("pointerdown", (e) => (startX = e.clientX));
@@ -30,30 +59,51 @@ for (const show of document.querySelectorAll("[data-slideshow]")) {
     if (startX === null) return;
     const dx = e.clientX - startX;
     startX = null;
-    if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1));
+    if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
   });
-  // Galleries that flipped pages on their own keep doing so; pause while the pointer is over them.
-  const auto = Number(show.dataset.auto || 0);
-  if (auto && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    let paused = false;
-    show.addEventListener("pointerenter", () => (paused = true));
-    show.addEventListener("pointerleave", () => (paused = false));
-    setInterval(() => !paused && !document.querySelector(".pswp--open") && show.offsetParent && go(current + 1), Math.max(auto, 3500));
-  }
   show.tabIndex = 0;
   show.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") go(current - 1);
-    if (e.key === "ArrowRight") go(current + 1);
+    if (e.key === "ArrowLeft") go(current - 1, -1);
+    if (e.key === "ArrowRight") go(current + 1, 1);
   });
-  go(0);
+
+  // Slideshows that advanced on their own keep doing so; pause while the pointer is over them.
+  const auto = Number(show.dataset.auto || 0);
+  if (auto && !reduceMotion) {
+    let paused = false;
+    show.addEventListener("pointerenter", (e) => e.pointerType === "mouse" && (paused = true));
+    show.addEventListener("pointerleave", () => (paused = false));
+    setInterval(() => !paused && !lightboxOpen() && show.offsetParent && go(current + 1, 1), Math.max(auto, slideMs + 600));
+  }
+  slides[1].querySelectorAll("img[loading='lazy']").forEach((img) => (img.loading = "eager"));
 }
 
-// ---- Gallery strips: start where the original did, drag to scroll ------------------------------
+// ---- Gallery strips: start where the original did, drift on their own, drag to scroll -----------
 for (const strip of document.querySelectorAll(".gal.scrolls")) {
+  const inner = strip.querySelector(".gal-inner");
+  const speed = reduceMotion ? 0 : Number(strip.dataset.speed || 0); // px/s, negative = content moves left
+  let period = 0;
+  if (speed && inner) {
+    // Duplicate the strip once so the drift can loop without a visible jump.
+    period = inner.offsetWidth;
+    for (const item of [...inner.children]) {
+      const clone = item.cloneNode(true);
+      clone.dataset.clone = "1";
+      clone.style.left = parseFloat(item.style.left) + period + "px";
+      inner.appendChild(clone);
+    }
+    inner.style.width = period * 2 + "px";
+    strip.classList.add("drift");
+  }
   const start = Number(strip.dataset.start || 0);
-  if (start) strip.scrollLeft = start;
+  let pos = period ? start % period : start;
+  strip.scrollLeft = pos;
+
   let down = null;
   let moved = false;
+  let hover = false;
+  strip.addEventListener("pointerenter", (e) => e.pointerType === "mouse" && (hover = true));
+  strip.addEventListener("pointerleave", () => (hover = false));
   strip.addEventListener("pointerdown", (e) => {
     if (e.pointerType !== "mouse") return;
     down = { x: e.clientX, left: strip.scrollLeft };
@@ -61,22 +111,83 @@ for (const strip of document.querySelectorAll(".gal.scrolls")) {
   });
   addEventListener("pointermove", (e) => {
     if (!down) return;
-    const zoom = Number(getComputedStyle(document.documentElement).getPropertyValue("--z")) || 1;
-    const dx = (e.clientX - down.x) / zoom;
+    const dx = (e.clientX - down.x) / zoom();
     if (Math.abs(dx) > 4) moved = true;
     strip.scrollLeft = down.left - dx;
   });
   addEventListener("pointerup", () => (down = null));
   // A drag shouldn't open the lightbox.
   strip.addEventListener("click", (e) => moved && (e.preventDefault(), e.stopPropagation()), true);
+
+  if (speed && period) {
+    let last = performance.now();
+    let resumeAt = 0;
+    strip.addEventListener("touchstart", () => (resumeAt = Infinity), { passive: true });
+    strip.addEventListener("touchend", () => (resumeAt = performance.now() + 1500), { passive: true });
+    const tick = (now) => {
+      const dt = Math.min(now - last, 100) / 1000;
+      last = now;
+      if (!down && !hover && now > resumeAt && !lightboxOpen()) {
+        pos -= speed * dt;
+        if (pos >= period) pos -= period;
+        if (pos < 0) pos += period;
+        strip.scrollLeft = pos;
+      } else {
+        pos = strip.scrollLeft % period;
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
 }
 
 // ---- Lightbox ---------------------------------------------------------------------------------
 for (const gallery of document.querySelectorAll(".gal")) {
-  new PhotoSwipeLightbox({ gallery, children: "a.gal-item", pswpModule: () => import("photoswipe"), bgOpacity: 0.92 }).init();
+  const lightbox = new PhotoSwipeLightbox({ gallery, children: "a.gal-item:not([data-clone])", pswpModule: () => import("photoswipe"), bgOpacity: 0.92 });
+  lightbox.init();
+  // Clicking a looped copy opens the matching original.
+  gallery.addEventListener("click", (e) => {
+    const clone = e.target.closest("a.gal-item[data-clone]");
+    if (!clone) return;
+    e.preventDefault();
+    const originals = [...gallery.querySelectorAll("a.gal-item:not([data-clone])")];
+    const index = originals.findIndex((a) => a.getAttribute("href") === clone.getAttribute("href"));
+    if (index >= 0) lightbox.loadAndOpen(index, { gallery });
+  });
 }
 for (const view of document.querySelectorAll(".view")) {
   if (view.querySelector("a.zoom")) new PhotoSwipeLightbox({ gallery: view, children: "a.zoom", pswpModule: () => import("photoswipe"), bgOpacity: 0.92 }).init();
+}
+
+// ---- Entrance animations start when their element scrolls into view -----------------------------
+const entering = [...document.querySelectorAll(".enter")];
+if (entering.length) {
+  // Position comes from layout (offsetTop), not from the painted box: at frame 0 an element may
+  // be clipped, shrunk or shifted far away.
+  const release = () => {
+    const z = zoom();
+    for (const el of entering) {
+      if (el.classList.contains("go") || !el.offsetParent) continue;
+      const top = el.offsetParent.getBoundingClientRect().top + el.offsetTop * z;
+      if (reduceMotion || (top < innerHeight * 0.92 && top + el.offsetHeight * z > 0)) el.classList.add("go");
+    }
+  };
+  addEventListener("scroll", release, { passive: true });
+  addEventListener("resize", release);
+  release();
+}
+
+// ---- Elements that follow the pointer ("track mouse") -------------------------------------------
+const trackers = [...document.querySelectorAll("[data-mouse]")];
+if (trackers.length && !reduceMotion && matchMedia("(pointer: fine)").matches) {
+  for (const el of trackers) el.style.setProperty("--mouse-ms", (el.dataset.mouseMs || 500) + "ms");
+  addEventListener("pointermove", (e) => {
+    const dx = e.clientX - innerWidth / 2, dy = e.clientY - innerHeight / 2;
+    for (const el of trackers) {
+      const k = Number(el.dataset.mouse);
+      el.style.translate = `${(dx * k).toFixed(1)}px ${(dy * k).toFixed(1)}px`;
+    }
+  }, { passive: true });
 }
 
 // ---- YouTube thumbnails switch the player on the same page -------------------------------------

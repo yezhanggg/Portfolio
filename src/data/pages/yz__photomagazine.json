@@ -252,51 +252,18 @@
        {
         "type": "box",
         "box": [
-         -205.7,
+         -230,
          840,
          1440,
          79
         ],
-        "bg": "rgb(227, 81, 6)"
-       },
-       {
-        "type": "text",
-        "box": [
-         82.3,
-         859,
-         864,
-         50
-        ],
-        "style": {
-         "font-family": "Arial, Helvetica, sans-serif",
-         "font-size": "10px",
-         "font-weight": "400",
-         "font-style": "normal",
-         "color": "rgb(0, 0, 0)",
-         "letter-spacing": "normal",
-         "line-height": "normal",
-         "text-align": "start",
-         "text-transform": "none",
-         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
-        },
-        "lines": 2,
-        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:49px;text-align:center\"><span style=\"font-style:italic\"><span><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-weight:700\">click  on  the  magazine</span></span></span></span></span></span></h3>"
-       },
-       {
-        "type": "box",
-        "box": [
-         -1645.7,
-         840,
-         1440,
-         79
-        ],
-        "bg": "rgb(13, 79, 43)",
+        "bg": "rgb(71, 67, 197)",
         "bleed": true
        },
        {
         "type": "text",
         "box": [
-         -1358.7,
+         58,
          850,
          864,
          69.6
@@ -315,6 +282,114 @@
         },
         "lines": 2,
         "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:68.6px;text-align:center\"><span><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-style:italic\"><span style=\"font-weight:700\">click click click</span></span></span></span></span></span></h3>"
+       }
+      ],
+      [
+       {
+        "type": "box",
+        "box": [
+         -230,
+         840,
+         1440,
+         79
+        ],
+        "bg": "rgb(29, 103, 205)",
+        "bleed": true
+       },
+       {
+        "type": "text",
+        "box": [
+         57,
+         850,
+         864,
+         69.6
+        ],
+        "style": {
+         "font-family": "Arial, Helvetica, sans-serif",
+         "font-size": "10px",
+         "font-weight": "400",
+         "font-style": "normal",
+         "color": "rgb(0, 0, 0)",
+         "letter-spacing": "normal",
+         "line-height": "normal",
+         "text-align": "start",
+         "text-transform": "none",
+         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+        },
+        "lines": 2,
+        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:68.6px;text-align:center\"><span><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-style:italic\"><span style=\"font-weight:700\">check them out</span></span></span></span></span></span></h3>"
+       }
+      ],
+      [
+       {
+        "type": "box",
+        "box": [
+         -230,
+         840,
+         1440,
+         79
+        ],
+        "bg": "rgb(13, 79, 43)",
+        "bleed": true
+       },
+       {
+        "type": "text",
+        "box": [
+         57,
+         850,
+         864,
+         69.6
+        ],
+        "style": {
+         "font-family": "Arial, Helvetica, sans-serif",
+         "font-size": "10px",
+         "font-weight": "400",
+         "font-style": "normal",
+         "color": "rgb(0, 0, 0)",
+         "letter-spacing": "normal",
+         "line-height": "normal",
+         "text-align": "start",
+         "text-transform": "none",
+         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+        },
+        "lines": 2,
+        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:68.6px;text-align:center\"><span><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-style:italic\"><span style=\"font-weight:700\">click click click</span></span></span></span></span></span></h3>"
+       }
+      ],
+      [
+       {
+        "type": "box",
+        "box": [
+         -230,
+         840,
+         1440,
+         79
+        ],
+        "bg": "rgb(227, 81, 6)",
+        "bleed": true
+       },
+       {
+        "type": "text",
+        "box": [
+         58,
+         859,
+         864,
+         50
+        ],
+        "style": {
+         "font-family": "Arial, Helvetica, sans-serif",
+         "font-size": "10px",
+         "font-weight": "400",
+         "font-style": "normal",
+         "color": "rgb(0, 0, 0)",
+         "letter-spacing": "normal",
+         "line-height": "normal",
+         "text-align": "start",
+         "text-transform": "none",
+         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+        },
+        "lines": 2,
+        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:49px;text-align:center\"><span style=\"font-style:italic\"><span><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-weight:700\">click  on  the  magazine</span></span></span></span></span></span></h3>"
        }
       ]
      ],

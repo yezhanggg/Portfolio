@@ -1,6 +1,7 @@
 // Adjustments applied to the extracted Wix data before rendering: things that only worked
 // inside Wix (its widgets, its hosted icons) are swapped for self-hosted equivalents here.
 import { siSpotify, siInstagram } from "simple-icons";
+import motion from "../data/motion.json";
 
 const LINKEDIN_PATH =
   "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z";
@@ -112,8 +113,56 @@ function addPortfolioEntries(page) {
   }
 }
 
+// Motion measured on the live Wix pages (migration/scripts/motion_audit.mjs → apply_motion.mjs):
+// entrance/loop animations, hover states, pointer tracking, drifting galleries, slideshow autoplay.
+function applyMotion(page) {
+  const m = motion[`${page.site}__${page.slug}`];
+  if (!m) return;
+  const centre = (b) => [b[0] + b[2] / 2, b[1] + b[3] / 2];
+  for (const [name, view] of Object.entries(page.views)) {
+    const mv = m[name];
+    if (!mv) continue;
+    const all = [];
+    const visit = (nodes) => nodes.forEach((n) => (all.push(n), n.slides?.forEach(visit)));
+    visit(view.nodes);
+
+    for (const a of mv.anims) {
+      const [cx, cy] = centre(a.box);
+      const hits = all.filter((n) => !n.bleed && ["image", "text", "button", "svg", "video", "box"].includes(n.type) && Math.abs(centre(n.box)[0] - cx) < 10 && Math.abs(centre(n.box)[1] - cy) < 10 && n.box[2] <= a.box[2] * 1.6 + 10 && n.box[3] <= a.box[3] * 1.6 + 10);
+      for (const n of hits) {
+        n.anim = a.list;
+        // A spinning element was photographed mid-turn; use its resting box instead.
+        if (a.list.some((x) => x.loop) && hits.length === 1) n.box = a.box;
+      }
+    }
+    for (const h of mv.hovers) {
+      if (!h.rect) continue;
+      const n = all.find((x) => ["button", "image", "svg"].includes(x.type) && Math.abs(x.box[0] - h.rect[0]) <= 3 && Math.abs(x.box[1] - h.rect[1]) <= 3 && Math.abs(x.box[2] - h.rect[2]) <= 4);
+      if (!n) continue;
+      const root = { ...h.root }, base = { ...h.base };
+      if (base.opacity === "0") delete root.opacity; // hover-only overlays are not rebuilt
+      if (root.opacity !== undefined) n.opacity = String(Math.round(Number(base.opacity) * 20) / 20);
+      if (Object.keys(h.label).length || Object.keys(root).length) n.hover = { label: h.label, root, tr: h.tr };
+      if (h.mouse) n.mouse = h.mouse;
+    }
+    for (const g of mv.galleries) {
+      const n = all.find((x) => x.type === "gallery" && Math.abs(x.box[1] - g.box[1]) < 10);
+      if (n) n.speed = g.speed;
+    }
+    for (const n of all) {
+      const sh = n.type === "slideshow" && n.id && mv.shows[n.id];
+      if (!sh) continue;
+      if (sh.auto && !n.auto) n.auto = sh.auto;
+      if (sh.slideMs) n.slideMs = sh.slideMs;
+    }
+    // Background video/image that stays put while the content scrolls over it.
+    if (mv.stickyBg) for (const n of view.nodes) if (n.bleed && n.box[1] <= 1 && n.box[3] >= view.height - 2 && (n.type === "video" || n.type === "image")) n.sticky = true;
+  }
+}
+
 export function applyFixups(page) {
   for (const view of Object.values(page.views)) view.nodes = fixNodes(view.nodes, page);
+  applyMotion(page);
   if (page.site === "yz" && page.slug === "portfolio") addPortfolioEntries(page);
   return page;
 }
