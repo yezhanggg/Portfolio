@@ -81,7 +81,12 @@
       "text-transform": "none",
       "text-shadow": "none"
      },
-     "border": "1px solid rgb(0, 0, 0)",
+     "borders": [
+      "1px solid rgb(0, 0, 0)",
+      null,
+      "1px solid rgb(0, 0, 0)",
+      null
+     ],
      "href": "https://www.yezhang.net/magazine",
      "target": "_self"
     },

@@ -43,7 +43,14 @@ for (const view of VIEWS) {
     }
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.waitForTimeout(700);
-    const shot = await page.screenshot({ fullPage: true });
+    // Desktop: grow the window to the page height instead of fullPage capture, which re-picks
+    // srcset candidates mid-shot and can photograph images while they reload.
+    if (view.name === "desktop") {
+      await page.setViewportSize({ width: 1440, height: Math.min(Math.max(h, 900), 12000) });
+      await page.waitForLoadState("networkidle", { timeout: 8000 }).catch(() => {});
+      await page.waitForTimeout(900);
+    }
+    const shot = await page.screenshot({ fullPage: view.name !== "desktop" });
     await page.close();
     if (errors.length) problems.push([name, [...new Set(errors)].slice(0, 4)]);
 

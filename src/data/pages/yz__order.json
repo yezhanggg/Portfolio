@@ -56,6 +56,30 @@
      "target": "_self"
     },
     {
+     "type": "text",
+     "box": [
+      312.9,
+      246,
+      353.2,
+      43
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "36px",
+      "font-weight": "700",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "54px",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "GET A FREE COPY OF THE ZINE",
+     "plain": true
+    },
+    {
      "type": "box",
      "box": [
       207,
@@ -64,6 +88,12 @@
       37
      ],
      "bg": "rgba(232, 230, 230, 0.35)",
+     "borders": [
+      null,
+      null,
+      "1px solid rgb(255, 255, 255)",
+      null
+     ],
      "radius": "1px"
     },
     {
@@ -121,6 +151,12 @@
       37
      ],
      "bg": "rgba(232, 230, 230, 0.35)",
+     "borders": [
+      null,
+      null,
+      "1px solid rgb(255, 255, 255)",
+      null
+     ],
      "radius": "1px"
     },
     {
@@ -178,6 +214,12 @@
       37
      ],
      "bg": "rgba(232, 230, 230, 0.35)",
+     "borders": [
+      null,
+      null,
+      "1px solid rgb(255, 255, 255)",
+      null
+     ],
      "radius": "1px"
     },
     {
@@ -235,6 +277,12 @@
       37
      ],
      "bg": "rgba(232, 230, 230, 0.35)",
+     "borders": [
+      null,
+      null,
+      "1px solid rgb(255, 255, 255)",
+      null
+     ],
      "radius": "1px"
     },
     {
@@ -292,6 +340,12 @@
       92
      ],
      "bg": "rgba(232, 230, 230, 0.35)",
+     "borders": [
+      null,
+      null,
+      "1px solid rgb(255, 255, 255)",
+      null
+     ],
      "radius": "1px"
     },
     {
@@ -341,6 +395,30 @@
      "placeholderColor": "rgb(0, 0, 0)"
     },
     {
+     "type": "text",
+     "box": [
+      207,
+      782,
+      38.4,
+      18
+     ],
+     "style": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "Issue#",
+     "plain": true
+    },
+    {
      "type": "input",
      "tag": "input",
      "inputType": "checkbox",
@@ -354,13 +432,13 @@
       24
      ],
      "labelStyle": {
-      "font-family": "Arial, Helvetica, sans-serif",
-      "font-size": "10px",
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
       "font-weight": "400",
       "font-style": "normal",
       "color": "rgb(0, 0, 0)",
       "letter-spacing": "normal",
-      "line-height": "normal",
+      "line-height": "24px",
       "text-align": "start",
       "text-transform": "none",
       "text-shadow": "none"
@@ -410,13 +488,13 @@
       24
      ],
      "labelStyle": {
-      "font-family": "Arial, Helvetica, sans-serif",
-      "font-size": "10px",
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
       "font-weight": "400",
       "font-style": "normal",
       "color": "rgb(0, 0, 0)",
       "letter-spacing": "normal",
-      "line-height": "normal",
+      "line-height": "24px",
       "text-align": "start",
       "text-transform": "none",
       "text-shadow": "none"
@@ -466,13 +544,13 @@
       24
      ],
      "labelStyle": {
-      "font-family": "Arial, Helvetica, sans-serif",
-      "font-size": "10px",
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
       "font-weight": "400",
       "font-style": "normal",
       "color": "rgb(0, 0, 0)",
       "letter-spacing": "normal",
-      "line-height": "normal",
+      "line-height": "24px",
       "text-align": "start",
       "text-transform": "none",
       "text-shadow": "none"
@@ -592,6 +670,30 @@
      "target": "_self"
     },
     {
+     "type": "text",
+     "box": [
+      79.7,
+      134,
+      160.6,
+      151
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "36px",
+      "font-weight": "700",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "54px",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 3,
+     "html": "GET A FREE COPY OF THE ZINE",
+     "plain": true
+    },
+    {
      "type": "box",
      "box": [
       68,
@@ -600,6 +702,12 @@
       37
      ],
      "bg": "rgba(232, 230, 230, 0.35)",
+     "borders": [
+      null,
+      null,
+      "1px solid rgb(255, 255, 255)",
+      null
+     ],
      "radius": "1px"
     },
     {
@@ -657,6 +765,12 @@
       37
      ],
      "bg": "rgba(232, 230, 230, 0.35)",
+     "borders": [
+      null,
+      null,
+      "1px solid rgb(255, 255, 255)",
+      null
+     ],
      "radius": "1px"
     },
     {
@@ -714,6 +828,12 @@
       37
      ],
      "bg": "rgba(232, 230, 230, 0.35)",
+     "borders": [
+      null,
+      null,
+      "1px solid rgb(255, 255, 255)",
+      null
+     ],
      "radius": "1px"
     },
     {
@@ -771,6 +891,12 @@
       37
      ],
      "bg": "rgba(232, 230, 230, 0.35)",
+     "borders": [
+      null,
+      null,
+      "1px solid rgb(255, 255, 255)",
+      null
+     ],
      "radius": "1px"
     },
     {
@@ -828,6 +954,12 @@
       92
      ],
      "bg": "rgba(232, 230, 230, 0.35)",
+     "borders": [
+      null,
+      null,
+      "1px solid rgb(255, 255, 255)",
+      null
+     ],
      "radius": "1px"
     },
     {
@@ -877,6 +1009,30 @@
      "placeholderColor": "rgb(0, 0, 0)"
     },
     {
+     "type": "text",
+     "box": [
+      68,
+      877,
+      38.4,
+      18
+     ],
+     "style": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "Issue#",
+     "plain": true
+    },
+    {
      "type": "input",
      "tag": "input",
      "inputType": "checkbox",
@@ -890,13 +1046,13 @@
       24
      ],
      "labelStyle": {
-      "font-family": "Arial, Helvetica, sans-serif",
-      "font-size": "10px",
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
       "font-weight": "400",
       "font-style": "normal",
       "color": "rgb(0, 0, 0)",
       "letter-spacing": "normal",
-      "line-height": "normal",
+      "line-height": "24px",
       "text-align": "start",
       "text-transform": "none",
       "text-shadow": "none"
@@ -946,13 +1102,13 @@
       24
      ],
      "labelStyle": {
-      "font-family": "Arial, Helvetica, sans-serif",
-      "font-size": "10px",
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
       "font-weight": "400",
       "font-style": "normal",
       "color": "rgb(0, 0, 0)",
       "letter-spacing": "normal",
-      "line-height": "normal",
+      "line-height": "24px",
       "text-align": "start",
       "text-transform": "none",
       "text-shadow": "none"
@@ -1002,13 +1158,13 @@
       24
      ],
      "labelStyle": {
-      "font-family": "Arial, Helvetica, sans-serif",
-      "font-size": "10px",
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
       "font-weight": "400",
       "font-style": "normal",
       "color": "rgb(0, 0, 0)",
       "letter-spacing": "normal",
-      "line-height": "normal",
+      "line-height": "24px",
       "text-align": "start",
       "text-transform": "none",
       "text-shadow": "none"

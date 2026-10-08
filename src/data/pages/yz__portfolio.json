@@ -282,7 +282,12 @@
       31,
       7
      ],
-     "border": "3px solid rgb(0, 0, 0)",
+     "borders": [
+      "3px solid rgb(0, 0, 0)",
+      null,
+      null,
+      null
+     ],
      "rotate": 90
     },
     {

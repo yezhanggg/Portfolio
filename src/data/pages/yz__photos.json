@@ -81,7 +81,12 @@
       "text-transform": "none",
       "text-shadow": "none"
      },
-     "border": "1px solid rgb(0, 0, 0)",
+     "borders": [
+      "1px solid rgb(0, 0, 0)",
+      null,
+      "1px solid rgb(0, 0, 0)",
+      null
+     ],
      "href": "https://www.yezhang.net/photos",
      "target": "_self"
     },
@@ -174,19 +179,6 @@
          980,
          640
         ],
-        "src": "https://static.wixstatic.com/media/f8d0cd_18670ebf6c144a8eb248a0a3c77df19b~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_18670ebf6c144a8eb248a0a3c77df19b~mv2.jpg",
-        "fit": "cover"
-       }
-      ],
-      [
-       {
-        "type": "image",
-        "box": [
-         0,
-         162,
-         980,
-         640
-        ],
         "src": "https://static.wixstatic.com/media/f8d0cd_6fcbfcd414c346f0a187112096498165~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_6fcbfcd414c346f0a187112096498165~mv2.jpg",
         "fit": "cover"
        }
@@ -214,6 +206,19 @@
          640
         ],
         "src": "https://static.wixstatic.com/media/f8d0cd_b637febe5dc54b0ca8fa3a4e79bd4f7e~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_b637febe5dc54b0ca8fa3a4e79bd4f7e~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_18670ebf6c144a8eb248a0a3c77df19b~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_18670ebf6c144a8eb248a0a3c77df19b~mv2.jpg",
         "fit": "cover"
        }
       ],
@@ -270,6 +275,30 @@
        }
       ]
      ]
+    },
+    {
+     "type": "text",
+     "box": [
+      941.6,
+      778,
+      28.4,
+      14
+     ],
+     "style": {
+      "font-family": "arial, helvetica, sans-serif",
+      "font-size": "12px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "right",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "4/10",
+     "plain": true
     },
     {
      "type": "text",
@@ -501,6 +530,30 @@
        }
       ]
      ]
+    },
+    {
+     "type": "text",
+     "box": [
+      261.6,
+      339,
+      28.4,
+      14
+     ],
+     "style": {
+      "font-family": "arial, helvetica, sans-serif",
+      "font-size": "12px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "right",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "4/10",
+     "plain": true
     },
     {
      "type": "text",

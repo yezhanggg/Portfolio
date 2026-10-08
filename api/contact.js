@@ -19,6 +19,7 @@ const FORMS = {
     fields: [
       ["name", "Name", 200, false],
       ["contact", "Contact", 300, false],
+      ["email", "Email", 300, false],
       ["message", "Message", 5000, true],
     ],
   },
@@ -104,7 +105,8 @@ export async function POST(request) {
   }
   lines.push("", `Page: ${String(body.page || "").slice(0, 200)}`);
 
-  const email = typeof body.email === "string" ? body.email.trim() : "";
+  // Reply straight to the visitor when they left an email (the contact form's "contact" field often is one).
+  const email = [body.email, body.contact].find((v) => typeof v === "string" && v.includes("@"))?.trim() || "";
   const upstream = await fetch(RESEND_URL, {
     method: "POST",
     headers: {

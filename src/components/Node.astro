@@ -14,15 +14,14 @@ const frame = {
   transform: n.rotate ? `rotate(${n.rotate}deg)` : undefined,
 };
 const visibleShadow = (s) => (s && !/rgba\([^)]*,\s*0\)/.test(s) ? s : undefined);
-// Wix divider lines are thin boxes with only a top border.
-const thinLine = n.type === "box" && n.border && !n.bg && Math.min(n.box[2], n.box[3]) <= 10;
+const [bt, br, bb, bl] = n.borders || [];
 const paint = {
   background: n.bgImage || n.bg,
-  // Bordered buttons on the old site were menu tabs with a rule above and below.
-  border: n.line || thinLine || n.type === "button" ? undefined : n.border,
-  "border-top": (n.line || thinLine || n.type === "button") && parseFloat(n.border) > 0 ? n.border : undefined,
-  "border-bottom": n.type === "button" && parseFloat(n.border) > 0 ? n.border : undefined,
-  "border-left": n.line && parseFloat(n.borderLeft) > 0 ? n.borderLeft : undefined,
+  border: n.border,
+  "border-top": bt,
+  "border-right": br,
+  "border-bottom": bb,
+  "border-left": bl,
   "border-radius": n.radius,
   "box-shadow": visibleShadow(n.shadow),
   opacity: n.opacity,
@@ -59,7 +58,7 @@ const labelPos = (n) =>
 const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "div";
 ---
 
-{n.type === "box" && <div class:list={["n", { bleed }]} style={css({ ...frame, ...paint })} />}
+{n.type === "box" && <div class:list={["n", "bx", { bleed }]} style={css({ ...frame, ...paint })} />}
 
 {n.type === "text" && (
   <div class:list={["n", "t", { bleed, nw: n.lines === 1 }]} style={css({ ...frame, height: undefined, "min-height": frame.height, ...fontFix(n.style) })} set:html={rewriteLinks(n.html)} />
@@ -74,6 +73,10 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
 {n.type === "image" && img && (
   href ? (
     <a class:list={["n", "img", { bleed }]} style={css({ ...frame, "border-radius": n.radius, opacity: n.opacity, ...maskCss(n.mask) })} {...linkAttrs}>
+      <img src={smallest(img.m)} srcset={srcset(img.m)} sizes={sizes(img.shownW)} alt={n.alt || ""} style={img.style} loading={eager ? "eager" : "lazy"} decoding="async" />
+    </a>
+  ) : n.zoom ? (
+    <a class:list={["n", "img", "zoom", { bleed }]} href={largest(img.m)} data-pswp-width={img.m.w} data-pswp-height={img.m.h} target="_blank" style={css({ ...frame, "border-radius": n.radius, opacity: n.opacity, ...maskCss(n.mask) })}>
       <img src={smallest(img.m)} srcset={srcset(img.m)} sizes={sizes(img.shownW)} alt={n.alt || ""} style={img.style} loading={eager ? "eager" : "lazy"} decoding="async" />
     </a>
   ) : (
@@ -129,13 +132,13 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
 })()}
 
 {n.type === "slideshow" && (
-  <div class:list={["n", "show", { bleed }]} style={css(frame)} data-slideshow>
+  <div class:list={["n", "show", { bleed }]} style={css(frame)} data-slideshow data-auto={n.auto}>
     {n.slides.map((slide, i) => (
       <div class:list={["slide", { on: i === 0 }]} aria-hidden={i === 0 ? undefined : "true"}>
         {slide.map((child) => <Astro.self node={child} canvas={canvas} origin={[n.box[0], n.box[1]]} inSlide />)}
       </div>
     ))}
-    {n.slides.length > 1 && (
+    {n.slides.length > 1 && n.nav !== false && (
       <Fragment>
         <button type="button" class="show-nav prev" aria-label="Previous" style={n.prev ? css({ left: px(n.prev[0] - n.box[0] - 15), top: px(n.prev[1] - n.box[1] - 15), color: n.arrowColor }) : "left:0;top:calc(50% - 26px)"}>
           <svg viewBox="0 0 10 20" width="10" height="20"><path d="M9 1 1 10l8 9" fill="none" stroke="currentColor" stroke-width="1" /></svg>

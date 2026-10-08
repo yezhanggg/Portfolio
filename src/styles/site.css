@@ -9,14 +9,14 @@
   box-sizing: border-box;
 }
 html {
-  overflow-x: clip;
+  overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
 body {
   margin: 0;
   background: #fff;
   color: #000;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 a {
   color: inherit;
@@ -42,12 +42,20 @@ a {
   .fixed-mobile {
     display: block;
   }
+  /* Rotated or oversized items must not widen the page (phones would zoom out to fit). */
+  .view-mobile {
+    overflow: hidden;
+  }
 }
 
 .n {
   position: absolute;
   display: block;
   margin: 0;
+}
+/* Boxes are decoration only; never let one swallow a click meant for what is under it. */
+.bx {
+  pointer-events: none;
 }
 /* Full-width strips: break out of the centred column to the viewport edges. */
 .bleed {
@@ -63,9 +71,9 @@ a {
   z-index: 0;
 }
 .fixed-bg > .n {
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 .fixed-bg > .n img,
 .fixed-bg > video.n {
@@ -127,6 +135,9 @@ button.btn:hover {
 .img img {
   display: block;
 }
+a.zoom {
+  cursor: zoom-in;
+}
 .svg svg {
   display: block;
   width: 100%;
@@ -167,12 +178,12 @@ button.btn:hover {
 
 /* Slideshows (zines) */
 .show {
-  overflow: hidden;
   touch-action: pan-y;
 }
 .slide {
   position: absolute;
   inset: 0;
+  overflow: hidden;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.45s ease, visibility 0s 0.45s;

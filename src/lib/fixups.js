@@ -22,11 +22,16 @@ function fixNodes(nodes, page) {
   const videos = nodes.filter((n) => n.type === "video");
   const out = [];
   for (const n of nodes) {
-    if (n.opacity === "0" && n.type === "button") continue; // hover-only "Play" overlays
+    if (n.opacity === "0" && (n.type === "button" || n.type === "box")) continue; // hover-only overlays
+    // Wix's phone menu icon on ZHAENG (three thin bars); ZHAENG pages link to each other directly.
+    if (page.site === "zhaeng" && n.type === "box" && n.box[2] <= 24 && n.box[3] <= 3) continue;
     // Anything else at opacity 0 was waiting for a Wix scroll-in animation: show it.
     if (n.opacity === "0") n.opacity = undefined;
     // Play/pause glyphs Wix draws over its video boxes.
     if (n.type === "svg" && videos.some((v) => inside(n.box, v.box) && n.box[2] < 120)) continue;
+
+    // Wix widget chrome that has no meaning off Wix: gallery page counters, "Now Playing" badge.
+    if (n.type === "text" && n.plain && (/^\d+\/\d+$/.test(n.html) || n.html === "Now Playing")) continue;
 
     if (n.type === "image") {
       // Poster frame Wix layers over a video that is already playing in this view.

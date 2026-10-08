@@ -184,6 +184,54 @@
      "position": "50% 50%"
     },
     {
+     "type": "text",
+     "box": [
+      140.7,
+      931.5,
+      77.2,
+      19
+     ],
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "14px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "19px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "Now Playing",
+     "plain": true
+    },
+    {
+     "type": "text",
+     "box": [
+      44,
+      998.3,
+      35,
+      19
+     ],
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "14px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "19px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "03:26",
+     "plain": true
+    },
+    {
      "type": "button",
      "box": [
       140.8,
@@ -250,6 +298,54 @@
      "position": "50% 50%"
     },
     {
+     "type": "text",
+     "box": [
+      356.7,
+      864.8,
+      270.7,
+      19
+     ],
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "14px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "19px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "430 CHAPTER II \"Shhh\" Trailer",
+     "plain": true
+    },
+    {
+     "type": "text",
+     "box": [
+      356.7,
+      998.3,
+      35,
+      19
+     ],
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "14px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "19px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "04:28",
+     "plain": true
+    },
+    {
      "type": "button",
      "box": [
       453.5,
@@ -314,6 +410,54 @@
      ],
      "fit": "cover",
      "position": "50% 50%"
+    },
+    {
+     "type": "text",
+     "box": [
+      669.3,
+      864.8,
+      270.7,
+      19
+     ],
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "14px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "19px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "430 BETA TESTING NOW",
+     "plain": true
+    },
+    {
+     "type": "text",
+     "box": [
+      669.3,
+      998.3,
+      35,
+      19
+     ],
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "14px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "19px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "lines": 1,
+     "html": "01:48",
+     "plain": true
     },
     {
      "type": "button",

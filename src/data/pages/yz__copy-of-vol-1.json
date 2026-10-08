@@ -811,43 +811,21 @@
      "slides": [
       [
        {
-        "type": "box",
-        "box": [
-         20,
-         173,
-         280,
-         378
-        ],
-        "bg": "rgb(255, 255, 255)"
-       },
-       {
         "type": "image",
         "box": [
-         20,
-         257,
-         280,
-         209
+         38,
+         173,
+         246,
+         348
         ],
-        "src": "https://static.wixstatic.com/media/f8d0cd_21bedd9d24fe48ce92a21da9f04769cf~mv2.jpg/v1/crop/x_32,y_0,w_1126,h_842/fill/w_560,h_418,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/No_23.jpg",
-        "alt": "No.23.jpg",
+        "src": "https://static.wixstatic.com/media/f8d0cd_e1725e5c445d47f485d58ea4f016db92~mv2.jpg/v1/fill/w_492,h_696,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/No_2.jpg",
+        "alt": "No.2.jpg",
         "natural": [
-         280,
-         209
+         246,
+         348
         ],
         "fit": "cover",
-        "position": "50% 50%",
-        "mask": {
-         "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
-         "size": "100% 100%",
-         "position": "0% 0%",
-         "repeat": "no-repeat",
-         "box": [
-          20,
-          257,
-          280,
-          209
-         ]
-        }
+        "position": "50% 50%"
        }
       ],
       [

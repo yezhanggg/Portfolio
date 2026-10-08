@@ -98,7 +98,10 @@ function installExtractor() {
     const o = {};
     if (!transparent(cs.backgroundColor)) o.bg = cs.backgroundColor;
     if (cs.backgroundImage && cs.backgroundImage !== "none" && /gradient/.test(cs.backgroundImage)) o.bgImage = cs.backgroundImage;
-    if (parseFloat(cs.borderTopWidth) > 0 && cs.borderTopStyle !== "none" && !transparent(cs.borderTopColor)) o.border = `${cs.borderTopWidth} ${cs.borderTopStyle} ${cs.borderTopColor}`;
+    const side = (n) => (parseFloat(cs[`border${n}Width`]) > 0 && cs[`border${n}Style`] !== "none" && !transparent(cs[`border${n}Color`]) ? `${cs[`border${n}Width`]} ${cs[`border${n}Style`]} ${cs[`border${n}Color`]}` : null);
+    const sides = ["Top", "Right", "Bottom", "Left"].map(side);
+    if (sides.every((b) => b && b === sides[0])) o.border = sides[0];
+    else if (sides.some(Boolean)) o.borders = sides;
     if (cs.borderTopLeftRadius !== "0px") o.radius = cs.borderRadius;
     if (cs.boxShadow && cs.boxShadow !== "none") o.shadow = cs.boxShadow;
     if (cs.opacity !== "1") o.opacity = cs.opacity;
@@ -206,7 +209,7 @@ function installExtractor() {
         type: "input", tag, inputType: el.type, name: el.name || undefined, placeholder: el.placeholder || undefined, required: el.required || undefined,
         value: toggle ? (label?.innerText.trim() || el.value) : undefined,
         label: label?.innerText.trim() || el.getAttribute("aria-label") || undefined, labelBox: label && label.getBoundingClientRect().width ? rect(label, fixed) : undefined,
-        labelStyle: label ? textStyle(label) : undefined, box: rect(shown, fixed), style: textStyle(el), ...boxStyle(cs),
+        labelStyle: label ? textStyle([...label.querySelectorAll("*")].reverse().find((e) => e.children.length === 0 && e.innerText?.trim()) || label) : undefined, box: rect(shown, fixed), style: textStyle(el), ...boxStyle(cs),
         borderBottom: parseFloat(cs.borderBottomWidth) > 0 ? `${cs.borderBottomWidth} ${cs.borderBottomStyle} ${cs.borderBottomColor}` : undefined,
         padding: cs.padding, placeholderColor: getComputedStyle(el, "::placeholder").color,
       });
@@ -229,13 +232,18 @@ function installExtractor() {
       push({ type: "button", box: rect(el, fixed), label: el.innerText.trim(), labelBox: textRect(labelEl, fixed), style: textStyle(labelEl), ...boxStyle(cs), href, target: el.getAttribute("target") || undefined });
       return;
     }
+    // Plain text outside rich-text blocks (form titles, legends…). Labels are captured with their input.
+    if (hasSize && el.children.length === 0 && r.width > 2 && r.height > 2 && (el.textContent || "").trim() && !el.closest("label, button, select, option, [aria-hidden='true']") && cs.clip === "auto" && cs.clipPath === "none") {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const tops = new Set([...range.getClientRects()].filter((q) => q.width > 1).map((q) => Math.round(q.bottom / 4)));
+      push({ type: "text", box: rect(el, fixed), style: textStyle(el), lines: tops.size, html: esc(el.textContent.trim()), href: ctx.href, plain: true });
+      return;
+    }
     // Containers: emit a box if it paints something, then descend.
     if (hasSize) {
       const bs = boxStyle(cs);
-      if (bs.bg || bs.bgImage || bs.border) push({ type: "box", box: rect(el, fixed), ...bs });
-      else if (/\bwixui-horizontal-line\b|\bwixui-vertical-line\b/.test(cls)) {
-        push({ type: "box", box: rect(el, fixed), border: `${cs.borderTopWidth} ${cs.borderTopStyle} ${cs.borderTopColor}`, line: true, borderLeft: `${cs.borderLeftWidth} ${cs.borderLeftStyle} ${cs.borderLeftColor}` });
-      }
+      if (bs.bg || bs.bgImage || bs.border || bs.borders) push({ type: "box", box: rect(el, fixed), ...bs });
       const bi = cs.backgroundImage;
       if (bi && bi.includes("url(") && bi.includes("wixstatic")) push({ type: "image", box: rect(el, fixed), src: bi.match(/url\(["']?([^"')]+)/)[1], fit: cs.backgroundSize === "contain" ? "contain" : "cover", position: cs.backgroundPosition });
     }
@@ -337,6 +345,37 @@ async function extractView(browser, pg, view) {
       const at = data.nodes.findIndex(within);
       data.nodes = data.nodes.filter((n) => !within(n));
       data.nodes.splice(at < 0 ? data.nodes.length : at, 0, { type: "slideshow", id, box: b, prev: [b[0] + 12, b[1] + b[3] / 2 - 10, 10, 20], next: [b[0] + b[2] - 22, b[1] + b[3] / 2 - 10, 10, 20], dots: null, arrowColor: "rgb(255, 255, 255)", slides });
+    }
+  }
+  // Paginated grid galleries (/archive) cross-fade through their pages on a timer: watch until every page was seen.
+  const paged = await page.evaluate(() => [...document.querySelectorAll(".wixui-gallery")].filter((g) => g.querySelector("[data-testid='paginated-grid-gallery-items-container']") && g.querySelector("[data-testid='gallery-counter']")).map((g) => g.id));
+  for (const id of paged) {
+    const pagesSeen = {};
+    let total = 0, box = null;
+    for (let i = 0; i < 80 && (!total || Object.keys(pagesSeen).length < total); i++) {
+      const st = await page.evaluate((gid) => {
+        const g = document.getElementById(gid);
+        const r = g.getBoundingClientRect();
+        const items = [...g.querySelector("[data-testid='paginated-grid-gallery-items-container']").children].map((it) => {
+          const img = it.querySelector("img"), ir = it.getBoundingClientRect();
+          return { src: img?.currentSrc || img?.src, alt: img?.alt, opacity: Number(getComputedStyle(it).opacity), box: [ir.left + scrollX, ir.top + scrollY, ir.width, ir.height] };
+        });
+        return { counter: g.querySelector("[data-testid='gallery-counter']").innerText.trim(), box: [r.left + scrollX, r.top + scrollY, r.width, r.height], items };
+      }, id);
+      const m = st.counter.match(/^(\d+)\/(\d+)$/);
+      if (m && st.items.length && st.items.every((it) => it.opacity === 1 && it.src)) {
+        total = Number(m[2]);
+        box = st.box;
+        pagesSeen[m[1]] = st.items.map((it) => ({ type: "image", box: it.box.map((v) => Math.round(v * 10) / 10), src: it.src, alt: it.alt || undefined, fit: "cover", zoom: true }));
+      }
+      await page.waitForTimeout(350);
+    }
+    if (total && Object.keys(pagesSeen).length === total) {
+      const b = box.map((v) => Math.round(v * 10) / 10);
+      const within = (n) => n.box[0] >= b[0] - 2 && n.box[1] >= b[1] - 2 && n.box[0] + n.box[2] <= b[0] + b[2] + 2 && n.box[1] + n.box[3] <= b[1] + b[3] + 2;
+      const at = data.nodes.findIndex(within);
+      data.nodes = data.nodes.filter((n) => !within(n));
+      data.nodes.splice(at < 0 ? data.nodes.length : at, 0, { type: "slideshow", id, box: b, auto: 2000, nav: false, prev: null, next: null, dots: null, slides: Array.from({ length: total }, (_, k) => pagesSeen[String(k + 1)]) });
     }
   }
   await ctx.close();
