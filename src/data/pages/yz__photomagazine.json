@@ -1,0 +1,639 @@
+{
+ "site": "yz",
+ "slug": "photomagazine",
+ "url": "https://www.yezhang.net/photomagazine",
+ "title": "My Photo Magazine | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "My Photo Magazine | YE ZHANG",
+   "width": 1440,
+   "height": 919,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      919
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      62,
+      395,
+      60
+     ],
+     "label": "HOME",
+     "labelBox": [
+      454,
+      70,
+      71,
+      44
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "37px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      42,
+      246,
+      201,
+      50
+     ],
+     "label": "vol .1",
+     "labelBox": [
+      112,
+      250,
+      61,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/zineone",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      7,
+      296,
+      272,
+      385
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      15,
+      304,
+      256,
+      369
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_fe4308d4e87f497cb4c511ec42cbd619~mv2.jpg/v1/fill/w_256,h_369,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0000931-R01-00-00A.jpg",
+     "natural": [
+      256,
+      369
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/zineone"
+    },
+    {
+     "type": "button",
+     "box": [
+      389,
+      255,
+      201,
+      50
+     ],
+     "label": "vol .2",
+     "labelBox": [
+      457,
+      259,
+      65,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/zinetwo",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      354,
+      305,
+      272,
+      379
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      362,
+      313,
+      256,
+      363
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c1be5fcfa1e24b33b0116c4ff9ca4c05~mv2.jpg/v1/fill/w_256,h_363,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_c1be5fcfa1e24b33b0116c4ff9ca4c05~mv2.jpg",
+     "natural": [
+      256,
+      363
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/zinetwo"
+    },
+    {
+     "type": "button",
+     "box": [
+      741,
+      249,
+      198,
+      50
+     ],
+     "label": "vol .3",
+     "labelBox": [
+      807,
+      253,
+      65,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/zinethree",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      706,
+      299,
+      267,
+      379
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      714,
+      307,
+      251,
+      363
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_560ea54154a946dd984aa143080b8c13~mv2.jpg/v1/fill/w_251,h_363,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/000007210010.jpg",
+     "natural": [
+      251,
+      363
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/zinethree"
+    },
+    {
+     "type": "slideshow",
+     "id": "comp-ltpy70zz1",
+     "box": [
+      -230,
+      840,
+      1440,
+      79
+     ],
+     "prev": null,
+     "next": null,
+     "dots": null,
+     "slides": [
+      [
+       {
+        "type": "box",
+        "box": [
+         -212,
+         840,
+         1440,
+         79
+        ],
+        "bg": "rgb(227, 81, 6)"
+       },
+       {
+        "type": "text",
+        "box": [
+         76,
+         859,
+         864,
+         50
+        ],
+        "style": {
+         "font-family": "Arial, Helvetica, sans-serif",
+         "font-size": "10px",
+         "font-weight": "400",
+         "font-style": "normal",
+         "color": "rgb(0, 0, 0)",
+         "letter-spacing": "normal",
+         "line-height": "normal",
+         "text-align": "start",
+         "text-transform": "none",
+         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+        },
+        "lines": 2,
+        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:49px;text-align:center\"><span style=\"font-style:italic\"><span><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-weight:700\">click  on  the  magazine</span></span></span></span></span></span></h3>"
+       },
+       {
+        "type": "box",
+        "box": [
+         -1652,
+         840,
+         1440,
+         79
+        ],
+        "bg": "rgb(13, 79, 43)",
+        "bleed": true
+       },
+       {
+        "type": "text",
+        "box": [
+         -1365,
+         850,
+         864,
+         69.6
+        ],
+        "style": {
+         "font-family": "Arial, Helvetica, sans-serif",
+         "font-size": "10px",
+         "font-weight": "400",
+         "font-style": "normal",
+         "color": "rgb(0, 0, 0)",
+         "letter-spacing": "normal",
+         "line-height": "normal",
+         "text-align": "start",
+         "text-transform": "none",
+         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+        },
+        "lines": 2,
+        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:68.6px;text-align:center\"><span><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-style:italic\"><span style=\"font-weight:700\">click click click</span></span></span></span></span></span></h3>"
+       }
+      ]
+     ],
+     "bleed": true
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "My Photo Magazine | YE ZHANG",
+   "width": 320,
+   "height": 1574,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      1574
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      55,
+      41,
+      208,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      130,
+      44,
+      57,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      93,
+      135,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      146,
+      105,
+      29,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      59,
+      145,
+      201,
+      50
+     ],
+     "label": "vol .1",
+     "labelBox": [
+      133,
+      152,
+      52,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/zineone",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      24,
+      195,
+      272,
+      385
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      32,
+      203,
+      256,
+      369
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_fe4308d4e87f497cb4c511ec42cbd619~mv2.jpg/v1/fill/w_512,h_738,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0000931-R01-00-00A.jpg",
+     "natural": [
+      256,
+      369
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/zineone"
+    },
+    {
+     "type": "button",
+     "box": [
+      59,
+      590,
+      201,
+      50
+     ],
+     "label": "vol .2",
+     "labelBox": [
+      132,
+      597,
+      56,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/zinetwo",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      24,
+      640,
+      272,
+      379
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      32,
+      648,
+      256,
+      363
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c1be5fcfa1e24b33b0116c4ff9ca4c05~mv2.jpg/v1/fill/w_512,h_726,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_c1be5fcfa1e24b33b0116c4ff9ca4c05~mv2.jpg",
+     "natural": [
+      256,
+      363
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/zinetwo"
+    },
+    {
+     "type": "button",
+     "box": [
+      62,
+      1029,
+      198,
+      50
+     ],
+     "label": "vol .3",
+     "labelBox": [
+      133,
+      1036,
+      56,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/zinethree",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      27,
+      1079,
+      267,
+      379
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      35,
+      1087,
+      251,
+      363
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_560ea54154a946dd984aa143080b8c13~mv2.jpg/v1/fill/w_502,h_726,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/000007210010.jpg",
+     "natural": [
+      251,
+      363
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/zinethree"
+    },
+    {
+     "type": "slideshow",
+     "id": "comp-ltpy70zz1",
+     "box": [
+      0,
+      1468,
+      320,
+      86
+     ],
+     "prev": null,
+     "next": null,
+     "dots": null,
+     "slides": [
+      [
+       {
+        "type": "box",
+        "box": [
+         0,
+         1468,
+         320,
+         86
+        ],
+        "bg": "rgb(227, 81, 6)"
+       },
+       {
+        "type": "text",
+        "box": [
+         20,
+         1496,
+         280,
+         21
+        ],
+        "style": {
+         "font-family": "Arial, Helvetica, sans-serif",
+         "font-size": "10px",
+         "font-weight": "400",
+         "font-style": "normal",
+         "color": "rgb(0, 0, 0)",
+         "letter-spacing": "normal",
+         "line-height": "normal",
+         "text-align": "start",
+         "text-transform": "none",
+         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+        },
+        "lines": 2,
+        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:21px;line-height:21px;text-align:center\"><span style=\"font-style:italic\"><span><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-weight:700\">click  on  the  magazine</span></span></span></span></span></span></h3>"
+       }
+      ]
+     ]
+    }
+   ]
+  }
+ }
+}

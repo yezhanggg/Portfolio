@@ -1,0 +1,177 @@
+{
+ "site": "yz",
+ "slug": "shuffle",
+ "url": "https://www.yezhang.net/shuffle",
+ "title": "SHUFFLE | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "SHUFFLE | YE ZHANG",
+   "width": 1440,
+   "height": 1401,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      1401
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      980,
+      693
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c8fd0581a9f845dcbed36f01f9ddf693~mv2.jpg/v1/fill/w_980,h_693,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_c8fd0581a9f845dcbed36f01f9ddf693~mv2.jpg",
+     "natural": [
+      980,
+      693
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      693,
+      980,
+      693
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_34af19b3ba724cdc91807375636372d7~mv2.jpg/v1/fill/w_980,h_693,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_34af19b3ba724cdc91807375636372d7~mv2.jpg",
+     "natural": [
+      980,
+      693
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      386,
+      730,
+      208,
+      40
+     ],
+     "label": "HOME",
+     "labelBox": [
+      445,
+      722,
+      90,
+      56
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "47px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "SHUFFLE | YE ZHANG",
+   "width": 320,
+   "height": 545,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      544
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      20,
+      280,
+      198
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c8fd0581a9f845dcbed36f01f9ddf693~mv2.jpg/v1/fill/w_560,h_396,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_c8fd0581a9f845dcbed36f01f9ddf693~mv2.jpg",
+     "natural": [
+      280,
+      198
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      241,
+      280,
+      198
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_34af19b3ba724cdc91807375636372d7~mv2.jpg/v1/fill/w_560,h_396,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_34af19b3ba724cdc91807375636372d7~mv2.jpg",
+     "natural": [
+      280,
+      198
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      29,
+      223,
+      208,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      104,
+      226,
+      57,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    }
+   ]
+  }
+ }
+}

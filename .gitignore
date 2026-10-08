@@ -53,3 +53,11 @@ pids
 
 # Optional eslint cache
 .eslintcache
+
+# Site build
+node_modules/
+dist/
+.astro/
+.vercel/
+.env*
+.Rhistory

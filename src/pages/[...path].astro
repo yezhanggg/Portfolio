@@ -1,0 +1,93 @@
+---
+// One route for every page of the old Wix sites (yezhang.net + ZHAENG under /zhaeng/).
+import Base from "../layouts/Base.astro";
+import Node from "../components/Node.astro";
+import { pages, routeOf, mediaFor, largest } from "../lib/site.js";
+import media from "../data/media.json";
+import meta from "../data/meta.json";
+
+export function getStaticPaths() {
+  return pages.map((page) => ({ params: { path: routeOf(page) || undefined }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const route = "/" + routeOf(page);
+const info = meta[route] || {};
+
+// Field names the /api/contact function understands, guessed from each input's label.
+function fieldKey(n) {
+  const s = `${n.label || ""} ${n.placeholder || ""} ${n.name || ""}`.toLowerCase();
+  if (n.inputType === "radio" || n.inputType === "checkbox") return "issue";
+  if (s.includes("first")) return "firstName";
+  if (s.includes("last")) return "lastName";
+  if (s.includes("mail")) return "email";
+  if (s.includes("phone")) return "phone";
+  if (s.includes("address")) return "address";
+  if (s.includes("message") || n.tag === "textarea") return "message";
+  if (s.includes("contact")) return "contact";
+  return "name";
+}
+
+function prepare(view, name) {
+  let fields = 0;
+  const visit = (nodes) => {
+    for (const n of nodes) {
+      if (n.type === "video") {
+        const v = media[n.id];
+        n.file = v?.file;
+        n.posterFile = v?.poster;
+      }
+      if (n.type === "input") {
+        n.key = fieldKey(n);
+        n.fieldId = `${name}-f${fields++}`;
+      }
+      if (n.slides) n.slides.forEach(visit);
+    }
+  };
+  visit(view.nodes);
+  const fixed = view.nodes.filter((n) => n.fixed);
+  // (the free-Wix ad bar pushed ZHAENG's fixed backgrounds down ~50px, hence the tolerance)
+  const covers = (n) => n.box[0] <= 1 && n.box[1] <= 60 && n.box[2] >= n.vw - 2 && n.box[3] >= n.vh - 60;
+  return {
+    name,
+    canvas: view.canvas,
+    height: view.height,
+    flow: view.nodes.filter((n) => !n.fixed),
+    fixedBg: fixed.filter(covers),
+    fixedTop: fixed.filter((n) => !covers(n)),
+    hasForm: fields > 0,
+  };
+}
+const views = [prepare(page.views.desktop, "desktop"), prepare(page.views.mobile, "mobile")];
+
+const firstImage = page.views.desktop.nodes.find((n) => n.type === "image" && n.box[2] > 200 && mediaFor(n.src));
+const formKind = page.slug === "order" ? "zine" : "contact";
+---
+
+<Base title={info.title || page.title} description={info.description || page.description} image={firstImage && largest(mediaFor(firstImage.src))}>
+  {views.map((v) => {
+    const Wrap = v.hasForm ? "form" : "main";
+    return (
+      <Fragment>
+        {v.fixedBg.length > 0 && (
+          <div class={`fixed-layer fixed-bg fixed-${v.name}`}>
+            {v.fixedBg.map((n) => <Node node={{ ...n, box: [0, 0, n.box[2], n.box[3]] }} canvas={v.canvas} />)}
+          </div>
+        )}
+        <Wrap class={`view view-${v.name}`} style={`width:${v.canvas}px;height:${v.height}px`} {...(v.hasForm ? { "data-form": formKind, novalidate: false } : {})}>
+          {v.flow.map((n) => <Node node={n} canvas={v.canvas} />)}
+          {v.hasForm && <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />}
+        </Wrap>
+        {v.fixedTop.length > 0 && (
+          <div class={`fixed-layer fixed-top fixed-${v.name}`}>
+            {v.fixedTop.map((n) => <Node node={n} canvas={v.canvas} />)}
+          </div>
+        )}
+      </Fragment>
+    );
+  })}
+  <div class="form-note" role="status" aria-live="polite"></div>
+  <script>
+    import "../scripts/interactions.js";
+  </script>
+</Base>

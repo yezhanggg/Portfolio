@@ -1,6 +1,56 @@
-# ZHAENG - Interactive Features for www.zhaeng.net
+# yezhang.net
 
-## 🌐 Live Demo
-**Landing Page**: [https://yezhanggg.github.io/ZHAENG/](https://yezhanggg.github.io/ZHAENG/)
+Ye Zhang's personal site, self-hosted. It was rebuilt from two Wix sites (yezhang.net and ZHAENG)
+so that everything — pages, images, videos, forms — lives in this repository and deploys from it.
 
-Visit the landing page to try out all features directly!
+- **Live site:** Vercel builds and deploys every push to `main`.
+- **Pages:** 47 from yezhang.net (same URLs as before) and 10 from ZHAENG under `/zhaeng/`.
+- **Mini-apps:** the five browser features (camera, fortune cookie, poster designer, image
+  scrambler, chatbot) are unchanged under `/features/`.
+
+## Run it locally
+
+```bash
+pnpm install
+pnpm dev        # http://localhost:4321
+pnpm build      # static site in dist/
+```
+
+Node 22 and pnpm are required.
+
+## How it is put together
+
+| Path | What it is |
+|---|---|
+| `src/data/pages/*.json` | One file per page: every text, image, button and video with its position, for desktop (980px canvas) and phone (320px canvas). This is the content. |
+| `src/pages/[...path].astro` | Turns each data file into a page. |
+| `src/components/Node.astro` | Draws one item (text, image, gallery, slideshow, video, form field…). |
+| `src/lib/fixups.js` | Hand-made changes on top of the extracted data (e.g. the ZHAENG and Features entries on `/portfolio`). |
+| `src/data/meta.json` | Page descriptions for search engines — edit freely. |
+| `src/styles/fonts.css` | Which open-licensed font stands in for each font Wix used. |
+| `public/media`, `public/video` | Web-sized images and videos. |
+| `public/features/` | The mini-apps, plain HTML. |
+| `api/chat.js`, `api/_prompt.js` | Chat bubble backend (DeepSeek). Edit `_prompt.js` to change what it knows. |
+| `api/contact.js` | Receives the contact and zine-request forms and emails them via Resend. |
+| `migration/` | Scripts and inventories used to move off Wix. See `migration/README.md`. |
+
+### Editing a page
+
+Small text or link changes: edit the page's file in `src/data/pages/`. Each item has a `box`
+(`[x, y, width, height]` in canvas pixels) and its content. Desktop and phone layouts are separate
+entries (`views.desktop`, `views.mobile`) in the same file.
+
+## Environment variables (set in Vercel → Project → Settings → Environment Variables)
+
+| Name | Used by | Notes |
+|---|---|---|
+| `DEEPSEEK_API_KEY` | chat bubble | without it the bubble replies "not set up yet" |
+| `RESEND_API_KEY` | forms | without it the forms reply "not set up yet" |
+| `CONTACT_TO` | forms | the address that receives submissions |
+| `CONTACT_FROM` | forms | optional; a sender on a domain verified in Resend |
+| `EXTRA_ORIGINS` | both | optional; extra allowed origins, comma-separated |
+
+## Originals
+
+Full-resolution originals from Wix (467 files, about 1.4 GB), page screenshots and form exports are
+kept outside this repository in `~/Desktop/yezhang-site-archive`. Keep a second copy somewhere safe.

@@ -1,0 +1,117 @@
+{
+ "site": "zhaeng",
+ "slug": "still",
+ "url": "https://yegnahz.wixsite.com/zhaeng/still",
+ "title": "still | ZHAENG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "still | ZHAENG",
+   "width": 1440,
+   "height": 850,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      850
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      -230,
+      0,
+      1440,
+      850
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_2510b44f777b40dd903d0ee8a74eeb43~mv2.jpeg/v1/fill/w_1440,h_850,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_2510b44f777b40dd903d0ee8a74eeb43~mv2.jpeg",
+     "natural": [
+      1440,
+      850
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "bleed": true
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "still | ZHAENG",
+   "width": 320,
+   "height": 507,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      506
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      320,
+      506
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_44e16e33646d4447a1b685492e723a01~mv2.jpg/v1/fill/w_640,h_1012,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_44e16e33646d4447a1b685492e723a01~mv2.jpg",
+     "natural": [
+      640,
+      1012
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "box",
+     "box": [
+      273,
+      25,
+      22,
+      2
+     ],
+     "bg": "rgb(232, 230, 230)",
+     "radius": "2px"
+    },
+    {
+     "type": "box",
+     "box": [
+      273,
+      34,
+      22,
+      2
+     ],
+     "bg": "rgb(232, 230, 230)",
+     "radius": "2px"
+    },
+    {
+     "type": "box",
+     "box": [
+      273,
+      43,
+      22,
+      2
+     ],
+     "bg": "rgb(232, 230, 230)",
+     "radius": "2px"
+    }
+   ]
+  }
+ }
+}

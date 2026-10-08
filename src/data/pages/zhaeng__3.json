@@ -1,0 +1,101 @@
+{
+ "site": "zhaeng",
+ "slug": "3",
+ "url": "https://yegnahz.wixsite.com/zhaeng/3",
+ "title": "3",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "3",
+   "width": 1440,
+   "height": 870,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      870
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      190,
+      69,
+      600,
+      731
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_e8ac1fe357be4838af033f37f61adea3~mv2.jpg/v1/fill/w_600,h_731,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4990.jpg",
+     "alt": "IMG_4990.jpg",
+     "natural": [
+      600,
+      731
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "3",
+   "width": 320,
+   "height": 538,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      538
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      320,
+      624
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_e9d9c13ff3bc4996ae492a8b7d7a43fa~mv2.jpg/v1/fill/w_640,h_1248,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_e9d9c13ff3bc4996ae492a8b7d7a43fa~mv2.jpg",
+     "natural": [
+      640,
+      1248
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      177,
+      280,
+      341
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_e8ac1fe357be4838af033f37f61adea3~mv2.jpg/v1/fill/w_560,h_682,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4990.jpg",
+     "alt": "IMG_4990.jpg",
+     "natural": [
+      280,
+      341
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    }
+   ]
+  }
+ }
+}

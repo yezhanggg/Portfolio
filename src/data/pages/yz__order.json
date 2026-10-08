@@ -1,0 +1,1081 @@
+{
+ "site": "yz",
+ "slug": "order",
+ "url": "https://www.yezhang.net/order",
+ "title": "order | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "order | YE ZHANG",
+   "width": 1440,
+   "height": 991,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      991
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      370,
+      60,
+      240,
+      60
+     ],
+     "label": "BACK",
+     "labelBox": [
+      458,
+      69,
+      64,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/photomagazine",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      207,
+      357,
+      270.5,
+      37
+     ],
+     "bg": "rgba(232, 230, 230, 0.35)",
+     "radius": "1px"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "text",
+     "placeholder": "e.g., Ye",
+     "label": "First name",
+     "labelBox": [
+      207,
+      331,
+      61.8,
+      18
+     ],
+     "labelStyle": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      207,
+      357,
+      258.5,
+      36
+     ],
+     "style": {
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "20px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "1px",
+     "padding": "8px 2px 8px 0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      501.5,
+      357,
+      270.5,
+      37
+     ],
+     "bg": "rgba(232, 230, 230, 0.35)",
+     "radius": "1px"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "text",
+     "placeholder": "e.g., Zhang",
+     "label": "Last name",
+     "labelBox": [
+      501.5,
+      331,
+      61,
+      18
+     ],
+     "labelStyle": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      501.5,
+      357,
+      258.5,
+      36
+     ],
+     "style": {
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "20px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "1px",
+     "padding": "8px 2px 8px 0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      207,
+      456,
+      565,
+      37
+     ],
+     "bg": "rgba(232, 230, 230, 0.35)",
+     "radius": "1px"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "email",
+     "placeholder": "e.g., name@example.com",
+     "label": "Email",
+     "labelBox": [
+      207,
+      430,
+      33.4,
+      18
+     ],
+     "labelStyle": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      207,
+      456,
+      553,
+      36
+     ],
+     "style": {
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "20px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "1px",
+     "padding": "8px 2px 8px 0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      207,
+      555,
+      565,
+      37
+     ],
+     "bg": "rgba(232, 230, 230, 0.35)",
+     "radius": "1px"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "text",
+     "placeholder": "e.g., 555-555-555",
+     "label": "Phone",
+     "labelBox": [
+      207,
+      529,
+      37.6,
+      18
+     ],
+     "labelStyle": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      259,
+      555,
+      501,
+      36
+     ],
+     "style": {
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "20px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "1px",
+     "padding": "8px 2px 8px 0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      207,
+      654,
+      565,
+      92
+     ],
+     "bg": "rgba(232, 230, 230, 0.35)",
+     "radius": "1px"
+    },
+    {
+     "type": "input",
+     "tag": "textarea",
+     "inputType": "textarea",
+     "placeholder": "3540 S Figueroa St, Room 2003, Los Angeles, CA 90007",
+     "label": "Address",
+     "labelBox": [
+      207,
+      628,
+      49.2,
+      18
+     ],
+     "labelStyle": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      207,
+      662,
+      565,
+      75
+     ],
+     "style": {
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "20px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "1px",
+     "padding": "0px 12px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "checkbox",
+     "name": "Issue#",
+     "value": "vol. 1",
+     "label": "vol. 1",
+     "labelBox": [
+      207,
+      808,
+      178.3,
+      24
+     ],
+     "labelStyle": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      207,
+      808,
+      178.3,
+      24
+     ],
+     "style": {
+      "font-family": "Helvetica, Arial, sans-serif",
+      "font-size": "13.3333px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "padding": "0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      207,
+      812,
+      16,
+      16
+     ],
+     "border": "1px solid rgb(255, 255, 255)"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "checkbox",
+     "name": "Issue#",
+     "value": "vol. 2",
+     "label": "vol. 2",
+     "labelBox": [
+      400.29999999999995,
+      808,
+      178.3,
+      24
+     ],
+     "labelStyle": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      400.3,
+      808,
+      178.3,
+      24
+     ],
+     "style": {
+      "font-family": "Helvetica, Arial, sans-serif",
+      "font-size": "13.3333px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "padding": "0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      400.3,
+      812,
+      16,
+      16
+     ],
+     "border": "1px solid rgb(255, 255, 255)"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "checkbox",
+     "name": "Issue#",
+     "value": "vol. 3",
+     "label": "vol. 3",
+     "labelBox": [
+      593.7,
+      808,
+      178.3,
+      24
+     ],
+     "labelStyle": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      593.7,
+      808,
+      178.3,
+      24
+     ],
+     "style": {
+      "font-family": "Helvetica, Arial, sans-serif",
+      "font-size": "13.3333px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "padding": "0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      593.7,
+      812,
+      16,
+      16
+     ],
+     "border": "1px solid rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      207,
+      868,
+      565,
+      46
+     ],
+     "label": "REQUEST",
+     "labelBox": [
+      448,
+      877,
+      83,
+      27
+     ],
+     "style": {
+      "font-family": "futura-lt-w01-book, sans-serif",
+      "font-size": "20px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "26px",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "bg": "rgb(255, 255, 255)",
+     "shadow": "rgb(0, 0, 0) 0px 0px 0px 0px",
+     "submit": true
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "order | YE ZHANG",
+   "width": 320,
+   "height": 1139,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      1139
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      99,
+      29,
+      120,
+      42
+     ],
+     "label": "BACK",
+     "labelBox": [
+      132,
+      32,
+      55,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/photomagazine",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      68,
+      353,
+      184,
+      37
+     ],
+     "bg": "rgba(232, 230, 230, 0.35)",
+     "radius": "1px"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "text",
+     "placeholder": "e.g., Ye",
+     "label": "First name",
+     "labelBox": [
+      68,
+      327,
+      61.8,
+      18
+     ],
+     "labelStyle": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      68,
+      353,
+      172,
+      36
+     ],
+     "style": {
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "20px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "1px",
+     "padding": "8px 2px 8px 0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      68,
+      452,
+      184,
+      37
+     ],
+     "bg": "rgba(232, 230, 230, 0.35)",
+     "radius": "1px"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "text",
+     "placeholder": "e.g., Zhang",
+     "label": "Last name",
+     "labelBox": [
+      68,
+      426,
+      61,
+      18
+     ],
+     "labelStyle": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      68,
+      452,
+      172,
+      36
+     ],
+     "style": {
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "20px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "1px",
+     "padding": "8px 2px 8px 0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      68,
+      551,
+      184,
+      37
+     ],
+     "bg": "rgba(232, 230, 230, 0.35)",
+     "radius": "1px"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "email",
+     "placeholder": "e.g., name@example.com",
+     "label": "Email",
+     "labelBox": [
+      68,
+      525,
+      33.4,
+      18
+     ],
+     "labelStyle": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      68,
+      551,
+      172,
+      36
+     ],
+     "style": {
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "20px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "1px",
+     "padding": "8px 2px 8px 0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      68,
+      650,
+      184,
+      37
+     ],
+     "bg": "rgba(232, 230, 230, 0.35)",
+     "radius": "1px"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "text",
+     "placeholder": "e.g., 555-555-555",
+     "label": "Phone",
+     "labelBox": [
+      68,
+      624,
+      37.6,
+      18
+     ],
+     "labelStyle": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      120,
+      650,
+      120,
+      36
+     ],
+     "style": {
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "20px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "1px",
+     "padding": "8px 2px 8px 0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      68,
+      749,
+      184,
+      92
+     ],
+     "bg": "rgba(232, 230, 230, 0.35)",
+     "radius": "1px"
+    },
+    {
+     "type": "input",
+     "tag": "textarea",
+     "inputType": "textarea",
+     "placeholder": "3540 S Figueroa St, Room 2003, Los Angeles, CA 90007",
+     "label": "Address",
+     "labelBox": [
+      68,
+      723,
+      49.2,
+      18
+     ],
+     "labelStyle": {
+      "font-family": "futura-lt-w01-light, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      68,
+      757,
+      184,
+      75
+     ],
+     "style": {
+      "font-family": "avenir-lt-w01_85-heavy1475544, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "20px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "1px",
+     "padding": "0px 12px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "checkbox",
+     "name": "Issue#",
+     "value": "vol. 1",
+     "label": "vol. 1",
+     "labelBox": [
+      68,
+      903,
+      184,
+      24
+     ],
+     "labelStyle": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      68,
+      903,
+      184,
+      24
+     ],
+     "style": {
+      "font-family": "Helvetica, Arial, sans-serif",
+      "font-size": "13.3333px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "padding": "0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      68,
+      907,
+      16,
+      16
+     ],
+     "border": "1px solid rgb(255, 255, 255)"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "checkbox",
+     "name": "Issue#",
+     "value": "vol. 2",
+     "label": "vol. 2",
+     "labelBox": [
+      68,
+      939,
+      184,
+      24
+     ],
+     "labelStyle": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      68,
+      939,
+      184,
+      24
+     ],
+     "style": {
+      "font-family": "Helvetica, Arial, sans-serif",
+      "font-size": "13.3333px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "padding": "0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      68,
+      943,
+      16,
+      16
+     ],
+     "border": "1px solid rgb(255, 255, 255)"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "checkbox",
+     "name": "Issue#",
+     "value": "vol. 3",
+     "label": "vol. 3",
+     "labelBox": [
+      68,
+      975,
+      184,
+      24
+     ],
+     "labelStyle": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      68,
+      975,
+      184,
+      24
+     ],
+     "style": {
+      "font-family": "Helvetica, Arial, sans-serif",
+      "font-size": "13.3333px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "padding": "0px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      68,
+      979,
+      16,
+      16
+     ],
+     "border": "1px solid rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      68,
+      1035,
+      184,
+      46
+     ],
+     "label": "REQUEST",
+     "labelBox": [
+      118,
+      1044,
+      83,
+      27
+     ],
+     "style": {
+      "font-family": "futura-lt-w01-book, sans-serif",
+      "font-size": "20px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "26px",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "bg": "rgb(255, 255, 255)",
+     "shadow": "rgb(0, 0, 0) 0px 0px 0px 0px",
+     "submit": true
+    }
+   ]
+  }
+ }
+}

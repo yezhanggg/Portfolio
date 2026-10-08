@@ -1,0 +1,136 @@
+{
+ "site": "yz",
+ "slug": "arcgis",
+ "url": "https://www.yezhang.net/arcgis",
+ "title": "ArcGIS | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "ArcGIS | YE ZHANG",
+   "width": 1440,
+   "height": 900,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      900
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "iframe",
+     "box": [
+      -230,
+      -38,
+      1440,
+      901
+     ],
+     "src": "https://storymaps.arcgis.com/stories/00edf3b0a4644695902ddd7a337d8cd1",
+     "title": "Embedded Content",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      45,
+      395,
+      60
+     ],
+     "label": "HOME",
+     "labelBox": [
+      454,
+      53,
+      71,
+      44
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "37px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "ArcGIS | YE ZHANG",
+   "width": 320,
+   "height": 545,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      544
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "iframe",
+     "box": [
+      0,
+      0,
+      320,
+      172
+     ],
+     "src": "https://storymaps.arcgis.com/stories/00edf3b0a4644695902ddd7a337d8cd1",
+     "title": "Embedded Content"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      182,
+      135,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      146,
+      194,
+      29,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    }
+   ]
+  }
+ }
+}

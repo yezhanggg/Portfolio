@@ -1,0 +1,637 @@
+{
+ "site": "yz",
+ "slug": "motion",
+ "url": "https://www.yezhang.net/motion",
+ "title": "Motion | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "Motion | YE ZHANG",
+   "width": 1440,
+   "height": 2432,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      2432
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      87,
+      395,
+      60
+     ],
+     "label": "HOME",
+     "labelBox": [
+      454,
+      95,
+      71,
+      44
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "37px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "video",
+     "box": [
+      200,
+      201.9,
+      578.1,
+      359.1
+     ],
+     "src": "https://video.wixstatic.com/video/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f/480p/mp4/file.mp4",
+     "id": "f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f",
+     "autoplay": false,
+     "loop": true,
+     "muted": false,
+     "controls": false,
+     "fit": "cover",
+     "info": "{\"fittingType\":\"fill\",\"alignType\":\"center\",\"hasBgScrollEffect\":\"\",\"bgEffectName\":\"\",\"videoId\":\"f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f\",\"videoWidth\":1280,\"videoHeight\":960,\"qualities\":[{\"quality\":\"360p\",\"size\":172800,\"url\":\"video/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f/360p/mp4/file.mp4\"},{\"quality\":\"480p\",\"size\":307200,\"url\":\"video/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f/480p/mp4/file.mp4\"},{\"quality\":\"720p\",\"size\":1228800,\"url\":\"video/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f/720p/mp4/file.mp4\"}],\"isVideoDataExists\":\"1\",\"videoFormat\":\"mp4\",\"playbackRate\":1,\"autoPlay\":false,\"containerId\":\"comp-m7jtjx4w\",\"animatePoster\":\"none\"}"
+    },
+    {
+     "type": "image",
+     "box": [
+      200,
+      201.9,
+      578.1,
+      359.1
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920ff000.jpg/v1/fill/w_578,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920ff000.jpg",
+     "natural": [
+      578,
+      359
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "svg",
+     "box": [
+      460.5,
+      352.5,
+      57,
+      57
+     ],
+     "html": "<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"13\" y=\"10\" width=\"5\" height=\"20\" data-color=\"1\" fill=\"white\" data-testid=\"pause-rect\"></rect><rect x=\"22\" y=\"10\" width=\"5\" height=\"20\" data-color=\"1\" fill=\"white\" data-testid=\"pause-rect\"></rect></svg>",
+     "fill": "rgb(0, 0, 0)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "svg",
+     "box": [
+      459,
+      351,
+      60,
+      60
+     ],
+     "html": "<svg preserveAspectRatio=\"xMidYMid meet\" data-bbox=\"20 17.5 42 47\" viewBox=\"0 0 82 82\" height=\"82\" width=\"82\" xmlns=\"http://www.w3.org/2000/svg\" data-type=\"color\" role=\"presentation\" aria-hidden=\"true\" aria-label=\"\"><defs><style>#comp-m7jtjx60 svg [data-color=\"1\"] {fill: #ffffff;}\n#comp-m7jtjx60 svg [data-color=\"2\"] {fill: #ED5829;}</style></defs>\n    <g>\n        <path d=\"M20 64.5v-47L62 41 20 64.5z\" fill=\"#2B328C\" clip-rule=\"evenodd\" fill-rule=\"evenodd\" data-color=\"1\"></path>\n    </g>\n</svg>",
+     "fill": "rgb(0, 0, 0)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      561,
+      395,
+      47
+     ],
+     "label": "IMMERSE",
+     "labelBox": [
+      459,
+      573,
+      61,
+      24
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "20px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/skin",
+     "target": "_self"
+    },
+    {
+     "type": "video",
+     "box": [
+      201,
+      711.9,
+      578.1,
+      359.1
+     ],
+     "src": "https://video.wixstatic.com/video/f8d0cd_a3d778dc993342f4bda0ddc5bf8b5559/480p/mp4/file.mp4",
+     "id": "f8d0cd_a3d778dc993342f4bda0ddc5bf8b5559",
+     "autoplay": false,
+     "loop": true,
+     "muted": false,
+     "controls": false,
+     "fit": "cover",
+     "info": "{\"fittingType\":\"fill\",\"alignType\":\"center\",\"hasBgScrollEffect\":\"\",\"bgEffectName\":\"\",\"videoId\":\"f8d0cd_a3d778dc993342f4bda0ddc5bf8b5559\",\"videoWidth\":1422,\"videoHeight\":1078,\"qualities\":[{\"quality\":\"360p\",\"size\":171360,\"url\":\"video/f8d0cd_a3d778dc993342f4bda0ddc5bf8b5559/360p/mp4/file.mp4\"},{\"quality\":\"480p\",\"size\":304320,\"url\":\"video/f8d0cd_a3d778dc993342f4bda0ddc5bf8b5559/480p/mp4/file.mp4\"},{\"quality\":\"720p\",\"size\":1532916,\"url\":\"video/f8d0cd_a3d778dc993342f4bda0ddc5bf8b5559/720p/mp4/file.mp4\"}],\"isVideoDataExists\":\"1\",\"videoFormat\":\"mp4\",\"playbackRate\":1,\"autoPlay\":false,\"containerId\":\"comp-m7jtxhtc\",\"animatePoster\":\"none\"}"
+    },
+    {
+     "type": "image",
+     "box": [
+      201,
+      711.9,
+      578.1,
+      359.1
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a3d778dc993342f4bda0ddc5bf8b5559f000.jpg/v1/fill/w_578,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_a3d778dc993342f4bda0ddc5bf8b5559f000.jpg",
+     "natural": [
+      578,
+      359
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "svg",
+     "box": [
+      461.5,
+      862.5,
+      57,
+      57
+     ],
+     "html": "<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"13\" y=\"10\" width=\"5\" height=\"20\" data-color=\"1\" fill=\"white\" data-testid=\"pause-rect\"></rect><rect x=\"22\" y=\"10\" width=\"5\" height=\"20\" data-color=\"1\" fill=\"white\" data-testid=\"pause-rect\"></rect></svg>",
+     "fill": "rgb(0, 0, 0)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "svg",
+     "box": [
+      460,
+      861,
+      60,
+      60
+     ],
+     "html": "<svg preserveAspectRatio=\"xMidYMid meet\" data-bbox=\"20 17.5 42 47\" viewBox=\"0 0 82 82\" height=\"82\" width=\"82\" xmlns=\"http://www.w3.org/2000/svg\" data-type=\"color\" role=\"presentation\" aria-hidden=\"true\" aria-label=\"\"><defs><style>#comp-m7jtxhu5 svg [data-color=\"1\"] {fill: #ffffff;}\n#comp-m7jtxhu5 svg [data-color=\"2\"] {fill: #ED5829;}</style></defs>\n    <g>\n        <path d=\"M20 64.5v-47L62 41 20 64.5z\" fill=\"#2B328C\" clip-rule=\"evenodd\" fill-rule=\"evenodd\" data-color=\"1\"></path>\n    </g>\n</svg>",
+     "fill": "rgb(0, 0, 0)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "svg",
+     "box": [
+      736,
+      1032,
+      33,
+      32
+     ],
+     "html": "<svg preserveAspectRatio=\"xMidYMid meet\" data-bbox=\"7 5.999 16 18.001\" data-type=\"shape\" xmlns=\"http://www.w3.org/2000/svg\" width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" role=\"presentation\" aria-hidden=\"true\" aria-label=\"\">\n    <g>\n        <defs>\n            <filter id=\"83262a12-be21-47df-9e1f-5a613a202a50_audioOn-comp-m7jtxhu8\" height=\"200%\" width=\"200%\" y=\"-50%\" x=\"-50%\">\n                <feOffset result=\"out-offset\" in=\"SourceAlpha\"></feOffset>\n                <feGaussianBlur result=\"out-blur\" in=\"out-offset\" stdDeviation=\"2\"></feGaussianBlur>\n                <feColorMatrix result=\"out-matrix\" in=\"out-blur\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.60 0\"></feColorMatrix>\n                <feMerge>\n                    <feMergeNode in=\"out-matrix\"></feMergeNode>\n                    <feMergeNode in=\"SourceGraphic\"></feMergeNode>\n                </feMerge>\n            </filter>\n        </defs>\n        <path filter=\"url(#83262a12-be21-47df-9e1f-5a613a202a50_audioOn-comp-m7jtxhu8)\" d=\"M23 6.616a.625.625 0 0 0-.727-.609l-10.241 1.54a.62.62 0 0 0-.535.609l-.006 10.016c0 .892-.276 1.319-1.971 1.319C7.646 19.49 7 20.631 7 21.748 7 22.655 7.507 24 9.516 24c2.249 0 3.236-1.44 3.236-2.713l.006-9.719 8.98-1.454v6.87c-.045.763-.401 1.13-1.973 1.13-1.874 0-2.52 1.141-2.52 2.258 0 .907.507 2.252 2.516 2.252 2.249 0 3.236-1.44 3.236-2.713L23 6.616z\"></path>\n    </g>\n</svg>",
+     "fill": "rgb(255, 255, 255)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "svg",
+     "box": [
+      736,
+      1032,
+      33,
+      32
+     ],
+     "html": "<svg preserveAspectRatio=\"xMidYMid meet\" data-bbox=\"5.726 5.999 21.997 18.001\" data-type=\"shape\" xmlns=\"http://www.w3.org/2000/svg\" width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" role=\"presentation\" aria-hidden=\"true\" aria-label=\"\">\n    <g>\n        <defs>\n            <filter id=\"7c25684b-076e-4b05-a7b7-b4d460fc2ce6_audioOff-comp-m7jtxhu8\" height=\"200%\" width=\"200%\" y=\"-50%\" x=\"-50%\">\n                <feOffset result=\"out-offset\" in=\"SourceAlpha\"></feOffset>\n                <feGaussianBlur result=\"out-blur\" in=\"out-offset\" stdDeviation=\"2\"></feGaussianBlur>\n                <feColorMatrix result=\"out-matrix\" in=\"out-blur\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.60 0\"></feColorMatrix>\n                <feMerge>\n                    <feMergeNode in=\"out-matrix\"></feMergeNode>\n                    <feMergeNode in=\"SourceGraphic\"></feMergeNode>\n                </feMerge>\n            </filter>\n        </defs>\n        <path filter=\"url(#7c25684b-076e-4b05-a7b7-b4d460fc2ce6_audioOff-comp-m7jtxhu8)\" d=\"M27.39 17.535a.478.478 0 0 1 .306.615v.001a.51.51 0 0 1-.641.292L6.074 12.471a.478.478 0 0 1-.325-.605.505.505 0 0 1 .661-.302l20.98 5.971zm-6.211.375c1.911-.377 1.812 2.001 1.813 2.001 0 1.273-.986 2.713-3.235 2.713-2.009 0-2.515-1.345-2.515-2.252 0-1.117.646-2.258 2.519-2.258.671-.001 1.095-.141 1.418-.204zm-8.427-1.643v.013h.001l-.005 5.007c0 1.273-.985 2.713-3.233 2.713C7.506 24 7 22.655 7 21.748c0-1.117.646-2.258 2.519-2.258 1.696 0 1.972-.427 1.972-1.319l.001-1.934a.513.513 0 0 1 .512-.477h.23c.285 0 .518.228.518.507zm-.537-4.642a.666.666 0 0 1-.506-.141.61.61 0 0 1-.22-.468l.006-2.86c0-.304.227-.562.535-.609l10.238-1.54a.629.629 0 0 1 .726.609L23 13.591c0 .013-.006.024-.007.036a.49.49 0 0 1-.094.248.516.516 0 0 1-.416.222h-.229a.51.51 0 0 1-.517-.505l-.004-3.479-9.518 1.512z\"></path>\n    </g>\n</svg>",
+     "fill": "rgb(255, 255, 255)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      1071,
+      395,
+      47
+     ],
+     "label": "IMMERSE",
+     "labelBox": [
+      459,
+      1083,
+      61,
+      24
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "20px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/dance",
+     "target": "_self"
+    },
+    {
+     "type": "video",
+     "box": [
+      200,
+      1252.9,
+      578.1,
+      359.1
+     ],
+     "src": "https://video.wixstatic.com/video/f8d0cd_f8c1dc64d2d944dfbefc71308aec57a8/360p/mp4/file.mp4",
+     "id": "f8d0cd_f8c1dc64d2d944dfbefc71308aec57a8",
+     "autoplay": false,
+     "loop": true,
+     "muted": false,
+     "controls": false,
+     "fit": "cover",
+     "info": "{\"fittingType\":\"fill\",\"alignType\":\"center\",\"hasBgScrollEffect\":\"\",\"bgEffectName\":\"\",\"videoId\":\"f8d0cd_f8c1dc64d2d944dfbefc71308aec57a8\",\"videoWidth\":1920,\"videoHeight\":1080,\"qualities\":[{\"quality\":\"360p\",\"size\":230400,\"url\":\"video/f8d0cd_f8c1dc64d2d944dfbefc71308aec57a8/360p/mp4/file.mp4\"},{\"quality\":\"480p\",\"size\":409920,\"url\":\"video/f8d0cd_f8c1dc64d2d944dfbefc71308aec57a8/480p/mp4/file.mp4\"},{\"quality\":\"720p\",\"size\":921600,\"url\":\"video/f8d0cd_f8c1dc64d2d944dfbefc71308aec57a8/720p/mp4/file.mp4\"},{\"quality\":\"1080p\",\"size\":2073600,\"url\":\"video/f8d0cd_f8c1dc64d2d944dfbefc71308aec57a8/1080p/mp4/file.mp4\"}],\"isVideoDataExists\":\"1\",\"videoFormat\":\"mp4\",\"playbackRate\":1,\"autoPlay\":false,\"containerId\":\"comp-m7kymmfu\",\"animatePoster\":\"none\"}"
+    },
+    {
+     "type": "image",
+     "box": [
+      200,
+      1252.9,
+      578.1,
+      359.1
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_f8c1dc64d2d944dfbefc71308aec57a8f000.jpg/v1/fill/w_578,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_f8c1dc64d2d944dfbefc71308aec57a8f000.jpg",
+     "natural": [
+      578,
+      359
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "svg",
+     "box": [
+      460.5,
+      1403.6,
+      57,
+      57
+     ],
+     "html": "<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"13\" y=\"10\" width=\"5\" height=\"20\" data-color=\"1\" fill=\"white\" data-testid=\"pause-rect\"></rect><rect x=\"22\" y=\"10\" width=\"5\" height=\"20\" data-color=\"1\" fill=\"white\" data-testid=\"pause-rect\"></rect></svg>",
+     "fill": "rgb(0, 0, 0)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "svg",
+     "box": [
+      459,
+      1402,
+      60,
+      60
+     ],
+     "html": "<svg preserveAspectRatio=\"xMidYMid meet\" data-bbox=\"20 17.5 42 47\" viewBox=\"0 0 82 82\" height=\"82\" width=\"82\" xmlns=\"http://www.w3.org/2000/svg\" data-type=\"color\" role=\"presentation\" aria-hidden=\"true\" aria-label=\"\"><defs><style>#comp-m7kymmh6 svg [data-color=\"1\"] {fill: #ffffff;}\n#comp-m7kymmh6 svg [data-color=\"2\"] {fill: #ED5829;}</style></defs>\n    <g>\n        <path d=\"M20 64.5v-47L62 41 20 64.5z\" fill=\"#2B328C\" clip-rule=\"evenodd\" fill-rule=\"evenodd\" data-color=\"1\"></path>\n    </g>\n</svg>",
+     "fill": "rgb(0, 0, 0)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "svg",
+     "box": [
+      735,
+      1573,
+      33,
+      32
+     ],
+     "html": "<svg preserveAspectRatio=\"xMidYMid meet\" data-bbox=\"7 5.999 16 18.001\" data-type=\"shape\" xmlns=\"http://www.w3.org/2000/svg\" width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" role=\"presentation\" aria-hidden=\"true\" aria-label=\"\">\n    <g>\n        <defs>\n            <filter id=\"83262a12-be21-47df-9e1f-5a613a202a50_audioOn-comp-m7kymmhc\" height=\"200%\" width=\"200%\" y=\"-50%\" x=\"-50%\">\n                <feOffset result=\"out-offset\" in=\"SourceAlpha\"></feOffset>\n                <feGaussianBlur result=\"out-blur\" in=\"out-offset\" stdDeviation=\"2\"></feGaussianBlur>\n                <feColorMatrix result=\"out-matrix\" in=\"out-blur\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.60 0\"></feColorMatrix>\n                <feMerge>\n                    <feMergeNode in=\"out-matrix\"></feMergeNode>\n                    <feMergeNode in=\"SourceGraphic\"></feMergeNode>\n                </feMerge>\n            </filter>\n        </defs>\n        <path filter=\"url(#83262a12-be21-47df-9e1f-5a613a202a50_audioOn-comp-m7kymmhc)\" d=\"M23 6.616a.625.625 0 0 0-.727-.609l-10.241 1.54a.62.62 0 0 0-.535.609l-.006 10.016c0 .892-.276 1.319-1.971 1.319C7.646 19.49 7 20.631 7 21.748 7 22.655 7.507 24 9.516 24c2.249 0 3.236-1.44 3.236-2.713l.006-9.719 8.98-1.454v6.87c-.045.763-.401 1.13-1.973 1.13-1.874 0-2.52 1.141-2.52 2.258 0 .907.507 2.252 2.516 2.252 2.249 0 3.236-1.44 3.236-2.713L23 6.616z\"></path>\n    </g>\n</svg>",
+     "fill": "rgb(255, 255, 255)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "svg",
+     "box": [
+      735,
+      1573,
+      33,
+      32
+     ],
+     "html": "<svg preserveAspectRatio=\"xMidYMid meet\" data-bbox=\"5.726 5.999 21.997 18.001\" data-type=\"shape\" xmlns=\"http://www.w3.org/2000/svg\" width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" role=\"presentation\" aria-hidden=\"true\" aria-label=\"\">\n    <g>\n        <defs>\n            <filter id=\"7c25684b-076e-4b05-a7b7-b4d460fc2ce6_audioOff-comp-m7kymmhc\" height=\"200%\" width=\"200%\" y=\"-50%\" x=\"-50%\">\n                <feOffset result=\"out-offset\" in=\"SourceAlpha\"></feOffset>\n                <feGaussianBlur result=\"out-blur\" in=\"out-offset\" stdDeviation=\"2\"></feGaussianBlur>\n                <feColorMatrix result=\"out-matrix\" in=\"out-blur\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.60 0\"></feColorMatrix>\n                <feMerge>\n                    <feMergeNode in=\"out-matrix\"></feMergeNode>\n                    <feMergeNode in=\"SourceGraphic\"></feMergeNode>\n                </feMerge>\n            </filter>\n        </defs>\n        <path filter=\"url(#7c25684b-076e-4b05-a7b7-b4d460fc2ce6_audioOff-comp-m7kymmhc)\" d=\"M27.39 17.535a.478.478 0 0 1 .306.615v.001a.51.51 0 0 1-.641.292L6.074 12.471a.478.478 0 0 1-.325-.605.505.505 0 0 1 .661-.302l20.98 5.971zm-6.211.375c1.911-.377 1.812 2.001 1.813 2.001 0 1.273-.986 2.713-3.235 2.713-2.009 0-2.515-1.345-2.515-2.252 0-1.117.646-2.258 2.519-2.258.671-.001 1.095-.141 1.418-.204zm-8.427-1.643v.013h.001l-.005 5.007c0 1.273-.985 2.713-3.233 2.713C7.506 24 7 22.655 7 21.748c0-1.117.646-2.258 2.519-2.258 1.696 0 1.972-.427 1.972-1.319l.001-1.934a.513.513 0 0 1 .512-.477h.23c.285 0 .518.228.518.507zm-.537-4.642a.666.666 0 0 1-.506-.141.61.61 0 0 1-.22-.468l.006-2.86c0-.304.227-.562.535-.609l10.238-1.54a.629.629 0 0 1 .726.609L23 13.591c0 .013-.006.024-.007.036a.49.49 0 0 1-.094.248.516.516 0 0 1-.416.222h-.229a.51.51 0 0 1-.517-.505l-.004-3.479-9.518 1.512z\"></path>\n    </g>\n</svg>",
+     "fill": "rgb(255, 255, 255)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      1612,
+      395,
+      47
+     ],
+     "label": "IMMERSE",
+     "labelBox": [
+      459,
+      1624,
+      61,
+      24
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "20px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/fire",
+     "target": "_self"
+    },
+    {
+     "type": "video",
+     "box": [
+      300,
+      1772,
+      378.1,
+      518.1
+     ],
+     "src": "https://video.wixstatic.com/video/f8d0cd_722cfbedb4a447d89950980e72f0384a/720p/mp4/file.mp4",
+     "id": "f8d0cd_722cfbedb4a447d89950980e72f0384a",
+     "autoplay": false,
+     "loop": true,
+     "muted": false,
+     "controls": false,
+     "fit": "cover",
+     "info": "{\"fittingType\":\"fill\",\"alignType\":\"center\",\"hasBgScrollEffect\":\"\",\"bgEffectName\":\"\",\"videoId\":\"f8d0cd_722cfbedb4a447d89950980e72f0384a\",\"videoWidth\":960,\"videoHeight\":1280,\"qualities\":[{\"quality\":\"360p\",\"size\":97200,\"url\":\"video/f8d0cd_722cfbedb4a447d89950980e72f0384a/360p/mp4/file.mp4\"},{\"quality\":\"480p\",\"size\":172800,\"url\":\"video/f8d0cd_722cfbedb4a447d89950980e72f0384a/480p/mp4/file.mp4\"},{\"quality\":\"720p\",\"size\":1228800,\"url\":\"video/f8d0cd_722cfbedb4a447d89950980e72f0384a/720p/mp4/file.mp4\"}],\"isVideoDataExists\":\"1\",\"videoFormat\":\"mp4\",\"playbackRate\":1,\"autoPlay\":false,\"containerId\":\"comp-m7kyr52q\",\"animatePoster\":\"none\"}"
+    },
+    {
+     "type": "image",
+     "box": [
+      300,
+      1772,
+      378.1,
+      518.1
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_722cfbedb4a447d89950980e72f0384af000.jpg/v1/fill/w_378,h_518,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_722cfbedb4a447d89950980e72f0384af000.jpg",
+     "natural": [
+      378,
+      518
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "svg",
+     "box": [
+      460.5,
+      2002.6,
+      57,
+      57
+     ],
+     "html": "<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"13\" y=\"10\" width=\"5\" height=\"20\" data-color=\"1\" fill=\"white\" data-testid=\"pause-rect\"></rect><rect x=\"22\" y=\"10\" width=\"5\" height=\"20\" data-color=\"1\" fill=\"white\" data-testid=\"pause-rect\"></rect></svg>",
+     "fill": "rgb(0, 0, 0)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "svg",
+     "box": [
+      459,
+      2001,
+      60,
+      60
+     ],
+     "html": "<svg preserveAspectRatio=\"xMidYMid meet\" data-bbox=\"20 17.5 42 47\" viewBox=\"0 0 82 82\" height=\"82\" width=\"82\" xmlns=\"http://www.w3.org/2000/svg\" data-type=\"color\" role=\"presentation\" aria-hidden=\"true\" aria-label=\"\"><defs><style>#comp-m7kyr53u svg [data-color=\"1\"] {fill: #ffffff;}\n#comp-m7kyr53u svg [data-color=\"2\"] {fill: #ED5829;}</style></defs>\n    <g>\n        <path d=\"M20 64.5v-47L62 41 20 64.5z\" fill=\"#2B328C\" clip-rule=\"evenodd\" fill-rule=\"evenodd\" data-color=\"1\"></path>\n    </g>\n</svg>",
+     "fill": "rgb(0, 0, 0)",
+     "color": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      2290,
+      395,
+      47
+     ],
+     "label": "IMMERSE",
+     "labelBox": [
+      459,
+      2302,
+      61,
+      24
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "20px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/chill",
+     "target": "_self"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "Motion | YE ZHANG",
+   "width": 320,
+   "height": 545,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      544
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      20,
+      135,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      146,
+      32,
+      29,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      72,
+      135,
+      42
+     ],
+     "label": "IMMERSE",
+     "labelBox": [
+      137,
+      84,
+      46,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/skin",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      124,
+      135,
+      42
+     ],
+     "label": "IMMERSE",
+     "labelBox": [
+      137,
+      136,
+      46,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/dance",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      176,
+      135,
+      42
+     ],
+     "label": "IMMERSE",
+     "labelBox": [
+      137,
+      188,
+      46,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/fire",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      228,
+      135,
+      42
+     ],
+     "label": "IMMERSE",
+     "labelBox": [
+      137,
+      240,
+      46,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/chill",
+     "target": "_self"
+    }
+   ]
+  }
+ }
+}

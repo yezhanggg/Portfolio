@@ -1,0 +1,912 @@
+{
+ "site": "yz",
+ "slug": "portfolio",
+ "url": "https://www.yezhang.net/portfolio",
+ "title": "This is Ye Zhang",
+ "description": "this is a random creative site for yezhang",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "This is Ye Zhang",
+   "description": "this is a random creative site for yezhang",
+   "width": 1440,
+   "height": 969,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      969
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      173,
+      123,
+      259,
+      79
+     ],
+     "label": "Zine",
+     "labelBox": [
+      271,
+      142,
+      50,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "left",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/photomagazine",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      108,
+      202,
+      389,
+      79
+     ],
+     "label": "Motion Edits",
+     "labelBox": [
+      231,
+      221,
+      143,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/motion",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      128,
+      281,
+      348,
+      79
+     ],
+     "label": "Illutrations",
+     "labelBox": [
+      239,
+      300,
+      126,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/art",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      128,
+      360,
+      348,
+      79
+     ],
+     "label": "Photography",
+     "labelBox": [
+      230,
+      378,
+      144,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "51.8px",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/photography",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      173,
+      439,
+      259,
+      79
+     ],
+     "label": "ArcGIS Project",
+     "labelBox": [
+      220,
+      458,
+      166,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "left",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/arcgis",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      108,
+      518,
+      389,
+      79
+     ],
+     "label": "Clothing & Fabrics",
+     "labelBox": [
+      196,
+      537,
+      213,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/my-clothing-brand",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      174,
+      597,
+      128,
+      79
+     ],
+     "label": "Clouds",
+     "labelBox": [
+      204,
+      619,
+      68,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/cloudss",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      302,
+      597,
+      128,
+      79
+     ],
+     "label": "Archive",
+     "labelBox": [
+      329,
+      619,
+      74,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/sessionarchive",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      286,
+      633,
+      31,
+      7
+     ],
+     "border": "3px solid rgb(0, 0, 0)",
+     "rotate": 90
+    },
+    {
+     "type": "button",
+     "box": [
+      619,
+      173,
+      316,
+      50
+     ],
+     "label": "name is Ye Zhang",
+     "labelBox": [
+      719,
+      186,
+      117,
+      24
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "20px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "left",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/aboutme",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      559,
+      238,
+      291,
+      421
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0c624b486fa34ba7ac3169ab54ca0946~mv2.gif",
+     "natural": [
+      1640,
+      2360
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/aboutme"
+    },
+    {
+     "type": "button",
+     "box": [
+      157,
+      676,
+      291,
+      59
+     ],
+     "label": "random ideation",
+     "labelBox": [
+      221,
+      688,
+      163,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/ideation",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      120,
+      904,
+      39,
+      39
+     ],
+     "src": "https://static.wixstatic.com/media/11062b_76b6d42cdb574d28ba1c78cac5cbc6de~mv2.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_76b6d42cdb574d28ba1c78cac5cbc6de~mv2.png",
+     "alt": "Spotify  ",
+     "natural": [
+      39,
+      39
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://open.spotify.com/user/tjts289z0g0fzcorg5og3wzba?si=012306953c47478e"
+    },
+    {
+     "type": "image",
+     "box": [
+      169,
+      904,
+      39,
+      39
+     ],
+     "src": "https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01c3aff52f2a4dffa526d7a9843d46ea.png",
+     "alt": "Instagram",
+     "natural": [
+      39,
+      39
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://instagram.com/ye_zhangy?igshid=NDk5N2NlZjQ="
+    },
+    {
+     "type": "image",
+     "box": [
+      218,
+      904,
+      39,
+      39
+     ],
+     "src": "https://static.wixstatic.com/media/6ea5b4a88f0b4f91945b40499aa0af00.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6ea5b4a88f0b4f91945b40499aa0af00.png",
+     "alt": "LinkedIn",
+     "natural": [
+      39,
+      39
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.linkedin.com/in/ye-zhang-738bab258"
+    },
+    {
+     "type": "text",
+     "box": [
+      391,
+      916,
+      197,
+      23
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 1,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:14px;text-align:center\"><span><span><span style=\"letter-spacing:0.14px\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">©️2025 YeZhang. All Rights Reserved.</span></span></span></span></h2>"
+    },
+    {
+     "type": "text",
+     "box": [
+      696,
+      913,
+      164,
+      21
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 1,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:14px;text-align:center\"><span><span style=\"letter-spacing:1.4px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><a href=\"mailto:yezhang1@usc.edu\">yezhang1@usc.edu</a></span></span></span></span></h2>"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "This is Ye Zhang",
+   "description": "this is a random creative site for yezhang",
+   "width": 320,
+   "height": 695,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      695
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      44,
+      47,
+      109,
+      51
+     ],
+     "label": "Illutrations",
+     "labelBox": [
+      71,
+      64,
+      54,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/art",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      -2,
+      98,
+      201,
+      35
+     ],
+     "label": "Zine",
+     "labelBox": [
+      85,
+      107,
+      21,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "left",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/photomagazine",
+     "target": "_self"
+    },
+    {
+     "type": "text",
+     "box": [
+      194,
+      85,
+      174,
+      61
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 2,
+     "html": "<h1 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:50px\"><span style=\"font-family:impact, impact-w01-2010, impact-w02-2010, impact-w10-2010, sans-serif\">YEZHANG</span></h1>",
+     "rotate": 90
+    },
+    {
+     "type": "button",
+     "box": [
+      -5,
+      149,
+      207,
+      35
+     ],
+     "label": "Photography",
+     "labelBox": [
+      68,
+      157,
+      62,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "22.2px",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/photography",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      60,
+      194,
+      201,
+      35
+     ],
+     "label": "ArcGIS Project",
+     "labelBox": [
+      125,
+      203,
+      71,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "left",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/arcgis",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      -5,
+      239,
+      207,
+      35
+     ],
+     "label": "random ideation",
+     "labelBox": [
+      58,
+      248,
+      81,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/ideation",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      -5,
+      293,
+      207,
+      35
+     ],
+     "label": "Motion Edits",
+     "labelBox": [
+      68,
+      302,
+      61,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/motion",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      -2,
+      345,
+      201,
+      51
+     ],
+     "label": "Clothing & Fabrics",
+     "labelBox": [
+      53,
+      362,
+      91,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/my-clothing-brand",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      193,
+      310,
+      119,
+      172
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0c624b486fa34ba7ac3169ab54ca0946~mv2.gif",
+     "natural": [
+      820,
+      1180
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/aboutme"
+    },
+    {
+     "type": "button",
+     "box": [
+      -1,
+      396,
+      201,
+      51
+     ],
+     "label": "Clouds",
+     "labelBox": [
+      83,
+      413,
+      34,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/cloudss",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      -2,
+      447,
+      201,
+      51
+     ],
+     "label": "Archive",
+     "labelBox": [
+      80,
+      464,
+      37,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/sessionarchive",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      91,
+      573,
+      35,
+      35
+     ],
+     "src": "https://static.wixstatic.com/media/11062b_76b6d42cdb574d28ba1c78cac5cbc6de~mv2.png/v1/fill/w_70,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_76b6d42cdb574d28ba1c78cac5cbc6de~mv2.png",
+     "alt": "Spotify  ",
+     "natural": [
+      35,
+      35
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://open.spotify.com/user/tjts289z0g0fzcorg5og3wzba?si=012306953c47478e"
+    },
+    {
+     "type": "image",
+     "box": [
+      141,
+      573,
+      35,
+      35
+     ],
+     "src": "https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_70,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01c3aff52f2a4dffa526d7a9843d46ea.png",
+     "alt": "Instagram",
+     "natural": [
+      35,
+      35
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://instagram.com/ye_zhangy?igshid=NDk5N2NlZjQ="
+    },
+    {
+     "type": "image",
+     "box": [
+      191,
+      573,
+      35,
+      35
+     ],
+     "src": "https://static.wixstatic.com/media/6ea5b4a88f0b4f91945b40499aa0af00.png/v1/fill/w_70,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6ea5b4a88f0b4f91945b40499aa0af00.png",
+     "alt": "LinkedIn",
+     "natural": [
+      35,
+      35
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.linkedin.com/in/ye-zhang-738bab258"
+    },
+    {
+     "type": "text",
+     "box": [
+      32,
+      614,
+      256,
+      11
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 1,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:9px;text-align:center\"><span><span style=\"letter-spacing:0.9px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><a href=\"mailto:yezhang1@usc.edu\">yezhang1@usc.edu</a></span></span></span></span></h2>"
+    },
+    {
+     "type": "text",
+     "box": [
+      57,
+      638,
+      206,
+      20
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 2,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:12px;text-align:center\"><span><span><span style=\"letter-spacing:0.12px\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">©️2025 YeZhang. All Rights Reserved.</span></span></span></span></h2>"
+    }
+   ]
+  }
+ }
+}

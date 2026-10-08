@@ -1,0 +1,880 @@
+{
+ "site": "yz",
+ "slug": "ideation",
+ "url": "https://www.yezhang.net/ideation",
+ "title": "random ideation | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "random ideation | YE ZHANG",
+   "width": 1440,
+   "height": 2971,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      2971
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      90,
+      395,
+      60
+     ],
+     "label": "HOME",
+     "labelBox": [
+      454,
+      98,
+      71,
+      44
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "37px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      310,
+      266,
+      359,
+      359
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_28bf9ad66ce3465f9fcee5edd6ed68da~mv2.jpeg/v1/crop/x_0,y_224,w_1080,h_1080/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WechatIMG412.jpeg",
+     "alt": "WechatIMG412.jpeg",
+     "natural": [
+      359,
+      359
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       540,
+       266,
+       359,
+       359
+      ]
+     },
+     "href": "https://www.yezhang.net/book-no-1"
+    },
+    {
+     "type": "button",
+     "box": [
+      238,
+      315,
+      400,
+      40
+     ],
+     "label": "brain cell no.1",
+     "labelBox": [
+      379,
+      321,
+      118,
+      29
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "25px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/book-no-1",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      232,
+      834,
+      518,
+      90
+     ],
+     "label": "PROJECT GREEN",
+     "labelBox": [
+      336,
+      844,
+      309,
+      70
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "59px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(64, 124, 81)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/green",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      311,
+      1108,
+      359,
+      359
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_32e7573a579142d39f828fbe44915a6f~mv2.jpg/v1/crop/x_360,y_0,w_1640,h_1640/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%202.jpg",
+     "alt": "Untitled_Artwork 2.jpg",
+     "natural": [
+      359,
+      359
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       541,
+       1108,
+       359,
+       359
+      ]
+     },
+     "href": "https://www.yezhang.net/brain-cell-no-2"
+    },
+    {
+     "type": "button",
+     "box": [
+      311,
+      1231,
+      336,
+      40
+     ],
+     "label": "brain cell no.2",
+     "labelBox": [
+      419,
+      1237,
+      121,
+      29
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "25px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/brain-cell-no-2",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      274,
+      1652,
+      433,
+      40
+     ],
+     "label": "\"CAN'T DRAW TOO COLD\"",
+     "labelBox": [
+      355,
+      1653,
+      270,
+      38
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "32px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/cdtc",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      274,
+      1614,
+      433,
+      40
+     ],
+     "label": "ICELAND",
+     "labelBox": [
+      446,
+      1615,
+      89,
+      38
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "32px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/cdtc",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      274,
+      1687,
+      433,
+      40
+     ],
+     "label": "BRAINCELL",
+     "labelBox": [
+      433,
+      1688,
+      116,
+      38
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "32px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/cdtc",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      319,
+      1847,
+      359,
+      359
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a2565a1dabe1430d8486b4c9385d0d20~mv2.jpg/v1/crop/x_0,y_721,w_1640,h_1639/fill/w_359,h_359,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2012.jpg",
+     "alt": "Untitled_Artwork 12.jpg",
+     "natural": [
+      359,
+      359
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       549,
+       1847,
+       359,
+       359
+      ]
+     },
+     "href": "https://www.yezhang.net/brain-cell-no-3"
+    },
+    {
+     "type": "button",
+     "box": [
+      282,
+      2206,
+      433,
+      40
+     ],
+     "label": "brain cell no.3",
+     "labelBox": [
+      433,
+      2210,
+      130,
+      32
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "27px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/brain-cell-no-3",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      190,
+      2370,
+      600,
+      600
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_071d455923514b548784a3276b2fd53f~mv2.png/v1/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_071d455923514b548784a3276b2fd53f~mv2.png",
+     "natural": [
+      600,
+      600
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "random ideation | YE ZHANG",
+   "width": 320,
+   "height": 2720,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      2720
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      55,
+      74,
+      208,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      130,
+      77,
+      57,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      126,
+      135,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      146,
+      138,
+      29,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      39,
+      178,
+      240,
+      240
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_28bf9ad66ce3465f9fcee5edd6ed68da~mv2.jpeg/v1/crop/x_0,y_224,w_1080,h_1080/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WechatIMG412.jpeg",
+     "alt": "WechatIMG412.jpeg",
+     "natural": [
+      240,
+      240
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       39,
+       178,
+       240,
+       240
+      ]
+     },
+     "href": "https://www.yezhang.net/book-no-1"
+    },
+    {
+     "type": "button",
+     "box": [
+      49,
+      418,
+      220,
+      42
+     ],
+     "label": "brain cell no.1",
+     "labelBox": [
+      88,
+      421,
+      142,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/book-no-1",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      39,
+      464,
+      240,
+      240
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_b7945fe6fa95447e883f9b9ecbfaaaca~mv2.jpeg/v1/crop/x_0,y_224,w_1080,h_1080/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WechatIMG413.jpeg",
+     "alt": "WechatIMG413.jpeg",
+     "natural": [
+      240,
+      240
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       39,
+       464,
+       240,
+       240
+      ]
+     },
+     "href": "https://www.yezhang.net/book-no-1"
+    },
+    {
+     "type": "button",
+     "box": [
+      100,
+      782,
+      120,
+      42
+     ],
+     "label": "FUN",
+     "labelBox": [
+      141,
+      785,
+      38,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/%E5%8F%AF%E4%BB%A5",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      39,
+      912,
+      240,
+      240
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_32e7573a579142d39f828fbe44915a6f~mv2.jpg/v1/crop/x_360,y_0,w_1640,h_1640/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%202.jpg",
+     "alt": "Untitled_Artwork 2.jpg",
+     "natural": [
+      240,
+      240
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       39,
+       912,
+       240,
+       240
+      ]
+     },
+     "href": "https://www.yezhang.net/brain-cell-no-2"
+    },
+    {
+     "type": "image",
+     "box": [
+      39,
+      1193,
+      240,
+      240
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_d4e43c373cf34e6e938adbde0dcf1f5f~mv2.jpg/v1/crop/x_360,y_0,w_1640,h_1640/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork.jpg",
+     "alt": "Untitled_Artwork.jpg",
+     "natural": [
+      240,
+      240
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       39,
+       1193,
+       240,
+       240
+      ]
+     },
+     "href": "https://www.yezhang.net/brain-cell-no-2"
+    },
+    {
+     "type": "button",
+     "box": [
+      49,
+      1152,
+      220,
+      42
+     ],
+     "label": "brain cell no.2",
+     "labelBox": [
+      87,
+      1155,
+      145,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/brain-cell-no-2",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      100,
+      1585,
+      120,
+      42
+     ],
+     "label": "ICELAND",
+     "labelBox": [
+      118,
+      1588,
+      84,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/cdtc",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      14,
+      1627,
+      289,
+      42
+     ],
+     "label": "\"CAN'T DRAW TOO COLD\"",
+     "labelBox": [
+      32,
+      1630,
+      253,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/cdtc",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      99,
+      1669,
+      120,
+      42
+     ],
+     "label": "DRAW",
+     "labelBox": [
+      129,
+      1672,
+      59,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/cdtc",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      39,
+      1775,
+      240,
+      240
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a2565a1dabe1430d8486b4c9385d0d20~mv2.jpg/v1/crop/x_0,y_721,w_1640,h_1639/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2012.jpg",
+     "alt": "Untitled_Artwork 12.jpg",
+     "natural": [
+      240,
+      240
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       39,
+       1775,
+       240,
+       240
+      ]
+     },
+     "href": "https://www.yezhang.net/brain-cell-no-3"
+    },
+    {
+     "type": "image",
+     "box": [
+      39,
+      2051,
+      240,
+      240
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_8781ebf9d08145beac8a8e23ae96ade9~mv2.jpg/v1/crop/x_0,y_721,w_1640,h_1639/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2014.jpg",
+     "alt": "Untitled_Artwork 14.jpg",
+     "natural": [
+      240,
+      240
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 100c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       39,
+       2051,
+       240,
+       240
+      ]
+     },
+     "href": "https://www.yezhang.net/brain-cell-no-3"
+    },
+    {
+     "type": "button",
+     "box": [
+      39,
+      2015,
+      240,
+      42
+     ],
+     "label": "brain cell no.3",
+     "labelBox": [
+      87,
+      2018,
+      145,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/brain-cell-no-3",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      -34,
+      2322,
+      363,
+      363
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_071d455923514b548784a3276b2fd53f~mv2.png/v1/fill/w_726,h_726,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_071d455923514b548784a3276b2fd53f~mv2.png",
+     "natural": [
+      363,
+      363
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    }
+   ]
+  }
+ }
+}

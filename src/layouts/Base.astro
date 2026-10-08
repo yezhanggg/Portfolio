@@ -1,0 +1,40 @@
+---
+import "../styles/fonts.css";
+import "../styles/site.css";
+
+const { title, description, image, noChat = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ""), Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    {description && <meta property="og:description" content={description} />}
+    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    <script is:inline>
+      // Scale the fixed-width canvases (980 desktop / 320 phone) to the viewport before first paint.
+      (function () {
+        function fit() {
+          var w = document.documentElement.clientWidth;
+          var z = w < 750 ? w / 320 : w < 980 ? w / 980 : 1;
+          document.documentElement.style.setProperty("--z", z);
+        }
+        fit();
+        addEventListener("resize", fit);
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+    {!noChat && <script src="/widget.js" defer is:inline></script>}
+  </body>
+</html>

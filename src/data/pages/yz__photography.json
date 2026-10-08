@@ -1,0 +1,1044 @@
+{
+ "site": "yz",
+ "slug": "photography",
+ "url": "https://www.yezhang.net/photography",
+ "title": "Photography | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "Photography | YE ZHANG",
+   "width": 1440,
+   "height": 2818,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      2818
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      62,
+      395,
+      60
+     ],
+     "label": "HOME",
+     "labelBox": [
+      454,
+      70,
+      71,
+      44
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "37px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      192,
+      224,
+      600,
+      450
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_8c22c40cc2554afca56727a55962c181~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_8c22c40cc2554afca56727a55962c181~mv2.jpg",
+     "natural": [
+      600,
+      450
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      194,
+      799,
+      600,
+      450
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0759a5e94c804c69b1cfe4bbb1f31c51~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/k%202%20copy.jpg",
+     "alt": "k 2 copy.jpg",
+     "natural": [
+      600,
+      450
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/dream"
+    },
+    {
+     "type": "image",
+     "box": [
+      192,
+      1392,
+      600,
+      450
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_b99e9849cc524ef993798524f51b0cce~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/project%20---10.jpg",
+     "alt": "project ---10.jpg",
+     "natural": [
+      600,
+      450
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/who"
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      1953,
+      395,
+      60
+     ],
+     "label": "everyday shooting",
+     "labelBox": [
+      426,
+      1971,
+      127,
+      25
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "21px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px"
+    },
+    {
+     "type": "gallery",
+     "box": [
+      -230,
+      2026,
+      1440,
+      670
+     ],
+     "items": [
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_1e1991b261554a3fba74c6dc6956b89e~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_1e1991b261554a3fba74c6dc6956b89e~mv2.jpg",
+       "box": [
+        -124,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_207f367f0cf048bf9326c95a478246be~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_207f367f0cf048bf9326c95a478246be~mv2.jpg",
+       "box": [
+        120,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_10ad4b0fd3bc426391d53e3e11e4d987~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_10ad4b0fd3bc426391d53e3e11e4d987~mv2.jpg",
+       "box": [
+        364,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_ed6e10a06a6f4f47bafee398f0009758~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_ed6e10a06a6f4f47bafee398f0009758~mv2.jpg",
+       "box": [
+        608,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_3c613988018f4bd182f488e5b5dd5152~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_3c613988018f4bd182f488e5b5dd5152~mv2.jpg",
+       "box": [
+        852,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_feaa0cb4bde44e838c3adadcb4a60fc1~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_feaa0cb4bde44e838c3adadcb4a60fc1~mv2.jpg",
+       "box": [
+        1096,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_f5dad9ce6aed44c3bd630751be918f97~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_f5dad9ce6aed44c3bd630751be918f97~mv2.jpg",
+       "box": [
+        1340,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_6c4215f812954c79a6860cd00fc4cdb3~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_6c4215f812954c79a6860cd00fc4cdb3~mv2.jpg",
+       "box": [
+        1584,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_31708f62a4354aa7afffcc87f5558f83~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_31708f62a4354aa7afffcc87f5558f83~mv2.jpg",
+       "box": [
+        1828,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_22c1d43d033f486fa73edc8e00b6e2e9~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_22c1d43d033f486fa73edc8e00b6e2e9~mv2.jpg",
+       "box": [
+        2072,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_4a35dfc46e564e0c99346cbd235a64d0~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_4a35dfc46e564e0c99346cbd235a64d0~mv2.jpg",
+       "box": [
+        2316,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_1830413229ea4d98a0a41c5b403379f3~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_1830413229ea4d98a0a41c5b403379f3~mv2.jpg",
+       "box": [
+        2560,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_75817f364c1d4e9ea109a279500c6dfe~mv2.jpeg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_75817f364c1d4e9ea109a279500c6dfe~mv2.jpeg",
+       "box": [
+        2804,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_878402b44510454395cca066c21e1970~mv2.jpeg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_878402b44510454395cca066c21e1970~mv2.jpeg",
+       "box": [
+        3048,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_26411af79c6944a88a92d18c250d69d8~mv2.png/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_26411af79c6944a88a92d18c250d69d8~mv2.png",
+       "box": [
+        3292,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_17dc3ae48fcb4d29afd6eb35536e3c73~mv2.png/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_17dc3ae48fcb4d29afd6eb35536e3c73~mv2.png",
+       "box": [
+        3536,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_f3e7991c9cfd4b4da7b09b1f66f807f0~mv2.png/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_f3e7991c9cfd4b4da7b09b1f66f807f0~mv2.png",
+       "box": [
+        3780,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_e6317660e314445f805bbc48f9ae42bc~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_e6317660e314445f805bbc48f9ae42bc~mv2.jpg",
+       "box": [
+        4024,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_e99d0ab3570c4ec5b77df9c5cfa8da0f~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_e99d0ab3570c4ec5b77df9c5cfa8da0f~mv2.jpg",
+       "box": [
+        4268,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_8d2a8cf6cd4942e8b02b5ee4c717b441~mv2.jpeg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_8d2a8cf6cd4942e8b02b5ee4c717b441~mv2.jpeg",
+       "box": [
+        4512,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_36beb599626f4e5895ea23d7488b178f~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_36beb599626f4e5895ea23d7488b178f~mv2.jpg",
+       "box": [
+        4756,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_e97830c7e9ab4e1ea68bd39c1dd5ddbd~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_e97830c7e9ab4e1ea68bd39c1dd5ddbd~mv2.jpg",
+       "box": [
+        5000,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_8fc19c2b6bda4066a5cfb502fb3c7643~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_8fc19c2b6bda4066a5cfb502fb3c7643~mv2.jpg",
+       "box": [
+        5244,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_48f8508f1bbf4621991291d5844702d1~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_48f8508f1bbf4621991291d5844702d1~mv2.jpg",
+       "box": [
+        5488,
+        0,
+        234,
+        670
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_29b828159cc949928ad51b2f52567ab4~mv2.jpg/v1/fill/w_234,h_670,q_90,enc_avif,quality_auto/f8d0cd_29b828159cc949928ad51b2f52567ab4~mv2.jpg",
+       "box": [
+        5732,
+        0,
+        234,
+        670
+       ]
+      }
+     ],
+     "horizontal": true,
+     "scrollW": 6100,
+     "bleed": true
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "Photography | YE ZHANG",
+   "width": 320,
+   "height": 3270,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      3270
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      56,
+      72,
+      208,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      131,
+      75,
+      57,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      124,
+      135,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      146,
+      136,
+      29,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      176,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_8c22c40cc2554afca56727a55962c181~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_8c22c40cc2554afca56727a55962c181~mv2.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      396,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0759a5e94c804c69b1cfe4bbb1f31c51~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/k%202%20copy.jpg",
+     "alt": "k 2 copy.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/dream"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      616,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_b99e9849cc524ef993798524f51b0cce~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/project%20---10.jpg",
+     "alt": "project ---10.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/who"
+    },
+    {
+     "type": "button",
+     "box": [
+      60,
+      3089,
+      200,
+      42
+     ],
+     "label": "everyday shooting",
+     "labelBox": [
+      115,
+      3101,
+      90,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px"
+    },
+    {
+     "type": "gallery",
+     "box": [
+      0,
+      3141,
+      280,
+      108.9
+     ],
+     "items": [
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_1e1991b261554a3fba74c6dc6956b89e~mv2.jpg/v1/fill/w_114,h_327,q_90,enc_avif,quality_auto/f8d0cd_1e1991b261554a3fba74c6dc6956b89e~mv2.jpg",
+       "box": [
+        -71,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_207f367f0cf048bf9326c95a478246be~mv2.jpg/v1/fill/w_114,h_327,q_90,enc_avif,quality_auto/f8d0cd_207f367f0cf048bf9326c95a478246be~mv2.jpg",
+       "box": [
+        -25,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_10ad4b0fd3bc426391d53e3e11e4d987~mv2.jpg/v1/fill/w_114,h_327,q_90,enc_avif,quality_auto/f8d0cd_10ad4b0fd3bc426391d53e3e11e4d987~mv2.jpg",
+       "box": [
+        21,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_ed6e10a06a6f4f47bafee398f0009758~mv2.jpg/v1/fill/w_114,h_327,q_90,enc_avif,quality_auto/f8d0cd_ed6e10a06a6f4f47bafee398f0009758~mv2.jpg",
+       "box": [
+        67,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_3c613988018f4bd182f488e5b5dd5152~mv2.jpg/v1/fill/w_114,h_327,q_90,enc_avif,quality_auto/f8d0cd_3c613988018f4bd182f488e5b5dd5152~mv2.jpg",
+       "box": [
+        113,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_feaa0cb4bde44e838c3adadcb4a60fc1~mv2.jpg/v1/fill/w_114,h_327,q_90,enc_avif,quality_auto/f8d0cd_feaa0cb4bde44e838c3adadcb4a60fc1~mv2.jpg",
+       "box": [
+        159,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_f5dad9ce6aed44c3bd630751be918f97~mv2.jpg/v1/fill/w_114,h_327,q_90,enc_avif,quality_auto/f8d0cd_f5dad9ce6aed44c3bd630751be918f97~mv2.jpg",
+       "box": [
+        205,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_6c4215f812954c79a6860cd00fc4cdb3~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_6c4215f812954c79a6860cd00fc4cdb3~mv2.jpg",
+       "box": [
+        251,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_31708f62a4354aa7afffcc87f5558f83~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_31708f62a4354aa7afffcc87f5558f83~mv2.jpg",
+       "box": [
+        297,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_22c1d43d033f486fa73edc8e00b6e2e9~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_22c1d43d033f486fa73edc8e00b6e2e9~mv2.jpg",
+       "box": [
+        343,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_4a35dfc46e564e0c99346cbd235a64d0~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_4a35dfc46e564e0c99346cbd235a64d0~mv2.jpg",
+       "box": [
+        389,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_1830413229ea4d98a0a41c5b403379f3~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_1830413229ea4d98a0a41c5b403379f3~mv2.jpg",
+       "box": [
+        435,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_75817f364c1d4e9ea109a279500c6dfe~mv2.jpeg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_75817f364c1d4e9ea109a279500c6dfe~mv2.jpeg",
+       "box": [
+        481,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_878402b44510454395cca066c21e1970~mv2.jpeg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_878402b44510454395cca066c21e1970~mv2.jpeg",
+       "box": [
+        527,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_26411af79c6944a88a92d18c250d69d8~mv2.png/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_26411af79c6944a88a92d18c250d69d8~mv2.png",
+       "box": [
+        573,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_17dc3ae48fcb4d29afd6eb35536e3c73~mv2.png/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_17dc3ae48fcb4d29afd6eb35536e3c73~mv2.png",
+       "box": [
+        619,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_f3e7991c9cfd4b4da7b09b1f66f807f0~mv2.png/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_f3e7991c9cfd4b4da7b09b1f66f807f0~mv2.png",
+       "box": [
+        665,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_e6317660e314445f805bbc48f9ae42bc~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_e6317660e314445f805bbc48f9ae42bc~mv2.jpg",
+       "box": [
+        711,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_e99d0ab3570c4ec5b77df9c5cfa8da0f~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_e99d0ab3570c4ec5b77df9c5cfa8da0f~mv2.jpg",
+       "box": [
+        757,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_8d2a8cf6cd4942e8b02b5ee4c717b441~mv2.jpeg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_8d2a8cf6cd4942e8b02b5ee4c717b441~mv2.jpeg",
+       "box": [
+        803,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_36beb599626f4e5895ea23d7488b178f~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_36beb599626f4e5895ea23d7488b178f~mv2.jpg",
+       "box": [
+        849,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_e97830c7e9ab4e1ea68bd39c1dd5ddbd~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_e97830c7e9ab4e1ea68bd39c1dd5ddbd~mv2.jpg",
+       "box": [
+        895,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_8fc19c2b6bda4066a5cfb502fb3c7643~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_8fc19c2b6bda4066a5cfb502fb3c7643~mv2.jpg",
+       "box": [
+        941,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_48f8508f1bbf4621991291d5844702d1~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_48f8508f1bbf4621991291d5844702d1~mv2.jpg",
+       "box": [
+        987,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_29b828159cc949928ad51b2f52567ab4~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_29b828159cc949928ad51b2f52567ab4~mv2.jpg",
+       "box": [
+        1033,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_5e9e7b49b10049328e13fb3cf597d076~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_5e9e7b49b10049328e13fb3cf597d076~mv2.jpg",
+       "box": [
+        1079,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_8f2d0416429e4923870fad11e63de97d~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_8f2d0416429e4923870fad11e63de97d~mv2.jpg",
+       "box": [
+        1125,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_1e1991b261554a3fba74c6dc6956b89e~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_1e1991b261554a3fba74c6dc6956b89e~mv2.jpg",
+       "box": [
+        1171,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_207f367f0cf048bf9326c95a478246be~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_207f367f0cf048bf9326c95a478246be~mv2.jpg",
+       "box": [
+        1217,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_10ad4b0fd3bc426391d53e3e11e4d987~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_10ad4b0fd3bc426391d53e3e11e4d987~mv2.jpg",
+       "box": [
+        1263,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_ed6e10a06a6f4f47bafee398f0009758~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_ed6e10a06a6f4f47bafee398f0009758~mv2.jpg",
+       "box": [
+        1309,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_3c613988018f4bd182f488e5b5dd5152~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_3c613988018f4bd182f488e5b5dd5152~mv2.jpg",
+       "box": [
+        1355,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_feaa0cb4bde44e838c3adadcb4a60fc1~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_feaa0cb4bde44e838c3adadcb4a60fc1~mv2.jpg",
+       "box": [
+        1401,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_f5dad9ce6aed44c3bd630751be918f97~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_f5dad9ce6aed44c3bd630751be918f97~mv2.jpg",
+       "box": [
+        1447,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_6c4215f812954c79a6860cd00fc4cdb3~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_6c4215f812954c79a6860cd00fc4cdb3~mv2.jpg",
+       "box": [
+        1493,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_31708f62a4354aa7afffcc87f5558f83~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_31708f62a4354aa7afffcc87f5558f83~mv2.jpg",
+       "box": [
+        1539,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_22c1d43d033f486fa73edc8e00b6e2e9~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_22c1d43d033f486fa73edc8e00b6e2e9~mv2.jpg",
+       "box": [
+        1585,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_4a35dfc46e564e0c99346cbd235a64d0~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_4a35dfc46e564e0c99346cbd235a64d0~mv2.jpg",
+       "box": [
+        1631,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_1830413229ea4d98a0a41c5b403379f3~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_1830413229ea4d98a0a41c5b403379f3~mv2.jpg",
+       "box": [
+        1677,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_75817f364c1d4e9ea109a279500c6dfe~mv2.jpeg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_75817f364c1d4e9ea109a279500c6dfe~mv2.jpeg",
+       "box": [
+        1723,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_878402b44510454395cca066c21e1970~mv2.jpeg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_878402b44510454395cca066c21e1970~mv2.jpeg",
+       "box": [
+        1769,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_26411af79c6944a88a92d18c250d69d8~mv2.png/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_26411af79c6944a88a92d18c250d69d8~mv2.png",
+       "box": [
+        1815,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_17dc3ae48fcb4d29afd6eb35536e3c73~mv2.png/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_17dc3ae48fcb4d29afd6eb35536e3c73~mv2.png",
+       "box": [
+        1861,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_f3e7991c9cfd4b4da7b09b1f66f807f0~mv2.png/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_f3e7991c9cfd4b4da7b09b1f66f807f0~mv2.png",
+       "box": [
+        1907,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_e6317660e314445f805bbc48f9ae42bc~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_e6317660e314445f805bbc48f9ae42bc~mv2.jpg",
+       "box": [
+        1953,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_e99d0ab3570c4ec5b77df9c5cfa8da0f~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_e99d0ab3570c4ec5b77df9c5cfa8da0f~mv2.jpg",
+       "box": [
+        1999,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_8d2a8cf6cd4942e8b02b5ee4c717b441~mv2.jpeg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_8d2a8cf6cd4942e8b02b5ee4c717b441~mv2.jpeg",
+       "box": [
+        2045,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_36beb599626f4e5895ea23d7488b178f~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_36beb599626f4e5895ea23d7488b178f~mv2.jpg",
+       "box": [
+        2091,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_e97830c7e9ab4e1ea68bd39c1dd5ddbd~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_e97830c7e9ab4e1ea68bd39c1dd5ddbd~mv2.jpg",
+       "box": [
+        2137,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_8fc19c2b6bda4066a5cfb502fb3c7643~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_8fc19c2b6bda4066a5cfb502fb3c7643~mv2.jpg",
+       "box": [
+        2183,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_48f8508f1bbf4621991291d5844702d1~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_48f8508f1bbf4621991291d5844702d1~mv2.jpg",
+       "box": [
+        2229,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_29b828159cc949928ad51b2f52567ab4~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_29b828159cc949928ad51b2f52567ab4~mv2.jpg",
+       "box": [
+        2275,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_5e9e7b49b10049328e13fb3cf597d076~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_5e9e7b49b10049328e13fb3cf597d076~mv2.jpg",
+       "box": [
+        2321,
+        0,
+        37.8,
+        108.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_8f2d0416429e4923870fad11e63de97d~mv2.jpg/v1/fill/w_139,h_399,q_90,enc_avif,quality_auto/f8d0cd_8f2d0416429e4923870fad11e63de97d~mv2.jpg",
+       "box": [
+        2367,
+        0,
+        37.8,
+        108.8
+       ]
+      }
+     ],
+     "horizontal": true,
+     "scrollW": 2484
+    }
+   ]
+  }
+ }
+}

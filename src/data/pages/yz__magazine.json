@@ -1,0 +1,585 @@
+{
+ "site": "yz",
+ "slug": "magazine",
+ "url": "https://www.yezhang.net/magazine",
+ "title": "magaZINE | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "magaZINE | YE ZHANG",
+   "width": 1440,
+   "height": 2524,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      2524
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      0,
+      71,
+      308.6,
+      44
+     ],
+     "label": "HOME",
+     "labelBox": [
+      126,
+      82,
+      56,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      316.6,
+      71,
+      336.4,
+      44
+     ],
+     "label": "magaZINE",
+     "labelBox": [
+      443,
+      82,
+      84,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "border": "1px solid rgb(0, 0, 0)",
+     "href": "https://www.yezhang.net/magazine",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      661,
+      71,
+      318,
+      44
+     ],
+     "label": "ABOUT",
+     "labelBox": [
+      787,
+      82,
+      66,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "href": "https://www.yezhang.net/about",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      369,
+      219,
+      240,
+      60
+     ],
+     "label": "vol .1",
+     "labelBox": [
+      458,
+      228,
+      61,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/copy-of-magazine",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      327,
+      278,
+      324,
+      459
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      335,
+      286,
+      308,
+      443
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_fe4308d4e87f497cb4c511ec42cbd619~mv2.jpg/v1/fill/w_308,h_443,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0000931-R01-00-00A.jpg",
+     "natural": [
+      308,
+      443
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/copy-of-magazine"
+    },
+    {
+     "type": "button",
+     "box": [
+      369,
+      939,
+      240,
+      60
+     ],
+     "label": "vol .2",
+     "labelBox": [
+      456,
+      948,
+      65,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/copy-of-magazine",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      327,
+      999,
+      324,
+      459
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      335,
+      1007,
+      308,
+      443
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c1be5fcfa1e24b33b0116c4ff9ca4c05~mv2.jpg/v1/fill/w_308,h_443,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_c1be5fcfa1e24b33b0116c4ff9ca4c05~mv2.jpg",
+     "natural": [
+      308,
+      443
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/copy-of-vol-1"
+    },
+    {
+     "type": "button",
+     "box": [
+      370,
+      1682,
+      240,
+      60
+     ],
+     "label": "vol .3",
+     "labelBox": [
+      457,
+      1691,
+      65,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/copy-of-magazine",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      327,
+      1742,
+      324,
+      459
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      335,
+      1750,
+      308,
+      443
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_560ea54154a946dd984aa143080b8c13~mv2.jpg/v1/fill/w_308,h_443,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/000007210010.jpg",
+     "natural": [
+      308,
+      443
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/copy-of-vol-2"
+    },
+    {
+     "type": "slideshow",
+     "id": "comp-ldni6hlu",
+     "box": [
+      -230,
+      2372,
+      1440,
+      107
+     ],
+     "prev": null,
+     "next": null,
+     "dots": null,
+     "slides": [
+      [
+       {
+        "type": "box",
+        "box": [
+         -230,
+         2372,
+         1440,
+         107
+        ],
+        "bg": "rgb(227, 81, 6)",
+        "bleed": true
+       },
+       {
+        "type": "text",
+        "box": [
+         58,
+         2391,
+         864,
+         69.6
+        ],
+        "style": {
+         "font-family": "Arial, Helvetica, sans-serif",
+         "font-size": "10px",
+         "font-weight": "400",
+         "font-style": "normal",
+         "color": "rgb(0, 0, 0)",
+         "letter-spacing": "normal",
+         "line-height": "normal",
+         "text-align": "start",
+         "text-transform": "none",
+         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+        },
+        "lines": 2,
+        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:68.6px;text-align:center\"><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"letter-spacing:12.25px\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-style:italic\"><span style=\"font-weight:700\"><span>edits</span></span></span></span></span></span></span></h3>"
+       }
+      ]
+     ],
+     "bleed": true
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "magaZINE | YE ZHANG",
+   "width": 320,
+   "height": 1108,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      1108
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      55,
+      41,
+      208,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      130,
+      44,
+      57,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      81,
+      119,
+      159,
+      42
+     ],
+     "label": "vol .1",
+     "labelBox": [
+      134,
+      122,
+      52,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/copy-of-magazine",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      90,
+      161,
+      140,
+      209
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      98,
+      169,
+      124,
+      193
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_fe4308d4e87f497cb4c511ec42cbd619~mv2.jpg/v1/fill/w_248,h_386,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0000931-R01-00-00A.jpg",
+     "natural": [
+      124,
+      193
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/copy-of-magazine"
+    },
+    {
+     "type": "button",
+     "box": [
+      80,
+      424,
+      159,
+      42
+     ],
+     "label": "vol .2",
+     "labelBox": [
+      132,
+      427,
+      56,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/copy-of-magazine",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      91,
+      466,
+      139,
+      198
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      99,
+      474,
+      123,
+      182
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c1be5fcfa1e24b33b0116c4ff9ca4c05~mv2.jpg/v1/fill/w_246,h_364,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_c1be5fcfa1e24b33b0116c4ff9ca4c05~mv2.jpg",
+     "natural": [
+      123,
+      182
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/copy-of-vol-1"
+    },
+    {
+     "type": "button",
+     "box": [
+      81,
+      761,
+      159,
+      42
+     ],
+     "label": "vol .3",
+     "labelBox": [
+      133,
+      764,
+      56,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/copy-of-magazine",
+     "target": "_self"
+    },
+    {
+     "type": "box",
+     "box": [
+      90,
+      803,
+      139,
+      209
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "border": "8px solid rgb(255, 255, 255)",
+     "shadow": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      98,
+      811,
+      123,
+      193
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_560ea54154a946dd984aa143080b8c13~mv2.jpg/v1/fill/w_246,h_386,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/000007210010.jpg",
+     "natural": [
+      123,
+      193
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.yezhang.net/copy-of-vol-2"
+    }
+   ]
+  }
+ }
+}

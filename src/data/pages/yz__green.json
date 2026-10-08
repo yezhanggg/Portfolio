@@ -1,0 +1,561 @@
+{
+ "site": "yz",
+ "slug": "green",
+ "url": "https://www.yezhang.net/green",
+ "title": "green | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "green | YE ZHANG",
+   "width": 1440,
+   "height": 3487,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      3487
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      33,
+      338,
+      306,
+      472
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_4533edc8639c46c99d67ee5113164214~mv2.png/v1/fill/w_306,h_472,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_4533edc8639c46c99d67ee5113164214~mv2.png",
+     "natural": [
+      306,
+      472
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      63,
+      975,
+      246,
+      379
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_d4f25890f7de4d6bb57c321b58b2a89b~mv2.png/v1/fill/w_246,h_379,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_d4f25890f7de4d6bb57c321b58b2a89b~mv2.png",
+     "natural": [
+      246,
+      379
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      54,
+      1520,
+      264,
+      393
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_bbb464fbcc9c45cdbff32412f35d3cfd~mv2.png/v1/fill/w_264,h_393,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_bbb464fbcc9c45cdbff32412f35d3cfd~mv2.png",
+     "natural": [
+      264,
+      393
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      448,
+      577,
+      131,
+      40
+     ],
+     "label": "BACK",
+     "labelBox": [
+      484,
+      578,
+      59,
+      38
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "32px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/ideation",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      374,
+      47,
+      293,
+      438
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_7b7e9ca1f9a34a4ba3afe2f893dcc4be~mv2.png/v1/fill/w_293,h_438,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_7b7e9ca1f9a34a4ba3afe2f893dcc4be~mv2.png",
+     "natural": [
+      293,
+      438
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      690,
+      393,
+      274,
+      429
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_fb8ae517f6c542fa91ca8322ad1bf0c5~mv2.png/v1/fill/w_274,h_429,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_fb8ae517f6c542fa91ca8322ad1bf0c5~mv2.png",
+     "natural": [
+      274,
+      429
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      381,
+      705,
+      279,
+      445
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_bcf5b867762e4c018f4140da054e20f8~mv2.png/v1/fill/w_279,h_445,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_bcf5b867762e4c018f4140da054e20f8~mv2.png",
+     "natural": [
+      279,
+      445
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      364,
+      1895,
+      236,
+      339
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_d5c6dc7a91ff472fabf35f248c6fdd5d~mv2.png/v1/fill/w_236,h_339,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_d5c6dc7a91ff472fabf35f248c6fdd5d~mv2.png",
+     "natural": [
+      236,
+      339
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      665,
+      1643,
+      237,
+      386
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_9a3f75b4c8a740f7b47e0d045ca52055~mv2.png/v1/fill/w_237,h_386,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_9a3f75b4c8a740f7b47e0d045ca52055~mv2.png",
+     "natural": [
+      237,
+      386
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      364,
+      1262,
+      254,
+      406
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5347972a97c04393bbe10b6eee52f88e~mv2.png/v1/fill/w_254,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5347972a97c04393bbe10b6eee52f88e~mv2.png",
+     "natural": [
+      254,
+      406
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      690,
+      1066,
+      253,
+      393
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_399fe76fa0c04d68b8ee8a223b0bd072~mv2.png/v1/fill/w_253,h_393,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_399fe76fa0c04d68b8ee8a223b0bd072~mv2.png",
+     "natural": [
+      253,
+      393
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      105,
+      2269,
+      304,
+      449
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_46a82b58e4b6485bbb7b68f6b3bf8746~mv2.png/v1/fill/w_304,h_449,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_46a82b58e4b6485bbb7b68f6b3bf8746~mv2.png",
+     "natural": [
+      304,
+      449
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      250,
+      2768,
+      270,
+      416
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_bded3b373fef49428785c77c1d094e08~mv2.png/v1/fill/w_270,h_416,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_bded3b373fef49428785c77c1d094e08~mv2.png",
+     "natural": [
+      270,
+      416
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      566,
+      2278,
+      374,
+      600
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_e331e4464c8749f19e07a3f4e97a5fea~mv2.png/v1/fill/w_374,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_e331e4464c8749f19e07a3f4e97a5fea~mv2.png",
+     "natural": [
+      374,
+      600
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      566,
+      2952,
+      293,
+      441
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0c4c7ca707f74f2bb1bee6a005084392~mv2.png/v1/fill/w_293,h_441,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_0c4c7ca707f74f2bb1bee6a005084392~mv2.png",
+     "natural": [
+      293,
+      441
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "green | YE ZHANG",
+   "width": 320,
+   "height": 4381,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      4381
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      55,
+      20,
+      210,
+      324
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_4533edc8639c46c99d67ee5113164214~mv2.png/v1/fill/w_420,h_648,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_4533edc8639c46c99d67ee5113164214~mv2.png",
+     "natural": [
+      210,
+      324
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      75,
+      354,
+      170,
+      261
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_d4f25890f7de4d6bb57c321b58b2a89b~mv2.png/v1/fill/w_340,h_522,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_d4f25890f7de4d6bb57c321b58b2a89b~mv2.png",
+     "natural": [
+      170,
+      261
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      55,
+      625,
+      210,
+      314
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_7b7e9ca1f9a34a4ba3afe2f893dcc4be~mv2.png/v1/fill/w_420,h_628,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_7b7e9ca1f9a34a4ba3afe2f893dcc4be~mv2.png",
+     "natural": [
+      210,
+      314
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      70,
+      949,
+      180,
+      268
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_bbb464fbcc9c45cdbff32412f35d3cfd~mv2.png/v1/fill/w_360,h_536,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_bbb464fbcc9c45cdbff32412f35d3cfd~mv2.png",
+     "natural": [
+      180,
+      268
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      75,
+      1227,
+      170,
+      272
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5347972a97c04393bbe10b6eee52f88e~mv2.png/v1/fill/w_340,h_544,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5347972a97c04393bbe10b6eee52f88e~mv2.png",
+     "natural": [
+      170,
+      272
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      70,
+      1509,
+      180,
+      287
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_bcf5b867762e4c018f4140da054e20f8~mv2.png/v1/fill/w_360,h_574,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_bcf5b867762e4c018f4140da054e20f8~mv2.png",
+     "natural": [
+      180,
+      287
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      100,
+      1806,
+      120,
+      42
+     ],
+     "label": "BACK",
+     "labelBox": [
+      133,
+      1809,
+      55,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/ideation",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      65,
+      1858,
+      190,
+      297
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_fb8ae517f6c542fa91ca8322ad1bf0c5~mv2.png/v1/fill/w_380,h_594,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_fb8ae517f6c542fa91ca8322ad1bf0c5~mv2.png",
+     "natural": [
+      190,
+      297
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      70,
+      2165,
+      180,
+      280
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_399fe76fa0c04d68b8ee8a223b0bd072~mv2.png/v1/fill/w_360,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_399fe76fa0c04d68b8ee8a223b0bd072~mv2.png",
+     "natural": [
+      180,
+      280
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      75,
+      2455,
+      170,
+      244
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_d5c6dc7a91ff472fabf35f248c6fdd5d~mv2.png/v1/fill/w_340,h_488,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_d5c6dc7a91ff472fabf35f248c6fdd5d~mv2.png",
+     "natural": [
+      170,
+      244
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      75,
+      2709,
+      170,
+      277
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_9a3f75b4c8a740f7b47e0d045ca52055~mv2.png/v1/fill/w_340,h_554,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_9a3f75b4c8a740f7b47e0d045ca52055~mv2.png",
+     "natural": [
+      170,
+      277
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      55,
+      2996,
+      210,
+      310
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_46a82b58e4b6485bbb7b68f6b3bf8746~mv2.png/v1/fill/w_420,h_620,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_46a82b58e4b6485bbb7b68f6b3bf8746~mv2.png",
+     "natural": [
+      210,
+      310
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      65,
+      3316,
+      190,
+      292
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_bded3b373fef49428785c77c1d094e08~mv2.png/v1/fill/w_380,h_584,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_bded3b373fef49428785c77c1d094e08~mv2.png",
+     "natural": [
+      190,
+      292
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      3618,
+      260,
+      417
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_e331e4464c8749f19e07a3f4e97a5fea~mv2.png/v1/fill/w_520,h_834,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_e331e4464c8749f19e07a3f4e97a5fea~mv2.png",
+     "natural": [
+      260,
+      417
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      55,
+      4045,
+      210,
+      316
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0c4c7ca707f74f2bb1bee6a005084392~mv2.png/v1/fill/w_420,h_632,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_0c4c7ca707f74f2bb1bee6a005084392~mv2.png",
+     "natural": [
+      210,
+      316
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    }
+   ]
+  }
+ }
+}

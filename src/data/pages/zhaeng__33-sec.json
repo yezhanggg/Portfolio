@@ -1,0 +1,145 @@
+{
+ "site": "zhaeng",
+ "slug": "33-sec",
+ "url": "https://yegnahz.wixsite.com/zhaeng/33-sec",
+ "title": "sec 33 | ZHAENG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "sec 33 | ZHAENG",
+   "width": 1440,
+   "height": 850,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      850
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      -230,
+      0,
+      1440,
+      850
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_2510b44f777b40dd903d0ee8a74eeb43~mv2.jpeg/v1/fill/w_1440,h_850,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_2510b44f777b40dd903d0ee8a74eeb43~mv2.jpeg",
+     "natural": [
+      1440,
+      850
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "bleed": true
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "sec 33 | ZHAENG",
+   "width": 320,
+   "height": 507,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "video",
+     "box": [
+      0,
+      0,
+      320,
+      545
+     ],
+     "src": "https://video.wixstatic.com/video/f8d0cd_3c3075007b974debbcfe9b176941bc68/480p/mp4/file.mp4",
+     "id": "f8d0cd_3c3075007b974debbcfe9b176941bc68",
+     "autoplay": true,
+     "loop": true,
+     "muted": true,
+     "controls": false,
+     "fit": "cover",
+     "info": "{\"fittingType\":\"fill\",\"alignType\":\"center\",\"hasBgScrollEffect\":\"\",\"bgEffectName\":\"\",\"videoId\":\"f8d0cd_3c3075007b974debbcfe9b176941bc68\",\"videoWidth\":1080,\"videoHeight\":1440,\"qualities\":[{\"quality\":\"360p\",\"size\":172800,\"url\":\"video/f8d0cd_3c3075007b974debbcfe9b176941bc68/360p/mp4/file.mp4\"},{\"quality\":\"480p\",\"size\":307200,\"url\":\"video/f8d0cd_3c3075007b974debbcfe9b176941bc68/480p/mp4/file.mp4\"},{\"quality\":\"720p\",\"size\":691200,\"url\":\"video/f8d0cd_3c3075007b974debbcfe9b176941bc68/720p/mp4/file.mp4\"},{\"quality\":\"1080p\",\"size\":1555200,\"url\":\"video/f8d0cd_3c3075007b974debbcfe9b176941bc68/1080p/mp4/file.mp4\"}],\"isVideoDataExists\":\"1\",\"videoFormat\":\"mp4\",\"playbackRate\":1.25,\"autoPlay\":true,\"containerId\":\"pageBackground_s444w\",\"animatePoster\":\"none\"}",
+     "fixed": true,
+     "vw": 320,
+     "vh": 545
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      320,
+      624
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_3c3075007b974debbcfe9b176941bc68f000.jpg/v1/fill/w_320,h_624,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/f8d0cd_3c3075007b974debbcfe9b176941bc68f000.jpg",
+     "natural": [
+      320,
+      624
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "fixed": true,
+     "vw": 320,
+     "vh": 545
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      320,
+      545
+     ],
+     "src": "https://static.wixstatic.com/media/0da768_4371c7e64a49489bb88c536f515f2040.png/v1/crop/x_0,y_0,w_6,h_6,q_85,enc_auto/0da768_4371c7e64a49489bb88c536f515f2040.png",
+     "fit": "cover",
+     "position": "50% 50%",
+     "fixed": true,
+     "vw": 320,
+     "vh": 545
+    },
+    {
+     "type": "box",
+     "box": [
+      273,
+      25,
+      22,
+      2
+     ],
+     "bg": "rgb(232, 230, 230)",
+     "radius": "2px"
+    },
+    {
+     "type": "box",
+     "box": [
+      273,
+      34,
+      22,
+      2
+     ],
+     "bg": "rgb(232, 230, 230)",
+     "radius": "2px"
+    },
+    {
+     "type": "box",
+     "box": [
+      273,
+      43,
+      22,
+      2
+     ],
+     "bg": "rgb(232, 230, 230)",
+     "radius": "2px"
+    }
+   ]
+  }
+ }
+}

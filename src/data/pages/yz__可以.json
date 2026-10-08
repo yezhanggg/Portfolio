@@ -1,0 +1,181 @@
+{
+ "site": "yz",
+ "slug": "可以",
+ "url": "https://www.yezhang.net/可以",
+ "title": "ok | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "ok | YE ZHANG",
+   "width": 1440,
+   "height": 1042,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      1042
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "video",
+     "box": [
+      -230,
+      0,
+      1440,
+      1042
+     ],
+     "src": "https://video.wixstatic.com/video/f8d0cd_f4aa42e15505444c939f56ae04e34f16/480p/mp4/file.mp4",
+     "id": "f8d0cd_f4aa42e15505444c939f56ae04e34f16",
+     "autoplay": true,
+     "loop": true,
+     "muted": true,
+     "controls": false,
+     "fit": "cover",
+     "info": "{\"fittingType\":\"fill\",\"alignType\":\"center\",\"hasBgScrollEffect\":\"\",\"bgEffectName\":\"\",\"videoId\":\"f8d0cd_f4aa42e15505444c939f56ae04e34f16\",\"videoWidth\":768,\"videoHeight\":432,\"qualities\":[{\"quality\":\"480p\",\"size\":331776,\"url\":\"video/f8d0cd_f4aa42e15505444c939f56ae04e34f16/480p/mp4/file.mp4\"}],\"isVideoDataExists\":\"1\",\"videoFormat\":\"mp4\",\"playbackRate\":1,\"autoPlay\":true,\"containerId\":\"comp-lc5ei406\",\"animatePoster\":\"none\"}",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      -230,
+      0,
+      1440,
+      1042
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_f4aa42e15505444c939f56ae04e34f16f000.jpg/v1/fill/w_716,h_518,al_c,lg_1,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/f8d0cd_f4aa42e15505444c939f56ae04e34f16f000.jpg",
+     "natural": [
+      716,
+      518
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      424,
+      469,
+      131,
+      40
+     ],
+     "label": "BACK",
+     "labelBox": [
+      460,
+      470,
+      59,
+      38
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "32px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/thoughtss",
+     "target": "_self"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "ok | YE ZHANG",
+   "width": 320,
+   "height": 636,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      636
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "video",
+     "box": [
+      0,
+      0,
+      320,
+      636
+     ],
+     "src": "https://video.wixstatic.com/video/f8d0cd_f4aa42e15505444c939f56ae04e34f16/480p/mp4/file.mp4",
+     "id": "f8d0cd_f4aa42e15505444c939f56ae04e34f16",
+     "autoplay": true,
+     "loop": true,
+     "muted": true,
+     "controls": false,
+     "fit": "cover",
+     "info": "{\"fittingType\":\"fill\",\"alignType\":\"center\",\"hasBgScrollEffect\":\"\",\"bgEffectName\":\"\",\"videoId\":\"f8d0cd_f4aa42e15505444c939f56ae04e34f16\",\"videoWidth\":768,\"videoHeight\":432,\"qualities\":[{\"quality\":\"480p\",\"size\":331776,\"url\":\"video/f8d0cd_f4aa42e15505444c939f56ae04e34f16/480p/mp4/file.mp4\"}],\"isVideoDataExists\":\"1\",\"videoFormat\":\"mp4\",\"playbackRate\":1,\"autoPlay\":true,\"containerId\":\"comp-lc5ei406\",\"animatePoster\":\"none\"}"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      320,
+      636
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_f4aa42e15505444c939f56ae04e34f16f000.jpg/v1/fill/w_261,h_518,al_c,lg_1,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/f8d0cd_f4aa42e15505444c939f56ae04e34f16f000.jpg",
+     "natural": [
+      261,
+      518
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      100,
+      297,
+      120,
+      42
+     ],
+     "label": "BACK",
+     "labelBox": [
+      133,
+      300,
+      55,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/thoughtss",
+     "target": "_self"
+    }
+   ]
+  }
+ }
+}

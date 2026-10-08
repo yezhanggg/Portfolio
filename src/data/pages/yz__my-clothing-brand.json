@@ -1,0 +1,503 @@
+{
+ "site": "yz",
+ "slug": "my-clothing-brand",
+ "url": "https://www.yezhang.net/my-clothing-brand",
+ "title": "my clothing brand | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "my clothing brand | YE ZHANG",
+   "width": 1440,
+   "height": 1137,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      1137.3
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      73,
+      395,
+      60
+     ],
+     "label": "HOME",
+     "labelBox": [
+      454,
+      81,
+      71,
+      44
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "37px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      22,
+      168,
+      468,
+      69
+     ],
+     "label": "WEBSITE PORTAL",
+     "labelBox": [
+      189,
+      189,
+      134,
+      28
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "24px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.430global.com/",
+     "target": "_blank"
+    },
+    {
+     "type": "button",
+     "box": [
+      490,
+      168,
+      468,
+      69
+     ],
+     "label": "GALLERY",
+     "labelBox": [
+      690,
+      189,
+      68,
+      28
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "24px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px"
+    },
+    {
+     "type": "box",
+     "box": [
+      0,
+      272,
+      980,
+      795.3
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "box",
+     "box": [
+      20,
+      296,
+      940,
+      528.8
+     ],
+     "bg": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "iframe",
+     "box": [
+      20,
+      296,
+      940,
+      528.8
+     ],
+     "src": "https://www.youtube-nocookie.com/embed/3kkWA_Xkgn4?enablejsapi=1&hl=en&rel=0&origin=https%3A%2F%2Fwww.yezhang.net&autoplay=1",
+     "title": "430 CH.3 \"RUN\" Trailer"
+    },
+    {
+     "type": "box",
+     "box": [
+      30,
+      854.8,
+      298.7,
+      172.5
+     ],
+     "bg": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      30,
+      854.8,
+      298.7,
+      172.5
+     ],
+     "bg": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      854.8,
+      298.7,
+      172.5
+     ],
+     "src": "https://i.ytimg.com/vi/3kkWA_Xkgn4/maxresdefault.jpg",
+     "alt": "430 CH.3 \"RUN\" Trailer",
+     "natural": [
+      640,
+      360
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      140.8,
+      902.5,
+      77,
+      77
+     ],
+     "label": "Play Video",
+     "labelBox": [
+      161,
+      923,
+      827,
+      37
+     ],
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "37px",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "opacity": "0"
+    },
+    {
+     "type": "box",
+     "box": [
+      342.7,
+      854.8,
+      298.7,
+      172.5
+     ],
+     "bg": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      342.7,
+      854.8,
+      298.7,
+      172.5
+     ],
+     "bg": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "image",
+     "box": [
+      342.7,
+      854.8,
+      298.7,
+      172.5
+     ],
+     "src": "https://i.ytimg.com/vi/fX6B-T_uWkM/mqdefault.jpg",
+     "alt": "430 CHAPTER II \"Shhh\" Trailer",
+     "natural": [
+      320,
+      180
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      453.5,
+      902.5,
+      77,
+      77
+     ],
+     "label": "Play Video",
+     "labelBox": [
+      473,
+      923,
+      827,
+      37
+     ],
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "37px",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "opacity": "0"
+    },
+    {
+     "type": "box",
+     "box": [
+      655.3,
+      854.8,
+      298.7,
+      172.5
+     ],
+     "bg": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      655.3,
+      854.8,
+      298.7,
+      172.5
+     ],
+     "bg": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "image",
+     "box": [
+      655.3,
+      854.8,
+      298.7,
+      172.5
+     ],
+     "src": "https://i.ytimg.com/vi/86fvtw11Eb8/mqdefault.jpg",
+     "alt": "430 BETA TESTING NOW",
+     "natural": [
+      320,
+      180
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      766.1,
+      902.5,
+      77,
+      77
+     ],
+     "label": "Play Video",
+     "labelBox": [
+      786,
+      923,
+      827,
+      37
+     ],
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "37px",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "opacity": "0"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "my clothing brand | YE ZHANG",
+   "width": 320,
+   "height": 545,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      544
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      20,
+      135,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      146,
+      32,
+      29,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      80,
+      72,
+      160,
+      42
+     ],
+     "label": "WEBSITE PORTAL",
+     "labelBox": [
+      118,
+      84,
+      84,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.430global.com/",
+     "target": "_blank"
+    },
+    {
+     "type": "button",
+     "box": [
+      80,
+      124,
+      160,
+      42
+     ],
+     "label": "GALLERY",
+     "labelBox": [
+      139,
+      136,
+      43,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px"
+    },
+    {
+     "type": "box",
+     "box": [
+      0,
+      176,
+      320,
+      250
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "box",
+     "box": [
+      0,
+      176,
+      320,
+      250
+     ],
+     "bg": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "box",
+     "box": [
+      0,
+      216,
+      320,
+      180
+     ],
+     "bg": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "iframe",
+     "box": [
+      0,
+      216,
+      320,
+      180
+     ],
+     "src": "https://www.youtube-nocookie.com/embed/3kkWA_Xkgn4?enablejsapi=1&hl=en&rel=0&origin=https%3A%2F%2Fwww.yezhang.net&playsinline=1",
+     "title": "430 CH.3 \"RUN\" Trailer"
+    }
+   ]
+  }
+ }
+}

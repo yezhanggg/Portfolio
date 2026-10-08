@@ -1,0 +1,276 @@
+/* Every page is a fixed-width canvas of absolutely positioned nodes, taken from the original
+   layouts: 980px wide on desktop, 320px on phones. --z (set in Base.astro) scales it to fit. */
+:root {
+  --z: 1;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: #fff;
+  color: #000;
+  overflow-x: clip;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.view {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  zoom: var(--z);
+}
+.view-mobile,
+.fixed-mobile {
+  display: none;
+}
+@media (max-width: 749px) {
+  .view-desktop,
+  .fixed-desktop {
+    display: none;
+  }
+  .view-mobile,
+  .fixed-mobile {
+    display: block;
+  }
+}
+
+.n {
+  position: absolute;
+  display: block;
+  margin: 0;
+}
+/* Full-width strips: break out of the centred column to the viewport edges. */
+.bleed {
+  left: calc(50% - 50vw / var(--z));
+  width: calc(100vw / var(--z));
+}
+
+/* Page-wide backgrounds that stay put while the page scrolls. */
+.fixed-layer > .n {
+  position: fixed;
+}
+.fixed-bg {
+  z-index: 0;
+}
+.fixed-bg > .n {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.fixed-bg > .n img,
+.fixed-bg > video.n {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fixed-top {
+  position: relative;
+  z-index: 2;
+}
+
+/* Text */
+.t {
+  overflow-wrap: break-word;
+}
+.t :is(h1, h2, h3, h4, h5, h6, p, div, li) {
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+}
+.t :is(ul, ol) {
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+.t.nw,
+.t.nw * {
+  white-space: nowrap;
+}
+
+/* Buttons and menu links: the label keeps its original centre point. */
+.btn {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+a.btn:hover,
+button.btn:hover {
+  opacity: 0.6;
+}
+.btn .lbl {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+.btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+.img {
+  overflow: hidden;
+}
+.img img {
+  display: block;
+}
+.svg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.vid {
+  background: #000;
+}
+
+/* Galleries: items keep their original positions; long strips scroll sideways. */
+.gal {
+  overflow: hidden;
+}
+.gal.scrolls {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.gal.scrolls::-webkit-scrollbar {
+  display: none;
+}
+.gal-inner {
+  position: relative;
+}
+.gal-item {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+.gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Slideshows (zines) */
+.show {
+  overflow: hidden;
+  touch-action: pan-y;
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease, visibility 0s 0.45s;
+}
+.slide.on {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.45s ease;
+}
+.show-nav {
+  position: absolute;
+  z-index: 2;
+  width: 40px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #000;
+}
+.show-dots {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+}
+.show-dots .dot {
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--dot, #c7c7c7);
+  cursor: pointer;
+  flex: none;
+}
+.show-dots .dot.on {
+  background: var(--dot-on, #fff);
+}
+
+/* Forms */
+.inp {
+  outline-offset: 2px;
+  resize: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.inp[type="radio"],
+.inp[type="checkbox"] {
+  appearance: auto;
+  -webkit-appearance: auto;
+  accent-color: #000;
+}
+.inp::placeholder {
+  color: var(--ph, currentColor);
+  opacity: 1;
+}
+.lab {
+  white-space: nowrap;
+}
+.chk {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.chk input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #000;
+}
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.form-note {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: #000;
+  color: #fff;
+  font: 14px/1.4 Helvetica, Arial, sans-serif;
+  padding: 10px 16px;
+  border-radius: 4px;
+  max-width: 90vw;
+}
+.form-note:empty {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .btn {
+    transition: none;
+  }
+}

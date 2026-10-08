@@ -1,0 +1,335 @@
+{
+ "site": "yz",
+ "slug": "typeface",
+ "url": "https://www.yezhang.net/typeface",
+ "title": "typeface | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "typeface | YE ZHANG",
+   "width": 1440,
+   "height": 1439,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      1439
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      73,
+      395,
+      60
+     ],
+     "label": "HOME",
+     "labelBox": [
+      454,
+      81,
+      71,
+      44
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "37px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      95,
+      220,
+      790,
+      365
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_57dab0df608544b294a004aee111ee13~mv2.png/v1/fill/w_790,h_365,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-03-06%20at%203_00_19%E2%80%AFPM.png",
+     "alt": "Screenshot 2025-03-06 at 3.00.19 PM.png",
+     "natural": [
+      790,
+      365
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      683,
+      395,
+      60
+     ],
+     "label": "DOWNLOAD IT NOW",
+     "labelBox": [
+      370,
+      691,
+      238,
+      44
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "37px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://drive.google.com/file/d/15RBA6kJRwmavLavlhPaU0UvsdnrbD1E-/view?usp=drive_link",
+     "target": "_blank"
+    },
+    {
+     "type": "gallery",
+     "box": [
+      -230,
+      791,
+      1440,
+      638
+     ],
+     "items": [
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_444,h_638,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        0,
+        0,
+        444,
+        638
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_444,h_638,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        454,
+        0,
+        444,
+        638
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_444,h_638,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        908,
+        0,
+        444,
+        638
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_444,h_638,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        1362,
+        0,
+        444,
+        638
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_444,h_638,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        1816,
+        0,
+        444,
+        638
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_444,h_638,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        2270,
+        0,
+        444,
+        638
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_444,h_638,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        2724,
+        0,
+        444,
+        638
+       ]
+      }
+     ],
+     "horizontal": true,
+     "scrollW": 3178,
+     "bleed": true
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "typeface | YE ZHANG",
+   "width": 320,
+   "height": 545,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      544
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      20,
+      135,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      146,
+      32,
+      29,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      72,
+      280,
+      129
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_57dab0df608544b294a004aee111ee13~mv2.png/v1/fill/w_560,h_258,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-03-06%20at%203_00_19%E2%80%AFPM.png",
+     "alt": "Screenshot 2025-03-06 at 3.00.19 PM.png",
+     "natural": [
+      280,
+      129
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      211,
+      135,
+      42
+     ],
+     "label": "DOWNLOAD IT NOW",
+     "labelBox": [
+      112,
+      223,
+      97,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://drive.google.com/file/d/15RBA6kJRwmavLavlhPaU0UvsdnrbD1E-/view?usp=drive_link",
+     "target": "_blank"
+    },
+    {
+     "type": "gallery",
+     "box": [
+      0,
+      263,
+      280,
+      106.9
+     ],
+     "items": [
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_222,h_321,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        0,
+        0,
+        74.8,
+        106.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_222,h_321,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        83,
+        0,
+        74.8,
+        106.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_222,h_321,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        166,
+        0,
+        74.8,
+        106.8
+       ]
+      },
+      {
+       "src": "https://static.wixstatic.com/media/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg/v1/fit/w_222,h_321,q_90,enc_avif,quality_auto/f8d0cd_61ad59ef7aec4beaab349aaf222718d2~mv2.jpg",
+       "box": [
+        249,
+        0,
+        74.8,
+        106.8
+       ]
+      }
+     ],
+     "horizontal": true,
+     "scrollW": 332
+    }
+   ]
+  }
+ }
+}

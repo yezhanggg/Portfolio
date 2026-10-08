@@ -1,0 +1,1986 @@
+{
+ "site": "yz",
+ "slug": "np",
+ "url": "https://www.yezhang.net/np",
+ "title": "NOTEpad | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "NOTEpad | YE ZHANG",
+   "width": 1440,
+   "height": 12640,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      12640
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      0,
+      71,
+      310.2,
+      44
+     ],
+     "label": "HOME",
+     "labelBox": [
+      127,
+      82,
+      56,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      318.2,
+      71,
+      334.1,
+      44
+     ],
+     "label": "NOTEpad",
+     "labelBox": [
+      445,
+      82,
+      80,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "border": "1px solid rgb(0, 0, 0)",
+     "href": "https://www.yezhang.net/np",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      660.3,
+      71,
+      319.7,
+      44
+     ],
+     "label": "ABOUT",
+     "labelBox": [
+      787,
+      82,
+      66,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "href": "https://www.yezhang.net/about",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      231,
+      138,
+      318,
+      245
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5392581d338d4d67a849e1a5a7104e8b~mv2.png/v1/crop/x_236,y_201,w_1251,h_964/fill/w_318,h_245,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5392581d338d4d67a849e1a5a7104e8b~mv2.png",
+     "natural": [
+      318,
+      245
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       461,
+       138,
+       318,
+       245
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      487,
+      246,
+      234,
+      121
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5392581d338d4d67a849e1a5a7104e8b~mv2.png/v1/crop/x_0,y_1160,w_920,h_476/fill/w_234,h_121,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5392581d338d4d67a849e1a5a7104e8b~mv2.png",
+     "natural": [
+      234,
+      121
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       717,
+       246,
+       234,
+       121
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      96,
+      383,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_1dab2e3ef9bb44b89074830beb073483~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_1dab2e3ef9bb44b89074830beb073483~mv2.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      510,
+      383,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_84c53341629b46a49edea1a4b63aa467~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%206.jpg",
+     "alt": "Untitled_Artwork 6.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      96,
+      917,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_713b373b3c6b41c18eba2f32c603dfa6~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%207.jpg",
+     "alt": "Untitled_Artwork 7.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      510,
+      917,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_89704c09502843e1890058b22a2b5e94~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%205.jpg",
+     "alt": "Untitled_Artwork 5.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      303,
+      1461,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5ea81b09e424487bb53a19bbf1ae81bf~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/%E6%9C%AA%E5%91%BD%E5%90%8D%E4%BD%9C%E5%93%81%205.jpg",
+     "alt": "未命名作品 5.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      96,
+      2006,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_f880e0e1bfd84b07991026c97333e1dc~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mickey_bob.jpg",
+     "alt": "Mickey_bob.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      510,
+      2006,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c4629459f6a949279934b4695cf14145~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2023.jpg",
+     "alt": "Untitled_Artwork 23.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      175,
+      2574,
+      646,
+      485
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5845e9cb38004acabbc20e4cf0c7c88d~mv2.jpg/v1/fill/w_646,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%209.jpg",
+     "alt": "Untitled_Artwork 9.jpg",
+     "natural": [
+      646,
+      485
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      95,
+      3103,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_f6385488e8504d96bd4dc95a04a2526f~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2016.jpg",
+     "alt": "Untitled_Artwork 16.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      509,
+      3103,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_73459663acf94b149a1ff3ea4706245f~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2014.jpg",
+     "alt": "Untitled_Artwork 14.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      176,
+      3651,
+      646,
+      485
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_e7c408b3e2e84a4aa73b992371d73a03~mv2.jpg/v1/fill/w_646,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2012.jpg",
+     "alt": "Untitled_Artwork 12.jpg",
+     "natural": [
+      646,
+      485
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      176,
+      4185,
+      646,
+      485
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_43456930d45943fe98fb4d0f5b8ba0ec~mv2.jpg/v1/fill/w_646,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2010.jpg",
+     "alt": "Untitled_Artwork 10.jpg",
+     "natural": [
+      646,
+      485
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      303,
+      4731,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_2396f330a2c4445bb39d5f721a391cc5~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/%E6%9C%AA%E5%91%BD%E5%90%8D%E4%BD%9C%E5%93%81%204.jpg",
+     "alt": "未命名作品 4.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      96,
+      5275,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a7e917e423854dd682c125f877645e6d~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_9449.jpg",
+     "alt": "IMG_9449.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      510,
+      5275,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_85fa3e8574674da091a33fb42433fc2e~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2019.jpg",
+     "alt": "Untitled_Artwork 19.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      96,
+      5841,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a9bd9bb6026748e4981454dc36c3e9f6~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2017.jpg",
+     "alt": "Untitled_Artwork 17.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      510,
+      5841,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_ccdbdb526df944b89eee3fd2eec5b4d6~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2024.jpg",
+     "alt": "Untitled_Artwork 24.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      176,
+      6379,
+      646,
+      485
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a2246eb47f4d46adb2cf3fd78700d2d1~mv2.jpg/v1/fill/w_646,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2018.jpg",
+     "alt": "Untitled_Artwork 18.jpg",
+     "natural": [
+      646,
+      485
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      96,
+      6908,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_be15d832040b4bfba162283ce4a7d39e~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2013.jpg",
+     "alt": "Untitled_Artwork 13.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      510,
+      6908,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_f95c713316f548f2ac3ef95164f4a716~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2022.jpg",
+     "alt": "Untitled_Artwork 22.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      176,
+      7451,
+      646,
+      485
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_229e3537d6984598b867ae01e93414c5~mv2.jpg/v1/fill/w_646,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Crocodile_.jpg",
+     "alt": "Crocodile_.jpg",
+     "natural": [
+      646,
+      485
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      176,
+      7978,
+      646,
+      485
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c43883cb1f2b47f28895752085254b32~mv2.jpg/v1/fill/w_646,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2021.jpg",
+     "alt": "Untitled_Artwork 21.jpg",
+     "natural": [
+      646,
+      485
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      176,
+      8518,
+      646,
+      485
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_cb88d49c8b4a4015944ea3ee229bd876~mv2.jpg/v1/fill/w_646,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2020.jpg",
+     "alt": "Untitled_Artwork 20.jpg",
+     "natural": [
+      646,
+      485
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      176,
+      9045,
+      646,
+      485
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_28c3bfb682ab466d819ee451121b5e2c~mv2.jpg/v1/fill/w_646,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2015.jpg",
+     "alt": "Untitled_Artwork 15.jpg",
+     "natural": [
+      646,
+      485
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      303,
+      9578,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_80b991e35a6a4cfc9821a27bcb161181~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2026.jpg",
+     "alt": "Untitled_Artwork 26.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      171,
+      10111,
+      646,
+      485
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_ae9b062416694962b917c199f8fd5adc~mv2.jpg/v1/fill/w_646,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2029.jpg",
+     "alt": "Untitled_Artwork 29.jpg",
+     "natural": [
+      646,
+      485
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      95,
+      10644,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_741c8640e643427bb57e9192e2eba145~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2025.jpg",
+     "alt": "Untitled_Artwork 25.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      509,
+      10644,
+      373,
+      498
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_e6d6480f13d747e0ab49302383439ed0~mv2.jpg/v1/fill/w_373,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%202.jpg",
+     "alt": "Untitled_Artwork 2.jpg",
+     "natural": [
+      373,
+      498
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      174,
+      11193,
+      646,
+      485
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_52c372afc7c44893a6c8e6d4816aa1f8~mv2.jpg/v1/fill/w_646,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2027.jpg",
+     "alt": "Untitled_Artwork 27.jpg",
+     "natural": [
+      646,
+      485
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "text",
+     "box": [
+      306,
+      11716,
+      382,
+      39
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 1,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:32px;text-align:center\"><span><span style=\"letter-spacing:0.32px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">IN HONOR OF MY BEST FRIEND</span></span></span></span></h2>"
+    },
+    {
+     "type": "image",
+     "box": [
+      313,
+      11784,
+      365,
+      365
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_670510d509f445f785329b09565026a4~mv2.jpg/v1/fill/w_365,h_365,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%203.jpg",
+     "alt": "Untitled_Artwork 3.jpg",
+     "natural": [
+      365,
+      365
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       543,
+       11784,
+       365,
+       365
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "box": [
+      217,
+      12174,
+      560,
+      262
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 19,
+     "html": "<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;line-height:25.2px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">ONE DAY</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;line-height:25.2px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">I WAS LOOKING INTO THE SKY</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;line-height:25.2px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">I SAW YOU</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;line-height:25.2px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">WISH I COULD FLY</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;line-height:25.2px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">TOGETHER</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;line-height:25.2px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">WE COULD LIVE THE BEST LIFE</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;line-height:25.2px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\"><span>​</span></span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;line-height:25.2px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">YOU INSPIRED ME</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;line-height:25.2px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">LOOKING UP HIGH </span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;line-height:25.2px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">WISH TO SEE YOU ONE MORE TIME</span></span></p>"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "NOTEpad | YE ZHANG",
+   "width": 320,
+   "height": 16852,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      16852
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      56,
+      41,
+      208,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      131,
+      44,
+      57,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      15,
+      91,
+      176,
+      135
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5392581d338d4d67a849e1a5a7104e8b~mv2.png/v1/crop/x_236,y_201,w_1251,h_964/fill/w_352,h_270,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5392581d338d4d67a849e1a5a7104e8b~mv2.png",
+     "natural": [
+      176,
+      135
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       15,
+       91,
+       176,
+       135
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      140,
+      194,
+      160,
+      83
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5392581d338d4d67a849e1a5a7104e8b~mv2.png/v1/crop/x_0,y_1160,w_920,h_476/fill/w_320,h_166,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5392581d338d4d67a849e1a5a7104e8b~mv2.png",
+     "natural": [
+      160,
+      83
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       140,
+       194,
+       160,
+       83
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      109,
+      536,
+      180,
+      240
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_1dab2e3ef9bb44b89074830beb073483~mv2.jpg/v1/fill/w_360,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_1dab2e3ef9bb44b89074830beb073483~mv2.jpg",
+     "natural": [
+      180,
+      240
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      337,
+      180,
+      240
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_6ea549d353ac4e29bb064d5bfb3a31b3~mv2.jpg/v1/fill/w_360,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_6ea549d353ac4e29bb064d5bfb3a31b3~mv2.jpg",
+     "natural": [
+      180,
+      240
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      119,
+      1033,
+      180,
+      240
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_3679fd1aca3b4ef0815e6e468cd7686a~mv2.jpg/v1/fill/w_360,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%206.jpg",
+     "alt": "Untitled_Artwork 6.jpg",
+     "natural": [
+      180,
+      240
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      852,
+      180,
+      240
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_84c53341629b46a49edea1a4b63aa467~mv2.jpg/v1/fill/w_360,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%206.jpg",
+     "alt": "Untitled_Artwork 6.jpg",
+     "natural": [
+      180,
+      240
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      58,
+      1357,
+      203,
+      269
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_713b373b3c6b41c18eba2f32c603dfa6~mv2.jpg/v1/fill/w_406,h_538,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%207.jpg",
+     "alt": "Untitled_Artwork 7.jpg",
+     "natural": [
+      203,
+      269
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      59,
+      1631,
+      202,
+      269
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_8df6eee158a4478ca16c1b57cb73326a~mv2.jpg/v1/fill/w_404,h_538,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%207.jpg",
+     "alt": "Untitled_Artwork 7.jpg",
+     "natural": [
+      202,
+      269
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      109,
+      1962,
+      181,
+      241
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_89704c09502843e1890058b22a2b5e94~mv2.jpg/v1/fill/w_362,h_482,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%205.jpg",
+     "alt": "Untitled_Artwork 5.jpg",
+     "natural": [
+      181,
+      241
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      2203,
+      188,
+      251
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_e9b9ac1cee2d492bb7b5249afa036207~mv2.jpg/v1/fill/w_376,h_502,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%205.jpg",
+     "alt": "Untitled_Artwork 5.jpg",
+     "natural": [
+      188,
+      251
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      2525,
+      188,
+      251
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5ea81b09e424487bb53a19bbf1ae81bf~mv2.jpg/v1/fill/w_376,h_502,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/%E6%9C%AA%E5%91%BD%E5%90%8D%E4%BD%9C%E5%93%81%205.jpg",
+     "alt": "未命名作品 5.jpg",
+     "natural": [
+      188,
+      251
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      101,
+      2728,
+      188,
+      251
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_3d962502348e492091a95202921925aa~mv2.jpg/v1/fill/w_376,h_502,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/%E6%9C%AA%E5%91%BD%E5%90%8D%E4%BD%9C%E5%93%81%202.jpg",
+     "alt": "未命名作品 2.jpg",
+     "natural": [
+      188,
+      251
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      3063,
+      260,
+      346
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_f880e0e1bfd84b07991026c97333e1dc~mv2.jpg/v1/fill/w_520,h_692,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mickey_bob.jpg",
+     "alt": "Mickey_bob.jpg",
+     "natural": [
+      260,
+      346
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      3273,
+      260,
+      207
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_17b45bb095f840f2864fdf2be3cfccc1~mv2.jpg/v1/crop/x_0,y_105,w_2480,h_1973/fill/w_520,h_414,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mickey_bob.jpg",
+     "alt": "Mickey_bob.jpg",
+     "natural": [
+      260,
+      207
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       30,
+       3273,
+       260,
+       207
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      35,
+      3557,
+      260,
+      346
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c4629459f6a949279934b4695cf14145~mv2.jpg/v1/fill/w_520,h_692,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2023.jpg",
+     "alt": "Untitled_Artwork 23.jpg",
+     "natural": [
+      260,
+      346
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      35,
+      3909,
+      260,
+      346
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c41b053b1a0b412c9b0055c9034a1024~mv2.jpg/v1/fill/w_520,h_692,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2021.jpg",
+     "alt": "Untitled_Artwork 21.jpg",
+     "natural": [
+      260,
+      346
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      38,
+      4492,
+      254,
+      254
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_41838ded99924c02bc735f425b18d112~mv2.jpg/v1/fill/w_508,h_508,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2026.jpg",
+     "alt": "Untitled_Artwork 26.jpg",
+     "natural": [
+      254,
+      254
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      38,
+      4341,
+      254,
+      188
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_52c372afc7c44893a6c8e6d4816aa1f8~mv2.jpg/v1/crop/x_0,y_250,w_2048,h_1516/fill/w_508,h_376,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2027.jpg",
+     "alt": "Untitled_Artwork 27.jpg",
+     "natural": [
+      254,
+      188
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       38,
+       4341,
+       254,
+       188
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      46,
+      4785,
+      142,
+      189
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_f6385488e8504d96bd4dc95a04a2526f~mv2.jpg/v1/fill/w_284,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2016.jpg",
+     "alt": "Untitled_Artwork 16.jpg",
+     "natural": [
+      142,
+      189
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      146,
+      4974,
+      137,
+      183
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_51344437b5af4675b78eaa5a7c343327~mv2.jpg/v1/fill/w_274,h_366,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2015.jpg",
+     "alt": "Untitled_Artwork 15.jpg",
+     "natural": [
+      137,
+      183
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      25,
+      5233,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5845e9cb38004acabbc20e4cf0c7c88d~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%209.jpg",
+     "alt": "Untitled_Artwork 9.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      25,
+      5449,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_ba9629fbd81440649799ebbd3534ca62~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_ba9629fbd81440649799ebbd3534ca62~mv2.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      71,
+      5728,
+      176,
+      235
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_73459663acf94b149a1ff3ea4706245f~mv2.jpg/v1/fill/w_352,h_470,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2014.jpg",
+     "alt": "Untitled_Artwork 14.jpg",
+     "natural": [
+      176,
+      235
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      71,
+      5968,
+      176,
+      235
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_aff715c9948c41208ac2d36ce7d1a407~mv2.jpg/v1/fill/w_352,h_470,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2013.jpg",
+     "alt": "Untitled_Artwork 13.jpg",
+     "natural": [
+      176,
+      235
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      6268,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_e7c408b3e2e84a4aa73b992371d73a03~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2012.jpg",
+     "alt": "Untitled_Artwork 12.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      6484,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_363ec81903f841a5bec62a4284cbb8a7~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2011.jpg",
+     "alt": "Untitled_Artwork 11.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      25,
+      6778,
+      208,
+      277
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_2396f330a2c4445bb39d5f721a391cc5~mv2.jpg/v1/fill/w_416,h_554,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/%E6%9C%AA%E5%91%BD%E5%90%8D%E4%BD%9C%E5%93%81%204.jpg",
+     "alt": "未命名作品 4.jpg",
+     "natural": [
+      208,
+      277
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      79,
+      7062,
+      208,
+      277
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5418d3fcc4ca455fb65ca08335ed66c4~mv2.jpg/v1/fill/w_416,h_554,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/%E6%9C%AA%E5%91%BD%E5%90%8D%E4%BD%9C%E5%93%81.jpg",
+     "alt": "未命名作品.jpg",
+     "natural": [
+      208,
+      277
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      7429,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_43456930d45943fe98fb4d0f5b8ba0ec~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2010.jpg",
+     "alt": "Untitled_Artwork 10.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      7645,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_efdd2c309add4f809d30a20c50c855ad~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%209.jpg",
+     "alt": "Untitled_Artwork 9.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      79,
+      7929,
+      162,
+      216
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a7e917e423854dd682c125f877645e6d~mv2.jpg/v1/fill/w_324,h_432,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_9449.jpg",
+     "alt": "IMG_9449.jpg",
+     "natural": [
+      162,
+      216
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      79,
+      8152,
+      162,
+      216
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_7953d1c065184f86a37dd5b70e2a98db~mv2.jpg/v1/fill/w_324,h_432,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_9449.jpg",
+     "alt": "IMG_9449.jpg",
+     "natural": [
+      162,
+      216
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      8656,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_9ed02e8d6ff14c1e9e07d463adcb0e2e~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2017.jpg",
+     "alt": "Untitled_Artwork 17.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      19,
+      8439,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a2246eb47f4d46adb2cf3fd78700d2d1~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2018.jpg",
+     "alt": "Untitled_Artwork 18.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      8926,
+      212,
+      283
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_85fa3e8574674da091a33fb42433fc2e~mv2.jpg/v1/fill/w_424,h_566,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2019.jpg",
+     "alt": "Untitled_Artwork 19.jpg",
+     "natural": [
+      212,
+      283
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      87,
+      9220,
+      212,
+      283
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_406670d7e68d48ee8673fa4d8e86e68d~mv2.jpg/v1/fill/w_424,h_566,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2018.jpg",
+     "alt": "Untitled_Artwork 18.jpg",
+     "natural": [
+      212,
+      283
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      9581,
+      280,
+      195
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c43883cb1f2b47f28895752085254b32~mv2.jpg/v1/fill/w_560,h_390,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2021.jpg",
+     "alt": "Untitled_Artwork 21.jpg",
+     "natural": [
+      280,
+      195
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      9781,
+      280,
+      195
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_d702643fafc6489cbcf8d0089a7ae014~mv2.jpg/v1/fill/w_560,h_390,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2020.jpg",
+     "alt": "Untitled_Artwork 20.jpg",
+     "natural": [
+      280,
+      195
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      99,
+      10054,
+      201,
+      268
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a9bd9bb6026748e4981454dc36c3e9f6~mv2.jpg/v1/fill/w_402,h_536,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2017.jpg",
+     "alt": "Untitled_Artwork 17.jpg",
+     "natural": [
+      201,
+      268
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      10330,
+      201,
+      268
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_43b74a352cff4610bdae643ca90cc6ae~mv2.jpg/v1/fill/w_402,h_536,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2016.jpg",
+     "alt": "Untitled_Artwork 16.jpg",
+     "natural": [
+      201,
+      268
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      10675,
+      262,
+      185
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_229e3537d6984598b867ae01e93414c5~mv2.jpg/v1/fill/w_524,h_370,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Crocodile_.jpg",
+     "alt": "Crocodile_.jpg",
+     "natural": [
+      262,
+      185
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      10868,
+      262,
+      185
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0d85cf2375604fbe9c060967cc307c37~mv2.jpg/v1/fill/w_524,h_370,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Crocodile_.jpg",
+     "alt": "Crocodile_.jpg",
+     "natural": [
+      262,
+      185
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      49,
+      11135,
+      168,
+      238
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_ccdbdb526df944b89eee3fd2eec5b4d6~mv2.jpg/v1/fill/w_336,h_476,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2024.jpg",
+     "alt": "Untitled_Artwork 24.jpg",
+     "natural": [
+      168,
+      238
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      101,
+      11379,
+      168,
+      238
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_42ffdd2d277a4039962a83b108e3f8c1~mv2.jpg/v1/fill/w_336,h_476,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2022.jpg",
+     "alt": "Untitled_Artwork 22.jpg",
+     "natural": [
+      168,
+      238
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      33,
+      11727,
+      254,
+      190
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_cb88d49c8b4a4015944ea3ee229bd876~mv2.jpg/v1/fill/w_508,h_380,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2020.jpg",
+     "alt": "Untitled_Artwork 20.jpg",
+     "natural": [
+      254,
+      190
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      25,
+      11923,
+      269,
+      190
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c1bf1950999d44eb88f61ea83a7ed27f~mv2.jpg/v1/fill/w_538,h_380,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2019.jpg",
+     "alt": "Untitled_Artwork 19.jpg",
+     "natural": [
+      269,
+      190
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      60,
+      12153,
+      199,
+      281
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_f95c713316f548f2ac3ef95164f4a716~mv2.jpg/v1/fill/w_398,h_562,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2022.jpg",
+     "alt": "Untitled_Artwork 22.jpg",
+     "natural": [
+      199,
+      281
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      61,
+      12425,
+      198,
+      281
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_7d274972064147f4b786c3b78b1785d3~mv2.jpg/v1/fill/w_396,h_562,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%202.jpg",
+     "alt": "Untitled_Artwork 2.jpg",
+     "natural": [
+      198,
+      281
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      12786,
+      254,
+      190
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_28c3bfb682ab466d819ee451121b5e2c~mv2.jpg/v1/fill/w_508,h_380,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2015.jpg",
+     "alt": "Untitled_Artwork 15.jpg",
+     "natural": [
+      254,
+      190
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      47,
+      12982,
+      253,
+      190
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_11fee8d12d7646bea65439b8a3410d26~mv2.jpg/v1/fill/w_506,h_380,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2014.jpg",
+     "alt": "Untitled_Artwork 14.jpg",
+     "natural": [
+      253,
+      190
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      66,
+      13261,
+      186,
+      248
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_be15d832040b4bfba162283ce4a7d39e~mv2.jpg/v1/fill/w_372,h_496,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2013.jpg",
+     "alt": "Untitled_Artwork 13.jpg",
+     "natural": [
+      186,
+      248
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      67,
+      13514,
+      186,
+      248
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_3d2a48eb4efc44f39f463b796fcfd35d~mv2.jpg/v1/fill/w_372,h_496,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2012.jpg",
+     "alt": "Untitled_Artwork 12.jpg",
+     "natural": [
+      186,
+      248
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      13848,
+      281,
+      199
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_ae9b062416694962b917c199f8fd5adc~mv2.jpg/v1/fill/w_562,h_398,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2029.jpg",
+     "alt": "Untitled_Artwork 29.jpg",
+     "natural": [
+      281,
+      199
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      14055,
+      280,
+      210
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c4107402533e42bcbf310487e06afc90~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2030.jpg",
+     "alt": "Untitled_Artwork 30.jpg",
+     "natural": [
+      280,
+      210
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      40,
+      14342,
+      230,
+      230
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_80b991e35a6a4cfc9821a27bcb161181~mv2.jpg/v1/fill/w_460,h_460,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2026.jpg",
+     "alt": "Untitled_Artwork 26.jpg",
+     "natural": [
+      230,
+      230
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      14909,
+      231,
+      231
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_741c8640e643427bb57e9192e2eba145~mv2.jpg/v1/fill/w_462,h_462,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2025.jpg",
+     "alt": "Untitled_Artwork 25.jpg",
+     "natural": [
+      231,
+      231
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      56,
+      15146,
+      231,
+      231
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_1602d2dad4ad4e039f24ab1a98a5c827~mv2.jpg/v1/fill/w_462,h_462,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2024.jpg",
+     "alt": "Untitled_Artwork 24.jpg",
+     "natural": [
+      231,
+      231
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      40,
+      14581,
+      230,
+      230
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_b40b42b9b35d4b7ab8d9664aceb6fa0d~mv2.jpg/v1/fill/w_460,h_460,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%2025.jpg",
+     "alt": "Untitled_Artwork 25.jpg",
+     "natural": [
+      230,
+      230
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      56,
+      15508,
+      208,
+      208
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_e6d6480f13d747e0ab49302383439ed0~mv2.jpg/v1/fill/w_416,h_416,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%202.jpg",
+     "alt": "Untitled_Artwork 2.jpg",
+     "natural": [
+      208,
+      208
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      56,
+      15721,
+      208,
+      208
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_25248a8cbdfc499599bd49a20aa0d654~mv2.jpg/v1/fill/w_416,h_416,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%202.jpg",
+     "alt": "Untitled_Artwork 2.jpg",
+     "natural": [
+      208,
+      208
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "text",
+     "box": [
+      33,
+      16065,
+      248,
+      25
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 1,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:21px;text-align:center\"><span><span style=\"letter-spacing:0.21px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">IN HONOR OF MY BEST FRIEND</span></span></span></span></h2>"
+    },
+    {
+     "type": "image",
+     "box": [
+      25,
+      16095,
+      265,
+      265
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_670510d509f445f785329b09565026a4~mv2.jpg/v1/fill/w_530,h_530,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%203.jpg",
+     "alt": "Untitled_Artwork 3.jpg",
+     "natural": [
+      265,
+      265
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape' style='transform: scale(-1, 1);'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       25,
+       16095,
+       265,
+       265
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      25,
+      16370,
+      265,
+      265
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_d7d53196214d46369d315f361c85c145~mv2.jpg/v1/fill/w_530,h_530,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%203.jpg",
+     "alt": "Untitled_Artwork 3.jpg",
+     "natural": [
+      265,
+      265
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       25,
+       16370,
+       265,
+       265
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "box": [
+      20,
+      16555,
+      104,
+      41
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 2,
+     "html": "<p style=\"font-family:helvetica-w01-bold, sans-serif;font-size:29px;text-align:center\"><span><span style=\"font-family:avenir-lt-w01_35-light1475496, sans-serif\"><span><span style=\"color:rgb(255, 255, 255)\"> <span style=\"font-weight:700\">小虎</span></span></span></span></span></p>"
+    },
+    {
+     "type": "text",
+     "box": [
+      20,
+      16649,
+      275,
+      168
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 19,
+     "html": "<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:12px;line-height:16.8px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">ONE DAY</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:12px;line-height:16.8px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">I WAS LOOKING INTO THE SKY</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:12px;line-height:16.8px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">I SAW YOU</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:12px;line-height:16.8px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">WISH I COULD FLY</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:12px;line-height:16.8px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">TOGETHER</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:12px;line-height:16.8px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">WE COULD LIVE THE BEST LIFE</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:12px;line-height:16.8px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\"><span>​</span></span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:12px;line-height:16.8px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">YOU INSPIRED ME</span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:12px;line-height:16.8px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">LOOKING UP HIGH </span></span></p>\n\n<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:12px;line-height:16.8px;text-align:center\"><span><span style=\"font-family:'inknut antiqua', serif\">WISH TO SEE YOU ONE MORE TIME</span></span></p>"
+    }
+   ]
+  }
+ }
+}

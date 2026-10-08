@@ -1,0 +1,405 @@
+{
+ "site": "yz",
+ "slug": "book-no-1",
+ "url": "https://www.yezhang.net/book-no-1",
+ "title": "brain cell no.1 | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "brain cell no.1 | YE ZHANG",
+   "width": 1440,
+   "height": 1009,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      1009
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      157.6,
+      169,
+      211,
+      215
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_17857a368ff441ef9b3b806d9f24650a~mv2.png/v1/crop/x_739,y_409,w_830,h_846/fill/w_211,h_215,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_17857a368ff441ef9b3b806d9f24650a~mv2.png",
+     "natural": [
+      211,
+      215
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       387.6,
+       169,
+       211,
+       215
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      407.4,
+      116,
+      600,
+      416
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_008ecc0fd44f4483bbf08b2a6bc45723~mv2.png/v1/fill/w_600,h_416,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_008ecc0fd44f4483bbf08b2a6bc45723~mv2.png",
+     "natural": [
+      600,
+      416
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      147.1,
+      177.9,
+      600,
+      416
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_258c34d2822e45d2aaa455763bda1983~mv2.png/v1/fill/w_600,h_416,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%202_edited.png",
+     "alt": "Untitled_Artwork 2_edited.png",
+     "natural": [
+      600,
+      416
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      -13.7,
+      299,
+      409,
+      416
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_24db06bddf85473e9f90e29e21afead3~mv2.png/v1/crop/x_0,y_0,w_1609,h_1636/fill/w_409,h_416,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_24db06bddf85473e9f90e29e21afead3~mv2.png",
+     "natural": [
+      409,
+      416
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       216.3,
+       299,
+       409,
+       416
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      557.3,
+      362.9,
+      360,
+      416
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_b57004cd62454f818bb41705f2c7d1cc~mv2.png/v1/crop/x_944,y_0,w_1416,h_1636/fill/w_360,h_416,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%205_edited.png",
+     "alt": "Untitled_Artwork 5_edited.png",
+     "natural": [
+      360,
+      416
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       787.3,
+       362.9,
+       360,
+       416
+      ]
+     }
+    },
+    {
+     "type": "button",
+     "box": [
+      395,
+      663,
+      131,
+      40
+     ],
+     "label": "BACK",
+     "labelBox": [
+      431,
+      664,
+      59,
+      38
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "32px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/ideation",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      309,
+      682.8,
+      161,
+      200
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5be3e66a69a84dee852d5d541bd6ac2f~mv2.png/v1/crop/x_826,y_381,w_633,h_787/fill/w_161,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5be3e66a69a84dee852d5d541bd6ac2f~mv2.png",
+     "natural": [
+      161,
+      200
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       539,
+       682.8,
+       161,
+       200
+      ]
+     }
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "brain cell no.1 | YE ZHANG",
+   "width": 320,
+   "height": 924,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      924
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      -103,
+      -47,
+      362,
+      252
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_17857a368ff441ef9b3b806d9f24650a~mv2.png/v1/crop/x_739,y_409,w_830,h_846/fill/w_724,h_504,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_17857a368ff441ef9b3b806d9f24650a~mv2.png",
+     "natural": [
+      362,
+      252
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       -103,
+       -47,
+       362,
+       252
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      128,
+      136,
+      238,
+      165
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_008ecc0fd44f4483bbf08b2a6bc45723~mv2.png/v1/fill/w_476,h_330,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_008ecc0fd44f4483bbf08b2a6bc45723~mv2.png",
+     "natural": [
+      238,
+      165
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      -4,
+      167,
+      329,
+      229
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_258c34d2822e45d2aaa455763bda1983~mv2.png/v1/fill/w_658,h_458,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%202_edited.png",
+     "alt": "Untitled_Artwork 2_edited.png",
+     "natural": [
+      329,
+      229
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      -31,
+      353,
+      259,
+      180
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_24db06bddf85473e9f90e29e21afead3~mv2.png/v1/crop/x_0,y_0,w_1609,h_1636/fill/w_518,h_360,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_24db06bddf85473e9f90e29e21afead3~mv2.png",
+     "natural": [
+      259,
+      180
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       -31,
+       353,
+       259,
+       180
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      30,
+      454,
+      280,
+      194
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_b57004cd62454f818bb41705f2c7d1cc~mv2.png/v1/crop/x_944,y_0,w_1416,h_1636/fill/w_560,h_388,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled_Artwork%205_edited.png",
+     "alt": "Untitled_Artwork 5_edited.png",
+     "natural": [
+      280,
+      194
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       30,
+       454,
+       280,
+       194
+      ]
+     }
+    },
+    {
+     "type": "button",
+     "box": [
+      160,
+      337,
+      120,
+      42
+     ],
+     "label": "BACK",
+     "labelBox": [
+      193,
+      340,
+      55,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/ideation",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      40,
+      582,
+      285,
+      302
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5be3e66a69a84dee852d5d541bd6ac2f~mv2.png/v1/crop/x_754,y_351,w_811,h_860/fill/w_570,h_604,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5be3e66a69a84dee852d5d541bd6ac2f~mv2.png",
+     "natural": [
+      285,
+      302
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       40,
+       582,
+       285,
+       302
+      ]
+     }
+    }
+   ]
+  }
+ }
+}

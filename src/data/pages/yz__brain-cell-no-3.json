@@ -1,0 +1,561 @@
+{
+ "site": "yz",
+ "slug": "brain-cell-no-3",
+ "url": "https://www.yezhang.net/brain-cell-no-3",
+ "title": "brain cell no.3 | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "brain cell no.3 | YE ZHANG",
+   "width": 1440,
+   "height": 948,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      948
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      419,
+      538,
+      253,
+      359
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_d4cd349dad564b919f043fd38dd9a818~mv2.png/v1/fill/w_253,h_359,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_d4cd349dad564b919f043fd38dd9a818~mv2.png",
+     "natural": [
+      253,
+      359
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      -27,
+      648,
+      203,
+      287
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a271ecdfcf0a4c5e94ccdbe82fe60321~mv2.png/v1/fill/w_203,h_287,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_a271ecdfcf0a4c5e94ccdbe82fe60321~mv2.png",
+     "natural": [
+      203,
+      287
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      496,
+      220,
+      278,
+      393
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_b4003bf64898411298926f3d925676e0~mv2.png/v1/fill/w_278,h_393,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_b4003bf64898411298926f3d925676e0~mv2.png",
+     "natural": [
+      278,
+      393
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      167,
+      -54,
+      317,
+      448
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_558f7071b1ec4b00bd91ec828698339b~mv2.png/v1/fill/w_317,h_448,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_558f7071b1ec4b00bd91ec828698339b~mv2.png",
+     "natural": [
+      317,
+      448
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      615,
+      -17,
+      277,
+      393
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_51816194b3624abfa0f3d0ceb3bf4d42~mv2.png/v1/fill/w_277,h_393,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_51816194b3624abfa0f3d0ceb3bf4d42~mv2.png",
+     "natural": [
+      277,
+      393
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      237,
+      577,
+      254,
+      359
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_7dde67acb8a34db8a1fe28baeeb23cb2~mv2.png/v1/fill/w_254,h_359,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_7dde67acb8a34db8a1fe28baeeb23cb2~mv2.png",
+     "natural": [
+      254,
+      359
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      615,
+      508,
+      296,
+      419
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_7d253c7985644a77a3ac35e4885239de~mv2.png/v1/fill/w_296,h_419,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_7d253c7985644a77a3ac35e4885239de~mv2.png",
+     "natural": [
+      296,
+      419
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      248,
+      295,
+      296,
+      419
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_68379eee67f84ddaae78579a2c9262b8~mv2.png/v1/fill/w_296,h_419,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_68379eee67f84ddaae78579a2c9262b8~mv2.png",
+     "natural": [
+      296,
+      419
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      89,
+      333,
+      277,
+      393
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5d7df37b41c64dcbac1f3129ffeacfa2~mv2.png/v1/fill/w_277,h_393,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5d7df37b41c64dcbac1f3129ffeacfa2~mv2.png",
+     "natural": [
+      277,
+      393
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      746,
+      314,
+      239,
+      338
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5d134d6d0956494185b203e9f78eb9ef~mv2.png/v1/fill/w_239,h_338,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5d134d6d0956494185b203e9f78eb9ef~mv2.png",
+     "natural": [
+      239,
+      338
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      6,
+      428,
+      273,
+      386
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_b08911b4594a4f5eae8bca2642e380b4~mv2.png/v1/fill/w_273,h_386,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_b08911b4594a4f5eae8bca2642e380b4~mv2.png",
+     "natural": [
+      273,
+      386
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      754,
+      32,
+      243,
+      344
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_95280559686a4e8c850e82e2a36de0f6~mv2.png/v1/fill/w_243,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_95280559686a4e8c850e82e2a36de0f6~mv2.png",
+     "natural": [
+      243,
+      344
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      40,
+      80,
+      218,
+      309
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_99f76a51f3204391961586183de4806f~mv2.png/v1/fill/w_218,h_309,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_99f76a51f3204391961586183de4806f~mv2.png",
+     "natural": [
+      218,
+      309
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      352,
+      17,
+      254,
+      359
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0f12c18d51514788996329f3e064a27c~mv2.png/v1/fill/w_254,h_359,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_0f12c18d51514788996329f3e064a27c~mv2.png",
+     "natural": [
+      254,
+      359
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      460,
+      491,
+      131,
+      40
+     ],
+     "label": "BACK",
+     "labelBox": [
+      496,
+      492,
+      59,
+      38
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "32px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/ideation",
+     "target": "_self"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "brain cell no.3 | YE ZHANG",
+   "width": 320,
+   "height": 982,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      982
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      212,
+      97,
+      124,
+      175
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_b4003bf64898411298926f3d925676e0~mv2.png/v1/fill/w_248,h_350,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_b4003bf64898411298926f3d925676e0~mv2.png",
+     "natural": [
+      124,
+      175
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      101,
+      540,
+      101,
+      143
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_d4cd349dad564b919f043fd38dd9a818~mv2.png/v1/fill/w_202,h_286,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_d4cd349dad564b919f043fd38dd9a818~mv2.png",
+     "natural": [
+      101,
+      143
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      -30,
+      578,
+      163,
+      231
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_7dde67acb8a34db8a1fe28baeeb23cb2~mv2.png/v1/fill/w_326,h_462,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_7dde67acb8a34db8a1fe28baeeb23cb2~mv2.png",
+     "natural": [
+      163,
+      231
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      -50,
+      80,
+      190,
+      269
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_68379eee67f84ddaae78579a2c9262b8~mv2.png/v1/fill/w_380,h_538,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_68379eee67f84ddaae78579a2c9262b8~mv2.png",
+     "natural": [
+      190,
+      269
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      226,
+      441,
+      115,
+      164
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a271ecdfcf0a4c5e94ccdbe82fe60321~mv2.png/v1/fill/w_230,h_328,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_a271ecdfcf0a4c5e94ccdbe82fe60321~mv2.png",
+     "natural": [
+      115,
+      164
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      115,
+      547,
+      257,
+      363
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_b08911b4594a4f5eae8bca2642e380b4~mv2.png/v1/fill/w_514,h_726,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_b08911b4594a4f5eae8bca2642e380b4~mv2.png",
+     "natural": [
+      257,
+      363
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      -44,
+      389,
+      176,
+      249
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_558f7071b1ec4b00bd91ec828698339b~mv2.png/v1/fill/w_352,h_498,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_558f7071b1ec4b00bd91ec828698339b~mv2.png",
+     "natural": [
+      176,
+      249
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      151,
+      492,
+      90,
+      128
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5d7df37b41c64dcbac1f3129ffeacfa2~mv2.png/v1/fill/w_180,h_256,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5d7df37b41c64dcbac1f3129ffeacfa2~mv2.png",
+     "natural": [
+      90,
+      128
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      85,
+      117,
+      214,
+      302
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_99f76a51f3204391961586183de4806f~mv2.png/v1/fill/w_428,h_604,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_99f76a51f3204391961586183de4806f~mv2.png",
+     "natural": [
+      214,
+      302
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      85,
+      659,
+      133,
+      189
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_51816194b3624abfa0f3d0ceb3bf4d42~mv2.png/v1/fill/w_266,h_378,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_51816194b3624abfa0f3d0ceb3bf4d42~mv2.png",
+     "natural": [
+      133,
+      189
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      226,
+      277,
+      115,
+      164
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_7d253c7985644a77a3ac35e4885239de~mv2.png/v1/fill/w_230,h_328,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_7d253c7985644a77a3ac35e4885239de~mv2.png",
+     "natural": [
+      115,
+      164
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      55,
+      485,
+      95,
+      135
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0f12c18d51514788996329f3e064a27c~mv2.png/v1/fill/w_190,h_270,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_0f12c18d51514788996329f3e064a27c~mv2.png",
+     "natural": [
+      95,
+      135
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      34,
+      11,
+      178,
+      251
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_5d134d6d0956494185b203e9f78eb9ef~mv2.png/v1/fill/w_356,h_502,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_5d134d6d0956494185b203e9f78eb9ef~mv2.png",
+     "natural": [
+      178,
+      251
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      5,
+      277,
+      180,
+      255
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_95280559686a4e8c850e82e2a36de0f6~mv2.png/v1/fill/w_360,h_510,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_95280559686a4e8c850e82e2a36de0f6~mv2.png",
+     "natural": [
+      180,
+      255
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      133,
+      443,
+      120,
+      42
+     ],
+     "label": "BACK",
+     "labelBox": [
+      166,
+      446,
+      55,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/ideation",
+     "target": "_self"
+    }
+   ]
+  }
+ }
+}

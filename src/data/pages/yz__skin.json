@@ -1,0 +1,163 @@
+{
+ "site": "yz",
+ "slug": "skin",
+ "url": "https://www.yezhang.net/skin",
+ "title": "SKIN IMMERSE | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "SKIN IMMERSE | YE ZHANG",
+   "width": 1440,
+   "height": 969,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "video",
+     "box": [
+      0,
+      0,
+      1440,
+      900
+     ],
+     "src": "https://video.wixstatic.com/video/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f/720p/mp4/file.mp4",
+     "id": "f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f",
+     "autoplay": true,
+     "loop": true,
+     "muted": true,
+     "controls": false,
+     "fit": "cover",
+     "info": "{\"fittingType\":\"fill\",\"alignType\":\"center\",\"hasBgScrollEffect\":\"\",\"bgEffectName\":\"\",\"videoId\":\"f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f\",\"videoWidth\":1280,\"videoHeight\":960,\"qualities\":[{\"quality\":\"360p\",\"size\":172800,\"url\":\"video/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f/360p/mp4/file.mp4\"},{\"quality\":\"480p\",\"size\":307200,\"url\":\"video/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f/480p/mp4/file.mp4\"},{\"quality\":\"720p\",\"size\":1228800,\"url\":\"video/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920f/720p/mp4/file.mp4\"}],\"isVideoDataExists\":\"1\",\"videoFormat\":\"mp4\",\"playbackRate\":1,\"autoPlay\":true,\"containerId\":\"pageBackground_sxo2l\",\"animatePoster\":\"none\"}",
+     "fixed": true,
+     "vw": 1440,
+     "vh": 900
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      1440,
+      900
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920ff000.jpg/v1/fill/w_1280,h_800,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920ff000.jpg",
+     "natural": [
+      1280,
+      800
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "fixed": true,
+     "vw": 1440,
+     "vh": 900
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      879,
+      395,
+      60
+     ],
+     "label": "BACK",
+     "labelBox": [
+      456,
+      887,
+      68,
+      44
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "37px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/motion",
+     "target": "_self"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "SKIN IMMERSE | YE ZHANG",
+   "width": 320,
+   "height": 545,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      545
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "fixed": true,
+     "vw": 320,
+     "vh": 545
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      320,
+      624
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920ff000.jpg/v1/fill/w_492,h_960,al_c,q_85,enc_avif,quality_auto/f8d0cd_2e970e7dcfe04d7b8c61ecb5054f920ff000.jpg",
+     "natural": [
+      492,
+      960
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "fixed": true,
+     "vw": 320,
+     "vh": 545
+    },
+    {
+     "type": "button",
+     "box": [
+      93,
+      20,
+      135,
+      42
+     ],
+     "label": "BACK",
+     "labelBox": [
+      147,
+      32,
+      27,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/motion",
+     "target": "_self"
+    }
+   ]
+  }
+ }
+}

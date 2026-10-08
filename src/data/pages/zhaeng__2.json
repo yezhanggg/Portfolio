@@ -1,0 +1,170 @@
+{
+ "site": "zhaeng",
+ "slug": "2",
+ "url": "https://yegnahz.wixsite.com/zhaeng/2",
+ "title": "2",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "2",
+   "width": 1440,
+   "height": 850,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      850
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      817
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      208,
+      115,
+      564,
+      564
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0fc6443266c241ac84f3fd3bbc28623d~mv2.jpg/v1/fill/w_564,h_564,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4376.jpg",
+     "alt": "IMG_4376.jpg",
+     "natural": [
+      564,
+      564
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      624,
+      478,
+      133,
+      98
+     ],
+     "label": "",
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "22.4px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "href": "https://yegnahz.wixsite.com/zhaeng/3",
+     "target": "_self"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "2",
+   "width": 320,
+   "height": 507,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      506
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      320,
+      624
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_12a6810373104280a3a8a3c651949fd3~mv2.jpg/v1/fill/w_640,h_1248,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_12a6810373104280a3a8a3c651949fd3~mv2.jpg",
+     "natural": [
+      640,
+      1248
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      367
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      60,
+      20,
+      200,
+      200
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_0fc6443266c241ac84f3fd3bbc28623d~mv2.jpg/v1/fill/w_400,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4376.jpg",
+     "alt": "IMG_4376.jpg",
+     "natural": [
+      200,
+      200
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      80,
+      230,
+      160,
+      42
+     ],
+     "label": "",
+     "style": {
+      "font-family": "helvetica-w01-roman, sans-serif",
+      "font-size": "14.9333px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "20.9067px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "href": "https://yegnahz.wixsite.com/zhaeng/3",
+     "target": "_self"
+    }
+   ]
+  }
+ }
+}

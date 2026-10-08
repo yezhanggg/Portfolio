@@ -1,0 +1,145 @@
+{
+ "site": "yz",
+ "slug": "brain-cell-no-2",
+ "url": "https://www.yezhang.net/brain-cell-no-2",
+ "title": "brain cell no.2 | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "brain cell no.2 | YE ZHANG",
+   "width": 1440,
+   "height": 900,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      900
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      424,
+      52,
+      131,
+      40
+     ],
+     "label": "BACK",
+     "labelBox": [
+      460,
+      53,
+      59,
+      38
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "32px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/ideation",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      190,
+      163,
+      600,
+      600
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_85c579d426564566854b6691f8ab42a6~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_85c579d426564566854b6691f8ab42a6~mv2.jpg",
+     "natural": [
+      600,
+      600
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "brain cell no.2 | YE ZHANG",
+   "width": 320,
+   "height": 545,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      544
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      100,
+      20,
+      120,
+      42
+     ],
+     "label": "BACK",
+     "labelBox": [
+      133,
+      23,
+      55,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/ideation",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      20,
+      72,
+      280,
+      280
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_85c579d426564566854b6691f8ab42a6~mv2.jpg/v1/fill/w_560,h_560,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_85c579d426564566854b6691f8ab42a6~mv2.jpg",
+     "natural": [
+      280,
+      280
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    }
+   ]
+  }
+ }
+}

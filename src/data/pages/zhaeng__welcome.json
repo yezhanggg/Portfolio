@@ -1,0 +1,74 @@
+{
+ "site": "zhaeng",
+ "slug": "welcome",
+ "url": "https://yegnahz.wixsite.com/zhaeng/welcome",
+ "title": "welcome | ZHAENG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "welcome | ZHAENG",
+   "width": 1440,
+   "height": 1154,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      1154
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "iframe",
+     "box": [
+      -230,
+      0,
+      1440,
+      1154
+     ],
+     "src": "https://yezhanggg.github.io/ZHAENG/",
+     "title": "Embedded Content",
+     "bleed": true
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "welcome | ZHAENG",
+   "width": 320,
+   "height": 869,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      869
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "iframe",
+     "box": [
+      0,
+      0,
+      320,
+      869
+     ],
+     "src": "https://yezhanggg.github.io/ZHAENG/",
+     "title": "Embedded Content"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,158 @@
+{
+ "/": {
+  "description": "Ye Zhang — zines, photography, motion edits, illustration, type and clothing."
+ },
+ "/notice": {
+  "description": "Two ways into Ye Zhang's site: portfolio mode, or explore with curiosity."
+ },
+ "/copy-of-notice": {
+  "description": "Under maintenance."
+ },
+ "/about": {
+  "description": "About Ye Zhang, and a form to say something to Ye."
+ },
+ "/aboutme": {
+  "description": "About Ye Zhang, and a form to say something to Ye."
+ },
+ "/photomagazine": {
+  "description": "My Photo Magazine — three zines by Ye Zhang: vol.1, vol.2 and vol.3."
+ },
+ "/magazine": {
+  "description": "magaZINE — vol.1, vol.2 and vol.3 of Ye Zhang's photo magazine."
+ },
+ "/zineone": {
+  "description": "Zine 1 — flip through the full issue of Ye Zhang's photo zine."
+ },
+ "/zinetwo": {
+  "description": "Zine 2 — flip through the full issue of Ye Zhang's photo zine."
+ },
+ "/zinethree": {
+  "description": "Zine 3 — flip through the full issue of Ye Zhang's photo zine."
+ },
+ "/copy-of-magazine": {
+  "description": "magaZINE vol.1 — flip through the full issue of Ye Zhang's photo zine."
+ },
+ "/copy-of-vol-1": {
+  "description": "magaZINE vol.2 — flip through the full issue of Ye Zhang's photo zine."
+ },
+ "/copy-of-vol-2": {
+  "description": "magaZINE vol.3 — flip through the full issue of Ye Zhang's photo zine."
+ },
+ "/order": {
+  "description": "Get a free physical copy of the zine — request vol.1, vol.2 or vol.3."
+ },
+ "/photography": {
+  "description": "Photography by Ye Zhang — everyday shooting."
+ },
+ "/photos": {
+  "description": "I SHOOT PHOTOS NOW — photography by Ye Zhang."
+ },
+ "/dream": {
+  "description": "flower — a photo series by Ye Zhang."
+ },
+ "/who": {
+  "description": "paul — a photo series by Ye Zhang."
+ },
+ "/hmm": {
+  "description": "hmm — a photo series by Ye Zhang."
+ },
+ "/some-random-photos-edits": {
+  "description": "some RANDOM photos edits — a session from December 2022."
+ },
+ "/art": {
+  "description": "Selected artwork — illustrations by Ye Zhang."
+ },
+ "/ua": {
+  "description": "untitled ARTWORK — illustrations by Ye Zhang."
+ },
+ "/cloudss": {
+  "description": "Cloud drawings — NOTEpad sketches by Ye Zhang."
+ },
+ "/np": {
+  "description": "NOTEpad — cloud drawings by Ye Zhang."
+ },
+ "/typeface": {
+  "description": "Anima — a typeface by Ye Zhang, free to download for personal use."
+ },
+ "/motion": {
+  "description": "Motion edits by Ye Zhang — SKIN, DANCE, FIRE and CHILL."
+ },
+ "/skin": {
+  "description": "SKIN IMMERSE — a full-screen motion edit by Ye Zhang."
+ },
+ "/dance": {
+  "description": "DANCE IMMERSE — a full-screen motion edit by Ye Zhang."
+ },
+ "/fire": {
+  "description": "FIRE IMMERSE — a full-screen motion edit by Ye Zhang."
+ },
+ "/chill": {
+  "description": "CHILL IMMERSE — a full-screen motion edit by Ye Zhang."
+ },
+ "/thoughtss": {
+  "description": "THOUGHTS — brain cells, PROJECT GREEN, ICELAND and CAN'T DRAW TOO COLD."
+ },
+ "/ideation": {
+  "description": "random ideation — brain cells, PROJECT GREEN, ICELAND and CAN'T DRAW TOO COLD."
+ },
+ "/book-no-1": {
+  "description": "brain cell no.1 — drawings by Ye Zhang."
+ },
+ "/brain-cell-no-2": {
+  "description": "brain cell no.2 — drawings by Ye Zhang."
+ },
+ "/brain-cell-no-3": {
+  "description": "brain cell no.3 — drawings by Ye Zhang."
+ },
+ "/green": {
+  "description": "PROJECT GREEN — drawings by Ye Zhang."
+ },
+ "/cdtc": {
+  "description": "CAN'T DRAW TOO COLD — drawings by Ye Zhang."
+ },
+ "/archive": {
+  "description": "session.ARCHIVE — past sessions by Ye Zhang."
+ },
+ "/sessionarchive": {
+  "description": "session.archive — past sessions by Ye Zhang."
+ },
+ "/city-vision": {
+  "description": "CITY VISION — animated city drawings by Ye Zhang."
+ },
+ "/arcgis": {
+  "description": "Urban Heat Issue, Los Angeles County — an ArcGIS StoryMap by Ye Zhang."
+ },
+ "/my-clothing-brand": {
+  "description": "430 — Ye Zhang's clothing brand, with its video trailers."
+ },
+ "/shuffle": {
+  "description": "SHUFFLE — a collage by Ye Zhang."
+ },
+ "/zhaeng": {
+  "description": "ZHAENG — an image series by Ye Zhang."
+ },
+ "/zhaeng/welcome": {
+  "description": "ZHAENG — interactive mini-apps: camera, fortune cookie, poster designer, image scrambler."
+ },
+ "/zhaeng/1": {
+  "description": "ZHAENG — an image series by Ye Zhang."
+ },
+ "/zhaeng/2": {
+  "description": "ZHAENG — an image series by Ye Zhang."
+ },
+ "/zhaeng/3": {
+  "description": "ZHAENG — an image series by Ye Zhang."
+ },
+ "/zhaeng/33-sec": {
+  "description": "ZHAENG — an image series by Ye Zhang."
+ },
+ "/zhaeng/still": {
+  "description": "ZHAENG — an image series by Ye Zhang."
+ },
+ "/zhaeng/cautious": {
+  "description": "ZHAENG — an image series by Ye Zhang."
+ },
+ "/zhaeng/me": {
+  "description": "ZHAENG — an image series by Ye Zhang."
+ }
+}

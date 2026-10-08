@@ -1,0 +1,856 @@
+{
+ "site": "yz",
+ "slug": "aboutme",
+ "url": "https://www.yezhang.net/aboutme",
+ "title": "about me | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "about me | YE ZHANG",
+   "width": 1440,
+   "height": 1000,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      1000
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "video",
+     "box": [
+      -230,
+      0,
+      1440,
+      1000
+     ],
+     "src": "https://video.wixstatic.com/video/f8d0cd_81d29cb479324904b7dc532f5762cc76/1080p/mp4/file.mp4",
+     "id": "f8d0cd_81d29cb479324904b7dc532f5762cc76",
+     "autoplay": true,
+     "loop": true,
+     "muted": true,
+     "controls": false,
+     "fit": "cover",
+     "info": "{\"fittingType\":\"fill\",\"alignType\":\"center\",\"hasBgScrollEffect\":\"\",\"bgEffectName\":\"\",\"videoId\":\"f8d0cd_81d29cb479324904b7dc532f5762cc76\",\"videoWidth\":1080,\"videoHeight\":1920,\"qualities\":[{\"quality\":\"480p\",\"size\":409920,\"url\":\"video/f8d0cd_81d29cb479324904b7dc532f5762cc76/480p/mp4/file.mp4\"},{\"quality\":\"720p\",\"size\":921600,\"url\":\"video/f8d0cd_81d29cb479324904b7dc532f5762cc76/720p/mp4/file.mp4\"},{\"quality\":\"1080p\",\"size\":2073600,\"url\":\"video/f8d0cd_81d29cb479324904b7dc532f5762cc76/1080p/mp4/file.mp4\"}],\"isVideoDataExists\":\"1\",\"videoFormat\":\"mp4\",\"playbackRate\":1,\"autoPlay\":true,\"containerId\":\"comp-ltpzea36\",\"animatePoster\":\"none\"}",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      -230,
+      0,
+      1440,
+      900
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_81d29cb479324904b7dc532f5762cc76f000.jpg/v1/fill/w_1080,h_675,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/f8d0cd_81d29cb479324904b7dc532f5762cc76f000.jpg",
+     "natural": [
+      1080,
+      675
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "bleed": true
+    },
+    {
+     "type": "text",
+     "box": [
+      143,
+      292,
+      304,
+      39
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 1,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:32px\"><span><span style=\"letter-spacing:0.32px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">i like being creative</span></span></span></span></h2>"
+    },
+    {
+     "type": "image",
+     "box": [
+      640,
+      120,
+      264,
+      299
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_cd9443b2aa394bb196ee821e735995d2~mv2.png/v1/crop/x_795,y_562,w_1544,h_1749/fill/w_264,h_299,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_cd9443b2aa394bb196ee821e735995d2~mv2.png",
+     "natural": [
+      264,
+      299
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       870,
+       120,
+       264,
+       299
+      ]
+     },
+     "href": "https://www.yezhang.net/%E5%8F%AF%E4%BB%A5"
+    },
+    {
+     "type": "text",
+     "box": [
+      473,
+      148,
+      304,
+      163
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 2,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:32px\"><span><span style=\"letter-spacing:0.32px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">2025 USC Trojan</span></span></span></span><br>\n<br>\n<br>\n<span style=\"font-size:40px\">         <span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">Ye Zhang</span></span></h2>"
+    },
+    {
+     "type": "text",
+     "box": [
+      795,
+      413,
+      123,
+      22
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 2,
+     "html": "<h5 style=\"font-family:helvetica-w01-roman, sans-serif;font-size:15px;line-height:21px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span>this is my Trojan</span></span></span></h5>"
+    },
+    {
+     "type": "button",
+     "box": [
+      216,
+      446,
+      531,
+      40
+     ],
+     "label": "continue exploring my portfolio",
+     "labelBox": [
+      298,
+      445,
+      366,
+      42
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "35px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "text",
+     "box": [
+      302,
+      575,
+      374,
+      54
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 2,
+     "html": "<h5 style=\"font-family:helvetica-w01-roman, sans-serif;font-size:18px;text-align:center\"><span><span style=\"font-family:lulo-clean-w01-one-bold, lulo-clean-w05-one-bold, sans-serif\"><span>​wanna say something to YE</span></span></span></h5>"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "text",
+     "name": "name",
+     "placeholder": "Name",
+     "box": [
+      312,
+      635,
+      154,
+      25
+     ],
+     "style": {
+      "font-family": "lulo-clean-w01-one-bold, sans-serif",
+      "font-size": "12px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "16.8px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "4px",
+     "shadow": "rgba(0, 0, 0, 0.08) 0px 3px 10px 1px",
+     "padding": "3px 3px 3px 12px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "email",
+     "name": "email",
+     "placeholder": "contact",
+     "required": true,
+     "box": [
+      524,
+      635,
+      154,
+      25
+     ],
+     "style": {
+      "font-family": "lulo-clean-w01-one-bold, sans-serif",
+      "font-size": "12px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "16.8px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "4px",
+     "shadow": "rgba(0, 0, 0, 0.08) 0px 3px 10px 1px",
+     "padding": "3px 3px 3px 12px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "input",
+     "tag": "textarea",
+     "inputType": "textarea",
+     "placeholder": "Type your message here...",
+     "labelStyle": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      312,
+      668,
+      366,
+      62
+     ],
+     "style": {
+      "font-family": "lulo-clean-w01-one-bold, sans-serif",
+      "font-size": "12px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "16.8px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "6px",
+     "shadow": "rgba(0, 0, 0, 0.08) 0px 3px 19px 1px",
+     "padding": "9px 10px 3px 16px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "button",
+     "box": [
+      425,
+      736,
+      113,
+      32
+     ],
+     "label": "SEND",
+     "labelBox": [
+      452,
+      741,
+      60,
+      23
+     ],
+     "style": {
+      "font-family": "lulo-clean-w01-one-bold, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "21px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "submit": true
+    },
+    {
+     "type": "image",
+     "box": [
+      421,
+      904,
+      39,
+      39
+     ],
+     "src": "https://static.wixstatic.com/media/11062b_76b6d42cdb574d28ba1c78cac5cbc6de~mv2.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_76b6d42cdb574d28ba1c78cac5cbc6de~mv2.png",
+     "alt": "Spotify  ",
+     "natural": [
+      39,
+      39
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://open.spotify.com/user/tjts289z0g0fzcorg5og3wzba?si=012306953c47478e"
+    },
+    {
+     "type": "image",
+     "box": [
+      470,
+      904,
+      39,
+      39
+     ],
+     "src": "https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01c3aff52f2a4dffa526d7a9843d46ea.png",
+     "alt": "Instagram",
+     "natural": [
+      39,
+      39
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://instagram.com/ye_zhangy?igshid=NDk5N2NlZjQ="
+    },
+    {
+     "type": "image",
+     "box": [
+      519,
+      904,
+      39,
+      39
+     ],
+     "src": "https://static.wixstatic.com/media/6ea5b4a88f0b4f91945b40499aa0af00.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6ea5b4a88f0b4f91945b40499aa0af00.png",
+     "alt": "LinkedIn",
+     "natural": [
+      39,
+      39
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.linkedin.com/in/ye-zhang-738bab258"
+    },
+    {
+     "type": "text",
+     "box": [
+      377,
+      950,
+      226,
+      50
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 1,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:19px;text-align:center\"><span style=\"letter-spacing:1.9px\"><span><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><a href=\"mailto:yezhang1@usc.edu\">yezhang1@usc.edu</a></span></span></span></span></h2>"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "about me | YE ZHANG",
+   "width": 320,
+   "height": 1278,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      1278
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "video",
+     "box": [
+      0,
+      0,
+      320,
+      1278
+     ],
+     "src": "https://video.wixstatic.com/video/f8d0cd_81d29cb479324904b7dc532f5762cc76/720p/mp4/file.mp4",
+     "id": "f8d0cd_81d29cb479324904b7dc532f5762cc76",
+     "autoplay": true,
+     "loop": true,
+     "muted": true,
+     "controls": false,
+     "fit": "cover",
+     "info": "{\"fittingType\":\"fill\",\"alignType\":\"center\",\"hasBgScrollEffect\":\"\",\"bgEffectName\":\"\",\"videoId\":\"f8d0cd_81d29cb479324904b7dc532f5762cc76\",\"videoWidth\":1080,\"videoHeight\":1920,\"qualities\":[{\"quality\":\"480p\",\"size\":409920,\"url\":\"video/f8d0cd_81d29cb479324904b7dc532f5762cc76/480p/mp4/file.mp4\"},{\"quality\":\"720p\",\"size\":921600,\"url\":\"video/f8d0cd_81d29cb479324904b7dc532f5762cc76/720p/mp4/file.mp4\"},{\"quality\":\"1080p\",\"size\":2073600,\"url\":\"video/f8d0cd_81d29cb479324904b7dc532f5762cc76/1080p/mp4/file.mp4\"}],\"isVideoDataExists\":\"1\",\"videoFormat\":\"mp4\",\"playbackRate\":1,\"autoPlay\":true,\"containerId\":\"comp-ltpzea36\",\"animatePoster\":\"none\"}"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      320,
+      1278
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_81d29cb479324904b7dc532f5762cc76f000.jpg/v1/fill/w_320,h_1278,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/f8d0cd_81d29cb479324904b7dc532f5762cc76f000.jpg",
+     "natural": [
+      320,
+      1278
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "text",
+     "box": [
+      117,
+      77,
+      172,
+      137
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 3,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:28px\"><span><span style=\"letter-spacing:0.28px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">2025 USC Trojan</span></span></span></span><br>\n<br>\n<br>\n<span style=\"font-size:30px\">         <span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">Ye Zhang</span></span></h2>"
+    },
+    {
+     "type": "text",
+     "box": [
+      19,
+      242,
+      208,
+      29
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 1,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:24px\"><span><span style=\"letter-spacing:0.24px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">i like being creative</span></span></span></span></h2>"
+    },
+    {
+     "type": "image",
+     "box": [
+      147,
+      334,
+      180,
+      204
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_cd9443b2aa394bb196ee821e735995d2~mv2.png/v1/crop/x_795,y_562,w_1544,h_1749/fill/w_360,h_408,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_cd9443b2aa394bb196ee821e735995d2~mv2.png",
+     "natural": [
+      180,
+      204
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       147,
+       334,
+       180,
+       204
+      ]
+     },
+     "href": "https://www.yezhang.net/%E5%8F%AF%E4%BB%A5"
+    },
+    {
+     "type": "text",
+     "box": [
+      -30,
+      322,
+      208,
+      48
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 2,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:20px;text-align:right\"><span><span><span style=\"letter-spacing:0.2px\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">i create everything<br>\non this site</span></span></span></span></h2>"
+    },
+    {
+     "type": "text",
+     "box": [
+      20,
+      548,
+      280,
+      22
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 2,
+     "html": "<h5 style=\"font-family:helvetica-w01-roman, sans-serif;font-size:15px;line-height:21px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span>this is my Trojan</span></span></span></h5>"
+    },
+    {
+     "type": "button",
+     "box": [
+      -9,
+      580,
+      336,
+      42
+     ],
+     "label": "continue exploring my portfolio",
+     "labelBox": [
+      39,
+      588,
+      241,
+      27
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "23px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(40, 38, 38)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "text",
+     "box": [
+      29,
+      670,
+      260,
+      46
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 2,
+     "html": "<h5 style=\"font-family:helvetica-w01-roman, sans-serif;font-size:15px;text-align:center\"><span><span style=\"font-family:lulo-clean-w01-one-bold, lulo-clean-w05-one-bold, sans-serif\"><span>​wanna say something to YE</span></span></span></h5>"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "text",
+     "name": "name",
+     "placeholder": "Name",
+     "box": [
+      29,
+      736,
+      260,
+      46
+     ],
+     "style": {
+      "font-family": "lulo-clean-w01-one-bold, sans-serif",
+      "font-size": "13px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18.2px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "4px",
+     "shadow": "rgba(0, 0, 0, 0.08) 0px 3px 10px 1px",
+     "padding": "3px 3px 3px 12px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "input",
+     "tag": "input",
+     "inputType": "email",
+     "name": "email",
+     "placeholder": "contact",
+     "required": true,
+     "box": [
+      29,
+      792,
+      260,
+      46
+     ],
+     "style": {
+      "font-family": "lulo-clean-w01-one-bold, sans-serif",
+      "font-size": "13px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18.2px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "4px",
+     "shadow": "rgba(0, 0, 0, 0.08) 0px 3px 10px 1px",
+     "padding": "3px 3px 3px 12px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "input",
+     "tag": "textarea",
+     "inputType": "textarea",
+     "placeholder": "Type your message here...",
+     "labelStyle": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "box": [
+      29,
+      848,
+      260,
+      64
+     ],
+     "style": {
+      "font-family": "lulo-clean-w01-one-bold, sans-serif",
+      "font-size": "13px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "18.2px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "radius": "6px",
+     "shadow": "rgba(0, 0, 0, 0.08) 0px 3px 19px 1px",
+     "padding": "9.75px 10px 3px 16px",
+     "placeholderColor": "rgb(0, 0, 0)"
+    },
+    {
+     "type": "button",
+     "box": [
+      99,
+      922,
+      120,
+      42
+     ],
+     "label": "SEND",
+     "labelBox": [
+      131,
+      932,
+      56,
+      20
+     ],
+     "style": {
+      "font-family": "lulo-clean-w01-one-bold, sans-serif",
+      "font-size": "14px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "19.6px",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "submit": true
+    },
+    {
+     "type": "image",
+     "box": [
+      91,
+      1035,
+      39,
+      39
+     ],
+     "src": "https://static.wixstatic.com/media/11062b_76b6d42cdb574d28ba1c78cac5cbc6de~mv2.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_76b6d42cdb574d28ba1c78cac5cbc6de~mv2.png",
+     "alt": "Spotify  ",
+     "natural": [
+      39,
+      39
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://open.spotify.com/user/tjts289z0g0fzcorg5og3wzba?si=012306953c47478e"
+    },
+    {
+     "type": "image",
+     "box": [
+      140,
+      1035,
+      39,
+      39
+     ],
+     "src": "https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01c3aff52f2a4dffa526d7a9843d46ea.png",
+     "alt": "Instagram",
+     "natural": [
+      39,
+      39
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://instagram.com/ye_zhangy?igshid=NDk5N2NlZjQ="
+    },
+    {
+     "type": "image",
+     "box": [
+      189,
+      1035,
+      39,
+      39
+     ],
+     "src": "https://static.wixstatic.com/media/6ea5b4a88f0b4f91945b40499aa0af00.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6ea5b4a88f0b4f91945b40499aa0af00.png",
+     "alt": "LinkedIn",
+     "natural": [
+      39,
+      39
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://www.linkedin.com/in/ye-zhang-738bab258"
+    },
+    {
+     "type": "text",
+     "box": [
+      92,
+      1081,
+      136,
+      46
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 2,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:19px;text-align:center\"><span style=\"letter-spacing:1.9px\"><span><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><a href=\"mailto:yezhang1@usc.edu\">yezhang1@usc.edu</a></span></span></span></span></h2>"
+    }
+   ]
+  }
+ }
+}

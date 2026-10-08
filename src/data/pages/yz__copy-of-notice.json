@@ -1,0 +1,237 @@
+{
+ "site": "yz",
+ "slug": "copy-of-notice",
+ "url": "https://www.yezhang.net/copy-of-notice",
+ "title": "under maintenace | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "under maintenace | YE ZHANG",
+   "width": 1440,
+   "height": 900,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      900
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      254,
+      311,
+      471,
+      114
+     ],
+     "label": "UNDER MAINTENANCE",
+     "labelBox": [
+      399,
+      354,
+      180,
+      29
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "25px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px"
+    },
+    {
+     "type": "image",
+     "box": [
+      469,
+      425,
+      41,
+      41
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_6e4aa681dd184459a9be14f0b989a09d~mv2.png/v1/fill/w_41,h_41,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7256208.png",
+     "alt": "7256208.png",
+     "natural": [
+      41,
+      41
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      254,
+      579,
+      471,
+      114
+     ],
+     "label": "BACK",
+     "labelBox": [
+      467,
+      622,
+      46,
+      29
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "25px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/notice",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      473,
+      689.7,
+      35.7,
+      130.6
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_fd8bbe6fb2e04736883c85bb35460f36~mv2.png/v1/fill/w_88,h_124,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_fd8bbe6fb2e04736883c85bb35460f36~mv2.png",
+     "natural": [
+      88,
+      124
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "under maintenace | YE ZHANG",
+   "width": 320,
+   "height": 595,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      595
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      49,
+      222,
+      222,
+      35
+     ],
+     "label": "BEST EXPERIENCE ON COMPUTER",
+     "labelBox": [
+      68,
+      230,
+      183,
+      20
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "17px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px"
+    },
+    {
+     "type": "button",
+     "box": [
+      68,
+      355,
+      184,
+      35
+     ],
+     "label": "EXPLORE WITH CURIOSITY",
+     "labelBox": [
+      87,
+      363,
+      145,
+      20
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "17px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/portfolio",
+     "target": "_self"
+    },
+    {
+     "type": "image",
+     "box": [
+      140,
+      400,
+      40,
+      40
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_6e4aa681dd184459a9be14f0b989a09d~mv2.png/v1/fill/w_80,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7256208.png",
+     "alt": "7256208.png",
+     "natural": [
+      40,
+      40
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      130,
+      450,
+      60,
+      85
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_fd8bbe6fb2e04736883c85bb35460f36~mv2.png/v1/fill/w_120,h_170,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_fd8bbe6fb2e04736883c85bb35460f36~mv2.png",
+     "natural": [
+      60,
+      85
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,531 @@
+{
+ "site": "yz",
+ "slug": "photos",
+ "url": "https://www.yezhang.net/photos",
+ "title": "I SHOOT PHOTOS NOW | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "I SHOOT PHOTOS NOW | YE ZHANG",
+   "width": 1440,
+   "height": 952,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      952
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      0,
+      71,
+      266.7,
+      44
+     ],
+     "label": "HOME",
+     "labelBox": [
+      105,
+      82,
+      56,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      274.7,
+      71,
+      421.1,
+      44
+     ],
+     "label": "I SHOOT PHOTOS NOW",
+     "labelBox": [
+      380,
+      82,
+      211,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "border": "1px solid rgb(0, 0, 0)",
+     "href": "https://www.yezhang.net/photos",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      703.8,
+      71,
+      276.2,
+      44
+     ],
+     "label": "ABOUT",
+     "labelBox": [
+      809,
+      82,
+      66,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "href": "https://www.yezhang.net/about",
+     "target": "_self"
+    },
+    {
+     "type": "slideshow",
+     "id": "comp-lkkvqqap",
+     "box": [
+      0,
+      162,
+      980,
+      640
+     ],
+     "prev": [
+      12,
+      472,
+      10,
+      20
+     ],
+     "next": [
+      958,
+      472,
+      10,
+      20
+     ],
+     "dots": null,
+     "arrowColor": "rgb(255, 255, 255)",
+     "slides": [
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_1be117882a6042dfb949226865538663~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_1be117882a6042dfb949226865538663~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_ed6e10a06a6f4f47bafee398f0009758~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_ed6e10a06a6f4f47bafee398f0009758~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_18670ebf6c144a8eb248a0a3c77df19b~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_18670ebf6c144a8eb248a0a3c77df19b~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_6fcbfcd414c346f0a187112096498165~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_6fcbfcd414c346f0a187112096498165~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_61aab1b4c51f43bea1d4ab0a66f40c9c~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_61aab1b4c51f43bea1d4ab0a66f40c9c~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_b637febe5dc54b0ca8fa3a4e79bd4f7e~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_b637febe5dc54b0ca8fa3a4e79bd4f7e~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_68402cb0b9714bb3992ad75b0d6c38c0~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_68402cb0b9714bb3992ad75b0d6c38c0~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_d0c7b6591c614a46afb1abda6a790b67~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_d0c7b6591c614a46afb1abda6a790b67~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_70348c9c0a184d1a9ab831b31202f95d~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_70348c9c0a184d1a9ab831b31202f95d~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         0,
+         162,
+         980,
+         640
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_b99e9849cc524ef993798524f51b0cce~mv2.jpg/v1/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_b99e9849cc524ef993798524f51b0cce~mv2.jpg",
+        "fit": "cover"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "box": [
+      338,
+      861,
+      304,
+      39
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 1,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:32px;text-align:center\"><span><span style=\"letter-spacing:0.32px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">still working on it</span></span></span></span></h2>"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "I SHOOT PHOTOS NOW | YE ZHANG",
+   "width": 320,
+   "height": 545,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      544
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "button",
+     "box": [
+      56,
+      72,
+      208,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      131,
+      75,
+      57,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    },
+    {
+     "type": "slideshow",
+     "id": "comp-lkkvqqap",
+     "box": [
+      20,
+      163,
+      280,
+      200
+     ],
+     "prev": [
+      32,
+      253,
+      10,
+      20
+     ],
+     "next": [
+      278,
+      253,
+      10,
+      20
+     ],
+     "dots": null,
+     "arrowColor": "rgb(255, 255, 255)",
+     "slides": [
+      [
+       {
+        "type": "image",
+        "box": [
+         20,
+         163,
+         280,
+         200
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_1be117882a6042dfb949226865538663~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_1be117882a6042dfb949226865538663~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         20,
+         163,
+         280,
+         200
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_ed6e10a06a6f4f47bafee398f0009758~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_ed6e10a06a6f4f47bafee398f0009758~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         20,
+         163,
+         280,
+         200
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_6fcbfcd414c346f0a187112096498165~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_6fcbfcd414c346f0a187112096498165~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         20,
+         163,
+         280,
+         200
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_61aab1b4c51f43bea1d4ab0a66f40c9c~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_61aab1b4c51f43bea1d4ab0a66f40c9c~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         20,
+         163,
+         280,
+         200
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_b637febe5dc54b0ca8fa3a4e79bd4f7e~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_b637febe5dc54b0ca8fa3a4e79bd4f7e~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         20,
+         163,
+         280,
+         200
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_18670ebf6c144a8eb248a0a3c77df19b~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_18670ebf6c144a8eb248a0a3c77df19b~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         20,
+         163,
+         280,
+         200
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_68402cb0b9714bb3992ad75b0d6c38c0~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_68402cb0b9714bb3992ad75b0d6c38c0~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         20,
+         163,
+         280,
+         200
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_d0c7b6591c614a46afb1abda6a790b67~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_d0c7b6591c614a46afb1abda6a790b67~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         20,
+         163,
+         280,
+         200
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_70348c9c0a184d1a9ab831b31202f95d~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_70348c9c0a184d1a9ab831b31202f95d~mv2.jpg",
+        "fit": "cover"
+       }
+      ],
+      [
+       {
+        "type": "image",
+        "box": [
+         20,
+         163,
+         280,
+         200
+        ],
+        "src": "https://static.wixstatic.com/media/f8d0cd_b99e9849cc524ef993798524f51b0cce~mv2.jpg/v1/fill/w_560,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_b99e9849cc524ef993798524f51b0cce~mv2.jpg",
+        "fit": "cover"
+       }
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "box": [
+      67,
+      418,
+      185,
+      34
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 1,
+     "html": "<h2 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:28px;text-align:center\"><span><span style=\"letter-spacing:0.28px\"><span><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\">still working on it</span></span></span></span></h2>"
+    }
+   ]
+  }
+ }
+}

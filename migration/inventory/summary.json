@@ -1,0 +1,206 @@
+{
+  "captured": "2026-10-07",
+  "site": {
+    "name": "YE ZHANG",
+    "wix_site_id": "a36503cc-e47a-4b66-8291-bed46884d088",
+    "url": "https://www.yezhang.net/",
+    "plan": "Premium",
+    "editor": "Wix Editor (classic)",
+    "velo_enabled": true,
+    "created": "2022-12-26",
+    "last_updated_in_editor": "2026-02-22",
+    "sitemap_lastmod": "2026-05-20",
+    "apps": [
+      "Promote SEO",
+      "Wix Forms",
+      "Wix Forms & Payments",
+      "Wix Hotels",
+      "Wix Invoices",
+      "Wix Video"
+    ]
+  },
+  "domain": {
+    "name": "yezhang.net",
+    "registrar": "Wix.com Ltd.",
+    "registered": "2024-08-07",
+    "expires": "2028-08-07",
+    "nameservers": [
+      "ns6.wixdns.net",
+      "ns7.wixdns.net"
+    ],
+    "mx_records": "none (no email on this domain)"
+  },
+  "pages": {
+    "published_in_sitemap": 47,
+    "html_snapshot_mb": 23,
+    "unique_media_files_referenced": 275,
+    "pages_with_meta_description": [
+      "home",
+      "portfolio"
+    ]
+  },
+  "media_manager": {
+    "folders": 8,
+    "files": 439,
+    "total_mb": 1298.4,
+    "images": 426,
+    "videos": [
+      [
+        "vikaku.mov",
+        153.9
+      ],
+      [
+        "jjj.mov",
+        148.4
+      ],
+      [
+        "butterflyd.mov",
+        121.7
+      ],
+      [
+        "kaku.mp4",
+        58.7
+      ],
+      [
+        "dji_mimo_20221225_143424_..._video.MP4",
+        44.6
+      ],
+      [
+        "butterflyd.mov (2nd copy)",
+        41.9
+      ],
+      [
+        "IMG_1678.mov",
+        32.2
+      ],
+      [
+        "My Movie 2.mov",
+        30.3
+      ],
+      [
+        "IMG_0581.MOV",
+        16.3
+      ],
+      [
+        "IMG_7465.mov",
+        8.2
+      ],
+      [
+        "145.mov",
+        2.7
+      ],
+      [
+        "142.mov",
+        0.6
+      ]
+    ],
+    "documents": [
+      [
+        "Anima License Agreement.pdf",
+        0.06
+      ]
+    ],
+    "private_files": 0,
+    "heic_uploads_stored_as_png": 28,
+    "longest_side_px": {
+      "lt1000": 30,
+      "1000_2000": 75,
+      "2000_3000": 183,
+      "gt3000": 150
+    },
+    "per_folder": [
+      {
+        "folder": "(root)",
+        "files": 242,
+        "mb": 1035.5
+      },
+      {
+        "folder": "i shoot photos",
+        "files": 58,
+        "mb": 116.6
+      },
+      {
+        "folder": "ua",
+        "files": 50,
+        "mb": 69.8
+      },
+      {
+        "folder": "np",
+        "files": 26,
+        "mb": 51.7
+      },
+      {
+        "folder": "波兰。1",
+        "files": 17,
+        "mb": 4.8
+      },
+      {
+        "folder": "vol.3",
+        "files": 16,
+        "mb": 6.1
+      },
+      {
+        "folder": "vol.2",
+        "files": 16,
+        "mb": 4.3
+      },
+      {
+        "folder": "green",
+        "files": 14,
+        "mb": 9.5
+      }
+    ],
+    "videos_used_on_pages": [
+      "vikaku.mov",
+      "jjj.mov",
+      "kaku.mp4",
+      "dji_mimo_...MP4",
+      "butterflyd.mov (41.9 MB copy)",
+      "IMG_1678.mov",
+      "My Movie 2.mov",
+      "IMG_7465.mov",
+      "142.mov"
+    ],
+    "videos_not_used_on_pages": [
+      "butterflyd.mov (121.7 MB copy)",
+      "IMG_0581.MOV",
+      "145.mov"
+    ],
+    "manifest_check": "media-manager.csv: 439 rows, 1298.4 MB, 426 IMAGE / 12 VIDEO / 1 DOCUMENT; 263 of the 276 page image IDs are in the manifest, the other 13 are 9 video poster frames, 3 Wix system icons, and the favicon"
+  },
+  "fonts_used_via_wix": [
+    "DIN Neuzeit Grotesk (dinneuzeitgroteskltw01)",
+    "Helvetica Roman/Bold (helvetica-w01)",
+    "DIN Next Light (din-next-w01-light)",
+    "Futura LT Book/Light (futura-lt-w01)",
+    "Lulo Clean One Bold (lulo-clean-w01-one-bold)",
+    "Proxima Nova Regular (Proxima-N-W01-Reg)"
+  ],
+  "interactive": {
+    "forms": [
+      "contact form 'wanna say something to YE' (Name, contact, message) on /home, /aboutme, /portfolio",
+      "zine request form on /order (first/last name, email, phone, address, issue vol.1/2/3)"
+    ],
+    "youtube_embeds": [
+      "3kkWA_Xkgn4",
+      "86fvtw11Eb8",
+      "fX6B-T_uWkM"
+    ],
+    "galleries": [
+      "/art",
+      "/ua",
+      "/photography",
+      "/typeface"
+    ],
+    "slideshows": [
+      "zine & magazine pages"
+    ],
+    "slicebox_iframe": 1,
+    "lightbox_urls": "?lightbox=... (disallowed in robots.txt)",
+    "external_links": [
+      "instagram.com/ye_zhangy",
+      "open.spotify.com/user/...",
+      "drive.google.com (typeface download)"
+    ]
+  }
+}

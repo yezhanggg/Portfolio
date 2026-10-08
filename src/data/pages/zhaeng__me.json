@@ -1,0 +1,141 @@
+{
+ "site": "zhaeng",
+ "slug": "me",
+ "url": "https://yegnahz.wixsite.com/zhaeng/me",
+ "title": "me | ZHAENG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "me | ZHAENG",
+   "width": 1440,
+   "height": 850,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      850
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      -230,
+      0,
+      1440,
+      850
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_2510b44f777b40dd903d0ee8a74eeb43~mv2.jpeg/v1/fill/w_1440,h_850,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_2510b44f777b40dd903d0ee8a74eeb43~mv2.jpeg",
+     "natural": [
+      1440,
+      850
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "bleed": true
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "me | ZHAENG",
+   "width": 320,
+   "height": 512,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      511.8
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "box",
+     "box": [
+      273,
+      25,
+      22,
+      2
+     ],
+     "bg": "rgb(232, 230, 230)",
+     "radius": "2px"
+    },
+    {
+     "type": "box",
+     "box": [
+      273,
+      34,
+      22,
+      2
+     ],
+     "bg": "rgb(232, 230, 230)",
+     "radius": "2px"
+    },
+    {
+     "type": "box",
+     "box": [
+      273,
+      43,
+      22,
+      2
+     ],
+     "bg": "rgb(232, 230, 230)",
+     "radius": "2px"
+    },
+    {
+     "type": "image",
+     "box": [
+      83.7,
+      88.8,
+      139,
+      332.4
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_8d39566324e446ca9a8ae523d28f5c15~mv2.jpg/v1/fill/w_402,h_604,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_5167.jpg",
+     "alt": "IMG_5167.jpg",
+     "natural": [
+      201,
+      302
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "text",
+     "box": [
+      0,
+      406,
+      320,
+      46.8
+     ],
+     "style": {
+      "font-family": "Arial, Helvetica, sans-serif",
+      "font-size": "10px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+     },
+     "lines": 3,
+     "html": "<p style=\"font-family:helvetica-w01-roman, sans-serif;font-size:16px;line-height:22.4px;text-align:center\"><span><span style=\"color:rgb(232, 230, 230)\"><span style=\"font-family:impact, impact-w01-2010, impact-w02-2010, impact-w10-2010, sans-serif\">this man is planning something<br>\nthese are just some photos that i took</span></span></span></p>"
+    }
+   ]
+  }
+ }
+}

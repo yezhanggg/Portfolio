@@ -1,0 +1,123 @@
+{
+ "site": "zhaeng",
+ "slug": "index",
+ "url": "https://yegnahz.wixsite.com/zhaeng",
+ "title": "peace | ZHAENG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "peace | ZHAENG",
+   "width": 1440,
+   "height": 908,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      908
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      190,
+      204,
+      600,
+      433
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_dcc336fdaabf46c38939db129b97409b~mv2.png/v1/fill/w_600,h_433,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ip1.png",
+     "alt": "ip1.png",
+     "natural": [
+      600,
+      433
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://yegnahz.wixsite.com/zhaeng/1"
+    },
+    {
+     "type": "image",
+     "box": [
+      190,
+      169.1,
+      600,
+      433
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_8742723219c14216822a375b57e2b91a~mv2.png/v1/fill/w_600,h_433,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ss.png",
+     "alt": "ss.png",
+     "natural": [
+      600,
+      433
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://yegnahz.wixsite.com/zhaeng/welcome"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "peace | ZHAENG",
+   "width": 320,
+   "height": 936,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      936
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      52,
+      184,
+      215,
+      155
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_dcc336fdaabf46c38939db129b97409b~mv2.png/v1/fill/w_430,h_310,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ip1.png",
+     "alt": "ip1.png",
+     "natural": [
+      215,
+      155
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://yegnahz.wixsite.com/zhaeng/1"
+    },
+    {
+     "type": "image",
+     "box": [
+      52,
+      167.1,
+      215,
+      155
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_8742723219c14216822a375b57e2b91a~mv2.png/v1/fill/w_430,h_310,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ss.png",
+     "alt": "ss.png",
+     "natural": [
+      215,
+      155
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "href": "https://yegnahz.wixsite.com/zhaeng/welcome"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,71 @@
+/* The page data keeps the font names Wix used. Wix's fonts are licensed to Wix and can't be
+   self-hosted, so each name is aliased here to an open-licensed (SIL OFL) look-alike.
+   To change a substitute, swap the file on the matching @font-face. */
+
+/* DIN Neuzeit Grotesk Bold Condensed → Barlow Condensed Medium.
+   size-adjust makes its letters as wide as the original's (measured on the /portfolio menu). */
+@font-face {
+  font-family: "dinneuzeitgroteskltw01-_812426";
+  src: url("/fonts/barlow-condensed-latin-500-normal.woff2") format("woff2");
+  size-adjust: 96%;
+  font-weight: 100 900;
+  font-display: swap;
+}
+/* Cormorant Garamond SemiBold — the same typeface Wix used (it is open source) */
+@font-face {
+  font-family: "cormorantgaramond-semibold";
+  src: url("/fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+/* Inknut Antiqua — same typeface */
+@font-face {
+  font-family: "inknut antiqua";
+  src: url("/fonts/inknut-antiqua-latin-400-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+/* Lulo Clean One Bold → Syncopate Bold */
+@font-face {
+  font-family: "lulo-clean-w01-one-bold";
+  src: url("/fonts/syncopate-latin-700-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+/* Helvetica Roman / Bold → the visitor's own Helvetica or Arial */
+@font-face {
+  font-family: "helvetica-w01-roman";
+  src: local("Helvetica Neue"), local("Helvetica"), local("Arial");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "helvetica-w01-bold";
+  src: local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), local("Helvetica Bold"), local("Helvetica-Bold"), local("Arial Bold"), local("Arial-BoldMT");
+  font-weight: 100 900;
+}
+/* Avenir Light → the visitor's Avenir, else Nunito Sans Light */
+@font-face {
+  font-family: "avenir-lt-w01_35-light1475496";
+  src: local("Avenir Light"), local("Avenir-Light"), url("/fonts/nunito-sans-latin-300-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+/* Impact → the visitor's Impact, else Anton */
+@font-face {
+  font-family: "impact-w01-2010";
+  src: local("Impact"), url("/fonts/anton-latin-400-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+/* Avenir Heavy → the visitor's Avenir, else Nunito Sans */
+@font-face {
+  font-family: "avenir-lt-w01_85-heavy1475544";
+  src: local("Avenir Heavy"), local("Avenir-Heavy"), local("Avenir Next Bold"), local("Arial Bold");
+  font-weight: 100 900;
+}
+/* Futura Book → the visitor's Futura, else falls back to sans-serif */
+@font-face {
+  font-family: "futura-lt-w01-book";
+  src: local("Futura Medium"), local("Futura-Medium"), local("Futura"), local("Century Gothic");
+  font-weight: 100 900;
+}

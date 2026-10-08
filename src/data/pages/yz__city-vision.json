@@ -1,0 +1,436 @@
+{
+ "site": "yz",
+ "slug": "city-vision",
+ "url": "https://www.yezhang.net/city-vision",
+ "title": "CITY VISION | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "CITY VISION | YE ZHANG",
+   "width": 1440,
+   "height": 1237,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      1237
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      -230,
+      0,
+      1440,
+      1237
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_534f312ab98448889a26198cc99cd205~mv2.gif",
+     "alt": "Untitled_Artwork.gif",
+     "natural": [
+      480,
+      201
+     ],
+     "fit": "cover",
+     "position": "50% 100%",
+     "bleed": true
+    },
+    {
+     "type": "iframe",
+     "box": [
+      71,
+      379,
+      837,
+      586
+     ],
+     "src": "https://static.parastorage.com/services/editor-elements-library/dist/siteAssets/media/slicebox.c073755b.html?compId=comp-lczihyis&deviceType=desktop&locale=en&viewMode=site&sliceboxScriptPath=%2Fservices%2Feditor-elements-library%2Fdist%2FsiteAssets%2Fmedia%2Fslicebox.5d778248.js&modernizrScriptPath=%2Fservices%2Feditor-elements-library%2Fdist%2FsiteAssets%2Fmedia%2Fmodernizr.custom.46884.89da7b93.js&leftArrowImagePath=%2Fservices%2Feditor-elements-library%2Fdist%2FsiteAssets%2Fmedia%2FL_arrow.93944cc6.png&rightArrowImagePath=%2Fservices%2Feditor-elements-library%2Fdist%2FsiteAssets%2Fmedia%2FR_arrow.951b1426.png&shadowImagePath=%2Fservices%2Feditor-elements-library%2Fdist%2FsiteAssets%2Fmedia%2Fshadow.fdc0ed4d.png"
+    },
+    {
+     "type": "image",
+     "box": [
+      -99,
+      112,
+      436,
+      308
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_9f4e3fb292a04e528f9b32c549b2ec84~mv2.gif",
+     "natural": [
+      3508,
+      2480
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      556,
+      0,
+      203,
+      379
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_3f3466efa6f34e5ab6a3df1ad2d6bbf7~mv2.gif",
+     "natural": [
+      879,
+      1644
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      64,
+      36,
+      555,
+      313
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_856bc27f44514c768b1340f252f80b0a~mv2.gif",
+     "natural": [
+      3508,
+      2480
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       294,
+       36,
+       555,
+       313
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      759,
+      74,
+      179,
+      358
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a18e99d6962248c1bf75c9463bfffe4a~mv2.gif",
+     "natural": [
+      1241,
+      2480
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      196,
+      929,
+      506,
+      308
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_85c14e77afc44e519653704b9c1fd6e2~mv2.gif",
+     "natural": [
+      3508,
+      2480
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       426,
+       929,
+       506,
+       308
+      ]
+     }
+    },
+    {
+     "type": "button",
+     "box": [
+      0,
+      74,
+      298.5,
+      44
+     ],
+     "label": "HOME",
+     "labelBox": [
+      121,
+      85,
+      56,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      306.5,
+      74,
+      357.6,
+      44
+     ],
+     "label": "CITY VISION",
+     "labelBox": [
+      428,
+      85,
+      115,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "border": "1px solid rgb(0, 0, 0)",
+     "href": "https://www.yezhang.net/city-vision",
+     "target": "_self"
+    },
+    {
+     "type": "button",
+     "box": [
+      672,
+      74,
+      308,
+      44
+     ],
+     "label": "ABOUT",
+     "labelBox": [
+      793,
+      85,
+      66,
+      22
+     ],
+     "style": {
+      "font-family": "cormorantgaramond-semibold, cormorantgaramond, \"cormorant garamond\", serif",
+      "font-size": "18px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "0.9px",
+      "line-height": "normal",
+      "text-align": "start",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "href": "https://www.yezhang.net/about",
+     "target": "_self"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "CITY VISION | YE ZHANG",
+   "width": 320,
+   "height": 980,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      980
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      320,
+      980
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_534f312ab98448889a26198cc99cd205~mv2.gif",
+     "alt": "Untitled_Artwork.gif",
+     "natural": [
+      480,
+      201
+     ],
+     "fit": "cover",
+     "position": "50% 100%"
+    },
+    {
+     "type": "image",
+     "box": [
+      64,
+      32,
+      246,
+      138
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_856bc27f44514c768b1340f252f80b0a~mv2.gif",
+     "natural": [
+      1754,
+      1240
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       64,
+       32,
+       246,
+       138
+      ]
+     }
+    },
+    {
+     "type": "image",
+     "box": [
+      204,
+      119,
+      94,
+      176
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_3f3466efa6f34e5ab6a3df1ad2d6bbf7~mv2.gif",
+     "natural": [
+      439,
+      822
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      97,
+      186,
+      130,
+      260
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_a18e99d6962248c1bf75c9463bfffe4a~mv2.gif",
+     "natural": [
+      620,
+      1240
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      33,
+      773,
+      231,
+      163
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_9f4e3fb292a04e528f9b32c549b2ec84~mv2.gif",
+     "natural": [
+      1754,
+      1240
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "iframe",
+     "box": [
+      5,
+      433,
+      309,
+      346
+     ],
+     "src": "https://static.parastorage.com/services/editor-elements-library/dist/siteAssets/media/slicebox.c073755b.html?compId=comp-lczihyis&deviceType=mobile&locale=en&viewMode=site&sliceboxScriptPath=%2Fservices%2Feditor-elements-library%2Fdist%2FsiteAssets%2Fmedia%2Fslicebox.5d778248.js&modernizrScriptPath=%2Fservices%2Feditor-elements-library%2Fdist%2FsiteAssets%2Fmedia%2Fmodernizr.custom.46884.89da7b93.js&leftArrowImagePath=%2Fservices%2Feditor-elements-library%2Fdist%2FsiteAssets%2Fmedia%2FL_arrow.93944cc6.png&rightArrowImagePath=%2Fservices%2Feditor-elements-library%2Fdist%2FsiteAssets%2Fmedia%2FR_arrow.951b1426.png&shadowImagePath=%2Fservices%2Feditor-elements-library%2Fdist%2FsiteAssets%2Fmedia%2Fshadow.fdc0ed4d.png"
+    },
+    {
+     "type": "image",
+     "box": [
+      64,
+      741,
+      280,
+      170
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_85c14e77afc44e519653704b9c1fd6e2~mv2.gif",
+     "natural": [
+      1754,
+      1240
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "mask": {
+      "image": "url(\"data:image/svg+xml,%3Csvg preserveAspectRatio='none' data-bbox='20 20 160 160' viewBox='20 20 160 160' height='200' width='200' xmlns='http://www.w3.org/2000/svg' data-type='shape'%3E%3Cg%3E%3Cpath d='M180 20v160H20V20h160z'/%3E%3C/g%3E%3C/svg%3E%0A\")",
+      "size": "100% 100%",
+      "position": "0% 0%",
+      "repeat": "no-repeat",
+      "box": [
+       64,
+       741,
+       280,
+       170
+      ]
+     }
+    },
+    {
+     "type": "button",
+     "box": [
+      0,
+      178,
+      208,
+      42
+     ],
+     "label": "HOME",
+     "labelBox": [
+      75,
+      181,
+      57,
+      36
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "30px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(0, 0, 0)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 2px 1px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/home",
+     "target": "_self"
+    }
+   ]
+  }
+ }
+}

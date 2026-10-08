@@ -1,0 +1,253 @@
+{
+ "site": "yz",
+ "slug": "hmm",
+ "url": "https://www.yezhang.net/hmm",
+ "title": "hmm | YE ZHANG",
+ "views": {
+  "desktop": {
+   "canvas": 980,
+   "crawlWidth": 1440,
+   "title": "hmm | YE ZHANG",
+   "width": 1440,
+   "height": 4341,
+   "viewportH": 900,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      -230,
+      0,
+      1440,
+      4341
+     ],
+     "bg": "rgb(255, 255, 255)",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      -230,
+      0,
+      1440,
+      943
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_8c22c40cc2554afca56727a55962c181~mv2.jpg/v1/fill/w_1440,h_943,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_8c22c40cc2554afca56727a55962c181~mv2.jpg",
+     "alt": "trd.jpg",
+     "natural": [
+      1440,
+      943
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      -230,
+      943,
+      1440,
+      1204
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_26ea8780d2104ca791ba5899b4dacd83~mv2.jpg/v1/fill/w_1440,h_1204,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_26ea8780d2104ca791ba5899b4dacd83~mv2.jpg",
+     "alt": "11.12.jpg",
+     "natural": [
+      1440,
+      1204
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      -230,
+      2147,
+      1440,
+      1204
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c9cc1fd083c843de835531a476ed7bd2~mv2.jpg/v1/fill/w_1440,h_1204,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_c9cc1fd083c843de835531a476ed7bd2~mv2.jpg",
+     "alt": "1.11.jpg",
+     "natural": [
+      1440,
+      1204
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "bleed": true
+    },
+    {
+     "type": "image",
+     "box": [
+      -230,
+      3351,
+      1440,
+      990
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_1ff2805381a6458490e022e4af8be2c1~mv2.jpg/v1/fill/w_1440,h_990,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_1ff2805381a6458490e022e4af8be2c1~mv2.jpg",
+     "alt": "DSC06953.jpg",
+     "natural": [
+      1440,
+      990
+     ],
+     "fit": "cover",
+     "position": "50% 50%",
+     "bleed": true
+    },
+    {
+     "type": "button",
+     "box": [
+      292,
+      4256,
+      395,
+      60
+     ],
+     "label": "BACK",
+     "labelBox": [
+      456,
+      4264,
+      68,
+      44
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "37px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/photography",
+     "target": "_self"
+    }
+   ]
+  },
+  "mobile": {
+   "canvas": 320,
+   "crawlWidth": 320,
+   "title": "hmm | YE ZHANG",
+   "width": 320,
+   "height": 1801,
+   "viewportH": 545,
+   "bodyBg": "rgba(0, 0, 0, 0)",
+   "nodes": [
+    {
+     "type": "box",
+     "box": [
+      0,
+      0,
+      320,
+      1801
+     ],
+     "bg": "rgb(255, 255, 255)"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      0,
+      320,
+      445
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_8c22c40cc2554afca56727a55962c181~mv2.jpg/v1/fill/w_640,h_890,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_8c22c40cc2554afca56727a55962c181~mv2.jpg",
+     "alt": "trd.jpg",
+     "natural": [
+      640,
+      890
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      445,
+      320,
+      401
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_26ea8780d2104ca791ba5899b4dacd83~mv2.jpg/v1/fill/w_640,h_802,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_26ea8780d2104ca791ba5899b4dacd83~mv2.jpg",
+     "alt": "11.12.jpg",
+     "natural": [
+      640,
+      802
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      846,
+      320,
+      489
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_c9cc1fd083c843de835531a476ed7bd2~mv2.jpg/v1/fill/w_640,h_978,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_c9cc1fd083c843de835531a476ed7bd2~mv2.jpg",
+     "alt": "1.11.jpg",
+     "natural": [
+      640,
+      978
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "image",
+     "box": [
+      0,
+      1335,
+      320,
+      466
+     ],
+     "src": "https://static.wixstatic.com/media/f8d0cd_1ff2805381a6458490e022e4af8be2c1~mv2.jpg/v1/fill/w_640,h_932,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f8d0cd_1ff2805381a6458490e022e4af8be2c1~mv2.jpg",
+     "alt": "DSC06953.jpg",
+     "natural": [
+      640,
+      932
+     ],
+     "fit": "cover",
+     "position": "50% 50%"
+    },
+    {
+     "type": "button",
+     "box": [
+      99,
+      1730,
+      120,
+      42
+     ],
+     "label": "BACK",
+     "labelBox": [
+      145,
+      1742,
+      27,
+      18
+     ],
+     "style": {
+      "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif",
+      "font-size": "15px",
+      "font-weight": "400",
+      "font-style": "normal",
+      "color": "rgb(255, 255, 255)",
+      "letter-spacing": "normal",
+      "line-height": "normal",
+      "text-align": "center",
+      "text-transform": "none",
+      "text-shadow": "none"
+     },
+     "shadow": "rgba(0, 0, 0, 0) 3px 3px 2px 0px, rgba(0, 0, 0, 0) 0px 3px 15px 0px",
+     "href": "https://www.yezhang.net/photography",
+     "target": "_self"
+    }
+   ]
+  }
+ }
+}
