@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to Rebuild Everything</title>
 <link rel="icon" href="data:,">
+<script>
+  /* the scripts at the bottom are found relative to this folder, so they are still found when the address is given without its last slash */
+  if (!/(\/|\.html)$/.test(location.pathname)) document.head.appendChild(Object.assign(document.createElement("base"), { href: location.pathname + "/" }));
+</script>
 <style>
   /*
    * The look is these values and nothing else: the blueprint ground, the four

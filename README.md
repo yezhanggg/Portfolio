@@ -25,12 +25,13 @@ Node 22 and pnpm are required.
 | `src/data/pages/*.json` | One file per page: every text, image, button and video with its position, for desktop (980px canvas) and phone (320px canvas). This is the content. |
 | `src/pages/[...path].astro` | Turns each data file into a page. |
 | `src/components/Node.astro` | Draws one item (text, image, gallery, slideshow, video, form field…). |
-| `src/lib/fixups.js` | Hand-made changes on top of the extracted data (e.g. the ZHAENG and Features entries on `/portfolio`). |
+| `src/lib/fixups.js` | Hand-made changes on top of the extracted data (e.g. the ZHAENG, Features and BLUEPRINT entries on `/portfolio`). |
 | `src/data/motion.json`, `src/data/hover.json` | Motion measured on the original site: animations, drifting galleries, hover styles, pictures that follow the pointer. |
 | `src/data/meta.json` | Page descriptions for search engines — edit freely. |
 | `src/styles/fonts.css` | Which open-licensed font stands in for each font Wix used. |
 | `public/media`, `public/video` | Web-sized images and videos. |
 | `public/features/` | The mini-apps, plain HTML. |
+| `public/how-to-rebuild-everything/` | The blueprint figures you can take apart and turn (BLUEPRINT on `/portfolio`), plain HTML. See its README. |
 | `api/chat.js`, `api/_prompt.js` | Chat bubble backend (DeepSeek). Edit `_prompt.js` to change what it knows. |
 | `api/contact.js` | Receives the contact and zine-request forms and emails them via Resend. |
 | `migration/` | Scripts and inventories used to move off Wix. See `migration/README.md`. |

@@ -1,8 +1,8 @@
 # Hairline (reference)
 
 The isometric line figures saved from 21st.dev on 2026-10-08, kept here as a style and
-engineering reference for the [How to Rebuild Everything](../../how-to-rebuild-everything/README.md)
-collection.
+engineering reference for the
+[How to Rebuild Everything](../../public/how-to-rebuild-everything/README.md) collection.
 
 - **Author:** Lucas Marques. **Licence:** MIT (see `LICENSE`; keep that notice with any copy).
 - **Source:** <https://github.com/lucasmarkes/hairline>, commit `a221785`, package

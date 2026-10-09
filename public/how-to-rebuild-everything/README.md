@@ -3,8 +3,9 @@
 A collection of blueprint line figures: things taken apart, that you put back together with the
 pointer and turn in your hand.
 
-**Status: first sketch.** One figure, to try the idea. It is not on the live site; nothing in this
-folder is deployed. Open `index.html` in a browser (double-click it) to use it.
+**Status: first sketch, one figure.** It is part of the site: this folder is in `public/`, so it
+is published at `/how-to-rebuild-everything/`, and the **BLUEPRINT** entry on the `/portfolio` menu
+opens it. To work on it, open `index.html` in a browser (double-click it); there is no build step.
 
 ## What it does now
 
@@ -24,7 +25,7 @@ Under the figure: `spread` (how far apart the parts hang) and `line` (stroke wei
 
 Decided (from the brief on 2026-10-08):
 
-- In the spirit of [Hairline](../reference/hairline/README.md): clean line drawing, one stroke,
+- In the spirit of [Hairline](../../reference/hairline/README.md): clean line drawing, one stroke,
   answers the pointer.
 - Full 3D, and you can drag it around.
 - **The look is blueprint**: pale lines on a deep blue ground. It is the one block of colour
@@ -35,7 +36,7 @@ Decided (from the brief on 2026-10-08):
 Still open:
 
 - **What gets rebuilt.** The camera is a stand-in. The list of subjects is not chosen.
-- **Where it lives on the site**, and whether figures sit on one page or each get their own.
+- Whether figures sit on one page or each get their own.
 - The exact blues and the line weight, if they should change.
 
 ## Files
@@ -78,7 +79,11 @@ The limits that follow from it:
 - No perspective. Things do not get smaller with distance, which is what keeps it reading as a
   drawing.
 
-## Putting it on the site later
+## On the site
 
-The folder is plain HTML with no build step, like the mini-apps in `public/features/`. Moving it
-into `public/` would publish it at `/how-to-rebuild-everything/` on the next push.
+The folder is plain HTML with no build step, like the mini-apps in `public/features/`; everything
+in it is copied to the site as it is. The menu entry is added in `src/lib/fixups.js`
+(`addPortfolioEntries`), next to ZHAENG and Features, for the desktop and the phone layout.
+
+`pnpm dev` does not serve a folder's `index.html`, so the BLUEPRINT link (like Features) shows a
+404 there. It works in the built site (`pnpm build`, then `pnpm preview`) and once deployed.

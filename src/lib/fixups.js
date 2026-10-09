@@ -82,8 +82,8 @@ function fixNodes(nodes, page) {
   return out;
 }
 
-// New entries on the /portfolio menu: the ZHAENG pages and the mini-apps, styled like the
-// existing "Clouds | Archive" row.
+// New entries on the /portfolio menu: the ZHAENG pages, the mini-apps and the blueprint figures
+// (public/how-to-rebuild-everything), styled like the existing "Clouds | Archive" row.
 function addPortfolioEntries(page) {
   const entry = (like, label, href, box, labelW) => ({
     ...like, label, href, box,
@@ -93,13 +93,17 @@ function addPortfolioEntries(page) {
   const dLike = d.nodes.find((n) => n.label === "Clouds");
   const dLine = d.nodes.find((n) => n.type === "box" && n.rotate);
   if (dLike) {
-    d.nodes.push(entry(dLike, "ZHAENG", "/zhaeng", [174, 735, 128, 60], 80), entry(dLike, "Features", "/features/", [302, 735, 128, 60], 88));
+    d.nodes.push(
+      entry(dLike, "ZHAENG", "/zhaeng", [174, 735, 128, 60], 80),
+      entry(dLike, "Features", "/features/", [302, 735, 128, 60], 88),
+      entry(dLike, "BLUEPRINT", "/how-to-rebuild-everything/", [174, 795, 256, 60], 118),
+    );
     if (dLine) d.nodes.push({ ...dLine, box: [dLine.box[0], 762, dLine.box[2], dLine.box[3]] });
   }
   const m = page.views.mobile;
   const mLike = m.nodes.find((n) => n.label === "Archive");
   if (mLike) {
-    const shift = 96;
+    const shift = 147;
     for (const n of m.nodes) {
       if (n.box[1] >= 560) {
         n.box = [n.box[0], n.box[1] + shift, n.box[2], n.box[3]];
@@ -107,7 +111,11 @@ function addPortfolioEntries(page) {
       } else if (n.box[1] <= 1 && n.box[3] >= m.height - 1) n.box = [n.box[0], n.box[1], n.box[2], n.box[3] + shift];
     }
     m.height += shift;
-    m.nodes.push(entry(mLike, "ZHAENG", "/zhaeng", [-2, 498, 201, 51], 42), entry(mLike, "Features", "/features/", [-2, 549, 201, 51], 46));
+    m.nodes.push(
+      entry(mLike, "ZHAENG", "/zhaeng", [-2, 498, 201, 51], 42),
+      entry(mLike, "Features", "/features/", [-2, 549, 201, 51], 46),
+      entry(mLike, "BLUEPRINT", "/how-to-rebuild-everything/", [-2, 600, 201, 51], 59),
+    );
   }
 }
 
