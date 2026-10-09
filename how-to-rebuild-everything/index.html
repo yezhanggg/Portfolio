@@ -7,37 +7,20 @@
 <link rel="icon" href="data:,">
 <style>
   /*
-   * A style is these values and nothing else: the five tones every figure is
-   * drawn in, the page's ink, and the line weight. Change them here, or add
-   * a block below and a button for it, to try another look.
+   * The look is these values and nothing else: the blueprint ground, the four
+   * tones every figure is drawn in on it, the page's ink, and the line weight.
    */
-  :root, :root[data-style="light"] {
-    color-scheme: light;
-    --hairline-plate: #ffffff; --hairline-hi: #232327; --hairline-edge: #a4a4ac; --hairline-mid: #c3c3c9; --hairline-lo: #e0e0e4;
-    --ink: #232327; --muted: #6f6f78;
-  }
-  :root[data-style="dark"] {
-    color-scheme: dark;
-    --hairline-plate: #08090a; --hairline-hi: #d0d6e0; --hairline-edge: #5b5d64; --hairline-mid: #3e3e44; --hairline-lo: #29292d;
-    --ink: #d0d6e0; --muted: #8a8c95;
-  }
-  :root[data-style="blueprint"] {
+  :root {
     color-scheme: dark;
     --hairline-plate: #12305a; --hairline-hi: #ffffff; --hairline-edge: #9dbde6; --hairline-mid: #6f95c8; --hairline-lo: #3d629a;
     --ink: #f2f6fb; --muted: #9dbde6;
+    --hairline-stroke: 0.9; --ground: var(--hairline-plate); --line: var(--hairline-lo);
   }
-  :root[data-style="signal"] {
-    color-scheme: dark;
-    --hairline-plate: #0b0b0c; --hairline-hi: #ec4e02; --hairline-edge: #77777f; --hairline-mid: #4a4a51; --hairline-lo: #2c2c31;
-    --ink: #e8e8ea; --muted: #8a8c95;
-  }
-  :root { --hairline-stroke: 0.9; --ground: var(--hairline-plate); --line: var(--hairline-lo); }
 
   * { box-sizing: border-box; }
   body {
     margin: 0; padding: 48px 16px 80px; background: var(--ground); color: var(--ink);
     font: 13px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased;
-    transition: background-color 260ms cubic-bezier(0.5, 0, 0.1, 1), color 260ms cubic-bezier(0.5, 0, 0.1, 1);
   }
   main { max-width: 760px; margin: 0 auto; }
   .mono, .tag, output, button { font: 11px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 0.02em; }
@@ -57,7 +40,6 @@
   .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-top: 18px; }
   .controls .mono { color: var(--muted); }
   .slider { flex: 1 1 220px; min-width: 0; display: flex; align-items: center; gap: 12px; }
-  .break { flex-basis: 100%; height: 0; }
   input[type="range"] { flex: 1 1 96px; min-width: 0; height: 32px; margin: 0; background: transparent; cursor: pointer; -webkit-appearance: none; appearance: none; }
   input[type="range"]::-webkit-slider-runnable-track { height: 1px; background: var(--muted); }
   input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 13px; height: 13px; margin-top: -6px; border-radius: 50%; border: 1px solid var(--ink); background: var(--ground); }
@@ -66,8 +48,6 @@
   input[type="range"]:focus-visible, button:focus-visible { outline: 1.5px solid var(--ink); outline-offset: 2px; }
   output { min-width: 4ch; text-align: right; font-variant-numeric: tabular-nums; }
   button { height: 32px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--ink); cursor: pointer; }
-  button[aria-pressed="true"] { background: var(--ink); color: var(--ground); border-color: var(--ink); }
-  .styles { display: flex; flex-wrap: wrap; gap: 6px; }
   #error { margin: 12px 0 0; padding-left: 10px; border-left: 1px solid var(--ink); }
 </style>
 </head>
@@ -75,7 +55,7 @@
 <main>
   <p class="mono kicker">a collection · first sketch</p>
   <h1>How to Rebuild Everything</h1>
-  <p class="lede">Things taken apart and drawn in one line weight. Move across a figure to put it back together, and drag to turn it in your hand.</p>
+  <p class="lede">Things taken apart and drawn in one line weight. Move the pointer to the left of the screen to take a figure apart and to the right to put it back together; drag to turn it in your hand.</p>
 
   <div class="figures" id="figures"></div>
   <p id="error" role="alert" hidden></p>
@@ -90,14 +70,6 @@
       <label class="mono" for="weight">line</label>
       <input id="weight" type="range" min="0.5" max="2" step="0.05" value="0.9">
       <output id="weight-value" for="weight"></output>
-    </span>
-    <span class="break"></span>
-    <span class="mono">style</span>
-    <span class="styles" id="styles">
-      <button type="button" data-style="light">light</button>
-      <button type="button" data-style="dark">dark</button>
-      <button type="button" data-style="blueprint">blueprint</button>
-      <button type="button" data-style="signal">signal</button>
     </span>
     <span class="mono" style="margin-left:auto">view</span>
     <button id="home" type="button">home</button>
@@ -124,17 +96,6 @@ var REBUILD = (() => {
     $("error").hidden = false;
     $("error").textContent = String((e.error && e.error.message) || e.message);
   });
-
-  /* the style: one attribute on the page, remembered */
-  const buttons = [...$("styles").querySelectorAll("button")];
-  function setStyle(name) {
-    if (!buttons.some((b) => b.dataset.style === name)) name = "light";
-    root.dataset.style = name;
-    buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.style === name)));
-    store.set("style", name);
-  }
-  buttons.forEach((b) => b.addEventListener("click", () => setStyle(b.dataset.style)));
-  setStyle(store.get("style") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
 
   /* the line weight, in CSS pixels at any size */
   function setWeight(w) {

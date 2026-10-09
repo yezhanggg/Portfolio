@@ -32,7 +32,7 @@
  *   lineOn(axis, u0, v0, u1, v1, w)            one segment on that plane
  * The scene
  *   mount({ stage, svg }, spec)                spec {view: {az, el, S, cx, cy, pivot, elRange}, solids,
- *                                                    tick(dt, now), hover(point), leave(), after(scene)}
+ *                                                    tick(dt, now), hover(point, event), leave(), after(scene)}
  *                                              tick moves the parts and returns whether they are still moving;
  *                                              hover and leave are the pointer when it is not dragging;
  *                                              after runs once a frame is drawn, for the read-out.
@@ -297,7 +297,7 @@ var ORBIT = (() => {
       const r = stage.getBoundingClientRect();
       return [((e.clientX - r.left) / r.width) * 400, ((e.clientY - r.top) / r.height) * 320];
     };
-    const hover = (p) => { if (spec.hover) spec.hover(p); B.wake(); };
+    const hover = (p, e) => { if (spec.hover) spec.hover(p, e); B.wake(); };
     const leave = () => { if (spec.leave) spec.leave(); B.wake(); };
 
     bag.on(stage, "pointerdown", (e) => {
@@ -310,7 +310,7 @@ var ORBIT = (() => {
     });
     bag.on(stage, "pointermove", (e) => {
       const p = pt(e), now = performance.now();
-      if (e.pointerId !== press.id || (e.pointerType === "mouse" && !e.buttons)) { release(e); if (mode !== "drag") hover(p); return; }
+      if (e.pointerId !== press.id || (e.pointerType === "mouse" && !e.buttons)) { release(e); if (mode !== "drag") hover(p, e); return; }
       const dx = p[0] - press.x, dy = p[1] - press.y, dt = Math.max(0.008, (now - press.t) / 1000);
       press.x = p[0]; press.y = p[1]; press.t = now;
       if (mode !== "drag") {
@@ -340,7 +340,7 @@ var ORBIT = (() => {
       return true;
     };
     /* a press that never became a drag is a tap: it is heard as the pointer arriving there */
-    bag.on(stage, "pointerup", (e) => { if (e.pointerId === press.id && !release(e)) hover(pt(e)); });
+    bag.on(stage, "pointerup", (e) => { if (e.pointerId === press.id && !release(e)) hover(pt(e), e); });
     bag.on(stage, "pointercancel", release);
     /* a finger lifting is not a leave: what it tapped stays, so the figure can be turned as it was left */
     bag.on(stage, "pointerleave", (e) => { if (mode !== "drag" && e.pointerId !== press.id && e.pointerType !== "touch") leave(); });

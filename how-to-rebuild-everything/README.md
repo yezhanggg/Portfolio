@@ -1,23 +1,24 @@
 # How to Rebuild Everything
 
-A collection of line figures: things taken apart, that you put back together with the pointer
-and turn in your hand.
+A collection of blueprint line figures: things taken apart, that you put back together with the
+pointer and turn in your hand.
 
 **Status: first sketch.** One figure, to try the idea. It is not on the live site; nothing in this
 folder is deployed. Open `index.html` in a browser (double-click it) to use it.
 
 ## What it does now
 
-- **Move across** a figure and it rebuilds, one part at a time, in the order you would build it.
-  Move away and it comes apart again.
+- **Move the pointer to the right of the screen** and the figure comes together, one part at a
+  time, in the order you would build it. **Move to the left** and it comes apart again. This
+  follows the pointer anywhere in the window, not only over the figure, and it stays as it is when
+  the pointer leaves.
 - **Drag** to turn it: all the way round, over the top, and underneath. Let go while moving and it
   coasts. Double-click, or the `home` button, returns the view.
-- On a phone: tap to the right to build, to the left to take apart; swipe sideways to turn.
-  Up-and-down swipes still scroll the page.
+- On a phone: tap the figure toward the right to build, toward the left to take apart; swipe
+  sideways to turn. Up-and-down swipes still scroll the page.
 - With the figure focused, the arrow keys turn it and Home returns the view.
 
-Under the figure: `spread` (how far apart the parts hang), `line` (stroke weight) and four example
-styles.
+Under the figure: `spread` (how far apart the parts hang) and `line` (stroke weight).
 
 ## Decided, and not yet
 
@@ -26,22 +27,22 @@ Decided (from the brief on 2026-10-08):
 - In the spirit of [Hairline](../reference/hairline/README.md): clean line drawing, one stroke,
   answers the pointer.
 - Full 3D, and you can drag it around.
+- **The look is blueprint**: pale lines on a deep blue ground. It is the one block of colour
+  values at the top of `index.html`; the light, dark and orange variants were removed.
+- **The gesture**: the pointer at the left of the screen takes the figure apart, at the right puts
+  it together.
 
 Still open:
 
-- **The style.** The sketch uses Hairline's own look so there is something to react to. A style is
-  only the block of colour values at the top of `index.html` plus the line weight; `blueprint` and
-  `signal` (the orange from the site intro) are there as examples, not proposals.
 - **What gets rebuilt.** The camera is a stand-in. The list of subjects is not chosen.
-- **The gesture.** "Move across to rebuild" is one option. Another is to light up the part under
-  the pointer and name it.
 - **Where it lives on the site**, and whether figures sit on one page or each get their own.
+- The exact blues and the line weight, if they should change.
 
 ## Files
 
 | Path | What it is |
 |---|---|
-| `index.html` | The page: the styles, the controls, and the card each figure is shown in. |
+| `index.html` | The page: the blueprint colours, the controls, and the card each figure is shown in. |
 | `figures/camera.js` | Figure 01. A list of parts, where each hangs when apart, and the build order. |
 | `engine/orbit.js` | The 3D: the turning camera, solids along any axis, marks on faces, the paint order, drag. |
 | `engine/kernel.js` | Hairline's engine, unchanged. MIT, © 2026 Lucas Marques: see `engine/LICENSE-hairline`. |

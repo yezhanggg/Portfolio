@@ -1,10 +1,11 @@
 /*
  * How to Rebuild Everything · 01 · camera
  *
- * A camera in eleven parts. At rest it hangs apart around its body, the way
- * a manual lays it out. Moving across the stage puts it back together one
- * part at a time, in the order you would build it; moving back takes it
- * apart again. Dragging turns the whole thing in the hand.
+ * A camera in eleven parts. With the pointer at the left of the window it
+ * hangs apart around its body, the way a manual lays it out. Moving to the
+ * right puts it back together one part at a time, in the order you would
+ * build it; moving back to the left takes it apart again. Dragging turns
+ * the whole thing in the hand.
  *
  * The lens points along +y, so the home view shows the front, one end and
  * the top. Turn it over for the tripod socket, and round for the screen.
@@ -16,6 +17,7 @@
   const LX = 6, LZ = -1;        // the lens axis, where it meets the front face
   const DX = 22, SX = -24;      // the dial and the shutter button, along the top
   const STEP = 50;              // the stagger between one part and the next, ms
+  const EDGE = 0.15;            // the share of the window at each side where it is already fully apart, or whole
 
   const ticks = Array.from({ length: 12 }, (_, k) => {
     const a = (k / 12) * Math.PI * 2, c = Math.cos(a), s = Math.sin(a);
@@ -63,7 +65,7 @@
   REBUILD.figure({
     no: "01",
     name: "camera",
-    means: "A camera in eleven parts. Moving across puts it back together, one part at a time; dragging turns it in the hand.",
+    means: "A camera in eleven parts. Move the pointer to the left and it comes apart; move to the right and it goes back together, one part at a time. Drag to turn it in the hand.",
     /* how far apart the parts hang, as a share of their full spread */
     range: [0.5, 0.75, 1],
 
@@ -92,18 +94,28 @@
           }
           return moving;
         },
-        hover: (p) => build(Math.round(clamp((p[0] - 60) / 280, 0, 1) * N), performance.now()),
-        leave: () => build(0, performance.now()),
+        /* a finger has no resting place to follow, so its tap on the figure is read the same way */
+        hover: (p, e) => { if (e.pointerType === "touch") across(e); },
         after(scene) {
           const V = scene.view;
           read.textContent = scene.turning()
             ? `az ${String(Math.round(((V.az % 360) + 360) % 360)).padStart(3, "0")}° · el ${Math.round(V.el)}°`
-            : built ? `${String(built).padStart(2, "0")} · ${PARTS[built][0].id}` : "rest";
+            : built ? `${String(built).padStart(2, "0")} · ${PARTS[built][0].id}` : "apart";
         },
       });
       sc.light("body");
 
-      return { set: (v) => { spread = v; sc.wake(); }, destroy: sc.destroy, scene: sc };
+      /* where the pointer is across the window: the left is apart, the right is whole */
+      const across = (e) => build(Math.round(clamp((e.clientX / innerWidth - EDGE) / (1 - 2 * EDGE), 0, 1) * N), performance.now());
+      /* followed anywhere on the page, but not with a button down: that hand is turning the figure, or on a slider */
+      const follow = (e) => { if (e.pointerType !== "touch" && !e.buttons) across(e); };
+      addEventListener("pointermove", follow);
+
+      return {
+        set: (v) => { spread = v; sc.wake(); },
+        destroy: () => { removeEventListener("pointermove", follow); sc.destroy(); },
+        scene: sc,
+      };
     },
   });
 })();
