@@ -3,6 +3,7 @@
 import { siSpotify, siInstagram } from "simple-icons";
 import motion from "../data/motion.json";
 import hover from "../data/hover.json";
+import exploreHome from "../data/pages/yz__home.json";
 
 const LINKEDIN_PATH =
   "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z";
@@ -222,6 +223,90 @@ function zhaengPhoneMenu(page) {
   m.nodes.push({ type: "menu", box: [259, 10, 50, 50], items: ZHAENG_MENU.map(([label, href]) => ({ label, href })), fixed: bars[0].fixed, vw: bars[0].vw, vh: bars[0].vh });
 }
 
+// ---- 3D boxes ------------------------------------------------------------------------------------
+// A box is one node with six sides; each side holds ordinary nodes placed in that side's own
+// pixels. Node.astro draws it and interactions.js turns it (by dragging, or under the pointer).
+const cube = (cx, cy, size, more) => ({ type: "cube", box: [cx - size / 2, cy - size / 2, size, size], ...more });
+const moveDown = (n, dy) => {
+  n.box = [n.box[0], n.box[1] + dy, n.box[2], n.box[3]];
+  if (n.labelBox) n.labelBox = [n.labelBox[0], n.labelBox[1] + dy, n.labelBox[2], n.labelBox[3]];
+};
+// The logo turning at the foot of these two pages turns much faster under the pointer.
+const logoSpinsFaster = (view) => view.nodes.forEach((n) => n.type === "image" && n.anim?.some((a) => a.loop) && (n.rate = 16));
+
+// /notice: the two text buttons became boxes, Portfolio on the left and Explore on the right.
+// Under the pointer a box turns and its words appear on its sides; a click enters that mode.
+// The phone page had no way on; it gets the same two boxes, always turning, words always shown.
+function modeBoxes(page) {
+  page.noChat = true; // no chat bubble on this page
+  const MODES = [["PORTFOLIO MODE", "/portfolio"], ["EXPLORE MODE", "/copy-of-notice"]];
+  const at = { desktop: { size: 200, xs: [235.5, 744.5], y: 390 }, mobile: { size: 96, xs: [85, 235], y: 342 } };
+  for (const [name, view] of Object.entries(page.views)) {
+    const { size, xs, y } = at[name];
+    const font = view.nodes.find((n) => n.type === "button")?.style?.["font-family"];
+    view.nodes = view.nodes.filter((n) => !(n.type === "button" && n.href));
+    // The two boxes mirror each other: each shows the side that faces the middle of the page.
+    MODES.forEach(([label, href], i) => view.nodes.push(cube(xs[i], y, size, { href, label, words: label.split(" "), font, rest: [-20, i ? 30 : -30], spin: i ? -70 : 70 })));
+    logoSpinsFaster(view);
+  }
+}
+
+// /copy-of-notice ("explore with curiosity") said "under maintenance". It is now one large box to
+// drag around. Its six sides carry the eight buttons of the old explore home (/home) as designed
+// there, hover styles included; two sides hold two buttons each. [label, x, y] in parts of a side.
+const EXPLORE_SIDES = {
+  front: [["THOUGHTS", 0.5, 0.5]],
+  right: [["NOTEpad", 0.5, 0.5]],
+  back: [["「CITY VISION」", 0.5, 0.5]],
+  left: [["magaZINE", 0.5, 0.5]],
+  top: [["I SHOOT PHOTOS NOW", 0.5, 0.33], ["some RANDOM photos edits", 0.5, 0.67]],
+  bottom: [["ARTWORK", 0.55, 0.36], ["session.ARCHIVE", 0.5, 0.72]],
+};
+function exploreBox(page) {
+  const at = { desktop: { size: 340, y: 310, hint: [564, 13] }, mobile: { size: 180, y: 265, hint: [394, 10] } };
+  const centre = (b) => [b[0] + b[2] / 2, b[1] + b[3] / 2];
+  for (const [name, view] of Object.entries(page.views)) {
+    const { size, y, hint } = at[name];
+    const buttons = structuredClone(exploreHome.views[name].nodes).filter((n) => n.type === "button" && n.href);
+    const same = (a, b) => a.replace(/\s+/g, " ") === b.replace(/\s+/g, " "); // one label has a no-break space
+    const find = (label) => buttons.find((n) => same(n.label, label));
+    // A button on a side: its label centred on (cx, cy); `area` (part of the side) takes the click.
+    const put = (n, cx, cy, area) => {
+      const h = name === "desktop" && hover.yz__home.buttons.find((b) => same(b.text, n.label));
+      return {
+        ...n,
+        box: area || [cx - n.box[2] / 2, cy - n.box[3] / 2, n.box[2], n.box[3]],
+        labelBox: [cx - n.labelBox[2] / 2, cy - n.labelBox[3] / 2, n.labelBox[2], n.labelBox[3]],
+        rotate: area ? undefined : n.rotate,
+        hover: h ? { label: h.label, root: {}, tr: h.tr } : undefined,
+      };
+    };
+    const faces = {};
+    for (const [side, list] of Object.entries(EXPLORE_SIDES)) {
+      faces[side] = list.map(([label, fx, fy], i) => put(find(label), fx * size, fy * size, [0, (i * size) / list.length, size, size / list.length]));
+    }
+    // "untitled" keeps its tilt and its place above the start of ARTWORK.
+    const [art, un] = [find("ARTWORK"), find("untitled")];
+    faces.bottom.push(put(un, 0.55 * size + centre(un.box)[0] - centre(art.box)[0], 0.36 * size + centre(un.box)[1] - centre(art.box)[1]));
+
+    const font = view.nodes.find((n) => n.type === "button")?.style?.["font-family"];
+    view.nodes = view.nodes.filter((n) => n.label !== "UNDER MAINTENANCE" && n.alt !== "7256208.png");
+    if (name === "mobile") {
+      // Room for the box: the note moves up; the swinging link that led to /portfolio becomes a
+      // still BACK, as on the desktop page.
+      const note = view.nodes.find((n) => n.label === "BEST EXPERIENCE ON COMPUTER");
+      const back = view.nodes.find((n) => n.label === "EXPLORE WITH CURIOSITY");
+      if (note) moveDown(note, 60 - note.box[1]);
+      if (back) (Object.assign(back, { label: "BACK", href: "/notice", anim: undefined }), moveDown(back, 58));
+    }
+    view.nodes.push(
+      cube(view.canvas / 2, y, size, { faces, rest: [-13, -15], intro: true }), // at this angle no far edge runs behind the front label
+      { type: "text", box: [view.canvas / 2 - 100, hint[0], 200, hint[1] + 4], lines: 1, html: "<p>DRAG TO TURN</p>", style: { "font-family": font, "font-size": `${hint[1]}px`, "letter-spacing": "0.22em", "text-align": "center", color: "rgb(40, 38, 38)" } },
+    );
+    logoSpinsFaster(view);
+  }
+}
+
 export function applyFixups(page) {
   for (const view of Object.values(page.views)) view.nodes = fixNodes(view.nodes, page);
   if (page.site === "zhaeng" && page.slug === "index") zhaengHome(page);
@@ -230,5 +315,7 @@ export function applyFixups(page) {
   hoverLinksOnPhones(page);
   applyMotion(page);
   if (page.site === "yz" && page.slug === "portfolio") addPortfolioEntries(page);
+  if (page.site === "yz" && page.slug === "notice") modeBoxes(page);
+  if (page.site === "yz" && page.slug === "copy-of-notice") exploreBox(page);
   return page;
 }

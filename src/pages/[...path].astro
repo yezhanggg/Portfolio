@@ -45,6 +45,7 @@ function prepare(view, name) {
       }
       if (n.slides) n.slides.forEach(visit);
       if (n.children) visit(n.children);
+      if (n.faces) Object.values(n.faces).forEach(visit);
     }
   };
   visit(view.nodes);
@@ -68,7 +69,7 @@ const firstImage = flat(page.views.desktop.nodes).find((n) => n.type === "image"
 const formKind = page.slug === "order" ? "zine" : "contact";
 ---
 
-<Base title={info.title || page.title} description={info.description || page.description} image={firstImage && largest(mediaFor(firstImage.src))}>
+<Base title={info.title || page.title} description={info.description || page.description} image={firstImage && largest(mediaFor(firstImage.src))} noChat={page.noChat}>
   {views.map((v) => {
     const Wrap = v.hasForm ? "form" : "main";
     return (

@@ -11,7 +11,8 @@ const entering = n.anim && n.anim.some((a) => !a.loop);
 // Extra classes/attributes shared by every node type: animation, hover state, pointer tracking.
 const fx = [...hv.cls, n.anim ? "anim" : "", entering ? "enter" : "", n.sticky ? "sticky" : "", n.hshow ? "hb-show" : ""].filter(Boolean);
 // data-mouse = how far (px) a picture travels when it follows the pointer; see interactions.js.
-const fxAttrs = { ...(n.mouse ? { "data-mouse": n.mouse.d, "data-mouse-ms": n.mouse.ms, "data-mouse-inset": n.mouse.inset } : {}), ...(n.scrollK ? { "data-scroll-k": n.scrollK } : {}) };
+// data-rate = how many times faster a looping animation runs under the pointer.
+const fxAttrs = { ...(n.mouse ? { "data-mouse": n.mouse.d, "data-mouse-ms": n.mouse.ms, "data-mouse-inset": n.mouse.inset } : {}), ...(n.scrollK ? { "data-scroll-k": n.scrollK } : {}), ...(n.rate ? { "data-rate": n.rate } : {}) };
 // A video that fills the page is a background; anything smaller is a "video box" the visitor can
 // click to play or pause, as on the original site. A box that plays by itself (the opening page)
 // has no controls: nothing the visitor does stops it.
@@ -71,6 +72,9 @@ const labelPos = (n) =>
     ? css({ left: px(n.labelBox[0] + n.labelBox[2] / 2 - n.box[0]), top: px(n.labelBox[1] + n.labelBox[3] / 2 - n.box[1]), ...fontFix(n.style), "text-align": undefined })
     : css({ left: "50%", top: "50%", ...fontFix(n.style) });
 const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "div";
+// A 3D box: a link when the whole box is one button, otherwise its sides hold their own buttons.
+const CubeTag = href ? "a" : "div";
+const SIDES = ["front", "back", "right", "left", "top", "bottom"];
 ---
 
 {n.type === "box" && <div class:list={["n", "bx", fx, { bleed }]} style={css({ ...frame, ...paint })} />}
@@ -79,6 +83,22 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
   <div class="n hbox" style={css({ ...frame, "--hb-ms": n.ms ? `${n.ms}ms` : undefined })}>
     {n.children.map((child) => <Astro.self node={child} canvas={canvas} origin={[n.box[0], n.box[1]]} />)}
   </div>
+)}
+
+{n.type === "cube" && (
+  <CubeTag class:list={["n", "cube", fx]} style={css({ ...frame, "--cs": px(w), "font-family": n.font })} data-cube={n.rest.join(",")} data-spin={n.spin} data-intro={n.intro} {...(href ? { ...linkAttrs, "aria-label": n.label, draggable: "false" } : {})}>
+    <div class="cube-box" style={`--rx:${n.rest[0]}deg;--ry:${n.rest[1]}deg`}>
+      {SIDES.map((side) => (
+        <div class={`cube-side cube-${side}`} data-side={side}>
+          <div class="cube-in">
+            {n.words && <span class="cube-words" aria-hidden="true">{n.words.map((word) => <span>{word}</span>)}</span>}
+            {(n.faces?.[side] || []).map((child) => <Astro.self node={child} canvas={canvas} />)}
+          </div>
+        </div>
+      ))}
+      {SIDES.map((side) => <div class={`cube-edge cube-${side}`} />)}
+    </div>
+  </CubeTag>
 )}
 
 {n.type === "text" && (

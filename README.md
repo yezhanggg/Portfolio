@@ -41,6 +41,14 @@ Small text or link changes: edit the page's file in `src/data/pages/`. Each item
 (`[x, y, width, height]` in canvas pixels) and its content. Desktop and phone layouts are separate
 entries (`views.desktop`, `views.mobile`) in the same file.
 
+### The 3D boxes
+
+The two mode buttons on `/notice` and the explore menu on `/copy-of-notice` are boxes you can turn.
+They are built in `src/lib/fixups.js` (`modeBoxes`, `exploreBox`): which button sits on which side,
+the sizes and the resting angles are set there. `Node.astro` draws a box (`cube`),
+`src/scripts/interactions.js` turns it, and the look (line weight, word size) is in
+`src/styles/site.css` under "3D boxes".
+
 ## Environment variables (set in Vercel → Project → Settings → Environment Variables)
 
 | Name | Used by | Notes |

@@ -505,6 +505,131 @@ a.svg {
 div.img[data-mouse] {
   pointer-events: none;
 }
+/* 3D boxes (the mode buttons on /notice, the explore menu): six sides around a centre, turned by
+   interactions.js through --rx/--ry. --cs is the length of an edge. Every side is drawn twice: its
+   outline from both directions (an edge seen almost flat-on would break into dots if only one of
+   its two sides drew it) and its content from the front only.
+   --ck: Chrome paints anything under perspective at one image pixel per CSS pixel, which is soft
+   on dense screens. There the script raises --ck and the box is laid out that many times larger
+   and scaled back down. */
+@property --rx {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --ry {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.cube {
+  --ck: 1;
+  --ce: calc(var(--cs) * var(--ck));
+  perspective: calc(var(--cs) * 3);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.cube.dragging,
+.cube.dragging * {
+  cursor: grabbing;
+}
+.cube-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--ce);
+  height: var(--ce);
+  margin: calc(var(--ce) / -2) 0 0 calc(var(--ce) / -2);
+  transform-style: preserve-3d;
+  transform: scale3d(calc(1 / var(--ck)), calc(1 / var(--ck)), calc(1 / var(--ck))) translateZ(calc(var(--ce) / -2)) rotateX(var(--rx)) rotateY(var(--ry));
+  /* Only the sides take clicks: seen edge-on, this empty plane through the middle of the box
+     would otherwise take the one meant for the side in front of it (Safari). */
+  pointer-events: none;
+}
+.cube-side,
+.cube-edge {
+  position: absolute;
+  inset: 0;
+}
+.cube-side {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  pointer-events: auto;
+}
+.cube-edge {
+  border: calc(1px * var(--ck)) solid #000;
+  pointer-events: none;
+}
+/* What a side holds is placed in --cs pixels whatever --ck is. */
+.cube-in {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--cs);
+  height: var(--cs);
+  zoom: var(--ck);
+}
+.cube-front {
+  transform: translateZ(calc(var(--ce) / 2));
+}
+.cube-back {
+  transform: rotateY(180deg) translateZ(calc(var(--ce) / 2));
+}
+.cube-right {
+  transform: rotateY(90deg) translateZ(calc(var(--ce) / 2));
+}
+.cube-left {
+  transform: rotateY(-90deg) translateZ(calc(var(--ce) / 2));
+}
+.cube-top {
+  transform: rotateX(90deg) translateZ(calc(var(--ce) / 2));
+}
+.cube-bottom {
+  transform: rotateX(-90deg) translateZ(calc(var(--ce) / 2));
+}
+a.cube:focus-visible {
+  outline: none;
+}
+a.cube:focus-visible .cube-edge {
+  border-width: calc(2px * var(--ck));
+}
+/* Words on the sides of a box that is one button: they show while the pointer is over it. Each
+   side sets them in a different corner. */
+.cube-words {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: calc(var(--cs) * 0.05);
+  font-size: calc(var(--cs) * 0.17);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cube:hover .cube-words,
+.cube:focus-visible .cube-words,
+.cube.on .cube-words {
+  opacity: 1;
+}
+.cube-front .cube-words,
+.cube-top .cube-words {
+  align-items: flex-end;
+}
+.cube-left .cube-words,
+.cube-bottom .cube-words {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+@media (hover: none) {
+  .cube-words {
+    opacity: 1;
+  }
+}
 /* Background media pinned to the screen while the page scrolls over it. */
 .sticky {
   position: sticky;
