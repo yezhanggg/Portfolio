@@ -262,10 +262,20 @@ for (const btn of document.querySelectorAll("[data-menu]")) {
   addEventListener("keydown", (e) => e.key === "Escape" && set(false));
 }
 
+// ---- Videos that play by themselves never stop -------------------------------------------------
+// Nothing on the page pauses them; this starts them again when the browser does (a hidden tab, a
+// media key, a phone that refuses to start a video before the first touch).
+const always = [...document.querySelectorAll("video[autoplay]")];
+const keepPlaying = () => !document.hidden && always.forEach((v) => v.paused && v.getClientRects().length && v.play().catch(() => {}));
+always.forEach((v) => v.addEventListener("pause", () => setTimeout(keepPlaying, 200)));
+addEventListener("pageshow", keepPlaying);
+addEventListener("pointerdown", keepPlaying, { passive: true });
+document.addEventListener("visibilitychange", keepPlaying);
+
 // ---- Video boxes: click to play or pause, with a sound switch -----------------------------------
 for (const box of document.querySelectorAll("[data-vbox]")) {
   const video = box.querySelector("video");
-  if (!video) continue;
+  if (!video || video.autoplay) continue;
   const sync = () => {
     box.classList.toggle("playing", !video.paused);
     box.classList.toggle("sound", !video.muted);

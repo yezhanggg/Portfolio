@@ -13,7 +13,8 @@ const fx = [...hv.cls, n.anim ? "anim" : "", entering ? "enter" : "", n.sticky ?
 // data-mouse = how far (px) a picture travels when it follows the pointer; see interactions.js.
 const fxAttrs = { ...(n.mouse ? { "data-mouse": n.mouse.d, "data-mouse-ms": n.mouse.ms, "data-mouse-inset": n.mouse.inset } : {}), ...(n.scrollK ? { "data-scroll-k": n.scrollK } : {}) };
 // A video that fills the page is a background; anything smaller is a "video box" the visitor can
-// click to play or pause, as on the original site.
+// click to play or pause, as on the original site. A box that plays by itself (the opening page)
+// has no controls: nothing the visitor does stops it.
 const backgroundVideo = n.type === "video" && (n.bleed || n.fixed || n.sticky || (n.autoplay && n.box[2] >= canvas - 2));
 const frame = {
   left: bleed ? undefined : px(x),
@@ -137,12 +138,14 @@ const Tag = n.type === "button" ? (href ? "a" : n.submit ? "button" : "div") : "
       playsinline
       preload={n.autoplay ? "auto" : "none"}
       loop={n.loop !== false}
-      {...(n.autoplay ? { autoplay: true, muted: true } : {})}
+      {...(n.autoplay ? { autoplay: true, muted: true, disablepictureinpicture: true, disableremoteplayback: true } : {})}
     />
-    <button type="button" class="vb-play" aria-label="Play or pause">
-      <svg class="i-play" viewBox="0 0 40 40" aria-hidden="true"><path d="M15 10l15 10-15 10z" /></svg>
-      <svg class="i-pause" viewBox="0 0 40 40" aria-hidden="true"><rect x="13" y="10" width="5" height="20" /><rect x="22" y="10" width="5" height="20" /></svg>
-    </button>
+    {!n.autoplay && (
+      <button type="button" class="vb-play" aria-label="Play or pause">
+        <svg class="i-play" viewBox="0 0 40 40" aria-hidden="true"><path d="M15 10l15 10-15 10z" /></svg>
+        <svg class="i-pause" viewBox="0 0 40 40" aria-hidden="true"><rect x="13" y="10" width="5" height="20" /><rect x="22" y="10" width="5" height="20" /></svg>
+      </button>
+    )}
     {!n.autoplay && (
       <button type="button" class="vb-sound" aria-label="Sound on or off">
         <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a4 4 0 0 0-2-3.5v7a4 4 0 0 0 2-3.5zM13.5 3.3v2.1a7 7 0 0 1 0 13.2v2.1a9 9 0 0 0 0-17.4z" /></svg>

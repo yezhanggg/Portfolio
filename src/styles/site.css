@@ -182,9 +182,12 @@ a.svg {
   display: block;
   fill: #fff;
 }
-/* Boxes that play by themselves only show the icon under the pointer. */
-.vbox.auto:not(:hover) .vb-play {
-  opacity: 0;
+/* Boxes that play by themselves have no controls and cannot be stopped. */
+.vbox.auto {
+  cursor: auto;
+}
+.vbox.auto video {
+  pointer-events: none;
 }
 .vbox .i-pause,
 .vbox.playing .i-play,
