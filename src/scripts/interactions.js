@@ -462,3 +462,152 @@ for (const form of document.querySelectorAll("form[data-form]")) {
     if (button) button.disabled = false;
   });
 }
+
+// ---- Dispersing grid ---------------------------------------------------------------------------
+// The home page's video shows through a mask of tilted tiles. Near the pointer those tiles come
+// apart: each is pushed away, turned and shrunk, on a spring, so they bounce back into the grid
+// once the pointer leaves. While the grid is whole the original masked video shows; while it is
+// moving, the tiles are drawn on a canvas from the same video.
+function tilePoints(d) {
+  const t = d.match(/[a-zA-Z]|-?(?:\d*\.\d+|\d+\.?)/g) || [];
+  const pts = [];
+  let x = 0, y = 0, sx = 0, sy = 0, cmd = "M", i = 0;
+  const num = () => Number(t[i++]);
+  while (i < t.length) {
+    if (/[a-zA-Z]/.test(t[i])) cmd = t[i++];
+    const rel = cmd === cmd.toLowerCase();
+    switch (cmd.toUpperCase()) {
+      case "M": case "L": {
+        const a = num(), b = num();
+        x = rel ? x + a : a; y = rel ? y + b : b;
+        if (cmd.toUpperCase() === "M") { sx = x; sy = y; cmd = rel ? "l" : "L"; }
+        break;
+      }
+      case "H": { const a = num(); x = rel ? x + a : a; break; }
+      case "V": { const a = num(); y = rel ? y + a : a; break; }
+      case "Z": x = sx; y = sy; continue;
+      default: i++; continue;
+    }
+    pts.push([x, y]);
+  }
+  return pts;
+}
+
+for (const box of reduceMotion ? [] : document.querySelectorAll("[data-disperse]")) {
+  const video = box.querySelector("video");
+  const svg = decodeURIComponent(box.style.maskImage || box.style.webkitMaskImage || "");
+  const vb = (svg.match(/viewBox='([^']+)'/) || [])[1]?.split(/[\s,]+/).map(Number);
+  const ds = [...svg.matchAll(/ d='([^']+)'/g)].map((m) => m[1]);
+  if (!video || !vb || !ds.length) continue;
+
+  const W = box.offsetWidth, H = box.offsetHeight;
+  const M = Math.round(Math.max(W, H) * 0.35); // room around the grid for tiles to fly into
+  const fx = W / vb[2], fy = H / vb[3];
+  const toBox = new DOMMatrix([fx, 0, 0, fy, -vb[0] * fx, -vb[1] * fy]);
+  const tiles = ds.map((d, k) => {
+    const path = new Path2D();
+    path.addPath(new Path2D(d), toBox);
+    const pts = tilePoints(d).map(([px, py]) => [(px - vb[0]) * fx, (py - vb[1]) * fy]);
+    const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
+    const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+    // A fixed bit of character per tile so the scatter looks thrown rather than pushed.
+    const r = Math.sin(k * 12.9898) * 43758.5453;
+    const seed = r - Math.floor(r);
+    return { path, cx, cy, spin: seed < 0.5 ? -1 : 1, kick: 0.75 + seed * 0.5, skew: (seed - 0.5) * 0.9, x: 0, y: 0, a: 0, s: 0, vx: 0, vy: 0, va: 0, vs: 0 };
+  });
+
+  const canvas = document.createElement("canvas");
+  canvas.className = "n disperse";
+  canvas.setAttribute("aria-hidden", "true");
+  Object.assign(canvas.style, { left: `${box.offsetLeft - M}px`, top: `${box.offsetTop - M}px`, width: `${W + 2 * M}px`, height: `${H + 2 * M}px` });
+  box.after(canvas);
+  const ctx = canvas.getContext("2d");
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+
+  const pointer = { x: 0, y: 0, in: false, speed: 0 };
+  let raf = 0;
+  const R = Math.max(W, H) * 0.26; // how far from the pointer tiles still feel it
+
+  const local = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const k = canvas.offsetWidth / rect.width;
+    return [(e.clientX - rect.left) * k - M, (e.clientY - rect.top) * k - M];
+  };
+  const onMove = (e) => {
+    const [x, y] = local(e);
+    const inside = x > -R * 0.4 && y > -R * 0.4 && x < W + R * 0.4 && y < H + R * 0.4;
+    if (pointer.in && inside) pointer.speed = Math.min(1, pointer.speed * 0.6 + Math.hypot(x - pointer.x, y - pointer.y) / 60);
+    pointer.x = x; pointer.y = y; pointer.in = inside;
+    if (inside) start();
+  };
+  addEventListener("pointermove", onMove, { passive: true });
+  addEventListener("pointerdown", (e) => { onMove(e); if (pointer.in) pointer.speed = 1; }, { passive: true });
+  document.addEventListener("pointerleave", () => (pointer.in = false));
+  addEventListener("pointerup", (e) => { if (e.pointerType !== "mouse") pointer.in = false; });
+
+  const start = () => {
+    if (raf) return;
+    canvas.width = Math.round((W + 2 * M) * dpr);
+    canvas.height = Math.round((H + 2 * M) * dpr);
+    raf = requestAnimationFrame(step);
+  };
+
+  function step() {
+    raf = 0;
+    pointer.speed *= 0.94;
+    let moving = 0;
+    for (const t of tiles) {
+      let tx = 0, ty = 0, ta = 0, ts = 0;
+      if (pointer.in) {
+        const dx = t.cx - pointer.x, dy = t.cy - pointer.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const f = Math.max(0, 1 - dist / R) ** 1.6 * t.kick * (1 + pointer.speed * 0.4);
+        if (f > 0) {
+          // Away from the pointer, bent a little to the side so neighbours don't move as one.
+          const ux = dx / dist, uy = dy / dist;
+          const push = f * R * 0.4;
+          tx = (ux - uy * t.skew) * push;
+          ty = (uy + ux * t.skew) * push;
+          ta = t.spin * f * 0.45;
+          ts = -f * 0.2;
+        }
+      }
+      t.vx = (t.vx + (tx - t.x) * 0.09) * 0.8;
+      t.vy = (t.vy + (ty - t.y) * 0.09) * 0.8;
+      t.va = (t.va + (ta - t.a) * 0.09) * 0.8;
+      t.vs = (t.vs + (ts - t.s) * 0.09) * 0.8;
+      t.x += t.vx; t.y += t.vy; t.a += t.va; t.s += t.vs;
+      moving += Math.abs(t.x) + Math.abs(t.y) + Math.abs(t.a) * 40 + Math.abs(t.s) * 40 + Math.abs(t.vx) + Math.abs(t.vy);
+    }
+
+    const ready = video.readyState >= 2;
+    const settled = !pointer.in && moving < 0.5;
+    if (settled || !ready) {
+      for (const t of tiles) Object.assign(t, { x: 0, y: 0, a: 0, s: 0, vx: 0, vy: 0, va: 0, vs: 0 });
+      box.classList.remove("apart");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      return;
+    }
+
+    // Cover-fit the video into the grid's box, as the original element does.
+    const vw = video.videoWidth, vh = video.videoHeight;
+    const k = Math.max(W / vw, H / vh);
+    const dw = vw * k, dh = vh * k, dx = (W - dw) / 2, dy = (H - dh) / 2;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const t of tiles) {
+      const s = 1 + t.s;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.translate(M + t.cx + t.x, M + t.cy + t.y);
+      ctx.rotate(t.a);
+      ctx.scale(s, s);
+      ctx.translate(-t.cx, -t.cy);
+      ctx.save();
+      ctx.clip(t.path);
+      ctx.drawImage(video, dx, dy, dw, dh);
+      ctx.restore();
+    }
+    box.classList.add("apart");
+    raf = requestAnimationFrame(step);
+  }
+}

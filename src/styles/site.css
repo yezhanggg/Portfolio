@@ -662,3 +662,12 @@ a.cube:focus-visible .cube-edge {
     animation: none !important;
   }
 }
+
+/* Dispersing grid on the home page (see interactions.js): the canvas takes over from the masked
+   video while the tiles are apart. The video keeps playing underneath so the canvas can copy it. */
+canvas.disperse {
+  pointer-events: none;
+}
+.vbox.apart {
+  opacity: 0;
+}

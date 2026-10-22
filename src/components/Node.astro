@@ -150,7 +150,7 @@ const SIDES = ["front", "back", "right", "left", "top", "bottom"];
 )}
 
 {n.type === "video" && n.file && !backgroundVideo && (
-  <div class:list={["n", "vbox", fx, { auto: n.autoplay }]} {...fxAttrs} style={css({ ...frame, ...maskCss(n.mask) })} data-vbox>
+  <div class:list={["n", "vbox", fx, { auto: n.autoplay }]} {...fxAttrs} style={css({ ...frame, ...maskCss(n.mask) })} data-vbox {...(n.disperse ? { "data-disperse": "" } : {})}>
     <video
       style={css({ "object-fit": n.fit && n.fit !== "fill" ? n.fit : "cover" })}
       src={n.file}

@@ -272,11 +272,13 @@ const EXPLORE_SIDES = {
   bottom: [["ARTWORK", 0.55, 0.36], ["session.ARCHIVE", 0.5, 0.72]],
 };
 function exploreBox(page) {
-  const at = { desktop: { size: 340, y: 310, hint: [564, 13] }, mobile: { size: 180, y: 265, hint: [394, 10] } };
+  const at = { desktop: { size: 340, y: 310 }, mobile: { size: 180, y: 265 } };
   const centre = (b) => [b[0] + b[2] / 2, b[1] + b[3] / 2];
   for (const [name, view] of Object.entries(page.views)) {
-    const { size, y, hint } = at[name];
+    const { size, y } = at[name];
     const buttons = structuredClone(exploreHome.views[name].nodes).filter((n) => n.type === "button" && n.href);
+    // session.ARCHIVE opens the same archive as Archive in portfolio mode.
+    for (const n of buttons) if (n.href === "https://www.yezhang.net/archive") n.href = "https://www.yezhang.net/sessionarchive";
     const same = (a, b) => a.replace(/\s+/g, " ") === b.replace(/\s+/g, " "); // one label has a no-break space
     const find = (label) => buttons.find((n) => same(n.label, label));
     // A button on a side: its label centred on (cx, cy); `area` (part of the side) takes the click.
@@ -298,7 +300,6 @@ function exploreBox(page) {
     const [art, un] = [find("ARTWORK"), find("untitled")];
     faces.bottom.push(put(un, 0.55 * size + centre(un.box)[0] - centre(art.box)[0], 0.36 * size + centre(un.box)[1] - centre(art.box)[1]));
 
-    const font = view.nodes.find((n) => n.type === "button")?.style?.["font-family"];
     view.nodes = view.nodes.filter((n) => n.label !== "UNDER MAINTENANCE" && n.alt !== "7256208.png");
     if (name === "mobile") {
       // Room for the box: the note moves up; the swinging link that led to /portfolio becomes a
@@ -308,11 +309,46 @@ function exploreBox(page) {
       if (note) moveDown(note, 60 - note.box[1]);
       if (back) (Object.assign(back, { label: "BACK", href: "/notice", anim: undefined }), moveDown(back, 58));
     }
-    view.nodes.push(
-      cube(view.canvas / 2, y, size, { faces, rest: [-13, -15], intro: true }), // at this angle no far edge runs behind the front label
-      { type: "text", box: [view.canvas / 2 - 100, hint[0], 200, hint[1] + 4], lines: 1, html: "<p>DRAG TO TURN</p>", style: { "font-family": font, "font-size": `${hint[1]}px`, "letter-spacing": "0.22em", "text-align": "center", color: "rgb(40, 38, 38)" } },
-    );
+    view.nodes.push(cube(view.canvas / 2, y, size, { faces, rest: [-13, -15], intro: true })); // at this angle no far edge runs behind the front label
     logoSpinsFaster(view);
+  }
+}
+
+// The pages behind explore mode had the old site's menu bar across the top (HOME, the page's own
+// name, ABOUT). They now open like the portfolio pages: one HOME at the top, back to explore mode.
+const OLD_HOME = "https://www.yezhang.net/home";
+const OLD_MENU = ["https://www.yezhang.net/home", "https://www.yezhang.net/about"];
+function singleHome(page) {
+  const desktop = page.views.desktop;
+  const bar = desktop?.nodes.filter((n) => n.type === "button" && n.box[1] < 130 && (OLD_MENU.includes(n.href) || n.borders));
+  if (!bar?.some((n) => n.href === OLD_HOME)) return;
+  const old = bar.find((n) => n.href === OLD_HOME);
+  desktop.nodes = desktop.nodes.filter((n) => !bar.includes(n));
+  // Same size and place as HOME on the portfolio pages, in the colour the old bar used.
+  desktop.nodes.push({
+    type: "button",
+    box: [292, 62, 395, 60],
+    label: "HOME",
+    labelBox: [454, 70, 71, 44],
+    style: { ...old.style, "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif", "font-size": "37px", "letter-spacing": "normal", "text-align": "center" },
+    href: "/copy-of-notice",
+    target: "_self",
+  });
+  // Every other way back to the old explore home ("or go home" on /about, HOME on phones) too.
+  for (const view of Object.values(page.views)) {
+    for (const n of view.nodes) {
+      if (n.href === OLD_HOME) n.href = "/copy-of-notice";
+      if (n.html) n.html = n.html.replaceAll(`href="${OLD_HOME}"`, 'href="/copy-of-notice"');
+    }
+  }
+}
+
+// The home page's tiled video: the tiles scatter away from the pointer and settle back
+// (drawn in src/scripts/interactions.js, "Dispersing grid").
+function disperseGrid(page) {
+  for (const view of Object.values(page.views)) {
+    const video = view.nodes.find((n) => n.type === "video" && n.mask);
+    if (video) video.disperse = true;
   }
 }
 
@@ -326,5 +362,7 @@ export function applyFixups(page) {
   if (page.site === "yz" && page.slug === "portfolio") addPortfolioEntries(page);
   if (page.site === "yz" && page.slug === "notice") modeBoxes(page);
   if (page.site === "yz" && page.slug === "copy-of-notice") exploreBox(page);
+  if (page.site === "yz" && page.slug === "index") disperseGrid(page);
+  if (page.site === "yz") singleHome(page);
   return page;
 }
