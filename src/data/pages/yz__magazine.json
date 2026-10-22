@@ -348,9 +348,119 @@
         "lines": 2,
         "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:68.6px;text-align:center\"><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"letter-spacing:12.25px\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-style:italic\"><span style=\"font-weight:700\"><span>edits</span></span></span></span></span></span></span></h3>"
        }
+      ],
+      [
+       {
+        "type": "box",
+        "box": [
+         -230,
+         2372,
+         1440,
+         107
+        ],
+        "bg": "rgb(71, 67, 197)",
+        "bleed": true
+       },
+       {
+        "type": "text",
+        "box": [
+         58,
+         2390,
+         864,
+         69.6
+        ],
+        "style": {
+         "font-family": "Arial, Helvetica, sans-serif",
+         "font-size": "10px",
+         "font-weight": "400",
+         "font-style": "normal",
+         "color": "rgb(0, 0, 0)",
+         "letter-spacing": "normal",
+         "line-height": "normal",
+         "text-align": "start",
+         "text-transform": "none",
+         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+        },
+        "lines": 2,
+        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:68.6px;text-align:center\"><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"letter-spacing:12.25px\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-style:italic\"><span style=\"font-weight:700\">edits edits</span></span></span></span></span></span></h3>"
+       }
+      ],
+      [
+       {
+        "type": "box",
+        "box": [
+         -230,
+         2372,
+         1440,
+         107
+        ],
+        "bg": "rgb(29, 103, 205)",
+        "bleed": true
+       },
+       {
+        "type": "text",
+        "box": [
+         57,
+         2391,
+         864,
+         69.6
+        ],
+        "style": {
+         "font-family": "Arial, Helvetica, sans-serif",
+         "font-size": "10px",
+         "font-weight": "400",
+         "font-style": "normal",
+         "color": "rgb(0, 0, 0)",
+         "letter-spacing": "normal",
+         "line-height": "normal",
+         "text-align": "start",
+         "text-transform": "none",
+         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+        },
+        "lines": 2,
+        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:68.6px;text-align:center\"><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"letter-spacing:12.25px\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-style:italic\"><span style=\"font-weight:700\">edits edits edits</span></span></span></span></span></span></h3>"
+       }
+      ],
+      [
+       {
+        "type": "box",
+        "box": [
+         -230,
+         2372,
+         1440,
+         107
+        ],
+        "bg": "rgb(13, 79, 43)",
+        "bleed": true
+       },
+       {
+        "type": "text",
+        "box": [
+         57,
+         2391,
+         864,
+         69.6
+        ],
+        "style": {
+         "font-family": "Arial, Helvetica, sans-serif",
+         "font-size": "10px",
+         "font-weight": "400",
+         "font-style": "normal",
+         "color": "rgb(0, 0, 0)",
+         "letter-spacing": "normal",
+         "line-height": "normal",
+         "text-align": "start",
+         "text-transform": "none",
+         "text-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+        },
+        "lines": 2,
+        "html": "<h3 style=\"font-family:helvetica-w01-bold, sans-serif;font-size:49px;line-height:68.6px;text-align:center\"><span><span style=\"color:rgb(255, 255, 255)\"><span style=\"letter-spacing:12.25px\"><span style=\"font-family:dinneuzeitgroteskltw01-_812426, sans-serif\"><span style=\"font-style:italic\"><span style=\"font-weight:700\">edit edits edits edits</span></span></span></span></span></span></h3>"
+       }
       ]
      ],
-     "bleed": true
+     "bleed": true,
+     "auto": 6100,
+     "slideMs": 4100
     }
    ]
   },

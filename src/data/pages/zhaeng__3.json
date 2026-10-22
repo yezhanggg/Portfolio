@@ -40,6 +40,37 @@
      ],
      "fit": "cover",
      "position": "50% 50%"
+    },
+    {
+     "type": "hbox",
+     "id": "comp-m89dy8uu",
+     "box": [
+      393,
+      258,
+      570,
+      296
+     ],
+     "ms": 400,
+     "children": [
+      {
+       "type": "image",
+       "box": [
+        393,
+        226,
+        726,
+        328
+       ],
+       "src": "https://static.wixstatic.com/media/f8d0cd_63438300b261453eaaf30664c808daba~mv2.png/v1/fill/w_726,h_328,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4990_edited.png",
+       "alt": "IMG_4990_edited.png",
+       "natural": [
+        726,
+        328
+       ],
+       "fit": "cover",
+       "position": "50% 50%",
+       "hshow": true
+      }
+     ]
     }
    ]
   },

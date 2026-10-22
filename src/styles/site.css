@@ -462,6 +462,14 @@ a.svg {
 .hv-bc:hover {
   box-shadow: inset 0 1px 0 var(--hbc), inset 0 -1px 0 var(--hbc);
 }
+/* A measured border width means a frame on all four sides (the ZHAENG picture links); its colour
+   fades in from transparent, as on the original. */
+.hv-bc.hv-bw {
+  box-shadow: inset 0 0 0 var(--hbw) transparent;
+}
+.hv-bc.hv-bw:hover {
+  box-shadow: inset 0 0 0 var(--hbw) var(--hbc);
+}
 .hv-o:hover {
   opacity: var(--ho) !important;
 }

@@ -274,7 +274,9 @@
         "fit": "cover"
        }
       ]
-     ]
+     ],
+     "auto": 4000,
+     "slideMs": 1000
     },
     {
      "type": "text",
@@ -529,7 +531,9 @@
         "fit": "cover"
        }
       ]
-     ]
+     ],
+     "auto": 4000,
+     "slideMs": 1000
     },
     {
      "type": "text",

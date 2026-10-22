@@ -171,7 +171,8 @@ function applyMotion(page) {
     const hv = name === "desktop" && hover[`${page.site}__${page.slug}`];
     if (hv) {
       for (const b of hv.buttons) {
-        const n = atRect(b.rect, ["button"]);
+        // A tilted button was measured by its turned outline (/home "untitled"); fall back to its label.
+        const n = atRect(b.rect, ["button"]) || all.find((x) => x.type === "button" && x.rotate && x.label?.trim() === b.text.trim());
         if (n) (delete n.hover, setHover(n, b));
       }
       for (const t of hv.trackers) {

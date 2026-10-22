@@ -25,24 +25,6 @@
      "bleed": true
     },
     {
-     "type": "image",
-     "box": [
-      -230,
-      0,
-      1440,
-      1237
-     ],
-     "src": "https://static.wixstatic.com/media/f8d0cd_534f312ab98448889a26198cc99cd205~mv2.gif",
-     "alt": "Untitled_Artwork.gif",
-     "natural": [
-      480,
-      201
-     ],
-     "fit": "cover",
-     "position": "50% 100%",
-     "bleed": true
-    },
-    {
      "type": "iframe",
      "box": [
       71,
@@ -272,23 +254,6 @@
       980
      ],
      "bg": "rgb(255, 255, 255)"
-    },
-    {
-     "type": "image",
-     "box": [
-      0,
-      0,
-      320,
-      980
-     ],
-     "src": "https://static.wixstatic.com/media/f8d0cd_534f312ab98448889a26198cc99cd205~mv2.gif",
-     "alt": "Untitled_Artwork.gif",
-     "natural": [
-      480,
-      201
-     ],
-     "fit": "cover",
-     "position": "50% 100%"
     },
     {
      "type": "image",
