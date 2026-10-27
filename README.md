@@ -32,7 +32,7 @@ Node 22 and pnpm are required.
 | `public/media`, `public/video` | Web-sized images and videos. |
 | `public/features/` | The mini-apps, plain HTML. |
 | `public/how-to-rebuild-everything/` | The blueprint figures you can take apart and turn (BLUEPRINT on `/portfolio`), plain HTML. See its README. |
-| `api/chat.js`, `api/_prompt.js` | Chat bubble backend (DeepSeek). Edit `_prompt.js` to change what it knows. |
+| `api/chat.js`, `api/_prompt.js` | Chat bubble backend (Claude Haiku 5.5). Edit `_prompt.js` to change what it knows. |
 | `api/contact.js` | Receives the contact and zine-request forms and emails them via Resend. |
 | `migration/` | Scripts and inventories used to move off Wix. See `migration/README.md`. |
 
@@ -54,7 +54,7 @@ the sizes and the resting angles are set there. `Node.astro` draws a box (`cube`
 
 | Name | Used by | Notes |
 |---|---|---|
-| `DEEPSEEK_API_KEY` | chat bubble | without it the bubble replies "not set up yet" |
+| `ANTHROPIC_API_KEY` | chat bubble | without it the bubble replies "not set up yet" |
 | `RESEND_API_KEY` | forms | without it the forms reply "not set up yet" |
 | `CONTACT_TO` | forms | the address that receives submissions |
 | `CONTACT_FROM` | forms | optional; a sender on a domain verified in Resend |

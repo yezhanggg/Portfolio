@@ -1,10 +1,11 @@
-// POST /api/chat — proxies the widget's conversation to DeepSeek and streams the reply back
-// as plain text. The DeepSeek key lives only in the DEEPSEEK_API_KEY environment variable.
+// POST /api/chat — proxies the widget's conversation to Claude and streams the reply back
+// as plain text. The Anthropic key lives only in the ANTHROPIC_API_KEY environment variable.
 
 import { SYSTEM_PROMPT } from "./_prompt.js";
 
-const DEEPSEEK_URL = "https://api.deepseek.com/chat/completions";
-const MODEL = process.env.DEEPSEEK_MODEL || "deepseek-chat";
+const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
+// Haiku: the smallest, cheapest Claude model — plenty for a site guide.
+const MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-5-5";
 
 const ALLOWED_ORIGINS = new Set([
   "https://www.yezhang.net",
@@ -12,13 +13,14 @@ const ALLOWED_ORIGINS = new Set([
   ...(process.env.EXTRA_ORIGINS || "").split(",").map((s) => s.trim()).filter(Boolean),
 ]);
 
-const MAX_TURNS = 12; // messages of history sent upstream
-const MAX_CHARS = 1000; // per visitor message
-const MAX_TOKENS = 500; // per reply
+// Kept small to keep cost low: replies are meant to be 1–3 sentences anyway.
+const MAX_TURNS = 8; // messages of history sent upstream
+const MAX_CHARS = 600; // per visitor message
+const MAX_TOKENS = 300; // per reply
 
-// Best-effort per-instance rate limit: 20 messages / 10 minutes / IP.
+// Best-effort per-instance rate limit: 15 messages / 10 minutes / IP.
 const WINDOW_MS = 10 * 60 * 1000;
-const LIMIT = 20;
+const LIMIT = 15;
 const hits = new Map();
 
 function rateLimited(ip) {
@@ -63,7 +65,7 @@ export async function POST(request) {
     return reply(429, "You're sending messages a bit fast — try again in a few minutes.", origin);
   }
 
-  if (!process.env.DEEPSEEK_API_KEY) {
+  if (!process.env.ANTHROPIC_API_KEY) {
     return reply(503, "The assistant isn't set up yet — please check back soon.", origin);
   }
 
@@ -78,33 +80,47 @@ export async function POST(request) {
     .filter((m) => (m?.role === "user" || m?.role === "assistant") && typeof m.content === "string")
     .slice(-MAX_TURNS)
     .map((m) => ({ role: m.role, content: m.content.slice(0, MAX_CHARS) }));
+  while (messages.length && messages[0].role !== "user") messages.shift(); // Claude starts on a user turn
 
   if (!messages.length || messages[messages.length - 1].role !== "user") {
     return reply(400, "Bad request", origin);
   }
 
-  const upstream = await fetch(DEEPSEEK_URL, {
+  // Which page the visitor is chatting from, so "what is this?" has an answer.
+  const page = body?.page;
+  const path = typeof page?.path === "string" ? page.path.slice(0, 120).replace(/[^\w\-./%~]/g, "") : "";
+  const title = typeof page?.title === "string" ? page.title.slice(0, 120).replace(/[\r\n]/g, " ") : "";
+  // The fixed prompt is marked for caching so repeat visitors are billed for it at the cache
+  // rate; the page line comes after it so it doesn't break the cached prefix.
+  const system = [{ type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral" } }];
+  if (path) {
+    system.push({ type: "text", text: `The visitor is currently on https://www.yezhang.net${path}${title ? ` ("${title}")` : ""}.` });
+  }
+
+  const upstream = await fetch(ANTHROPIC_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
+      "x-api-key": process.env.ANTHROPIC_API_KEY,
+      "anthropic-version": "2023-06-01",
     },
     body: JSON.stringify({
       model: MODEL,
-      messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
+      system,
+      messages,
       max_tokens: MAX_TOKENS,
-      temperature: 0.7,
+      temperature: 0.6,
       stream: true,
     }),
   }).catch(() => null);
 
   if (!upstream || !upstream.ok || !upstream.body) {
     const detail = upstream ? `${upstream.status} ${await upstream.text().catch(() => "")}` : "network error";
-    console.error("DeepSeek error:", detail.slice(0, 500));
+    console.error("Anthropic error:", detail.slice(0, 500));
     return reply(502, "The assistant is having trouble right now — please try again later.", origin);
   }
 
-  // Turn DeepSeek's OpenAI-style SSE stream into a plain text stream of the reply.
+  // Turn Claude's SSE stream into a plain text stream of the reply.
   const decoder = new TextDecoder();
   const encoder = new TextEncoder();
   let buffer = "";
@@ -117,9 +133,10 @@ export async function POST(request) {
         for (const line of lines) {
           if (!line.startsWith("data:")) continue;
           const data = line.slice(5).trim();
-          if (!data || data === "[DONE]") continue;
+          if (!data) continue;
           try {
-            const text = JSON.parse(data).choices?.[0]?.delta?.content;
+            const event = JSON.parse(data);
+            const text = event.type === "content_block_delta" ? event.delta?.text : "";
             if (text) controller.enqueue(encoder.encode(text));
           } catch {
             // ignore partial / keep-alive lines
