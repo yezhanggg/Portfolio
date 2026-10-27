@@ -1,0 +1,61 @@
+---
+// The professional side of the site (CREATIVE / PROFESSIONAL on /notice): Ye's AI solutions.
+// A placeholder until the work is ready to show.
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="PROFESSIONAL | YE ZHANG" description="AI solutions by Ye Zhang — coming soon.">
+  <main class="pro">
+    <p class="pro-kicker">YE ZHANG</p>
+    <h1>PROFESSIONAL</h1>
+    <p class="pro-line">AI solutions — coming soon</p>
+    <p class="pro-links">
+      <a href="mailto:yezhang1@upenn.edu">yezhang1@upenn.edu</a>
+      &nbsp;·&nbsp;
+      <a href="/notice">BACK</a>
+    </p>
+  </main>
+</Base>
+
+<style>
+  .pro {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    gap: 18px;
+    text-align: center;
+    font-family: "dinneuzeitgroteskltw01-_812426", sans-serif;
+    padding: 24px;
+    background: #fff;
+    color: #000;
+  }
+  .pro p,
+  .pro h1 {
+    margin: 0;
+    font-weight: normal;
+  }
+  .pro-kicker {
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    color: #8f8f8f;
+  }
+  .pro h1 {
+    font-size: clamp(44px, 9vw, 96px);
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+  .pro-line {
+    font-size: 22px;
+  }
+  .pro-links {
+    margin-top: 18px !important;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+  }
+  .pro a {
+    color: inherit;
+  }
+  .pro a:hover {
+    opacity: 0.6;
+  }
+</style>

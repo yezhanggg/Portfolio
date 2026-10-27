@@ -243,12 +243,13 @@ const moveDown = (n, dy) => {
 // The logo turning at the foot of these two pages turns much faster under the pointer.
 const logoSpinsFaster = (view) => view.nodes.forEach((n) => n.type === "image" && n.anim?.some((a) => a.loop) && (n.rate = 16));
 
-// /notice: the two text buttons became boxes, Portfolio on the left and Explore on the right.
-// Under the pointer a box turns and its words appear on its sides; a click enters that mode.
+// /notice: the two text buttons became boxes, Creative on the left and Professional on the right —
+// the two sides of the site. Creative is the portfolio; Professional is Ye's AI solutions.
+// Under the pointer a box turns and its words appear on its sides; a click enters that side.
 // The phone page had no way on; it gets the same two boxes, always turning, words always shown.
 function modeBoxes(page) {
   page.noChat = true; // no chat bubble on this page
-  const MODES = [["PORTFOLIO MODE", "/portfolio"], ["EXPLORE MODE", "/copy-of-notice"]];
+  const MODES = [["CREATIVE", "/portfolio"], ["PROFESSIONAL", "/professional"]];
   const at = { desktop: { size: 200, xs: [235.5, 744.5], y: 390 }, mobile: { size: 96, xs: [85, 235], y: 342 } };
   for (const [name, view] of Object.entries(page.views)) {
     const { size, xs, y } = at[name];

@@ -11,6 +11,8 @@ ABOUT YE (only state facts listed here):
 
 WHAT'S ON THE SITE (use these exact URLs; never make one up):
 - Welcome / start: https://www.yezhang.net/
+- The site has two sides, chosen on the notice page (https://www.yezhang.net/notice): CREATIVE (the portfolio below) and PROFESSIONAL.
+- PROFESSIONAL — Ye's AI solutions. Not published yet ("coming soon"); for AI work, email yezhang1@upenn.edu: https://www.yezhang.net/professional
 - Portfolio overview (Zine, Motion Edits, Illustrations, Photography, ArcGIS Project, Clothing & Fabrics, Clouds, Archive): https://www.yezhang.net/portfolio
 - Home index of everything (THOUGHTS, NOTEpad, CITY VISION, magaZINE, photos, artwork, edits, archive): https://www.yezhang.net/home
 - About Ye: https://www.yezhang.net/about and https://www.yezhang.net/aboutme
