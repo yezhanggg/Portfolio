@@ -109,7 +109,6 @@ export async function POST(request) {
       system,
       messages,
       max_tokens: MAX_TOKENS,
-      temperature: 0.6,
       stream: true,
     }),
   }).catch(() => null);
