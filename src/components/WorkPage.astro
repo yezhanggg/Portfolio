@@ -239,18 +239,38 @@ const first = (img) => `${img.src}-${img.w[0]}.webp`;
     font-size: 16px;
     line-height: 1.45;
   }
+  /* the product's links: buttons in its own colour (VisionPitts violet) */
   .wk-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px 40px;
+    gap: 14px;
     margin-top: 44px;
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 0.16em;
   }
-  .wk-links a {
+  .wk .wk-links a {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    height: 48px;
+    padding: 0 22px 0 24px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 10px 24px -12px var(--accent);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s ease, filter 0.2s ease;
+  }
+  .wk .wk-links a:hover,
+  .wk .wk-links a:focus-visible {
+    transform: translateY(-2px);
+    filter: brightness(0.92);
+    box-shadow: 0 16px 30px -14px var(--accent);
+  }
+  .wk .wk-links a:active {
+    transform: none;
+  }
+  .wk-links .u {
+    background: none;
   }
   .wk-links svg,
   .wk-next svg {

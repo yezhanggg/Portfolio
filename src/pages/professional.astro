@@ -149,7 +149,7 @@ const SOCIAL = [
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ---- Selected work: pointing at a project deals its three colour cards out of the row; they
-  // stay beside the pointer, easing after it, while it is in the row, and the city steps back.
+  // stay beside the pointer, easing after it, while it is in the row.
   // Leaving puts them back into the row. Wide windows with a mouse only.
   const deck = document.querySelector<HTMLElement>(".deck");
   const cards = [...document.querySelectorAll<HTMLElement>(".deck-card")];
@@ -191,7 +191,6 @@ const SOCIAL = [
     if (!raf) raf = requestAnimationFrame(follow);
     deck!.style.transform = `translate3d(${at[0]}px, ${at[1]}px, 0)`;
     const [mx, my] = mouthOf(row);
-    root.classList.add("dealing");
     cards
       .filter((c) => c.dataset.of === of)
       .forEach((c) => {
@@ -219,7 +218,6 @@ const SOCIAL = [
         c.classList.remove("on");
         place(c, mx, my, 0, 0.2);
       });
-    if (shown === null) root.classList.remove("dealing");
   }
   if (deck) {
     document.querySelectorAll<HTMLElement>(".work-row[data-deck]").forEach((row) => {
@@ -322,11 +320,6 @@ const SOCIAL = [
     top: 0;
     z-index: 0;
     pointer-events: none;
-    transition: opacity 0.45s ease;
-  }
-  /* while a project's cards are out, the city steps back */
-  :global(html.dealing) .qr-canvas {
-    opacity: 0.14;
   }
   /* The full-screen code: nothing else on the page, and a click anywhere opens it. */
   :global(html.qr-full) {

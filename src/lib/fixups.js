@@ -120,6 +120,8 @@ function addPortfolioEntries(page) {
       entry(mLike, "BACK", "/notice", [115, 6, 90, 36], 34),
     );
   }
+  // On a laptop the page fits the window and never scrolls (page.fit, [...path].astro).
+  page.fit = "laptop";
   // The page is built by the visitor (src/scripts/builder.js): every menu word, BACK and the figure
   // are pieces that start in a tray; the footer stays put. The little bars between
   // "Clouds | Archive" and "ZHAENG | Features" belong to the original layout only.

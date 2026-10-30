@@ -100,14 +100,16 @@ const formKind = page.slug === "order" ? "zine" : "contact";
   )}
   {page.tour && <script is:inline>addEventListener("keydown", function (e) { if (e.key === "ArrowRight" && !e.metaKey && !e.ctrlKey && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) document.querySelector("[data-tour-next]").click(); });</script>}
   {page.fit && (
-    <script is:inline define:vars={{ hd: page.views.desktop.height, hm: page.views.mobile.height }}>
+    <script is:inline define:vars={{ hd: page.views.desktop.height, hm: page.views.mobile.height, laptopOnly: page.fit === "laptop" }}>
       // This page fits the window: scaled down when the window is shorter than it, so it never scrolls.
-      document.documentElement.classList.add("fit");
+      // ("laptop": only on a laptop; the phone layout scrolls as usual.)
       (function () {
         function fit() {
-          var d = document.documentElement, w = d.clientWidth, h = innerHeight;
-          var z = w < 750 ? w / 320 : Math.min(w / 980, Math.max(0.7, Math.min(w / 1440, h / 900)));
-          d.style.setProperty("--z", Math.min(z, h / (w < 750 ? hm : hd)));
+          var d = document.documentElement, w = d.clientWidth, h = innerHeight, phone = w < 750;
+          var z = phone ? w / 320 : Math.min(w / 980, Math.max(0.7, Math.min(w / 1440, h / 900)));
+          var on = !(phone && laptopOnly);
+          d.classList.toggle("fit", on);
+          d.style.setProperty("--z", on ? Math.min(z, h / (phone ? hm : hd)) : z);
         }
         fit();
         addEventListener("resize", fit);

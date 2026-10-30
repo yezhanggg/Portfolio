@@ -1048,7 +1048,7 @@
   function typeStep(dt) {
     var t = typer;
     if (!t) return;
-    t.budget = REDUCED ? Infinity : t.budget + dt * 46;
+    t.budget = REDUCED ? Infinity : t.budget + dt * 24; // characters a second: an unhurried typist
     var added = "";
     while (t.budget >= 1 && t.n < t.src.length) {
       var c = t.src[t.n++];

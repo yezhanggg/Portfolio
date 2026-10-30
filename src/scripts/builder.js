@@ -3,7 +3,7 @@
 // the left of a plain white page; only the footer (year, email, social links) never moves.
 //
 //   Click a tile and its word comes up off the tray inside a marching dotted frame; it then glides
-//   after the pointer (with alignment guides, snapping and a coordinate readout) until a second
+//   after the pointer (with alignment guides and snapping) until a second
 //   click sets it down, anywhere on the page. Once placed it is simply the link again. Escape, or a
 //   click back on the tray, puts a held word back. RECIPE throws everything onto the page at
 //   random, ORIGINAL puts it all where Ye designed it, CLEAR takes it all back to the tray. Nothing
@@ -32,9 +32,8 @@ function start() {
     '<div class="kit-foot"><button type="button" class="kit-help">Recipe</button>' +
     '<div class="kit-more"><button type="button" data-act="original">ORIGINAL</button><button type="button" data-act="clear">CLEAR</button></div></div>';
   const layer = el("div", "kit-layer", { "aria-hidden": "true" });
-  const read = el("span", "kit-read");
   const heldAnts = ants();
-  layer.append(heldAnts, read);
+  layer.append(heldAnts);
   document.body.append(kit, layer);
   const list = kit.querySelector(".kit-list");
   const say = kit.querySelector(".kit-say");
@@ -217,8 +216,6 @@ function start() {
     heldAnts.style.width = `${s.w + 8}px`;
     heldAnts.style.height = `${s.h + 8}px`;
     heldAnts.style.transform = `translate(${lx - 4}px,${ly - 4}px) rotate(${tilt.toFixed(2)}deg) scale(${held.sc.toFixed(3)})`;
-    read.textContent = `x ${Math.round(held.px ?? held.x)}  y ${Math.round(held.py ?? held.y)}`;
-    read.style.transform = `translate(${(lx + s.w + 10).toFixed(1)}px,${(ly + s.h + 6).toFixed(1)}px)`;
     if (held.landing && Math.abs(tx - held.x) + Math.abs(ty - held.y) < 0.6) return land();
     raf = requestAnimationFrame(frame);
   }
