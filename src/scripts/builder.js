@@ -53,7 +53,7 @@ function start() {
       return { node, id: node.dataset.piece, centre, at: null, chip: null };
     });
     const hint = el("p", "kit-hint"), guides = el("div", "kit-guides");
-    hint.textContent = "Design is yourself";
+    hint.innerHTML = '<span class="kit-hint-big">DESIGN IT YOURSELF</span><span class="kit-hint-small">Manually Designed and Cared by Ye</span>';
     view.append(hint, guides);
     const b = { view, name, pieces, hint, guides, joints: [...view.querySelectorAll("[data-joint]")], original: false };
     boards.set(view, b);
@@ -267,23 +267,25 @@ function start() {
     return ghost;
   };
   const tf = (x, y, sc, r = 0) => `translate(${x}px,${y}px) rotate(${r}deg) scale(${sc})`;
-  // Onto the page (RECIPE, ORIGINAL): up in an arc and down where it goes.
+  // Onto the page (RECIPE, ORIGINAL): the piece itself travels, not a copy, so the figure's drawing
+  // keeps moving all the way and nothing is swapped when it lands. It is already at its new place
+  // (setAt); it is drawn back to where it was and eased home, up in an arc. From the tray it comes
+  // out from under it.
   function fly(p, from, to, delay = 0) {
     if (reduceMotion) return;
-    const z = zoom(), vr = B.view.getBoundingClientRect(), s = size(p);
-    const ghost = ghostOf(p);
-    const start = [from.left / z, from.top / z, from.height / z / s.h], target = [vr.left / z + to[0], vr.top / z + to[1], 1];
+    const z = zoom(), r = p.node.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    const sc = from.height / r.height, dx = (from.left - r.left) / z, dy = (from.top - r.top) / z;
     const turn = (Math.random() - 0.5) * 24;
-    p.node.classList.add("kit-away");
-    ghost
-      .animate(
-        [{ transform: tf(...start) }, { transform: tf((start[0] + target[0]) / 2, Math.min(start[1], target[1]) - 40, (start[2] + target[2]) / 2, turn), offset: 0.5 }, { transform: tf(...target) }],
-        { duration: 620 + Math.random() * 220, delay, easing: "cubic-bezier(.45,.05,.25,1)", fill: "both" }
-      )
-      .finished.then(() => {
-        ghost.remove();
-        p.node.classList.remove("kit-away");
-      });
+    p.node.style.transformOrigin = "0 0";
+    p.node.animate(
+      [
+        { transform: `translate(${dx}px,${dy}px) scale(${sc})` },
+        { transform: `translate(${dx / 2}px,${Math.min(dy, 0) - 40}px) rotate(${turn}deg) scale(${(sc + 1) / 2})`, offset: 0.5 },
+        { transform: "none" },
+      ],
+      { duration: 620 + Math.random() * 220, delay, easing: "cubic-bezier(.45,.05,.25,1)", fill: "backwards" }
+    ).finished.then(() => (p.node.style.transformOrigin = ""), () => {});
   }
   // Back into the tray (CLEAR, Escape): a word that was on the page has its tile closed; the tile
   // opens as an empty dotted slot while the word is on its way, pushing the tiles below it down, and
@@ -428,7 +430,7 @@ function start() {
     }
     // the hint, in the middle of the page beside the tray
     const b = bounds();
-    B.hint.style.top = `${(b.top + b.bottom) / 2 - 8}px`;
+    B.hint.style.top = `${(b.top + b.bottom) / 2 - 20}px`;
     B.hint.style.left = `${Math.max(0, b.left)}px`;
     sync();
   }

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.yezhang.net/sitemap-index.xml
+Sitemap: https://yezhang.ai/sitemap-index.xml

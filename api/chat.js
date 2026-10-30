@@ -8,8 +8,8 @@ const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
 const MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-5-5";
 
 const ALLOWED_ORIGINS = new Set([
-  "https://www.yezhang.net",
-  "https://yezhang.net",
+  "https://yezhang.ai",
+  "https://www.yezhang.ai",
   ...(process.env.EXTRA_ORIGINS || "").split(",").map((s) => s.trim()).filter(Boolean),
 ]);
 
@@ -94,7 +94,7 @@ export async function POST(request) {
   // rate; the page line comes after it so it doesn't break the cached prefix.
   const system = [{ type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral" } }];
   if (path) {
-    system.push({ type: "text", text: `The visitor is currently on https://www.yezhang.net${path}${title ? ` ("${title}")` : ""}.` });
+    system.push({ type: "text", text: `The visitor is currently on https://yezhang.ai${path}${title ? ` ("${title}")` : ""}.` });
   }
 
   const upstream = await fetch(ANTHROPIC_URL, {

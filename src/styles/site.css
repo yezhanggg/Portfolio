@@ -780,18 +780,28 @@ html.kit-holding .kit-ants {
 html.kit-holding .kit-read {
   display: block;
 }
-/* "Design is yourself", quietly in the middle of the empty page */
+/* DESIGN IT YOURSELF, quietly in the middle of the empty page, and under it, in Courier, who made it */
 .kit-hint {
   position: absolute;
   right: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   text-align: center;
-  font: 400 34px/1.2 dinneuzeitgroteskltw01-_812426, "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: 0.02em;
-  color: #c7c7c7;
+  color: #b0b0b0;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.4s ease;
+}
+.kit-hint-big {
+  font: 400 16px/1.2 dinneuzeitgroteskltw01-_812426, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.32em;
+}
+.kit-hint-small {
+  font: 11px/1.4 "Courier New", Courier, monospace;
+  letter-spacing: 0.02em;
 }
 html.kit-empty .kit-hint {
   opacity: 1;
@@ -826,6 +836,7 @@ html.kit-empty .kit-hint {
   padding: 16px 14px;
   background: #f4f4f4;
   border-radius: 16px;
+  zoom: var(--uz, 1); /* larger laptops: grows with the screen (Base.astro) */
   font: 10px/1.4 var(--kit-mono);
   letter-spacing: 0.18em;
   color: #000;
@@ -1040,8 +1051,12 @@ html.kit-empty .kit-hint {
     width: 10px;
     margin-left: -5px;
   }
-  .kit-hint {
-    font-size: 22px;
+  .kit-hint-big {
+    font-size: 13px;
+    letter-spacing: 0.24em;
+  }
+  .kit-hint-small {
+    font-size: 10px;
   }
   .kit-help {
     font-size: 19px;
@@ -1055,4 +1070,51 @@ html.kit-empty .kit-hint {
   .kit-ants {
     animation: none;
   }
+}
+
+/* ---- ZHAENG as a sequence (page.tour, fixups.js): where you are, and on to the next page ---- */
+.tour {
+  position: fixed;
+  left: 28px;
+  bottom: 24px;
+  z-index: 5;
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  color: #fff;
+  mix-blend-mode: difference;
+  font: 13px/1 dinneuzeitgroteskltw01-_812426, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.3em;
+  pointer-events: none;
+}
+.tour-at {
+  font: 11px/1 ui-monospace, "SF Mono", Menlo, monospace;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+.tour-go {
+  color: inherit;
+  text-decoration: underline 1px transparent;
+  text-underline-offset: 5px;
+  pointer-events: auto;
+  transition: text-decoration-color 0.3s ease, letter-spacing 0.3s ease;
+}
+.tour-go:hover,
+.tour-go:focus-visible {
+  text-decoration-color: currentColor;
+  letter-spacing: 0.36em;
+  outline: none;
+}
+@media (max-width: 749px) {
+  .tour {
+    left: 16px;
+    bottom: 18px;
+  }
+}
+
+/* ---- A page that fits the window (page.fit): it never scrolls ---- */
+html.fit,
+html.fit body {
+  height: 100%;
+  overflow: hidden;
 }

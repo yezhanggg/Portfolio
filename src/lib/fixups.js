@@ -95,7 +95,7 @@ function addPortfolioEntries(page) {
   const dLine = d.nodes.find((n) => n.type === "box" && n.rotate);
   if (dLike) {
     d.nodes.push(
-      entry(dLike, "ZHAENG", "/zhaeng", [174, 735, 128, 60], 80),
+      entry(dLike, "ZHAENG", "/zhaeng/1", [174, 735, 128, 60], 80),
       entry(dLike, "Features", "/features/", [302, 735, 128, 60], 88),
       entry(dLike, "BLUEPRINT", "/how-to-rebuild-everything/", [174, 795, 256, 60], 118),
       entry(dLike, "BACK", "/notice", [425, 34, 130, 60], 62),
@@ -114,23 +114,11 @@ function addPortfolioEntries(page) {
     }
     m.height += shift;
     m.nodes.push(
-      entry(mLike, "ZHAENG", "/zhaeng", [-2, 498, 201, 51], 42),
+      entry(mLike, "ZHAENG", "/zhaeng/1", [-2, 498, 201, 51], 42),
       entry(mLike, "Features", "/features/", [-2, 549, 201, 51], 46),
       entry(mLike, "BLUEPRINT", "/how-to-rebuild-everything/", [-2, 600, 201, 51], 59),
       entry(mLike, "BACK", "/notice", [115, 6, 90, 36], 34),
     );
-  }
-  // Under the copyright, a line in Courier.
-  for (const view of Object.values(page.views)) {
-    const c = view.nodes.find((n) => n.type === "text" && n.html?.includes("All Rights Reserved"));
-    if (!c) continue;
-    const small = view.canvas < 600, w = 300, x = c.box[0] + c.box[2] / 2 - w / 2;
-    view.nodes.push({
-      ...c,
-      box: [x, c.box[1] + c.box[3] + (small ? 2 : 1), w, small ? 14 : 16],
-      lines: 1,
-      html: `<p style="font-family:'Courier New', Courier, monospace;font-size:${small ? 10 : 11}px;text-align:center;letter-spacing:0.02em">Manually Designed and Cared by Ye</p>`,
-    });
   }
   // The page is built by the visitor (src/scripts/builder.js): every menu word, BACK and the figure
   // are pieces that start in a tray; the footer stays put. The little bars between
@@ -250,7 +238,8 @@ function zineBanner(page) {
 }
 
 // ZHAENG's phone pages had a three-bar button opening this list of pages.
-const ZHAENG_MENU = [["peace", "/zhaeng"], ["2", "/zhaeng/2"], ["3", "/zhaeng/3"], ["still", "/zhaeng/still"], ["electron", "/zhaeng/blank"], ["cautious", "/zhaeng/cautious"], ["sec 33", "/zhaeng/33-sec"], ["me", "/zhaeng/me"]];
+// (still, electron, cautious, sec 33 and me came off the site; see src/lib/site.js)
+const ZHAENG_MENU = [["peace", "/zhaeng"], ["2", "/zhaeng/2"], ["3", "/zhaeng/3"]];
 function zhaengPhoneMenu(page) {
   const m = page.views.mobile;
   const bars = m.nodes.filter((n) => n.type === "box" && n.box[2] <= 24 && n.box[3] <= 3);
@@ -342,7 +331,8 @@ function exploreBox(page) {
 }
 
 // The pages behind explore mode had the old site's menu bar across the top (HOME, the page's own
-// name, ABOUT). They now open like the portfolio pages: one HOME at the top, back to explore mode.
+// name, ABOUT). They now open like the portfolio pages: one HOME at the top, back to /notice (the
+// explore box they used to lead to, /copy-of-notice, is off the site).
 const OLD_HOME = "https://www.yezhang.net/home";
 const OLD_MENU = ["https://www.yezhang.net/home", "https://www.yezhang.net/about"];
 function singleHome(page) {
@@ -358,14 +348,14 @@ function singleHome(page) {
     label: "HOME",
     labelBox: [454, 70, 71, 44],
     style: { ...old.style, "font-family": "dinneuzeitgroteskltw01-_812426, sans-serif", "font-size": "37px", "letter-spacing": "normal", "text-align": "center" },
-    href: "/copy-of-notice",
+    href: "/notice",
     target: "_self",
   });
   // Every other way back to the old explore home ("or go home" on /about, HOME on phones) too.
   for (const view of Object.values(page.views)) {
     for (const n of view.nodes) {
-      if (n.href === OLD_HOME) n.href = "/copy-of-notice";
-      if (n.html) n.html = n.html.replaceAll(`href="${OLD_HOME}"`, 'href="/copy-of-notice"');
+      if (n.href === OLD_HOME) n.href = "/notice";
+      if (n.html) n.html = n.html.replaceAll(`href="${OLD_HOME}"`, 'href="/notice"');
     }
   }
 }
@@ -379,10 +369,61 @@ function disperseGrid(page) {
   }
 }
 
+// Ye's contact email moved from the Penn address to Gmail; the old pages still print the old one.
+const OLD_EMAIL = /yezhang1@upenn\.edu/g, EMAIL = "yezhang2003@gmail.com";
+function newEmail(page) {
+  for (const view of Object.values(page.views)) {
+    for (const n of view.nodes) {
+      if (n.html) n.html = n.html.replace(OLD_EMAIL, EMAIL);
+      if (n.href) n.href = n.href.replace(OLD_EMAIL, EMAIL);
+    }
+  }
+}
+
+// /aboutme: no "wanna say something to YE" form any more, and the page fits the window: the sky is
+// pinned behind it, what's left moves up into one screen, and [...path].astro scales the page down
+// if the window is shorter still (page.fit), so it never scrolls.
+function aboutMeFits(page) {
+  const form = (n) => n.type === "input" || (n.type === "button" && n.label === "SEND") || (n.type === "text" && /wanna say something/i.test(n.html || ""));
+  // [y from, shift] for the rest, top to bottom
+  const at = {
+    desktop: { moves: [[880, -304]], email: [290, 400], height: 730 },
+    mobile: { moves: [[77, -37], [200, -46], [260, -54], [570, -56], [1000, -445]], email: [40, 240], height: 700 },
+  };
+  for (const [name, view] of Object.entries(page.views)) {
+    const { moves, email, height } = at[name];
+    view.nodes = view.nodes.filter((n) => !form(n));
+    for (const n of view.nodes) {
+      if (n.box[0] <= 0 && n.box[1] <= 0 && n.box[2] >= view.canvas) {
+        Object.assign(n, { fixed: true, vw: n.box[2], vh: n.box[3] }); // the sky: behind the whole window
+        continue;
+      }
+      const dy = moves.reduce((d, [from, by]) => (n.box[1] >= from ? by : d), 0);
+      moveDown(n, dy);
+      if (n.type === "text" && /@gmail\.com|@upenn\.edu/.test(n.html || "")) n.box = [email[0], n.box[1], email[1], n.box[3]];
+    }
+    view.height = height;
+  }
+  page.fit = true;
+}
+
+// ZHAENG, from the creative page, is a sequence: CONTINUE leads through these pages in this order
+// (the order Ye laid them out in nopush/site-views/ZHAENG) and the last one exits back to the
+// creative page. [...path].astro draws the CONTINUE / EXIT link from page.tour.
+const ZHAENG_TOUR = ["1", "2", "3"];
+function zhaengTour(page) {
+  const i = ZHAENG_TOUR.indexOf(page.slug);
+  if (i < 0) return;
+  const last = i === ZHAENG_TOUR.length - 1;
+  page.tour = { at: i + 1, of: ZHAENG_TOUR.length, href: last ? "/portfolio" : `/zhaeng/${ZHAENG_TOUR[i + 1]}`, label: last ? "EXIT" : "CONTINUE" };
+}
+
 export function applyFixups(page) {
   for (const view of Object.values(page.views)) view.nodes = fixNodes(view.nodes, page);
+  newEmail(page);
   if (page.site === "zhaeng" && page.slug === "index") zhaengHome(page);
   if (page.site === "zhaeng") zhaengPhoneMenu(page);
+  if (page.site === "zhaeng") zhaengTour(page);
   if (page.site === "yz" && page.slug === "photomagazine") zineBanner(page);
   hoverLinksOnPhones(page);
   applyMotion(page);
@@ -390,6 +431,7 @@ export function applyFixups(page) {
   if (page.site === "yz" && page.slug === "notice") modeBoxes(page);
   if (page.site === "yz" && page.slug === "copy-of-notice") exploreBox(page);
   if (page.site === "yz" && page.slug === "index") disperseGrid(page);
+  if (page.site === "yz" && page.slug === "aboutme") aboutMeFits(page);
   if (page.site === "yz") singleHome(page);
   return page;
 }

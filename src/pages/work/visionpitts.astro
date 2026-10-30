@@ -1,0 +1,94 @@
+---
+// VisionPitts, Ye's housing map of Pittsburgh (SELECTED WORK on /professional). Words from the
+// project's README and demo script; screenshots from its demo set (public/media/work/visionpitts).
+import WorkPage from "../../components/WorkPage.astro";
+
+const M = "/media/work/visionpitts";
+const big = (name, alt) => ({ src: `${M}/${name}`, w: ["1200", "2000"], alt });
+
+const p = {
+  index: "01 / 02",
+  title: "VisionPitts",
+  year: "2026",
+  accent: "#7c3aed",
+  tagline: ["Great decisions need vision.", "We give you one."],
+  summary: "VisionPitts: a free, live map that matches Pittsburgh neighborhoods with the kinds of new housing that fit them.",
+  meta: [
+    ["ROLE", "Solo: research, data, design and build"],
+    ["MADE FOR", "AI for Housing Hackathon, AI Horizons 2026"],
+    ["FOR", "Planners, community developers, developers and residents"],
+    ["BUILT WITH", "React, MapLibre GL, Supabase, Python"],
+  ],
+  links: [
+    { label: "OPEN THE TOOL", href: "https://ye-zhang-vision-pitts.vercel.app" },
+    { label: "WATCH THE DEMO", href: "https://youtu.be/Djrm4iL432Y" },
+  ],
+  cards: [
+    { src: `${M}/hero`, w: ["1600", "2400"], alt: "VisionPitts: Pittsburgh's census tracts in teal and dark red on a grey map, Downtown outlined." },
+    big("lab", ""),
+    big("compare", ""),
+  ],
+  question:
+    "Everyone in Pittsburgh agrees the city needs more housing, the “missing middle” especially. But that phrase doesn't tell a planner or a developer anything. Which type? Where? For whom? At what rent? Does the zoning even allow it, and does the money work?",
+  answer:
+    "VisionPitts tells you which kind of housing fits which Pittsburgh neighborhood, for whom, and whether it works on real land under real rules. It also shows which policy would change the answer.",
+  features: [
+    {
+      title: "Explore",
+      text: "A 3D map of the city and the county. Pick a boundary (census tract, block group, ZIP code or one of 129 municipalities), colour it by any of 37 census figures or by land use and zoning, and click a place for a summary against the city and the county, with rent and income back to 2014.",
+      image: big("explore", "Explore: Hazelwood outlined on a 3D map, with its population, income, rent, renters and owners, housing stock and cost burden beside it."),
+    },
+    {
+      title: "Place",
+      text: "Test a project on a real county lot: a type (market, affordable, senior, mixed use or commercial), the units, the stories, the income level. It answers “works”, “works with changes” or “doesn't work as is”, with a review of zoning, fit, capital and the PHFA tax-credit score, and a fix to apply for each problem.",
+      image: big("place", "Place: a Hazelwood lot with the verdict “Doesn't work as is”, cards for zoning, affordability, capital and tax credits, and the review."),
+    },
+    {
+      title: "Compare places",
+      text: "Two neighborhoods side by side with the same project: verdicts, zoning, size, capital and tax credits, and only what differs.",
+      image: big("compare", "Compare places: Hazelwood and Bloomfield side by side, with green, amber and red verdict cards between them."),
+    },
+    {
+      title: "Policy lab",
+      text: "The challenge's policy simulator. One test building runs in every city tract; switch on a policy (up to 3 homes on house lots, no parking minimums, an affordable set-aside citywide, a height bonus, a $50k gap subsidy, frequent buses) and the map shows where it now works.",
+      image: big("lab", "Policy lab: a citywide map of tracts in pink, yellow and green: a 40-unit building works by right in 1 of 128 tracts."),
+    },
+    {
+      title: "Sun and shadow",
+      text: "Shadows cross the city through a summer, spring and fall, or winter day, from the county's LiDAR surface model: by time, as hours of sun, or lot by lot.",
+      image: big("sun", "Sun and shadow over Hazelwood in 3D at 9:22 AM in spring, with half of the city in shadow."),
+    },
+    {
+      title: "Ask the map",
+      text: "VisionPitts Chat takes plain questions and answers only from the tool's own numbers, and the numbers in each answer are checked.",
+      image: big("chat", "The VisionPitts start page: a question being typed beside “Great decisions need vision. We give you one.”"),
+    },
+  ],
+  numbers: [
+    ["128", "City of Pittsburgh neighborhoods (census tracts), 114 with enough households to rank"],
+    ["142,642", "lots modelled for sun and shadow, on three days of the year"],
+    ["37", "census figures to colour the map by, with rent and income from 2014 to 2024"],
+    ["2 days", "to build it: the hackathon window, September 26–27, 2026"],
+  ],
+  principles: [
+    "Keeps facts and value judgments apart.",
+    "AI helps explain results; it never produces a score or a recommendation.",
+    "Decision support only, not legal, financial or zoning advice.",
+  ],
+  sources: [
+    "U.S. Census Bureau, American Community Survey (2020–2024, and yearly back to 2014)",
+    "HUD CHAS data; HUD income limits and Fair Market Rents",
+    "CDC Social Vulnerability Index, HUD housing vouchers, Eviction Lab",
+    "Reinvestment Fund market study (via WPRDC)",
+    "Pittsburgh Regional Transit schedules",
+    "FEMA flood maps and a terrain-based flood screen",
+    "Allegheny County property records; City of Pittsburgh zoning map (WPRDC)",
+    "Allegheny County / Pittsburgh LiDAR 2015 surface model (PASDA)",
+    "RentHub listings licensed through Dewey Data, shown only as area summaries",
+    "OpenFreeMap, Mapterhorn, Photon, U.S. Census Geocoder",
+  ],
+  next: { title: "Market Intelligence", href: "/work/market-intelligence" },
+};
+---
+
+<WorkPage p={p} />

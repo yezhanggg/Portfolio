@@ -7,15 +7,15 @@
 const RESEND_URL = "https://api.resend.com/emails";
 
 const ALLOWED_ORIGINS = new Set([
-  "https://www.yezhang.net",
-  "https://yezhang.net",
+  "https://yezhang.ai",
+  "https://www.yezhang.ai",
   ...(process.env.EXTRA_ORIGINS || "").split(",").map((s) => s.trim()).filter(Boolean),
 ]);
 
 // Field whitelist per form: [key, label, max length, required]
 const FORMS = {
   contact: {
-    subject: "yezhang.net — new message",
+    subject: "yezhang.ai — new message",
     fields: [
       ["name", "Name", 200, false],
       ["contact", "Contact", 300, false],
@@ -24,7 +24,7 @@ const FORMS = {
     ],
   },
   zine: {
-    subject: "yezhang.net — zine request",
+    subject: "yezhang.ai — zine request",
     fields: [
       ["firstName", "First name", 200, true],
       ["lastName", "Last name", 200, false],
@@ -114,7 +114,7 @@ export async function POST(request) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: process.env.CONTACT_FROM || "yezhang.net <onboarding@resend.dev>",
+      from: process.env.CONTACT_FROM || "yezhang.ai <onboarding@resend.dev>",
       to: [process.env.CONTACT_TO],
       subject: form.subject,
       text: lines.join("\n"),

@@ -1,316 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="description" content="ZHAENG">
-    <title>ZHAENG</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Four small things to play with, made by Ye Zhang.">
+  <title>FEATURES | YE ZHANG</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <script>
+    (function () {
+      function fit() {
+        var w = document.documentElement.clientWidth;
+        document.documentElement.style.setProperty("--uz", w < 750 ? 1 : Math.max(1, Math.min(w / 1440, innerHeight / 900)));
+      }
+      fit();
+      addEventListener("resize", fit);
+    })();
+  </script>
+  <!-- The index of the mini-apps (Features on /portfolio). Same manners as the rest of the site:
+       white, the site's grotesk, spaced capitals, hairlines; each name answers the pointer the way
+       the portfolio's own links do (light grey, italic, spread out). -->
+  <style>
+    @font-face {
+      font-family: "din";
+      src: url("/fonts/barlow-condensed-latin-500-normal.woff2") format("woff2");
+      size-adjust: 96%;
+      font-display: swap;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --ease: cubic-bezier(0.22, 1, 0.36, 1); --mono: ui-monospace, "SF Mono", Menlo, monospace; }
+    html, body { height: 100%; }
+    body {
+      background: #fff;
+      color: #000;
+      font-family: "din", "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
-            font-feature-settings: 'ss01', 'cv01';
-            background: #c9c9c9;
-            color: rgba(0, 0, 0, 0.75);
-            min-height: 100vh;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    .top {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 28px 48px;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+    }
+    .top .count { justify-self: end; font: 12px/1 var(--mono); letter-spacing: 0.08em; color: #9a9a9a; }
+    .back { font-size: 14px; letter-spacing: 0.2em; text-decoration: underline 1px transparent; text-underline-offset: 5px; transition: text-decoration-color 0.3s ease; }
+    .back:hover, .back:focus-visible { text-decoration-color: currentColor; outline: none; }
 
-        /* Background particles */
-        #particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: min(1040px, 100%);
+      margin: 0 auto;
+      padding: 32px 48px 56px;
+    }
+    .label { font-size: 12px; letter-spacing: 0.3em; color: #767676; margin-bottom: 22px; }
+    ol { list-style: none; border-bottom: 1px solid #e5e5e5; }
+    li { border-top: 1px solid #e5e5e5; }
+    .row {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) minmax(0, 300px) 24px;
+      align-items: center;
+      column-gap: 24px;
+      padding: 26px 0;
+      animation: rise 0.9s var(--ease) both;
+      animation-delay: calc(0.08s * var(--i) + 0.1s);
+    }
+    .n { font: 12px/1 var(--mono); color: #9a9a9a; }
+    .name {
+      font-size: clamp(34px, 5.4vw, 64px);
+      line-height: 1;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      transition: color 0.2s ease, letter-spacing 0.2s ease;
+    }
+    .what { font-size: 15px; line-height: 1.5; color: #767676; transition: color 0.3s ease; }
+    .row svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.3; opacity: 0; transform: translateX(-8px); transition: opacity 0.3s ease, transform 0.35s var(--ease); }
+    .row:hover .name, .row:focus-visible .name { color: #c7c7c7; font-style: italic; letter-spacing: 0.06em; }
+    .row:hover .what, .row:focus-visible .what { color: #000; }
+    .row:hover svg, .row:focus-visible svg { opacity: 1; transform: none; }
+    .row:focus-visible { outline: none; }
 
-        .particle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: float linear forwards;
-            animation-duration: 1.5s;
-        }
+    footer {
+      padding: 0 48px 28px;
+      text-align: center;
+      font: 11px/1.4 "Courier New", Courier, monospace;
+      color: #9a9a9a;
+    }
+    /* larger laptops: the page grows with the screen, keeping its 1440 x 900 proportions */
+    .top, main, footer { zoom: var(--uz, 1); }
+    @keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+    @media (prefers-reduced-motion: reduce) { .row { animation: none; } }
 
-        .particle.slow {
-            animation-duration: 4s;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0px) translateX(0px);
-                opacity: 0;
-            }
-            5% {
-                opacity: 0.8;
-            }
-            95% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-110vh) translateX(var(--drift));
-                opacity: 0;
-            }
-        }
-
-        /* Main Content */
-        main {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .container {
-            padding: 2rem;
-        }
-
-        /* Gallery Grid */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            align-items: center;
-            justify-content: center;
-            max-width: 1200px;
-        }
-
-        .gallery-item {
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 180px;
-            height: 180px;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-4px);
-            filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
-        }
-
-        .gallery-item:active {
-            transform: translateY(-2px) scale(0.99);
-        }
-
-        .icon-wrapper {
-            font-size: 5rem;
-            opacity: 0.9;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1.5rem;
-            }
-
-            .gallery {
-                gap: 2rem;
-            }
-
-            .gallery-item {
-                width: 140px;
-                height: 140px;
-            }
-
-            .icon-wrapper {
-                font-size: 4rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .gallery {
-                gap: 1.5rem;
-            }
-
-            .gallery-item {
-                width: 110px;
-                height: 110px;
-            }
-
-            .icon-wrapper {
-                font-size: 3.2rem;
-            }
-        }
-
-        /* Very small screens */
-        @media (max-width: 360px) {
-            .container {
-                padding: 0.75rem;
-            }
-
-            .gallery {
-                gap: 1.2rem;
-            }
-
-            .gallery-item {
-                width: 100px;
-                height: 100px;
-            }
-
-            .icon-wrapper {
-                font-size: 3rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .gallery-item {
-            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) backwards;
-        }
-
-        .gallery-item:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .gallery-item:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .gallery-item:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .gallery-item:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .gallery-item:nth-child(5) {
-            animation-delay: 0.5s;
-        }
-    </style>
+    @media (max-width: 760px) {
+      .top { padding: 20px; }
+      main { padding: 24px 20px 40px; }
+      .row { grid-template-columns: 36px minmax(0, 1fr); row-gap: 8px; padding: 22px 0; }
+      .what { grid-column: 2; font-size: 14px; }
+      .row svg { display: none; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Background particles -->
-    <div id="particles"></div>
+  <nav class="top" aria-label="Site">
+    <span>FEATURES</span>
+    <a class="back" href="/portfolio">BACK</a>
+    <span class="count" aria-hidden="true">04</span>
+  </nav>
 
-    <!-- Gallery -->
-    <main>
-        <div class="container">
-            <section class="gallery">
-                <a href="/features/zhaeng-camera/" class="gallery-item">
-                    <div class="icon-wrapper">📸</div>
-                </a>
+  <main>
+    <h1 class="label">FOUR SMALL THINGS TO PLAY WITH</h1>
+    <ol>
+      <li><a class="row" style="--i: 0" href="/features/zhaeng-camera/">
+        <span class="n">01</span><span class="name">Camera</span>
+        <span class="what">Take a photo with the ZHAENG mark, the time and where you are.</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9 3.5L13.5 8 9 12.5"/></svg>
+      </a></li>
+      <li><a class="row" style="--i: 1" href="/features/fortune-cookie/">
+        <span class="n">02</span><span class="name">Fortune Cookie</span>
+        <span class="what">Crack it open for one of 200 messages and your lucky numbers.</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9 3.5L13.5 8 9 12.5"/></svg>
+      </a></li>
+      <li><a class="row" style="--i: 2" href="/features/poster-designer/">
+        <span class="n">03</span><span class="name">Poster Designer</span>
+        <span class="what">Your picture, bold type on top, styled as you go.</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9 3.5L13.5 8 9 12.5"/></svg>
+      </a></li>
+      <li><a class="row" style="--i: 3" href="/features/image-scrambler/">
+        <span class="n">04</span><span class="name">Image Scrambler</span>
+        <span class="what">Break an image into hundreds of tiles and shuffle them.</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9 3.5L13.5 8 9 12.5"/></svg>
+      </a></li>
+    </ol>
+  </main>
 
-                <a href="/features/fortune-cookie/" class="gallery-item">
-                    <div class="icon-wrapper">🥠</div>
-                </a>
-
-                <a href="/features/poster-designer/" class="gallery-item">
-                    <div class="icon-wrapper">🎨</div>
-                </a>
-
-                <a href="/features/image-scrambler/" class="gallery-item">
-                    <div class="icon-wrapper">🔀</div>
-                </a>
-
-            </section>
-        </div>
-    </main>
-
-    <script>
-        let isSlowMode = false;
-
-        // Create a single bubble
-        function createBubble() {
-            const particlesContainer = document.getElementById('particles');
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-
-            // Random horizontal position
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = '100%';
-
-            // Random sizes like soda bubbles (some tiny, some large)
-            const sizeRandom = Math.random();
-            let size;
-            if (sizeRandom < 0.3) {
-                size = Math.random() * 8 + 4; // small bubbles
-            } else if (sizeRandom < 0.7) {
-                size = Math.random() * 12 + 12; // medium bubbles
-            } else {
-                size = Math.random() * 15 + 20; // large bubbles
-            }
-
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
-
-            // Random horizontal drift
-            const drift = (Math.random() - 0.5) * 100;
-            particle.style.setProperty('--drift', drift + 'px');
-
-            // Set duration based on mode (2x slower)
-            if (isSlowMode) {
-                particle.style.animationDuration = (Math.random() * 4 + 6) + 's'; // 6-10s
-                particle.classList.add('slow');
-            } else {
-                particle.style.animationDuration = '3s'; // 3s
-            }
-
-            particlesContainer.appendChild(particle);
-
-            // Remove bubble when animation ends and create a new one
-            particle.addEventListener('animationend', () => {
-                particle.remove();
-                createBubble();
-            });
-        }
-
-        // Create background particles (soda bubbles)
-        function createParticles() {
-            // Create initial set of bubbles with continuous staggering
-            for (let i = 0; i < 80; i++) {
-                setTimeout(() => {
-                    createBubble();
-                }, i * 50); // Create one every 50ms for continuous flow
-            }
-
-            // Slow down all bubbles after 0.5 seconds
-            setTimeout(() => {
-                isSlowMode = true;
-            }, 500);
-        }
-
-        // Initialize particles
-        createParticles();
-
-        // Prevent pinch zoom on iOS
-        document.addEventListener('gesturestart', (e) => e.preventDefault());
-        document.addEventListener('gesturechange', (e) => e.preventDefault());
-    </script>
+  <footer>Manually Designed and Cared by Ye</footer>
+  <script src="/widget.js" defer></script>
 </body>
 </html>

@@ -2,15 +2,16 @@
 // The professional side of the site (CREATIVE / PROFESSIONAL on /notice): Ye's AI solutions.
 // It opens on a QR code filling the screen. Click it and the code becomes a city: the streets open,
 // a building grows out of every black module and the camera tilts down to the corner while the
-// city settles at the left of the page, beside the projects (src/scripts/qr-city.js). Click the
-// city and it folds back into the code.
+// city settles at the left of the page, beside the projects (src/scripts/qr-city.js). Drag the
+// city to turn it; click it and it folds back into the code. Each project opens its own page under
+// /work (src/pages/work); pointing at one deals its three colour cards out over the city.
 import Base from "../layouts/Base.astro";
 import { qrMatrix } from "../lib/qrcodegen.js";
 
 // What the code says. Locked to version 3 (29x29) so the city keeps its grid if this becomes the
-// page URL once yezhang.net moves off Wix ("https://yezhang.net/professional" also fits V3-Q).
-const QR_TEXT = "mailto:yezhang1@upenn.edu";
-const EMAIL = "yezhang1@upenn.edu";
+// page URL ("https://yezhang.ai/professional" also fits V3-Q).
+const EMAIL = "yezhang2003@gmail.com";
+const QR_TEXT = `mailto:${EMAIL}`;
 const qr = qrMatrix(QR_TEXT, { ecl: "Q", minVersion: 3, maxVersion: 3 });
 const QUIET = 4; // white modules around the code
 const G = qr.size + 2 * QUIET; // modules across the slot
@@ -31,68 +32,102 @@ for (let y = 0; y < qr.size; y++) {
 }
 const QR_LABEL = `QR code: email ${EMAIL}.`;
 
-// Selected work: adding a project is one entry. image: a /media WebP set (name-480/-960.webp), in grey.
+// Selected work: adding a project is one entry and a page in src/pages/work. cards: its three
+// colour cards, /media WebP sets (name-480.webp, name-960.webp), first card on top.
 const PROJECTS = [
   {
     title: "VisionPitts",
-    description: "Great decisions need vision. A live housing map of Pittsburgh, AI Horizons 2026.",
+    description: "A live map that matches Pittsburgh neighborhoods with the housing that fits them.",
     year: "2026",
-    href: "https://ye-zhang-vision-pitts.vercel.app",
-    image: "/media/visionpitts-landing",
+    href: "/work/visionpitts",
+    cards: [1, 2, 3].map((i) => `/media/work/visionpitts/card-${i}`),
   },
+  {
+    title: "Market Intelligence",
+    description: "One research platform for a multifamily investment team: markets, counties, rent rolls and T-12s.",
+    year: "2026",
+    href: "/work/market-intelligence",
+    cards: [1, 2, 3].map((i) => `/media/work/market-intelligence/card-${i}`),
+  },
+];
+// CONTACT opens these. The email copies on a click; the rest open in a new tab.
+const SOCIAL = [
+  { label: "LINKEDIN", value: "Ye Zhang", href: "https://www.linkedin.com/in/ye-zhang-738bab258" },
+  { label: "INSTAGRAM", value: "@ye_zhangy", href: "https://instagram.com/ye_zhangy" },
 ];
 ---
 
-<Base title="PROFESSIONAL | YE ZHANG" description="AI solutions by Ye Zhang.">
+<Base title="YE'SOLUTION | YE ZHANG" description="AI and data products by Ye Zhang.">
   <script is:inline define:vars={{ G }}>
     // Before first paint: the page opens on the full-screen code (qr-city.js takes it from there;
     // without JS the page is simply the plan beside the projects), and the module size of the city's
-    // slot, a whole number of device pixels (qr-city.js keeps it up to date).
+    // slot, a whole number of device pixels (qr-city.js keeps it up to date). Coming back from a
+    // project page (/professional#work) it opens straight onto the city and the projects.
     var d = document.documentElement;
-    d.classList.add("qr-full");
+    if (location.hash === "#work") history.replaceState(null, "", location.pathname);
+    else d.classList.add("qr-full");
     var r = Math.min(devicePixelRatio || 1, 3), w = d.clientWidth;
-    var t = w >= 980 ? Math.min(420, 0.52 * innerHeight) : Math.min(w, 560) - 32;
+    var uz = Math.max(1, Math.min(w / 1440, innerHeight / 900)); // (larger laptops: everything grows)
+    var t = w >= 980 ? Math.min(420 * uz, 0.52 * innerHeight) : Math.min(w, 560) - 32;
     var md = Math.floor((t * r) / G);
     md = w >= 980 ? Math.max(md, Math.round(8 * r)) : Math.min(md, Math.floor(11 * r));
     d.style.setProperty("--m", md / r + "px");
   </script>
   <canvas class="qr-canvas" aria-hidden="true"></canvas>
-  <div class="work-peek" aria-hidden="true">
-    {PROJECTS.map((p) => p.image && <img src={`${p.image}-480.webp`} srcset={`${p.image}-480.webp 480w, ${p.image}-960.webp 960w`} sizes="280px" alt="" loading="lazy" decoding="async" />)}
+  <div class="deck" aria-hidden="true">
+    {PROJECTS.map((p, i) => p.cards.map((c, j) => (
+      <img class="deck-card" data-of={i} data-n={j} src={`${c}-480.webp`} srcset={`${c}-480.webp 480w, ${c}-960.webp 960w`} sizes="200px" alt="" loading="lazy" decoding="async" />
+    )))}
   </div>
-  <p class="qr-hint" aria-hidden="true">SCAN TO WRITE · CLICK TO ENTER</p>
+  <p class="qr-hint" aria-hidden="true">CLICK TO CONTINUE</p>
   <main class="pro">
     <div class="pro-panel">
       <header class="pro-head">
-        <h1 style="--d: 1.6s">Ye'Solution</h1>
+        <h1 style="--d: 1.6s">YE'SOLUTION</h1>
       </header>
       <section class="work" aria-labelledby="work-h" style="--d: 1.85s">
         <h2 id="work-h" class="work-h">SELECTED WORK</h2>
         <div class="work-list">
           {PROJECTS.map((p, i) => (
-            <a class="work-row" href={p.href} target="_blank" rel="noopener" data-peek={p.image ? i : undefined}>
+            <a class="work-row" href={p.href} data-deck={i}>
               <span class="work-text">
                 <span class="work-title">
                   <span class="u">{p.title}</span>
-                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" /></svg>
-                  <span class="sr"> (opens in a new tab)</span>
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9 3.5L13.5 8 9 12.5" /></svg>
                 </span>
                 <span class="work-desc">{p.description}</span>
               </span>
               <span class="work-year">{p.year}</span>
             </a>
           ))}
-          <div class="work-row soon">
-            <span class="work-text">
-              <span class="work-title">Next</span>
-              <span class="work-desc">In progress.</span>
-            </span>
-          </div>
         </div>
       </section>
       <nav class="pro-links" aria-label="Contact" style="--d: 2s">
-        <a class="label" href={`mailto:${EMAIL}`}>{EMAIL}</a>
-        <a class="label" href="/notice">BACK</a>
+        <div class="pro-links-row">
+          <button class="label" type="button" aria-expanded="false" aria-controls="contact">CONTACT</button>
+          <a class="label" href="/notice">BACK</a>
+        </div>
+        <div class="contact-wrap" id="contact" inert>
+        <ul class="contact">
+          <li>
+            <button class="contact-row" type="button" data-copy={EMAIL}>
+              <span class="contact-k">EMAIL</span>
+              <span class="contact-v"><span class="u">{EMAIL}</span></span>
+              <span class="contact-say" aria-live="polite">COPY</span>
+            </button>
+          </li>
+          {SOCIAL.map((x) => (
+            <li>
+              <a class="contact-row" href={x.href} target="_blank" rel="noopener">
+                <span class="contact-k">{x.label}</span>
+                <span class="contact-v"><span class="u">{x.value}</span></span>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" /></svg>
+                <span class="sr"> (opens in a new tab)</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        </div>
       </nav>
     </div>
 
@@ -110,39 +145,129 @@ const PROJECTS = [
 <script>
   import "../scripts/qr-city.js";
 
-  // Selected work: a preview of the project under the pointer trails it, easing after the cursor.
-  const peek = document.querySelector<HTMLElement>(".work-peek");
-  const rows = document.querySelectorAll<HTMLElement>(".work-row[data-peek]");
-  if (peek && rows.length && matchMedia("(hover: hover)").matches) {
-    const imgs = [...peek.querySelectorAll("img")];
-    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let x = 0, y = 0, tx = 0, ty = 0, raf = 0, on = false;
-    const frame = () => {
-      const k = still ? 1 : 0.15;
-      x += (tx - x) * k;
-      y += (ty - y) * k;
-      peek.style.transform = `translate3d(${(x + 24).toFixed(1)}px, ${(y - 110).toFixed(1)}px, 0)`;
-      raf = on || Math.abs(tx - x) + Math.abs(ty - y) > 0.5 ? requestAnimationFrame(frame) : 0;
-    };
-    addEventListener("pointermove", (e) => {
-      [tx, ty] = [e.clientX, e.clientY];
-      if (on && !raf) raf = requestAnimationFrame(frame);
-    }, { passive: true });
-    rows.forEach((row) => {
-      row.addEventListener("pointerenter", (e) => {
-        if (!on) [x, y] = [e.clientX, e.clientY]; // appears where the pointer is, then follows
-        [tx, ty] = [e.clientX, e.clientY];
-        on = true;
-        imgs.forEach((img, i) => img.classList.toggle("on", String(i) === row.dataset.peek));
-        peek.classList.add("on");
-        if (!raf) raf = requestAnimationFrame(frame);
+  const root = document.documentElement;
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---- Selected work: pointing at a project deals its three colour cards out of the row; they
+  // stay beside the pointer, easing after it, while it is in the row, and the city steps back.
+  // Leaving puts them back into the row. Wide windows with a mouse only.
+  const deck = document.querySelector<HTMLElement>(".deck");
+  const cards = [...document.querySelectorAll<HTMLElement>(".deck-card")];
+  const wide = matchMedia("(hover: hover) and (min-width: 980px)");
+  // where each card ends up around the middle of the fan: x, y (px), turn (deg)
+  const FAN = [
+    [6, -6, -2],
+    [-96, 18, -11],
+    [104, 24, 9],
+  ];
+  const W = 200, H = 125;
+  // the middle of the fan sits above the pointer, clear of the row it is reading
+  const OFF = [-20, -150];
+  let shown: string | null = null;
+  let at = [0, 0], to = [0, 0], raf = 0;
+  const place = (el: HTMLElement, x: number, y: number, r: number, s: number) =>
+    (el.style.transform = `translate3d(${(x - W / 2).toFixed(1)}px, ${(y - H / 2).toFixed(1)}px, 0) rotate(${r}deg) scale(${s})`);
+  const aim = (x: number, y: number) => {
+    to = [Math.max(W * 1.3, x + OFF[0]), Math.min(Math.max(y + OFF[1], H), innerHeight - H)];
+  };
+  const follow = () => {
+    const k = still ? 1 : 0.16;
+    at = [at[0] + (to[0] - at[0]) * k, at[1] + (to[1] - at[1]) * k];
+    deck!.style.transform = `translate3d(${at[0].toFixed(1)}px, ${at[1].toFixed(1)}px, 0)`;
+    raf = shown !== null || Math.abs(to[0] - at[0]) + Math.abs(to[1] - at[1]) > 0.5 ? requestAnimationFrame(follow) : 0;
+  };
+  // the point of the row the cards leave from and return to (its left edge, half way down), from the fan's middle
+  const mouthOf = (row: HTMLElement) => {
+    const r = row.getBoundingClientRect();
+    return [r.left - at[0], r.top + r.height / 2 - at[1]];
+  };
+  function deal(row: HTMLElement, x: number, y: number) {
+    const of = row.dataset.deck!;
+    if (shown === of) return;
+    if (shown !== null) gather(shown);
+    aim(x, y);
+    if (shown === null) at = [...to]; // (appears by the pointer, then follows it)
+    shown = of;
+    if (!raf) raf = requestAnimationFrame(follow);
+    deck!.style.transform = `translate3d(${at[0]}px, ${at[1]}px, 0)`;
+    const [mx, my] = mouthOf(row);
+    root.classList.add("dealing");
+    cards
+      .filter((c) => c.dataset.of === of)
+      .forEach((c) => {
+        const n = Number(c.dataset.n), [fx, fy, fr] = FAN[n];
+        c.style.transition = "none";
+        c.style.zIndex = String(3 - n);
+        place(c, mx, my, 0, 0.2);
+        c.getBoundingClientRect(); // (start from the row)
+        c.style.transition = "";
+        c.style.transitionDelay = still ? "0s" : `${n * 55}ms`;
+        c.classList.add("on");
+        place(c, fx, fy, fr, 1);
       });
-      row.addEventListener("pointerleave", () => {
-        on = false;
-        peek.classList.remove("on");
-      });
-    });
   }
+  function gather(of: string) {
+    const row = document.querySelector<HTMLElement>(`.work-row[data-deck="${of}"]`)!;
+    const [mx, my] = mouthOf(row);
+    if (shown === of) shown = null;
+    to = [...at]; // (the fan holds still while they go home)
+    cards
+      .filter((c) => c.dataset.of === of)
+      .forEach((c) => {
+        const n = Number(c.dataset.n);
+        c.style.transitionDelay = still ? "0s" : `${(2 - n) * 30}ms`;
+        c.classList.remove("on");
+        place(c, mx, my, 0, 0.2);
+      });
+    if (shown === null) root.classList.remove("dealing");
+  }
+  if (deck) {
+    document.querySelectorAll<HTMLElement>(".work-row[data-deck]").forEach((row) => {
+      row.addEventListener("pointerenter", (e) => e.pointerType === "mouse" && wide.matches && deal(row, e.clientX, e.clientY));
+      row.addEventListener("pointermove", (e) => shown === row.dataset.deck && aim(e.clientX, e.clientY));
+      row.addEventListener("pointerleave", () => shown === row.dataset.deck && gather(shown));
+      row.addEventListener("focus", () => {
+        if (!wide.matches || !row.matches(":focus-visible")) return;
+        const r = row.getBoundingClientRect();
+        deal(row, r.left + 80, r.top + r.height / 2);
+      });
+      row.addEventListener("blur", () => shown === row.dataset.deck && gather(shown));
+    });
+    addEventListener("scroll", () => shown !== null && gather(shown), { passive: true });
+  }
+
+  // ---- CONTACT: opens the list; the email copies on a click ------------------------------------
+  const toggle = document.querySelector<HTMLButtonElement>("[aria-controls='contact']");
+  const list = document.getElementById("contact")!;
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") !== "true";
+    toggle.setAttribute("aria-expanded", String(open));
+    list.classList.toggle("open", open); // (CSS unfolds it and brings the lines in one by one)
+    list.inert = !open;
+  });
+  document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((b) => {
+    const say = b.querySelector(".contact-say")!;
+    let t = 0;
+    b.addEventListener("click", async () => {
+      const text = b.dataset.copy!;
+      let ok = false;
+      try {
+        await navigator.clipboard.writeText(text);
+        ok = true;
+      } catch {
+        const ta = Object.assign(document.createElement("textarea"), { value: text });
+        ta.style.cssText = "position:fixed;opacity:0";
+        document.body.append(ta);
+        ta.select();
+        ok = document.execCommand("copy");
+        ta.remove();
+      }
+      say.textContent = ok ? "COPIED" : "PRESS ⌘C";
+      b.classList.toggle("copied", ok);
+      clearTimeout(t);
+      t = window.setTimeout(() => ((say.textContent = "COPY"), b.classList.remove("copied")), 1800);
+    });
+  });
 </script>
 
 
@@ -150,23 +275,25 @@ const PROJECTS = [
   .pro {
     --G: 37; /* modules across the slot: the 29 of the code and a quiet zone of 4 on each side */
     --slot: calc(var(--m, 11px) * var(--G));
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     z-index: 1;
     box-sizing: border-box;
     min-height: 100dvh;
     display: grid;
     grid-template-columns: var(--slot) minmax(0, 1fr);
-    column-gap: 96px;
+    column-gap: calc(112px * var(--uz, 1));
     align-items: center;
-    max-width: 1120px;
+    max-width: calc(1160px * var(--uz, 1));
     margin: 0 auto;
-    padding: 56px 48px 96px;
+    padding: 64px 48px 96px;
     overflow-x: clip;
     font-family: "dinneuzeitgroteskltw01-_812426", sans-serif;
     color: #000;
     pointer-events: none;
   }
   .pro a,
+  .pro button,
   .qr-slot {
     pointer-events: auto;
   }
@@ -174,7 +301,8 @@ const PROJECTS = [
     background: #fff;
   }
   .pro p,
-  .pro h1 {
+  .pro h1,
+  .pro h2 {
     margin: 0;
     font-weight: normal;
   }
@@ -194,6 +322,11 @@ const PROJECTS = [
     top: 0;
     z-index: 0;
     pointer-events: none;
+    transition: opacity 0.45s ease;
+  }
+  /* while a project's cards are out, the city steps back */
+  :global(html.dealing) .qr-canvas {
+    opacity: 0.14;
   }
   /* The full-screen code: nothing else on the page, and a click anywhere opens it. */
   :global(html.qr-full) {
@@ -202,6 +335,15 @@ const PROJECTS = [
   :global(html.qr-full) .qr-canvas {
     pointer-events: auto;
     cursor: pointer;
+  }
+  /* The city turns under a drag (qr-city.js): grab anywhere it is drawn. */
+  :global(html.qr-grab) :global(body) {
+    cursor: grab;
+  }
+  :global(html.qr-turning),
+  :global(html.qr-turning *) {
+    cursor: grabbing !important;
+    user-select: none;
   }
   .qr-hint {
     position: fixed;
@@ -228,9 +370,11 @@ const PROJECTS = [
   .pro-panel {
     grid-column: 2;
     grid-row: 1;
+    max-width: 540px;
+    zoom: var(--uz, 1); /* larger laptops: the text grows with the screen (Base.astro) */
   }
   .pro-panel [style*="--d"] {
-    transition: opacity 0.6s ease var(--d, 0s), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s), visibility 0s linear var(--d, 0s);
+    transition: opacity 0.6s ease var(--d, 0s), transform 0.8s var(--ease) var(--d, 0s), visibility 0s linear var(--d, 0s);
   }
   :global(html.qr-full) .pro-panel [style*="--d"] {
     opacity: 0;
@@ -239,21 +383,24 @@ const PROJECTS = [
     transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
   }
   .pro h1 {
-    font-size: clamp(44px, 6vw, 80px);
+    font-size: clamp(44px, 5.6vw, 76px);
     line-height: 1;
     letter-spacing: 0.04em;
   }
+
   /* ---- Selected work ---- */
   .work {
-    max-width: 520px;
-    margin-top: 48px;
+    margin-top: 64px;
   }
-  .work-h {
-    margin: 0 0 18px;
+  .work-h,
+  .contact-k {
     font-size: 12px;
     font-weight: normal;
     letter-spacing: 0.3em;
     color: #767676;
+  }
+  .work-h {
+    margin: 0 0 22px;
   }
   .work-list {
     border-bottom: 1px solid #e5e5e5;
@@ -263,16 +410,16 @@ const PROJECTS = [
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 16px;
-    padding: 20px 0;
+    gap: 24px;
+    padding: 24px 0;
     border-top: 1px solid #e5e5e5;
   }
   /* the soft highlight behind a row under the pointer */
   .work-row::before {
     content: "";
     position: absolute;
-    inset: 0 -14px;
-    border-radius: 8px;
+    inset: 0 -16px;
+    border-radius: 10px;
     background: #f4f4f4;
     opacity: 0;
     transform: scale(0.97);
@@ -297,30 +444,32 @@ const PROJECTS = [
   .work-title {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 21px;
+    gap: 10px;
+    font-size: 22px;
     letter-spacing: 0.01em;
   }
   /* the underline draws across */
   .u {
     background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1px;
     padding-bottom: 1px;
-    transition: background-size 0.3s ease-out;
+    transition: background-size 0.35s var(--ease);
   }
   a.work-row:hover .u,
-  a.work-row:focus-visible .u {
+  a.work-row:focus-visible .u,
+  .contact-row:hover .u,
+  .contact-row:focus-visible .u {
     background-size: 100% 1px;
   }
   /* and the arrow slides in */
   .work-title svg {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     fill: none;
     stroke: currentColor;
     stroke-width: 1.4;
     opacity: 0;
-    transform: translate(-6px, 6px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transform: translateX(-8px);
+    transition: opacity 0.3s ease-out, transform 0.35s var(--ease);
   }
   a.work-row:hover .work-title svg,
   a.work-row:focus-visible .work-title svg {
@@ -329,9 +478,10 @@ const PROJECTS = [
   }
   .work-desc {
     display: block;
-    margin-top: 4px;
+    max-width: 420px;
+    margin-top: 8px;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.55;
     color: #767676;
     transition: color 0.3s ease-out;
   }
@@ -340,7 +490,7 @@ const PROJECTS = [
     color: #3a3a3a;
   }
   .work-year {
-    padding-top: 6px;
+    padding-top: 7px;
     font: 12px/1 ui-monospace, "SF Mono", Menlo, monospace;
     font-variant-numeric: tabular-nums;
     color: #9a9a9a;
@@ -349,72 +499,160 @@ const PROJECTS = [
   a.work-row:hover .work-year {
     color: #555;
   }
-  .soon .work-title {
-    color: #9a9a9a;
-  }
-  .soon .work-desc {
-    color: #b5b5b5;
-  }
-  /* the preview that trails the pointer */
-  .work-peek {
+
+  /* ---- The cards a project deals out (positions come from the script) ---- */
+  .deck {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 5;
-    width: 280px;
-    height: 175px;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #f1f1f1;
-    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.28);
+    width: 0;
+    height: 0;
+    z-index: 4;
     pointer-events: none;
-    opacity: 0;
-    scale: 0.8;
-    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .work-peek.on {
-    opacity: 1;
-    scale: 1;
-  }
-  .work-peek img {
+  .deck-card {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 125px;
     object-fit: cover;
+    border-radius: 9px;
+    background: #eee;
+    box-shadow: 0 26px 50px -18px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(0, 0, 0, 0.06);
     opacity: 0;
-    scale: 1.1;
-    filter: blur(10px);
-    transition: opacity 0.5s ease-out, scale 0.5s ease-out, filter 0.5s ease-out;
+    transform: scale(0.2);
+    transition: transform 0.42s cubic-bezier(0.5, 0, 0.75, 0), opacity 0.3s ease 0.1s;
   }
-  .work-peek img.on {
+  .deck-card.on {
     opacity: 1;
-    scale: 1;
-    filter: none;
+    transition: transform 0.7s cubic-bezier(0.2, 1.1, 0.3, 1), opacity 0.2s ease;
   }
+
+  /* ---- Contact and BACK ---- */
   .pro-links {
+    margin-top: 56px;
+  }
+  .pro-links-row {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 36px;
-    row-gap: 12px;
-    margin-top: 40px;
+    column-gap: 44px;
+    row-gap: 14px;
     font-size: 14px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.16em;
   }
   .pro a {
     color: inherit;
     text-decoration: none;
   }
+  .pro button {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
   .label {
     text-decoration: underline 1px transparent;
-    text-underline-offset: 4px;
+    text-underline-offset: 5px;
     transition: text-decoration-color 0.3s ease;
   }
-  .pro a:hover .label,
-  .pro a.label:hover,
-  .pro a:focus-visible .label,
-  .pro a.label:focus-visible {
+  .pro .label:hover,
+  .pro .label:focus-visible,
+  .label[aria-expanded="true"] {
     text-decoration-color: currentColor;
+    outline: none;
+  }
+  /* The list unfolds (its height eases open) while its lines come in one after another, and
+     folds away the same way, last line first. */
+  .contact-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.6s var(--ease) 0.12s;
+  }
+  .contact-wrap.open {
+    grid-template-rows: 1fr;
+    transition-delay: 0s;
+  }
+  .contact {
+    min-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .contact li {
+    border-bottom: 1px solid #e5e5e5;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.45s var(--ease);
+  }
+  .contact li:first-child {
+    margin-top: 24px;
+    border-top: 1px solid #e5e5e5;
+  }
+  .contact li:nth-child(1) {
+    transition-delay: 0.08s;
+  }
+  .contact li:nth-child(2) {
+    transition-delay: 0.04s;
+  }
+  .open .contact li {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s ease, transform 0.7s var(--ease);
+  }
+  .open .contact li:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  .open .contact li:nth-child(2) {
+    transition-delay: 0.17s;
+  }
+  .open .contact li:nth-child(3) {
+    transition-delay: 0.24s;
+  }
+  .pro .contact-row {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr) auto;
+    align-items: center;
+    width: 100%;
+    padding: 14px 0;
+    text-align: left;
+  }
+  .contact-row:focus-visible {
+    outline: none;
+  }
+  .contact-v {
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .contact-say {
+    font: 11px/1 ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: 0.1em;
+    color: #9a9a9a;
+    transition: color 0.2s ease;
+  }
+  .contact-row:hover .contact-say,
+  .copied .contact-say {
+    color: #000;
+  }
+  .contact-row svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    color: #9a9a9a;
+    transition: color 0.2s ease, transform 0.3s var(--ease);
+  }
+  .contact-row:hover svg {
+    color: #000;
+    transform: translate(2px, -2px);
   }
 
   /* ---- The stage: where the city settles (the code + quiet zone, square) ---- */
@@ -434,6 +672,9 @@ const PROJECTS = [
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     -webkit-user-select: none;
+  }
+  .qr-slot[data-state="city"] {
+    cursor: grab;
   }
   .qr-slot.dragging {
     cursor: grabbing;
@@ -462,7 +703,7 @@ const PROJECTS = [
       justify-items: center;
       align-items: start;
       align-content: start;
-      padding: 40px 16px 96px;
+      padding: 40px 20px 96px;
     }
     .pro-stage {
       grid-row: 1;
@@ -470,15 +711,17 @@ const PROJECTS = [
     .pro-panel {
       grid-column: 1;
       grid-row: 2;
-      width: max(288px, var(--slot));
-      margin-top: 28px;
+      width: min(100%, max(300px, var(--slot)));
+      margin-top: 36px;
     }
     .work {
-      margin-top: 32px;
+      margin-top: 44px;
     }
     .pro-links {
-      flex-direction: column;
-      margin-top: 28px;
+      margin-top: 44px;
+    }
+    .pro .contact-row {
+      grid-template-columns: 96px minmax(0, 1fr) auto;
     }
   }
 </style>

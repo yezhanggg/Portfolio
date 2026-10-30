@@ -1,4 +1,5 @@
-// 3D boxes: the CREATIVE / PROFESSIONAL boxes on /notice and the explore box on /copy-of-notice.
+// 3D boxes: the CREATIVE / PROFESSIONAL boxes on /notice (and the explore box, data-intro, that
+// /copy-of-notice had before it came off the site).
 // Binds each [data-cube] on the page once, at load. Kept apart from interactions.js so a page that
 // is not a canvas page can have the boxes without the rest of that file.
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;

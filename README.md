@@ -1,4 +1,4 @@
-# yezhang.net
+# yezhang.ai
 
 Ye Zhang's personal site, self-hosted. It was rebuilt from two Wix sites (yezhang.net and ZHAENG)
 so that everything — pages, images, videos, forms — lives in this repository and deploys from it.

@@ -1,4 +1,4 @@
-// yezhang.net chat. Load with:
+// yezhang.ai chat. Load with:
 //   <script src="https://<deployment>/widget.js" defer></script>
 // Talks to /api/chat on the same deployment the script was loaded from.
 //
@@ -7,8 +7,8 @@
 // black and a pair of eyes that live in it; rest there (or click / tap the corner) and the page
 // turns back. There is no box, no field and no line: "type anywhere / ask anything" sinks slowly
 // down the dark, a click anywhere puts a caret there, and what you type is written in the air.
-// While the assistant thinks, dots drawn out of the question gather into a knot somewhere in the
-// dark, tighten for a few seconds and burst, and the reply is typed out wherever it comes to rest.
+// While the assistant thinks, three dots blink where the reply will be; then the reply is typed out
+// there in green Courier, like a terminal answering.
 (function () {
   if (window.__yzChatLoaded) return;
   window.__yzChatLoaded = true;
@@ -17,12 +17,10 @@
   var API = new URL("/api/chat", script ? script.src : location.href).href;
   var STORE_KEY = "yz-chat-v1";
   var INTRO_KEY = "yz-chat-intro";
-  var EMAIL = "yezhang1@upenn.edu";
+  var EMAIL = "yezhang2003@gmail.com";
   var REDUCED = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
   var HOVER = !!(window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches);
 
-  var GATHER = 3.7; // s the thought gathers before it may burst…
-  var CRUNCH = 0.6; // …then collapses, so a reply lands about 4.3–4.8 s after it is asked for
   var DWELL = 0.45; // s resting on the uncovered words before the page turns
   var ZONE = 300; // px around the corner in which the page notices the pointer
   var DEG = Math.PI / 180;
@@ -76,7 +74,6 @@
     ".space{visibility:hidden;pointer-events:none;color:var(--ink);}" +
     ".open .space{pointer-events:auto;}" +
     ".f{position:absolute;left:0;top:0;will-change:transform;white-space:pre-wrap;overflow-wrap:break-word;transition:opacity 1.2s ease;}" +
-    ".storm{position:absolute;top:0;pointer-events:none;}" +
     // the invitation: its letters bob on a slow wave and scatter as soon as anything is typed
     ".prompt{font-size:11.5px;letter-spacing:.34em;text-transform:uppercase;line-height:2.2;text-align:center;white-space:nowrap;}" +
     ".prompt b{display:block;font-weight:inherit;}" +
@@ -92,7 +89,11 @@
     "@keyframes caret{50%{opacity:0;}}" +
     ".q{font-family:'Courier New',Courier,monospace;font-size:14px;line-height:1.5;color:var(--mute);animation:ink .8s " + EASE + " both;}" +
     ".q.read{opacity:.35;}" +
-    ".a{font-size:16px;line-height:1.6;}" +
+    // the reply: typed out in green Courier, like a terminal answering; "..." while it thinks
+    ".a{font-family:'Courier New',Courier,monospace;font-size:15px;line-height:1.55;color:#39ff6a;text-shadow:0 0 6px rgba(57,255,106,.3);}" +
+    ".a .caret{width:.6em;margin-left:1px;}" +
+    ".dots i{font-style:normal;animation:dot 1.2s steps(1) infinite;}.dots i:nth-child(2){animation-delay:.2s;}.dots i:nth-child(3){animation-delay:.4s;}" +
+    "@keyframes dot{0%{opacity:.15;}30%{opacity:1;}80%{opacity:.15;}}" +
     // a failure reads like a terminal: green Courier behind a block caret
     ".err{font-family:'Courier New',Courier,monospace;font-size:14px;line-height:1.5;color:#39ff6a;text-shadow:0 0 6px rgba(57,255,106,.35);}" +
     ".err .caret{width:.6em;margin-left:1px;}" +
@@ -105,11 +106,6 @@
     // typing lands in a field nobody sees
     ".ta{position:absolute;left:0;top:0;width:300px;height:28px;opacity:0;border:0;background:transparent;color:transparent;" +
     "caret-color:transparent;resize:none;font-size:16px;pointer-events:none;outline:none;}" +
-    ".close{position:absolute;left:0;top:0;width:32px;height:32px;border:none;background:none;cursor:pointer;color:var(--ink);" +
-    "opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,rotate .4s " + EASE + ";}" +
-    ".live .close{opacity:.35;}.live .close:hover,.live .close:focus-visible{opacity:1;rotate:90deg;}" +
-    ".close:focus-visible{outline:none;}" +
-    ".close svg{width:13px;height:13px;}" +
     ".sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}" +
     "@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}" +
     "</style>" +
@@ -117,12 +113,9 @@
     '<div class="scrim"></div>' +
     '<div class="leaf"><div class="end"></div>' +
     '<div class="space" role="dialog" aria-label="Ask Ye\'s assistant" inert aria-hidden="true">' +
-    '<canvas class="storm" aria-hidden="true"></canvas>' +
     '<div class="f prompt" aria-hidden="true"></div>' +
     '<div class="f draft" aria-hidden="true"></div>' +
     '<textarea class="ta" rows="1" maxlength="1000" enterkeyhint="send" aria-label="Ask anything about the site" aria-describedby="yz-note"></textarea>' +
-    '<button class="close" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">' +
-    '<path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
     '<div class="sr" id="yz-note">AI replies can be wrong. For anything important, email ' + EMAIL + ".</div>" +
     '<div class="sr" aria-live="polite"></div>' +
     "</div></div>" +
@@ -138,7 +131,6 @@
   var promptEl = root.querySelector(".prompt");
   var draftEl = root.querySelector(".draft");
   var input = root.querySelector(".ta");
-  var closeEl = root.querySelector(".close");
   var said = root.querySelector("[aria-live]");
   var pageCv = root.querySelector(".page");
   var corner = root.querySelector(".corner");
@@ -177,7 +169,7 @@
   var OPEN = { D: 0, phi: 0 };
   var SPACE = { x0: 0, y0: 0, x1: 0, y1: 0 }; // where words may float while the page is turned
   var TUCKP = { x: 0, y: 0 }; // where the invitation waits under the corner
-  var EYES = { x: 0, y: 0, s: 64 }; // where the eyes watch from, just above it
+  var EYES = { x: 0, y: 0, s: 82 }; // where the eyes watch from: the corner itself
 
   function rOf(D) {
     return Math.max(3, Math.min(small ? 36 : 130, D * (small ? 0.14 : 0.2)));
@@ -457,11 +449,9 @@
       palClip = clip;
       pal.cv.style.clipPath = pal.cv.style.webkitClipPath = clip;
     }
-    // What it looks at: the thought while there is one, then the reply, the pointer, the writing,
-    // and otherwise wherever it likes.
+    // What it looks at: the reply, the pointer, the writing, and otherwise wherever it likes.
     var goal = pal.glance, t = null;
-    if (storm && storm.alive) t = { x: storm.cx, y: storm.cy };
-    else if (gaze && clock < gaze.until) t = gaze;
+    if (gaze && clock < gaze.until) t = gaze;
     else if (ptr && clock - pal.movedAt < 3) t = ptr;
     else if (draftF && clock - typedAt < 2.5) t = { x: draftF.px + draftF.w, y: draftF.py + draftF.h / 2 };
     else if (clock > pal.nextGlance && !REDUCED) {
@@ -478,7 +468,9 @@
       pal.nextBlink = clock + 2.2 + Math.random() * 3.8;
     }
     var bt = clock - pal.blinkAt, b = REDUCED ? 0 : bt < 0.055 ? bt / 0.055 : bt < 0.1 ? 1 : bt < 0.18 ? 1 - (bt - 0.1) / 0.08 : 0;
-    var body = [0, 0, 0], eye = [0.957, 0.957, 0.961];
+    // green while a reply is being typed out (the colour of its letters), white again after
+    pal.g = (pal.g || 0) + ((typer ? 1 : 0) - (pal.g || 0)) * (REDUCED ? 1 : 1 - Math.exp(-dt * 8));
+    var g = pal.g, body = [0, 0, 0], eye = [0.957 + (0.224 - 0.957) * g, 0.957 + (1 - 0.957) * g, 0.961 + (0.416 - 0.961) * g];
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.uniform2f(pal.u.res, pal.cv.width, pal.cv.height);
@@ -829,7 +821,6 @@
       s.x = s.t;
       s.v = 0;
     });
-    if (storm) storm.update(dt);
     typeStep(dt);
     jolt *= Math.exp(-14 * dt);
   }
@@ -879,11 +870,7 @@
     drawPage();
     placeSpace();
     palFrame(dt);
-    if (storm) {
-      storm.draw();
-      if (!storm.alive) storm = null;
-    }
-    var moving = storm || typer || state === "closing" || !springs.every(function (s) { return settled(s, 0.02); });
+    var moving = typer || state === "closing" || !springs.every(function (s) { return settled(s, 0.02); });
     if (!REDUCED || moving) raf = requestAnimationFrame(frame);
   }
   document.addEventListener("visibilitychange", function () {
@@ -914,7 +901,7 @@
         var el = document.createElement("div");
         el.className = "f a past";
         el.style.maxWidth = maxW(320) + "px";
-        render(el, last.content);
+        render(el, shown(last.content));
         space.insertBefore(el, input);
         var f = float(el, 0, 0);
         var s = findSpot(f.w, f.h, [{ x: anchor.x - 60, y: anchor.y - 40, w: promptW + 120, h: promptH + 80 }]);
@@ -974,18 +961,16 @@
     // Turn the page back far enough to leave a band of dark for the words (on a phone, all of it).
     var phi = (small ? 3 : 6) * DEG, c = Math.cos(phi), s = Math.sin(phi), edge;
     if (small) {
-      edge = 6;
-      SPACE = { x0: 18, y0: TOP0 + 100, x1: W - 18, y1: TOP0 + vh - 20 };
+      edge = 34; // a strip of the white page stays out: tapping it closes the chat
+      SPACE = { x0: 52, y0: TOP0 + 100, x1: W - 18, y1: TOP0 + vh - 20 };
       TUCKP = { x: W - 150, y: H - 64 };
-      EYES = { x: W - 42, y: H - 104, s: 52 };
-      move(closeEl, W - 44, TOP0 + 12);
+      EYES = { x: W - 34, y: H - 34, s: 66 }; // right in the corner
     } else {
       var band = clamp(W * 0.36, 440, 600);
       edge = W - band - 20;
       SPACE = { x0: W - band + 12, y0: 44, x1: W - 28, y1: H - 40 };
       TUCKP = { x: W - 200, y: H - 58 };
-      EYES = { x: W - 54, y: H - 126, s: 64 };
-      move(closeEl, SPACE.x1 - 18, 16);
+      EYES = { x: W - 42, y: H - 42, s: 82 };
     }
     // the roll's rim reaches `edge` at the top of the screen, where the turned page is narrowest
     var need = (W - edge) * c + H * s, D = need;
@@ -1004,259 +989,30 @@
     wake();
   }
 
-  // ---- the thought ----
-  // Dots drawn out of the visitor's words gather on a sphere that spins faster and shrinks as it
-  // tightens (GATHER); once the reply is ready it collapses to a point (CRUNCH) and bursts.
-  // `centre()` says where the knot is (it drifts); everything is in viewport px.
-  var storm = null;
-  function Storm(centre, source) {
-    var cv = space.querySelector(".storm"), g = cv.getContext("2d");
-    var ox = Math.max(0, Math.floor(SPACE.x0 - 90)), pw = Math.ceil(W - ox), ph = Math.ceil(H);
-    var dpr = Math.min(2, window.devicePixelRatio || 1);
-    cv.style.left = ox + "px";
-    cv.style.width = pw + "px";
-    cv.style.height = ph + "px";
-    cv.width = Math.round(pw * dpr);
-    cv.height = Math.round(ph * dpr);
-    var sr = source.getBoundingClientRect();
-    var n = small ? 110 : 150, R0 = small ? 34 : 44, ps = [];
-    for (var i = 0; i < n; i++) {
-      ps.push({
-        d: fib(i, n), // its place on the sphere
-        sx: sr.left + Math.random() * sr.width, // where in the question it starts
-        sy: sr.top + Math.random() * sr.height,
-        at: 0.25 + Math.random(), // when it leaves the question
-        bend: (Math.random() - 0.5) * 150,
-        r: 0.6 + Math.random() * 1.2,
-        a: 0.4 + Math.random() * 0.6,
-        life: 0.55 + Math.random() * 0.6,
-        x: 0, y: 0, z: 0, vx: 0, vy: 0, vis: 0, home: false,
-      });
-    }
-    var c0 = centre();
-    var S = { alive: true, phase: "gather", t: 0, T: 0, q: 0, s: 0, yaw: 0, beat: 0, cx: c0.x, cy: c0.y, R: R0, want: false, done: null };
-
-    function inkA(a) {
-      return "rgba(244,242,236," + clamp(a, 0, 1).toFixed(3) + ")";
-    }
-    function line(x1, y1, x2, y2) {
-      g.beginPath();
-      g.moveTo(x1, y1);
-      g.lineTo(x2, y2);
-      g.stroke();
-    }
-    function circle(x, y, r) {
-      g.beginPath();
-      g.arc(x, y, Math.max(0, r), 0, Math.PI * 2);
-    }
-
-    function place() {
-      var T = S.T, q = S.q;
-      S.R = R0 * (1 - 0.45 * T) * (1 + 0.04 * Math.sin(S.t * 6.5)) * (1 - 0.92 * q * q * q);
-      var J = 0.15 + 1.3 * T * T * T + 3.2 * q * q;
-      var tilt = 0.45 + 0.25 * Math.sin(S.t * 0.7);
-      var cy = Math.cos(S.yaw), sy = Math.sin(S.yaw), ct = Math.cos(tilt), st = Math.sin(tilt);
-      for (var i = 0; i < n; i++) {
-        var p = ps[i], k = (S.t - p.at) / 1.2;
-        if (k <= 0) {
-          p.vis = 0;
-          continue;
-        }
-        k = Math.min(1, k);
-        var e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
-        var x = p.d[0] * cy + p.d[2] * sy, z = p.d[2] * cy - p.d[0] * sy, y = p.d[1];
-        var y2 = y * ct - z * st, z2 = y * st + z * ct;
-        var dx = S.cx + x * S.R - p.sx, dy = S.cy + y2 * S.R - p.sy, len = Math.hypot(dx, dy) || 1;
-        var b = p.bend * Math.sin(Math.PI * e);
-        p.x = p.sx + dx * e - (dy / len) * b + (Math.random() - 0.5) * 2 * J * e;
-        p.y = p.sy + dy * e + (dx / len) * b + (Math.random() - 0.5) * 2 * J * e;
-        p.z = z2;
-        p.vis = Math.min(1, k * 5);
-        p.home = k >= 1;
-      }
-    }
-
-    function burst() {
-      S.phase = "burst";
-      S.s = 0;
-      ps.forEach(function (p) {
-        var dx = p.x - S.cx, dy = p.y - S.cy, len = Math.hypot(dx, dy);
-        if (len < 0.01) {
-          var a = Math.random() * Math.PI * 2;
-          dx = Math.cos(a);
-          dy = Math.sin(a);
-          len = 1;
-        }
-        var sp = (240 + Math.random() * 900) * (0.6 + 0.2 * (p.z + 1));
-        p.vx = (dx / len) * sp;
-        p.vy = (dy / len) * sp;
-      });
-      shake = 0;
-      jolt = 2.2;
-      // the blast stirs the page that is held open
-      if (state === "open") pD.v += 70;
-      pPhi.v += 0.12;
-      if (S.done) S.done({ x: S.cx, y: S.cy });
-    }
-
-    S.release = function () {
-      S.want = true;
-      return new Promise(function (resolve) {
-        S.done = resolve;
-      });
-    };
-    S.fizzle = function () {
-      if (S.phase === "burst" || S.phase === "fizzle") return;
-      S.phase = "fizzle";
-      S.s = 0;
-      shake = 0;
-      ps.forEach(function (p) {
-        p.vx = (Math.random() - 0.5) * 50;
-        p.vy = -10 - Math.random() * 40;
-      });
-    };
-
-    S.update = function (dt) {
-      S.t += dt;
-      if (S.phase === "gather" || S.phase === "crunch") {
-        var c = centre();
-        S.cx = c.x;
-        S.cy = c.y;
-      }
-      if (S.phase === "gather") {
-        S.T = smooth(0, 1, S.t / GATHER);
-        if (S.want && S.t >= GATHER) S.phase = "crunch";
-      } else if (S.phase === "crunch") {
-        S.q = Math.min(1, S.q + dt / CRUNCH);
-        if (S.q >= 1) burst();
-      } else {
-        S.s += dt;
-        var drag = Math.exp(-3 * dt), drop = S.phase === "fizzle" ? 380 : 30;
-        ps.forEach(function (p) {
-          p.vx *= drag;
-          p.vy = p.vy * drag + drop * dt;
-          p.x += p.vx * dt;
-          p.y += p.vy * dt;
-        });
-        if (S.s > 1.5) S.alive = false;
-      }
-      S.yaw += dt * (0.6 + 4 * S.T * S.T + 14 * S.q * S.q);
-      S.beat += dt * Math.PI * 2 * (1 + 3 * S.T * S.T + 8 * S.q);
-      if (S.phase === "gather" || S.phase === "crunch") place();
-      if (S.phase === "crunch") shake = 1.1 * S.q * S.q;
-    };
-
-    // Gathering: a spinning sphere of dots threaded to their neighbours, two orbits round it and
-    // a heart at the centre that beats faster as it tightens; spikes leak out just before it goes.
-    function knot() {
-      var T = S.T, q = S.q, cx = S.cx, cy = S.cy, R = S.R, i, p;
-      g.lineWidth = 0.5;
-      var la = 0.05 + 0.13 * T + 0.25 * q;
-      for (i = 0; i < n; i++) {
-        p = ps[i];
-        if (!p.home) continue;
-        for (var o = 13; o <= 21; o += 8) {
-          var nb = ps[i + o];
-          if (!nb || !nb.home) continue;
-          g.strokeStyle = inkA(la * (0.35 + (0.65 * (p.z + nb.z + 2)) / 4));
-          line(p.x, p.y, nb.x, nb.y);
-        }
-      }
-      var ra = (0.1 + 0.22 * T) * smooth(0.9, 2.2, S.t) * (1 - 0.6 * q);
-      if (ra > 0.005) {
-        g.lineWidth = 0.7;
-        g.strokeStyle = inkA(ra);
-        for (var k = 0; k < 2; k++) {
-          g.beginPath();
-          g.ellipse(cx, cy, R * 1.65, R * 1.65 * (k ? 0.36 : 0.2), S.yaw * (k ? -0.45 : 0.3) + k * 1.2, 0, Math.PI * 2);
-          g.stroke();
-        }
-      }
-      for (i = 0; i < n; i++) {
-        p = ps[i];
-        if (!p.vis) continue;
-        var dz = (p.z + 1) / 2;
-        g.fillStyle = inkA(p.a * p.vis * (0.35 + 0.65 * dz) * (1 + q));
-        circle(p.x, p.y, p.r * (0.7 + 0.6 * dz) * (1 - 0.25 * T));
-        g.fill();
-      }
-      var pulse = Math.pow(Math.max(0, Math.sin(S.beat)), 12);
-      var cr = (1 + 2.4 * T) * (1 + 0.7 * pulse) + 4 * q * q;
-      g.fillStyle = inkA(0.95);
-      circle(cx, cy, cr);
-      g.fill();
-      if (pulse > 0.03) {
-        g.lineWidth = 0.8;
-        g.strokeStyle = inkA(0.22 * pulse);
-        circle(cx, cy, cr + 4 + 10 * (1 - pulse));
-        g.stroke();
-      }
-      if (q > 0) {
-        g.lineWidth = 0.6;
-        for (var s = 0; s < 24; s++) {
-          var ang = (s / 24) * Math.PI * 2 + S.yaw * 0.2 + Math.random() * 0.08, r0 = cr + 3, len = (4 + Math.random() * 30) * q * q;
-          g.strokeStyle = inkA(0.45 * q * Math.random());
-          line(cx + Math.cos(ang) * r0, cy + Math.sin(ang) * r0, cx + Math.cos(ang) * (r0 + len), cy + Math.sin(ang) * (r0 + len));
-        }
-      }
-    }
-
-    // Bursting: every dot is flung out as a streak, two shock rings and a bloom spread from the
-    // centre. Fizzling (no reply): the dots simply drop away.
-    function scatter() {
-      var s = S.s, cx = S.cx, cy = S.cy, burstNow = S.phase === "burst";
-      g.lineCap = "round";
-      for (var i = 0; i < n; i++) {
-        var p = ps[i], life = burstNow ? 1 - s / p.life : 1 - s / 0.9;
-        if (life <= 0 || !p.vis) continue;
-        if (burstNow) {
-          g.strokeStyle = inkA(p.a * life);
-          g.lineWidth = p.r * 1.3 * (0.4 + 0.6 * life);
-          line(p.x - p.vx * 0.024, p.y - p.vy * 0.024, p.x, p.y);
-        } else {
-          g.fillStyle = inkA(p.a * p.vis * life);
-          circle(p.x, p.y, p.r);
-          g.fill();
-        }
-      }
-      if (!burstNow) return;
-      for (var k = 0; k < 2; k++) {
-        var sk = s - k * 0.09;
-        if (sk <= 0 || sk >= 0.8) continue;
-        var e = 1 - Math.pow(1 - sk / 0.8, 3);
-        g.lineWidth = 0.4 + 1.8 * (1 - sk / 0.8);
-        g.strokeStyle = inkA((k ? 0.22 : 0.42) * (1 - sk / 0.8));
-        circle(cx, cy, 6 + (k ? 170 : 280) * e);
-        g.stroke();
-      }
-      if (s < 0.2) {
-        g.fillStyle = inkA(0.2 * (1 - s / 0.2));
-        circle(cx, cy, 4 + 46 * (s / 0.2));
-        g.fill();
-      }
-    }
-
-    S.draw = function () {
-      g.setTransform(dpr, 0, 0, dpr, -ox * dpr, 0);
-      g.clearRect(ox, 0, pw, ph);
-      if (!S.alive) return;
-      if (S.phase === "gather" || S.phase === "crunch") knot();
-      else scatter();
-    };
-    return S;
-  }
-
   // ---- messages ----
 
   function link(url) {
     var a = document.createElement("a");
     a.href = url;
     a.textContent = url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
-    if (!/^https?:\/\/(www\.)?yezhang\.net/.test(url)) {
+    if (!/^https?:\/\/(www\.)?yezhang\.(ai|net)/.test(url)) {
       a.target = "_blank";
       a.rel = "noopener noreferrer";
     }
     return a;
+  }
+
+  // A reply may end with [go:/path]: the assistant taking the visitor to a page of the site. The tag is
+  // never shown (nor the start of one while it streams in); once the reply is typed, the page turns
+  // back and the visitor goes there.
+  function shown(text) {
+    return text.replace(/\s*\[go:[^\]]*\]\s*$/, "").replace(/\s*\[(g(o(:[^\]]*)?)?)?$/, "");
+  }
+  function goTo(text) {
+    var m = /\[go:\s*([^\]\s]+)\s*\]\s*$/.exec(text);
+    if (!m) return null;
+    var path = m[1].replace(/^https?:\/\/(www\.)?yezhang\.(ai|net)/, "");
+    return /^\/(?!\/)[\w\-./#?=&%]*$/.test(path) ? path : null;
   }
 
   // Plain text with bare URLs turned into links; never injects HTML.
@@ -1368,7 +1124,7 @@
   // Open, the dark is the writing surface: a click anywhere on it is ready to type (on the roll of
   // the page itself, it lets go).
   space.addEventListener("click", function (e) {
-    if (state !== "open" || (e.target.closest && e.target.closest("a,.close"))) return;
+    if (state !== "open" || (e.target.closest && e.target.closest("a"))) return;
     if (foldU(e.clientX, e.clientY) < rOf(pD.x) + 4) return close();
     // a blinking caret where the dark was clicked; the writing (if any) moves there
     pin = { x: e.clientX - 1, y: e.clientY - 14 };
@@ -1398,7 +1154,6 @@
     peek = false;
     wake();
   });
-  closeEl.addEventListener("click", close);
   // Type anywhere: while it is open, any letter goes to the writing.
   document.addEventListener("keydown", function (e) {
     if (state !== "open") return;
@@ -1471,41 +1226,29 @@
     history.push({ role: "user", content: text });
     said.textContent = "thinking";
 
-    // The thought gathers somewhere else in the dark.
-    var s = null, knotF = null;
-    if (!REDUCED) {
-      var k = findSpot(150, 150, [rectOf(qF)].concat(others(qF)));
-      knotF = float(null, k.x, k.y, 12);
-      knotF.w = knotF.h = 150;
-      s = storm = Storm(function () {
-        return { x: knotF.px + 75, y: knotF.py + 75 };
-      }, mine);
-      setTimeout(function () {
-        if (busy) mine.classList.add("read");
-      }, 500);
-    }
+    // While it thinks: three dots, blinking where the reply will be (a place with room for a few
+    // lines), which then becomes the reply.
+    var aF = block("a dots", [rectOf(qF)].concat(others(qF)), function (el) {
+      el.innerHTML = "<i>.</i><i>.</i><i>.</i>";
+      el.style.width = maxW(320) + "px";
+      el.style.height = "96px";
+    });
+    aF.el.style.width = aF.el.style.height = "";
     wake();
 
-    var answer = "", ended = false, out = false, releasing = null, tw = null;
+    var answer = "", ended = false, out = false, tw = null;
     function reveal() {
       out = true;
-      if (knotF) drop(knotF);
-      mine.classList.remove("read");
-      // placed by the size of what has arrived so far, then emptied and typed
-      var aF = block("a", [rectOf(qF)].concat(knotF ? [rectOf(knotF)] : [], others(qF)), function (el) {
-        el.textContent = answer;
-      });
+      aF.el.classList.remove("dots");
       tw = typeOut(aF);
       more();
     }
-    // Holds the reply back until the thought has gathered, then lets it burst out.
     function ready() {
-      if (out || releasing || !answer) return;
-      if (s) releasing = s.release().then(reveal);
-      else reveal(null);
+      if (out || !answer) return;
+      reveal();
     }
     function more() {
-      tw.src = answer;
+      tw.src = shown(answer);
       tw.ended = ended;
       wake();
     }
@@ -1532,16 +1275,23 @@
       if (!answer) throw new Error("");
       ended = true;
       ready();
-      if (releasing) await releasing;
       more();
       await tw.done;
-      said.textContent = answer;
+      said.textContent = shown(answer);
       history.push({ role: "assistant", content: answer });
       save();
+      var path = goTo(answer);
+      if (path && path !== location.pathname) {
+        setTimeout(function () {
+          close();
+          setTimeout(function () {
+            location.assign(path);
+          }, REDUCED ? 0 : 650);
+        }, REDUCED ? 0 : 900);
+      }
     } catch (err) {
       history.pop();
-      if (s) s.fizzle();
-      if (knotF) drop(knotF);
+      if (!out) drop(aF);
       mine.classList.remove("read");
       var why = (err && err.message) || "couldn't reach the assistant — try again in a moment.";
       // typed out somewhere in the dark, like a terminal

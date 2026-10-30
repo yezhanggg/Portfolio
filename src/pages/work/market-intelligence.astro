@@ -1,0 +1,89 @@
+---
+// Market Intelligence, the research platform Ye built for a multifamily investment firm (SELECTED
+// WORK on /professional). The firm is never named and nothing links to the tool: it is internal.
+// Screenshots show public data only (Census, HUD), with the firm's name taken out of them.
+import WorkPage from "../../components/WorkPage.astro";
+
+const M = "/media/work/market-intelligence";
+const big = (name, alt) => ({ src: `${M}/${name}`, w: ["1200", "2000"], alt });
+
+const p = {
+  index: "02 / 02",
+  title: "Market Intelligence",
+  year: "2026",
+  accent: "#0070e0",
+  tagline: ["Real estate market intelligence,", "behind one login."],
+  summary: "Market Intelligence: an internal research platform for a multifamily investment team, from market studies and county screens to rent rolls and T-12s.",
+  meta: [
+    ["ROLE", "Design, data and build"],
+    ["MADE FOR", "The acquisitions and research team of a multifamily investment firm"],
+    ["USED BY", "Analysts, on one login shared by the whole team"],
+    ["BUILT WITH", "React, Supabase, Leaflet and MapLibre, Claude"],
+  ],
+  note: "An internal tool: there is no public link, and the firm stays unnamed. The screenshots show public data only.",
+  cards: [
+    { src: `${M}/hero`, w: ["1600", "2400"], alt: "Market Intelligence: the start page, eight tool tiles on deep blue under “Real Estate Market Intelligence”." },
+    big("county", ""),
+    big("study", ""),
+  ],
+  question:
+    "A multifamily deal starts with the same questions every time. Is the market worth it? What does the neighborhood around the property look like? What do its rent roll and its T-12 really say? Each one is its own kind of research, with its own data.",
+  answer:
+    "Market Intelligence puts every one of those answers behind one login, shared by the whole team: eight tools, from screening every county in the country down to reading a single property's rent roll.",
+  features: [
+    {
+      title: "Market study",
+      text: "A study around a property in five steps: pick the PUMAs, pick the main and sub ZIP codes, read the data, preview the map, export to Excel or PowerPoint. An assistant suggests the ZIP groups, learned from the analysts' own past picks.",
+      image: big("study", "Market Study, step 2: main and sub ZIP groups drawn in orange around Dallas, with the assistant's suggestions beside the map."),
+    },
+    {
+      title: "The numbers, side by side",
+      text: "Every ZIP in the study against its group: population, income, home values, renters and rents, and renter income by race, from the Census, ready to export.",
+      image: big("table", "Market Study, step 3: the demographic comparison table and the renter and race income table for nine ZIP codes."),
+    },
+    {
+      title: "County screen",
+      text: "815 US counties screened on the base case through four screens (institutional buyers, market size, affordability, fundamentals), with drive-time filters and two counties side by side.",
+      image: big("county", "County Screen: a map of US counties coloured by rent-to-income, with the pass and fail counts, a histogram and the ranking."),
+    },
+    {
+      title: "Market news",
+      text: "A weekly pulse for every submarket the team follows: development, retail and sentiment, an issue per submarket and a summary for each market.",
+      image: big("news", "Qualitative Market News: the weekly summaries and the list of submarkets, with the latest issue for each."),
+    },
+    {
+      title: "Rent rolls and T-12s",
+      text: "Reads any property-management rent roll, Excel or PDF, for occupancy, loss to lease and expirations. The T-12 analyzer sorts operating statements into 65 categories and compares them with 215 comps; every correction an analyst makes goes back into the classifier.",
+      image: big("t12", "T-12 Analyzer, the dictionary: line items under Gross Potential Rent, Effective Rental Income and Other Income."),
+    },
+    {
+      title: "LIHTC and affordability",
+      text: "HUD income limits and fair market rents for any ZIP code, QCT and DDA designations, demand and competition, ready to export.",
+      image: big("lihtc", "LIHTC / Affordability for a Houston ZIP code: the HUD income limits at 30, 50 and 80 percent of area median income."),
+    },
+  ],
+  numbers: [
+    ["8", "live tools behind one login, with five more planned"],
+    ["815", "US counties screened on the base case"],
+    ["86%", "of T-12 lines sorted into the analysts' own categories on a held-out test, with a 2.5% median NOI error"],
+    ["65", "T-12 categories, compared against 215 comps"],
+  ],
+  principlesLabel: "HOW IT USES AI",
+  principles: [
+    "AI suggests; the analyst decides.",
+    "Suggestions learn from the team's own past picks, and are tested against them before they are trusted.",
+    "Every correction an analyst makes goes back into the classifier.",
+  ],
+  sources: [
+    "U.S. Census Bureau, American Community Survey, by ZIP code, PUMA and tract (2014–2024)",
+    "HUD income limits and Fair Market Rents",
+    "LIHTC property data; QCT and DDA designations",
+    "Licensed commercial real-estate data for the construction pipeline",
+    "The team's own rent rolls and T-12 statements, never shown here",
+  ],
+  sourcesLabel: "DATA",
+  next: { title: "VisionPitts", href: "/work/visionpitts" },
+};
+---
+
+<WorkPage p={p} />

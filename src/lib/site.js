@@ -3,9 +3,10 @@ import media from "../data/media.json";
 import { applyFixups } from "./fixups.js";
 
 const modules = import.meta.glob("../data/pages/*.json", { eager: true });
-// Pages taken off the site. Their data stays: /home's buttons still fill the explore box on
-// /copy-of-notice (src/lib/fixups.js).
-const REMOVED = new Set(["home"]);
+// Pages taken off the site (their data stays): /home; /copy-of-notice, the old "explore with
+// curiosity" box (the way in is /notice, with only CREATIVE and PROFESSIONAL); and five ZHAENG
+// pages, leaving ZHAENG as /zhaeng/1, 2 and 3.
+const REMOVED = new Set(["home", "copy-of-notice", ...["33-sec", "blank", "cautious", "me", "still"].map((s) => `zhaeng/${s}`)]);
 export const pages = Object.values(modules)
   .map((m) => applyFixups(structuredClone(m.default ?? m)))
   .filter((page) => !REMOVED.has(routeOf(page)));
@@ -17,7 +18,9 @@ export function routeOf(page) {
 }
 
 const ORIGINS = [
-  ["https://www.yezhang.net", ""],
+  ["https://yezhang.ai", ""],
+  ["https://www.yezhang.ai", ""],
+  ["https://www.yezhang.net", ""], // (the old domain, still in the pages' data)
   ["https://yezhang.net", ""],
   ["https://yegnahz.wixsite.com/zhaeng", "/zhaeng"],
 ];

@@ -148,7 +148,8 @@ function setup(slot) {
     dpr = Math.min(devicePixelRatio || 1, DPR_CAP);
     const vw = root.clientWidth, vh = innerHeight, wide = vw >= 980;
     // the slot's module (CSS sizes the slot from it)
-    const target = wide ? Math.min(420, 0.52 * vh) : Math.min(vw, 560) - 32;
+    const uz = Math.max(1, Math.min(vw / 1440, vh / 900)); // (larger laptops: the city grows too)
+    const target = wide ? Math.min(420 * uz, 0.52 * vh) : Math.min(vw, 560) - 32;
     let md = Math.floor((target * dpr) / G);
     md = wide ? Math.max(md, Math.round(8 * dpr)) : Math.min(md, Math.floor(11 * dpr));
     root.style.setProperty("--m", `${md / dpr}px`);
@@ -162,7 +163,8 @@ function setup(slot) {
     const r = slot.getBoundingClientRect(), c = canvas.getBoundingClientRect();
     const across = 2 * (N + 2 * BORDER) * Math.SQRT1_2;
     // (larger than the slot on a wide screen, reaching out into the margin, away from the text)
-    const big = wide ? 1.55 : 1.2, out = wide ? ((big - 1) * r.width) / 2 : 0, half = (r.width * big) / 2;
+    // (on a phone, a little larger than the slot but never wider than the window)
+    const big = wide ? 1.55 : Math.min(1.2, (vw - 24) / r.width), out = wide ? ((big - 1) * r.width) / 2 : 0, half = (r.width * big) / 2;
     const mid = Math.max(r.left + r.width / 2 - out, 24 + half); // (never past the window's left edge)
     D = { S: (r.width * dpr * big) / across, cx: (mid - c.left) * dpr, cy: (r.top + r.height / 2 - c.top) * dpr };
   }
@@ -672,10 +674,16 @@ function setup(slot) {
   }).observe(document.body);
   slot.toggleAttribute("data-live", true);
   canvas.setAttribute("role", "img");
-  canvas.setAttribute("aria-label", "QR code: email yezhang1@upenn.edu. Click to open it into a city.");
+  canvas.setAttribute("aria-label", `${slot.querySelector(".qr-plan")?.getAttribute("aria-label") || "QR code."} Click to open it into a city.`);
   canvas.removeAttribute("aria-hidden");
   slot.querySelector("svg")?.setAttribute("aria-hidden", "true");
-  draw(CODE());
+  // The page opens on the code, unless it was asked for the city (back from a project page).
+  if (root.classList.contains("qr-full")) draw(CODE());
+  else {
+    mode = "city";
+    slot.dataset.state = mode;
+    draw(CITY());
+  }
 }
 
 // Whether (px, py) is inside the convex hull of these points (a building seen from any side).
