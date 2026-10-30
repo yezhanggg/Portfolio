@@ -1,61 +1,484 @@
 ---
 // The professional side of the site (CREATIVE / PROFESSIONAL on /notice): Ye's AI solutions.
-// A placeholder until the work is ready to show.
+// It opens on a QR code filling the screen. Click it and the code becomes a city: the streets open,
+// a building grows out of every black module and the camera tilts down to the corner while the
+// city settles at the left of the page, beside the projects (src/scripts/qr-city.js). Click the
+// city and it folds back into the code.
 import Base from "../layouts/Base.astro";
+import { qrMatrix } from "../lib/qrcodegen.js";
+
+// What the code says. Locked to version 3 (29x29) so the city keeps its grid if this becomes the
+// page URL once yezhang.net moves off Wix ("https://yezhang.net/professional" also fits V3-Q).
+const QR_TEXT = "mailto:yezhang1@upenn.edu";
+const EMAIL = "yezhang1@upenn.edu";
+const qr = qrMatrix(QR_TEXT, { ecl: "Q", minVersion: 3, maxVersion: 3 });
+const QUIET = 4; // white modules around the code
+const G = qr.size + 2 * QUIET; // modules across the slot
+
+// The no-JS plan: one path, a rectangle per run of dark modules in a row.
+let plan = "";
+for (let y = 0; y < qr.size; y++) {
+  for (let x = 0; x < qr.size; ) {
+    if (qr.bits[y * qr.size + x] !== "1") {
+      x++;
+      continue;
+    }
+    let x1 = x;
+    while (x1 < qr.size && qr.bits[y * qr.size + x1] === "1") x1++;
+    plan += `M${x} ${y}h${x1 - x}v1h${x - x1}z`;
+    x = x1;
+  }
+}
+const QR_LABEL = `QR code: email ${EMAIL}.`;
+
+// Selected work: adding a project is one entry. image: a /media WebP set (name-480/-960.webp), in grey.
+const PROJECTS = [
+  {
+    title: "VisionPitts",
+    description: "Great decisions need vision. A live housing map of Pittsburgh, AI Horizons 2026.",
+    year: "2026",
+    href: "https://ye-zhang-vision-pitts.vercel.app",
+    image: "/media/visionpitts-landing",
+  },
+];
 ---
 
-<Base title="PROFESSIONAL | YE ZHANG" description="AI solutions by Ye Zhang — coming soon.">
+<Base title="PROFESSIONAL | YE ZHANG" description="AI solutions by Ye Zhang.">
+  <script is:inline define:vars={{ G }}>
+    // Before first paint: the page opens on the full-screen code (qr-city.js takes it from there;
+    // without JS the page is simply the plan beside the projects), and the module size of the city's
+    // slot, a whole number of device pixels (qr-city.js keeps it up to date).
+    var d = document.documentElement;
+    d.classList.add("qr-full");
+    var r = Math.min(devicePixelRatio || 1, 3), w = d.clientWidth;
+    var t = w >= 980 ? Math.min(420, 0.52 * innerHeight) : Math.min(w, 560) - 32;
+    var md = Math.floor((t * r) / G);
+    md = w >= 980 ? Math.max(md, Math.round(8 * r)) : Math.min(md, Math.floor(11 * r));
+    d.style.setProperty("--m", md / r + "px");
+  </script>
+  <canvas class="qr-canvas" aria-hidden="true"></canvas>
+  <div class="work-peek" aria-hidden="true">
+    {PROJECTS.map((p) => p.image && <img src={`${p.image}-480.webp`} srcset={`${p.image}-480.webp 480w, ${p.image}-960.webp 960w`} sizes="280px" alt="" loading="lazy" decoding="async" />)}
+  </div>
+  <p class="qr-hint" aria-hidden="true">SCAN TO WRITE · CLICK TO ENTER</p>
   <main class="pro">
-    <p class="pro-kicker">YE ZHANG</p>
-    <h1>PROFESSIONAL</h1>
-    <p class="pro-line">AI solutions — coming soon</p>
-    <p class="pro-links">
-      <a href="mailto:yezhang1@upenn.edu">yezhang1@upenn.edu</a>
-      &nbsp;·&nbsp;
-      <a href="/notice">BACK</a>
-    </p>
+    <div class="pro-panel">
+      <header class="pro-head">
+        <h1 style="--d: 1.6s">Ye'Solution</h1>
+      </header>
+      <section class="work" aria-labelledby="work-h" style="--d: 1.85s">
+        <h2 id="work-h" class="work-h">SELECTED WORK</h2>
+        <div class="work-list">
+          {PROJECTS.map((p, i) => (
+            <a class="work-row" href={p.href} target="_blank" rel="noopener" data-peek={p.image ? i : undefined}>
+              <span class="work-text">
+                <span class="work-title">
+                  <span class="u">{p.title}</span>
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" /></svg>
+                  <span class="sr"> (opens in a new tab)</span>
+                </span>
+                <span class="work-desc">{p.description}</span>
+              </span>
+              <span class="work-year">{p.year}</span>
+            </a>
+          ))}
+          <div class="work-row soon">
+            <span class="work-text">
+              <span class="work-title">Next</span>
+              <span class="work-desc">In progress.</span>
+            </span>
+          </div>
+        </div>
+      </section>
+      <nav class="pro-links" aria-label="Contact" style="--d: 2s">
+        <a class="label" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        <a class="label" href="/notice">BACK</a>
+      </nav>
+    </div>
+
+    <figure class="pro-stage">
+      <div class="qr-slot" data-qr-city data-size={qr.size} data-quiet={QUIET} data-bits={qr.bits} data-state="qr" tabindex="0" role="button" aria-label="QR code city: press Enter to open the code into a city, or fold it back" aria-describedby="qr-hint">
+        <svg class="qr-plan" viewBox={`0 0 ${qr.size} ${qr.size}`} shape-rendering="crispEdges" role="img" aria-label={QR_LABEL}>
+          <path d={plan} />
+        </svg>
+      </div>
+      <p id="qr-hint" class="sr">Arrow keys turn the city; Escape folds it back into the code.</p>
+    </figure>
   </main>
 </Base>
 
+<script>
+  import "../scripts/qr-city.js";
+
+  // Selected work: a preview of the project under the pointer trails it, easing after the cursor.
+  const peek = document.querySelector<HTMLElement>(".work-peek");
+  const rows = document.querySelectorAll<HTMLElement>(".work-row[data-peek]");
+  if (peek && rows.length && matchMedia("(hover: hover)").matches) {
+    const imgs = [...peek.querySelectorAll("img")];
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let x = 0, y = 0, tx = 0, ty = 0, raf = 0, on = false;
+    const frame = () => {
+      const k = still ? 1 : 0.15;
+      x += (tx - x) * k;
+      y += (ty - y) * k;
+      peek.style.transform = `translate3d(${(x + 24).toFixed(1)}px, ${(y - 110).toFixed(1)}px, 0)`;
+      raf = on || Math.abs(tx - x) + Math.abs(ty - y) > 0.5 ? requestAnimationFrame(frame) : 0;
+    };
+    addEventListener("pointermove", (e) => {
+      [tx, ty] = [e.clientX, e.clientY];
+      if (on && !raf) raf = requestAnimationFrame(frame);
+    }, { passive: true });
+    rows.forEach((row) => {
+      row.addEventListener("pointerenter", (e) => {
+        if (!on) [x, y] = [e.clientX, e.clientY]; // appears where the pointer is, then follows
+        [tx, ty] = [e.clientX, e.clientY];
+        on = true;
+        imgs.forEach((img, i) => img.classList.toggle("on", String(i) === row.dataset.peek));
+        peek.classList.add("on");
+        if (!raf) raf = requestAnimationFrame(frame);
+      });
+      row.addEventListener("pointerleave", () => {
+        on = false;
+        peek.classList.remove("on");
+      });
+    });
+  }
+</script>
+
+
 <style>
   .pro {
-    min-height: 100vh;
+    --G: 37; /* modules across the slot: the 29 of the code and a quiet zone of 4 on each side */
+    --slot: calc(var(--m, 11px) * var(--G));
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    min-height: 100dvh;
     display: grid;
-    place-content: center;
-    gap: 18px;
-    text-align: center;
+    grid-template-columns: var(--slot) minmax(0, 1fr);
+    column-gap: 96px;
+    align-items: center;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 56px 48px 96px;
+    overflow-x: clip;
     font-family: "dinneuzeitgroteskltw01-_812426", sans-serif;
-    padding: 24px;
-    background: #fff;
     color: #000;
+    pointer-events: none;
+  }
+  .pro a,
+  .qr-slot {
+    pointer-events: auto;
+  }
+  :global(body) {
+    background: #fff;
   }
   .pro p,
   .pro h1 {
     margin: 0;
     font-weight: normal;
   }
-  .pro-kicker {
-    font-size: 14px;
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* ---- The city's canvas: the first screen of the page, under the text ---- */
+  .qr-canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  /* The full-screen code: nothing else on the page, and a click anywhere opens it. */
+  :global(html.qr-full) {
+    overflow: hidden;
+  }
+  :global(html.qr-full) .qr-canvas {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .qr-hint {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 28px;
+    z-index: 1;
+    margin: 0;
+    text-align: center;
+    font-family: "dinneuzeitgroteskltw01-_812426", sans-serif;
+    font-size: 12px;
     letter-spacing: 0.3em;
-    color: #8f8f8f;
+    color: #000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  :global(html.qr-full) .qr-hint {
+    opacity: 1;
+    transition: opacity 0.6s ease 0.2s;
+  }
+
+  /* ---- Panel: arrives as the city settles, leaves at once when it folds back ---- */
+  .pro-panel {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .pro-panel [style*="--d"] {
+    transition: opacity 0.6s ease var(--d, 0s), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s), visibility 0s linear var(--d, 0s);
+  }
+  :global(html.qr-full) .pro-panel [style*="--d"] {
+    opacity: 0;
+    transform: translateY(10px);
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
   }
   .pro h1 {
-    font-size: clamp(44px, 9vw, 96px);
+    font-size: clamp(44px, 6vw, 80px);
     line-height: 1;
     letter-spacing: 0.04em;
   }
-  .pro-line {
-    font-size: 22px;
+  /* ---- Selected work ---- */
+  .work {
+    max-width: 520px;
+    margin-top: 48px;
+  }
+  .work-h {
+    margin: 0 0 18px;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 0.3em;
+    color: #767676;
+  }
+  .work-list {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .work-row {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid #e5e5e5;
+  }
+  /* the soft highlight behind a row under the pointer */
+  .work-row::before {
+    content: "";
+    position: absolute;
+    inset: 0 -14px;
+    border-radius: 8px;
+    background: #f4f4f4;
+    opacity: 0;
+    transform: scale(0.97);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  a.work-row:hover::before,
+  a.work-row:focus-visible::before {
+    opacity: 1;
+    transform: none;
+  }
+  a.work-row:focus-visible {
+    outline: none;
+  }
+  .work-text,
+  .work-year {
+    position: relative;
+  }
+  .work-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .work-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 21px;
+    letter-spacing: 0.01em;
+  }
+  /* the underline draws across */
+  .u {
+    background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1px;
+    padding-bottom: 1px;
+    transition: background-size 0.3s ease-out;
+  }
+  a.work-row:hover .u,
+  a.work-row:focus-visible .u {
+    background-size: 100% 1px;
+  }
+  /* and the arrow slides in */
+  .work-title svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    opacity: 0;
+    transform: translate(-6px, 6px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  a.work-row:hover .work-title svg,
+  a.work-row:focus-visible .work-title svg {
+    opacity: 1;
+    transform: none;
+  }
+  .work-desc {
+    display: block;
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #767676;
+    transition: color 0.3s ease-out;
+  }
+  a.work-row:hover .work-desc,
+  a.work-row:focus-visible .work-desc {
+    color: #3a3a3a;
+  }
+  .work-year {
+    padding-top: 6px;
+    font: 12px/1 ui-monospace, "SF Mono", Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+    color: #9a9a9a;
+    transition: color 0.3s ease-out;
+  }
+  a.work-row:hover .work-year {
+    color: #555;
+  }
+  .soon .work-title {
+    color: #9a9a9a;
+  }
+  .soon .work-desc {
+    color: #b5b5b5;
+  }
+  /* the preview that trails the pointer */
+  .work-peek {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    width: 280px;
+    height: 175px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f1f1f1;
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.28);
+    pointer-events: none;
+    opacity: 0;
+    scale: 0.8;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .work-peek.on {
+    opacity: 1;
+    scale: 1;
+  }
+  .work-peek img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    scale: 1.1;
+    filter: blur(10px);
+    transition: opacity 0.5s ease-out, scale 0.5s ease-out, filter 0.5s ease-out;
+  }
+  .work-peek img.on {
+    opacity: 1;
+    scale: 1;
+    filter: none;
   }
   .pro-links {
-    margin-top: 18px !important;
-    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 36px;
+    row-gap: 12px;
+    margin-top: 40px;
+    font-size: 14px;
     letter-spacing: 0.08em;
   }
   .pro a {
     color: inherit;
+    text-decoration: none;
   }
-  .pro a:hover {
-    opacity: 0.6;
+  .label {
+    text-decoration: underline 1px transparent;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.3s ease;
+  }
+  .pro a:hover .label,
+  .pro a.label:hover,
+  .pro a:focus-visible .label,
+  .pro a.label:focus-visible {
+    text-decoration-color: currentColor;
+  }
+
+  /* ---- The stage: where the city settles (the code + quiet zone, square) ---- */
+  .pro-stage {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    width: var(--slot);
+  }
+  .qr-slot {
+    position: relative;
+    width: var(--slot);
+    height: var(--slot);
+    cursor: pointer;
+    touch-action: pan-y;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .qr-slot.dragging {
+    cursor: grabbing;
+  }
+  .qr-slot:focus-visible {
+    outline: 1px solid #000;
+    outline-offset: 4px;
+  }
+  .qr-plan {
+    position: absolute;
+    left: calc(var(--m) * 4);
+    top: calc(var(--m) * 4);
+    width: calc(var(--m) * 29);
+    height: calc(var(--m) * 29);
+    fill: #000;
+  }
+  /* Once the canvas draws, the SVG plan (the image without JS) steps aside. */
+  .qr-slot[data-live] .qr-plan {
+    opacity: 0;
+  }
+
+  /* ---- One column: phones and narrow windows ---- */
+  @media (max-width: 979px) {
+    .pro {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      align-items: start;
+      align-content: start;
+      padding: 40px 16px 96px;
+    }
+    .pro-stage {
+      grid-row: 1;
+    }
+    .pro-panel {
+      grid-column: 1;
+      grid-row: 2;
+      width: max(288px, var(--slot));
+      margin-top: 28px;
+    }
+    .work {
+      margin-top: 32px;
+    }
+    .pro-links {
+      flex-direction: column;
+      margin-top: 28px;
+    }
   }
 </style>

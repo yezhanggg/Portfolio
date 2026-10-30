@@ -65,3 +65,6 @@ dist/
 # Finder/iCloud duplicate copies ("file 2.html", "folder 2")
 * [2-9]
 * [2-9].*
+
+# Local working files, never pushed
+nopush/

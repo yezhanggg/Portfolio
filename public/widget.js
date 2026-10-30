@@ -1,6 +1,14 @@
-// yezhang.net chat bubble. Load with:
+// yezhang.net chat. Load with:
 //   <script src="https://<deployment>/widget.js" defer></script>
 // Talks to /api/chat on the same deployment the script was loaded from.
+//
+// The page is a leaf of a book. Its bottom-right corner is dog-eared and stirs like the edge of a
+// curtain in a draught. Bring the pointer near and the corner lifts toward it, uncovering pure
+// black and a pair of eyes that live in it; rest there (or click / tap the corner) and the page
+// turns back. There is no box, no field and no line: "type anywhere / ask anything" sinks slowly
+// down the dark, a click anywhere puts a caret there, and what you type is written in the air.
+// While the assistant thinks, dots drawn out of the question gather into a knot somewhere in the
+// dark, tighten for a few seconds and burst, and the reply is typed out wherever it comes to rest.
 (function () {
   if (window.__yzChatLoaded) return;
   window.__yzChatLoaded = true;
@@ -8,9 +16,16 @@
   var script = document.currentScript;
   var API = new URL("/api/chat", script ? script.src : location.href).href;
   var STORE_KEY = "yz-chat-v1";
+  var INTRO_KEY = "yz-chat-intro";
   var EMAIL = "yezhang1@upenn.edu";
-  var GREETING = "anything…";
   var REDUCED = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var HOVER = !!(window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches);
+
+  var GATHER = 3.7; // s the thought gathers before it may burst…
+  var CRUNCH = 0.6; // …then collapses, so a reply lands about 4.3–4.8 s after it is asked for
+  var DWELL = 0.45; // s resting on the uncovered words before the page turns
+  var ZONE = 300; // px around the corner in which the page notices the pointer
+  var DEG = Math.PI / 180;
 
   var history = [];
   try {
@@ -24,210 +39,1225 @@
 
   var host = document.createElement("div");
   host.id = "yz-chat";
-  host.style.cssText = "position:fixed;z-index:2147483000;right:0;bottom:0;";
+  host.style.cssText = "position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483000;pointer-events:none;";
   var root = host.attachShadow({ mode: "open" });
 
   var EASE = "cubic-bezier(.22,1,.36,1)";
+  var FLING = "cubic-bezier(.16,1,.3,1)";
+  // Paper grain: fractal noise kept only as alpha, in black (0) or white (1).
+  function grain(c, a) {
+    return (
+      "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E" +
+      "%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E" +
+      "%3CfeColorMatrix values='0 0 0 0 " + c + " 0 0 0 0 " + c + " 0 0 0 0 " + c + " 0 0 0 " + a + " 0'/%3E%3C/filter%3E" +
+      "%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")"
+    );
+  }
+  var SANS = "'helvetica-w01-roman','Helvetica Neue',Helvetica,Arial,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif";
   root.innerHTML =
     "<style>" +
-    ":host{--ink:#111;--mute:#8a8a8a;--line:rgba(0,0,0,.08);--glass:rgba(255,255,255,.78);" +
-    "font-family:'helvetica-w01-roman','Helvetica Neue',Helvetica,Arial,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;}" +
+    ":host{--ink:#f4f2ec;--mute:rgba(244,242,236,.5);font-family:" + SANS + ";}" +
     "*{box-sizing:border-box;margin:0;padding:0;font:inherit;}" +
     "button{-webkit-tap-highlight-color:transparent;}" +
-    // the orb button
-    ".bubble{position:fixed;right:24px;bottom:24px;width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;" +
-    "background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;" +
-    "box-shadow:0 6px 24px rgba(0,0,0,.18);transition:transform .35s " + EASE + ";}" +
-    ".bubble:hover{transform:scale(1.08);}.bubble:active{transform:scale(.94);}" +
-    ".bubble svg{width:24px;height:24px;}" +
-    ".bubble canvas{display:none;width:56px;height:56px;}" +
-    ".bubble.orb{background:transparent;box-shadow:none;}" +
-    ".bubble.orb svg{display:none;}.bubble.orb canvas{display:block;}" +
-    "button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}" +
-    // No box: the conversation is written straight onto a white haze that spreads out of the orb
-    // and fades into the page with no edge. The haze is a pseudo-element so the text stays crisp.
-    ".panel{position:fixed;right:0;bottom:0;width:min(600px,100vw);height:min(780px,100vh);" +
-    "padding:56px 40px 30px 150px;display:flex;flex-direction:column;color:var(--ink);pointer-events:none;}" +
-    // The haze's box is larger than its fade, so it reaches nothing before any edge.
-    ".panel::before{content:'';position:absolute;right:-40px;bottom:-40px;width:1200px;height:1200px;z-index:-1;pointer-events:none;" +
-    "background:radial-gradient(circle at 100% 100%,#fff 0,#fff 620px,rgba(255,255,255,.88) 760px,rgba(255,255,255,.45) 920px,rgba(255,255,255,0) 1120px);" +
-    "clip-path:circle(0px at calc(100% - 92px) calc(100% - 92px));transition:clip-path .45s ease-in;}" +
-    ".panel.open::before{clip-path:circle(1200px at calc(100% - 92px) calc(100% - 92px));transition:clip-path 1s " + EASE + ";}" +
-    ".panel>*{opacity:0;transform:translateY(12px);filter:blur(4px);" +
-    "transition:opacity .25s ease,transform .25s ease,filter .25s ease;}" +
-    ".panel.open>*{opacity:1;transform:none;filter:none;pointer-events:auto;" +
-    "transition:opacity .6s ease,transform .8s " + EASE + ",filter .6s ease;}" +
-    ".panel.open>.head{transition-delay:.25s;}.panel.open>.log{transition-delay:.15s;}" +
-    ".panel.open>.form{transition-delay:.05s;}.panel.open>.foot{transition-delay:.3s;}" +
-    // header: a whisper, not a bar
-    ".head{display:flex;align-items:center;gap:10px;}" +
-    ".head canvas{width:28px;height:28px;flex:none;}" +
-    ".who{flex:1;min-width:0;}" +
-    ".title{font-family:'helvetica-w01-bold','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;}" +
-    ".sub{font-size:12px;color:var(--mute);margin-top:1px;}" +
-    ".close{width:28px;height:28px;border:none;background:none;cursor:pointer;color:var(--mute);" +
-    "display:flex;align-items:center;justify-content:center;transition:color .2s,transform .4s " + EASE + ";}" +
-    ".close:hover{color:var(--ink);transform:rotate(90deg);}" +
-    ".close svg{width:14px;height:14px;}" +
-    // conversation: plain words on the page; older lines dissolve at the top
-    ".log{flex:1;overflow-y:auto;padding:40px 0 16px;display:flex;flex-direction:column;gap:18px;font-size:16px;line-height:1.6;" +
-    "scrollbar-width:none;overscroll-behavior:contain;" +
-    "-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 64px);mask-image:linear-gradient(to bottom,transparent 0,#000 64px);}" +
-    ".log::-webkit-scrollbar{display:none;}" +
-    ".log>:first-child{margin-top:auto;}" +
-    ".msg{white-space:pre-wrap;word-wrap:break-word;animation:ink .9s " + EASE + " both;}" +
-    ".msg.bot{align-self:flex-start;max-width:100%;}" +
-    ".msg.user{align-self:flex-end;max-width:85%;text-align:right;color:var(--mute);font-style:italic;}" +
-    ".msg.err{align-self:flex-start;color:var(--mute);font-size:14px;}" +
-    ".msg a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:rgba(0,0,0,.3);text-underline-offset:4px;}" +
-    ".msg a:hover{text-decoration-color:currentColor;}" +
-    ".thinking{display:flex;align-items:center;gap:8px;color:var(--mute);font-size:14px;}" +
-    ".thinking canvas{width:22px;height:22px;}" +
-    "@keyframes ink{from{opacity:0;transform:translateY(6px);filter:blur(6px);}}" +
-    // composer: a bare line of writing beside the orb
-    ".form{display:flex;align-items:flex-end;gap:10px;margin-right:72px;padding:10px 0;" +
-    "border-bottom:1px solid rgba(0,0,0,.12);transition:border-color .3s;}" +
-    ".form:focus-within{border-bottom-color:var(--ink);}" +
-    "textarea{flex:1;resize:none;border:none;padding:4px 0;font-size:16px;line-height:1.5;max-height:120px;" +
-    "color:var(--ink);background:transparent;outline:none;caret-color:var(--ink);}" +
-    "textarea::placeholder{color:var(--mute);font-style:italic;}" +
-    ".send{flex:none;width:28px;height:28px;border:none;background:none;color:var(--ink);cursor:pointer;" +
-    "display:flex;align-items:center;justify-content:center;transition:transform .3s " + EASE + ",opacity .3s;}" +
-    ".send:hover:not(:disabled){transform:translateY(-2px);}" +
-    ".send:disabled{opacity:0;cursor:default;}" +
-    ".send svg{width:18px;height:18px;}" +
-    ".foot{font-size:10.5px;color:var(--mute);padding:10px 72px 0 0;}" +
-    ".foot a{color:inherit;}" +
-    "@media (max-width:480px){.panel{width:100%;height:100%;padding:24px 20px 16px;}" +
-    ".panel::before{inset:0;width:auto;height:auto;background:rgba(255,255,255,.97);" +
-    "clip-path:circle(0px at calc(100% - 44px) calc(100% - 44px));}" +
-    ".panel.open::before{clip-path:circle(150% at calc(100% - 44px) calc(100% - 44px));}" +
-    ".bubble{right:16px;bottom:16px;}.form,.foot{margin-right:64px;padding-right:0;}}" +
-    "@media (prefers-reduced-motion:reduce){*,.panel::before,.panel.open::before{transition:none !important;animation:none !important;}}" +
+    ".scrim,.leaf,.end,.space{position:absolute;top:0;right:0;bottom:0;left:0;}" +
+    ".scrim{pointer-events:none;}.open .scrim{pointer-events:auto;}" +
+    // What the lifted page uncovers (clipped to it from script): pure black, and words floating on it.
+    ".leaf{pointer-events:auto;cursor:pointer;clip-path:polygon(0 0,0 0,0 0);}" +
+    ".open .leaf{cursor:text;}" +
+    ".end{background:#000;}" +
+    // The curl of the page itself, drawn on a canvas that hugs the corner.
+    ".page{position:absolute;right:0;bottom:0;pointer-events:none;}" +
+    // the eyes in the dark under the corner
+    ".pal{position:absolute;left:0;top:0;pointer-events:none;opacity:0;transition:opacity .6s ease;}" +
+    ".pal.on{opacity:1;}" +
+    ".corner{position:absolute;right:0;bottom:0;width:72px;height:72px;border:none;background:none;cursor:pointer;pointer-events:auto;outline:none;}" +
+    ".open .corner{visibility:hidden;}" +
+    // The space: nothing but words, each floating on its own.
+    ".space{visibility:hidden;pointer-events:none;color:var(--ink);}" +
+    ".open .space{pointer-events:auto;}" +
+    ".f{position:absolute;left:0;top:0;will-change:transform;white-space:pre-wrap;overflow-wrap:break-word;transition:opacity 1.2s ease;}" +
+    ".storm{position:absolute;top:0;pointer-events:none;}" +
+    // the invitation: its letters bob on a slow wave and scatter as soon as anything is typed
+    ".prompt{font-size:11.5px;letter-spacing:.34em;text-transform:uppercase;line-height:2.2;text-align:center;white-space:nowrap;}" +
+    ".prompt b{display:block;font-weight:inherit;}" +
+    ".ch{display:inline-block;transition:transform 1.1s " + FLING + ",opacity .7s ease,filter .7s ease;transition-delay:calc(var(--i) * 14ms);}" +
+    ".ch i{display:inline-block;font-style:normal;animation:bob 3.4s ease-in-out calc(var(--i) * -.17s) infinite alternate;}" +
+    ".gone .ch{transform:translate(var(--gx),var(--gy)) rotate(var(--gr));opacity:0;filter:blur(5px);}" +
+    "@keyframes bob{from{transform:translateY(-2.5px);}to{transform:translateY(2.5px);}}" +
+    // what is being typed, written in the air; once sent it becomes a grey aside
+    // what you write is in Courier, like a terminal
+    ".draft{font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.45;opacity:0;transition:opacity .35s ease;}" +
+    ".draft.on{opacity:1;}" +
+    ".caret{display:inline-block;width:1.5px;height:1.05em;margin-left:2px;background:currentColor;vertical-align:-.14em;animation:caret 1.06s steps(1) infinite;}" +
+    "@keyframes caret{50%{opacity:0;}}" +
+    ".q{font-family:'Courier New',Courier,monospace;font-size:14px;line-height:1.5;color:var(--mute);animation:ink .8s " + EASE + " both;}" +
+    ".q.read{opacity:.35;}" +
+    ".a{font-size:16px;line-height:1.6;}" +
+    // a failure reads like a terminal: green Courier behind a block caret
+    ".err{font-family:'Courier New',Courier,monospace;font-size:14px;line-height:1.5;color:#39ff6a;text-shadow:0 0 6px rgba(57,255,106,.35);}" +
+    ".err .caret{width:.6em;margin-left:1px;}" +
+    // letters of words that have had their turn, flying apart
+    ".dust{position:absolute;left:0;top:0;pointer-events:none;}.dust span{position:absolute;white-space:pre;line-height:1;}" +
+    ".past{opacity:.2;}.bye{opacity:0;transition-duration:.8s;}" +
+    ".a a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:4px;}" +
+    ".a a:hover{text-decoration-color:currentColor;}" +
+    "@keyframes ink{from{opacity:0;transform:translateY(5px);filter:blur(5px);}}" +
+    // typing lands in a field nobody sees
+    ".ta{position:absolute;left:0;top:0;width:300px;height:28px;opacity:0;border:0;background:transparent;color:transparent;" +
+    "caret-color:transparent;resize:none;font-size:16px;pointer-events:none;outline:none;}" +
+    ".close{position:absolute;left:0;top:0;width:32px;height:32px;border:none;background:none;cursor:pointer;color:var(--ink);" +
+    "opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,rotate .4s " + EASE + ";}" +
+    ".live .close{opacity:.35;}.live .close:hover,.live .close:focus-visible{opacity:1;rotate:90deg;}" +
+    ".close:focus-visible{outline:none;}" +
+    ".close svg{width:13px;height:13px;}" +
+    ".sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}" +
+    "@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}" +
     "</style>" +
-    '<div class="panel" role="dialog" aria-label="Chat with Ye\'s assistant">' +
-    '<div class="head"><canvas aria-hidden="true"></canvas>' +
-    '<div class="who"><div class="title">ye\'s assistant</div><div class="sub">ask anything about the site</div></div>' +
-    '<button class="close" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">' +
-    '<path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
-    '<div class="log" aria-live="polite"></div>' +
-    '<form class="form"><textarea rows="1" maxlength="1000" placeholder="say something…" aria-label="Message"></textarea>' +
-    '<button class="send" type="submit" aria-label="Send" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" ' +
-    'stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></form>' +
-    '<div class="foot">AI replies can be wrong · for anything important, email <a href="mailto:' + EMAIL + '">' + EMAIL + "</a></div>" +
-    "</div>" +
-    '<button class="bubble" aria-label="Open chat" aria-expanded="false">' +
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
-    '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg>' +
-    '<canvas aria-hidden="true"></canvas></button>';
+    '<div class="book">' +
+    '<div class="scrim"></div>' +
+    '<div class="leaf"><div class="end"></div>' +
+    '<div class="space" role="dialog" aria-label="Ask Ye\'s assistant" inert aria-hidden="true">' +
+    '<canvas class="storm" aria-hidden="true"></canvas>' +
+    '<div class="f prompt" aria-hidden="true"></div>' +
+    '<div class="f draft" aria-hidden="true"></div>' +
+    '<textarea class="ta" rows="1" maxlength="1000" enterkeyhint="send" aria-label="Ask anything about the site" aria-describedby="yz-note"></textarea>' +
+    '<button class="close" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">' +
+    '<path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+    '<div class="sr" id="yz-note">AI replies can be wrong. For anything important, email ' + EMAIL + ".</div>" +
+    '<div class="sr" aria-live="polite"></div>' +
+    "</div></div>" +
+    '<canvas class="page" aria-hidden="true"></canvas>' +
+    '<canvas class="pal" aria-hidden="true"></canvas>' +
+    '<button class="corner" aria-label="Open chat with Ye\'s assistant" aria-expanded="false"></button>' +
+    "</div>";
 
-  var panel = root.querySelector(".panel");
-  var bubble = root.querySelector(".bubble");
-  var sub = root.querySelector(".sub");
-  var log = root.querySelector(".log");
-  var form = root.querySelector(".form");
-  var input = root.querySelector("textarea");
-  var send = root.querySelector(".send");
+  var book = root.querySelector(".book");
+  var scrim = root.querySelector(".scrim");
+  var leaf = root.querySelector(".leaf");
+  var space = root.querySelector(".space");
+  var promptEl = root.querySelector(".prompt");
+  var draftEl = root.querySelector(".draft");
+  var input = root.querySelector(".ta");
+  var closeEl = root.querySelector(".close");
+  var said = root.querySelector("[aria-live]");
+  var pageCv = root.querySelector(".page");
+  var corner = root.querySelector(".corner");
   var busy = false;
+  var asked = history.some(function (m) { return m.role === "user"; }); // the invitation has done its job
 
-  // ---- thinking orbs (thinking-orbs engine, vendored; no React) ----
-  // Every orb is black dots on a transparent ground: depth comes from opacity, not grey,
-  // so the far side fades into whatever page sits behind it. One rAF loop drives them all.
-  var engine = null;
-  var orbs = [];
-  var raf = 0;
-  var enginePromise = import(new URL("/vendor/thinking-orbs/engine.js", API).href).then(function (m) {
-    engine = m;
-    orbs.forEach(setup);
-    tick();
-    return m;
-  });
-  enginePromise.catch(function () {});
+  function clamp(x, a, b) {
+    return x < a ? a : x > b ? b : x;
+  }
+  function smooth(a, b, x) {
+    var t = clamp((x - a) / (b - a), 0, 1);
+    return t * t * (3 - 2 * t);
+  }
+  // Smooth value noise in [-1, 1]: the draught that moves the corner.
+  function hash(i) {
+    var h = Math.sin(i * 127.1 + 311.7) * 43758.5453;
+    return h - Math.floor(h);
+  }
+  function noise(x) {
+    var i = Math.floor(x), f = x - i;
+    f = f * f * (3 - 2 * f);
+    return (hash(i) * (1 - f) + hash(i + 1) * f) * 2 - 1;
+  }
+  function fib(i, n) {
+    var y = 1 - (2 * (i + 0.5)) / n, r = Math.sqrt(1 - y * y), a = i * Math.PI * (3 - Math.sqrt(5));
+    return [r * Math.cos(a), y, r * Math.sin(a)];
+  }
 
-  // preset: 64 (avatar) or 20 (inline) tuning; px: the CSS size it is drawn at.
-  function orb(canvas, state, preset, px) {
-    var o = { canvas: canvas, state: state, preset: preset, px: px, ctx: canvas.getContext && canvas.getContext("2d") };
-    if (!o.ctx) return null;
-    o.set = function (s) {
-      if (o.state === s) return;
-      o.state = s;
-      if (engine) setup(o);
+  // ---- the page ----
+  // Fold frame: n = (c, s) points from the fold line toward the corner (W, H); u is the distance
+  // past the fold (0 on it, D at the corner) and v runs along it. Past the fold the page wraps over
+  // a cylinder of radius r lying on it, then runs flat back over the page: a point u past the fold
+  // shows at u' = r·sin(u/r) while u < πr, and at u' = πr − u after that.
+  var W = 0, H = 0, small = false, DPR = 1, TOP0 = 0;
+  var IDLE_D = 34, NEAR_D = 230;
+  var OPEN = { D: 0, phi: 0 };
+  var SPACE = { x0: 0, y0: 0, x1: 0, y1: 0 }; // where words may float while the page is turned
+  var TUCKP = { x: 0, y: 0 }; // where the invitation waits under the corner
+  var EYES = { x: 0, y: 0, s: 64 }; // where the eyes watch from, just above it
+
+  function rOf(D) {
+    return Math.max(3, Math.min(small ? 36 : 130, D * (small ? 0.14 : 0.2)));
+  }
+  function fold(D, phi) {
+    return { D: D, c: Math.cos(phi), s: Math.sin(phi), r: rOf(D) };
+  }
+  function toFold(f, x, y) {
+    var dx = x - W, dy = y - H;
+    return [dx * f.c + dy * f.s + f.D, dy * f.c - dx * f.s];
+  }
+  function toScreen(f, u, v) {
+    var a = u - f.D;
+    return [W + a * f.c - v * f.s, H + a * f.s + v * f.c];
+  }
+  function foldU(x, y) {
+    return toFold(fold(Math.max(0, pD.x), pPhi.x), x, y)[0];
+  }
+  // The part of a polygon (fold coordinates) with u >= k.
+  function clipU(poly, k) {
+    var out = [];
+    for (var i = 0; i < poly.length; i++) {
+      var a = poly[i], b = poly[(i + 1) % poly.length], ina = a[0] >= k, inb = b[0] >= k;
+      if (ina) out.push(a);
+      if (ina !== inb) out.push([k, a[1] + ((k - a[0]) / (b[0] - a[0])) * (b[1] - a[1])]);
+    }
+    return out;
+  }
+  // Where the line u = const crosses the page: [lowest v, highest v], or null.
+  function span(poly, u) {
+    var lo = Infinity, hi = -Infinity;
+    for (var i = 0; i < poly.length; i++) {
+      var a = poly[i], b = poly[(i + 1) % poly.length];
+      if ((a[0] - u) * (b[0] - u) > 0) continue;
+      if (a[0] === b[0]) {
+        lo = Math.min(lo, a[1], b[1]);
+        hi = Math.max(hi, a[1], b[1]);
+        continue;
+      }
+      var v = a[1] + ((u - a[0]) / (b[0] - a[0])) * (b[1] - a[1]);
+      lo = Math.min(lo, v);
+      hi = Math.max(hi, v);
+    }
+    return lo <= hi ? [lo, hi] : null;
+  }
+  // Outline (screen) of the stretch of page between u0 and u1 once it is wrapped on the roll.
+  function roll(f, rect, u0, u1) {
+    var hi = [], lo = [];
+    for (var i = 0; i <= 14; i++) {
+      var u = u0 + ((u1 - u0) * i) / 14, s = span(rect, u);
+      if (!s) continue;
+      var x = f.r * Math.sin(u / f.r);
+      hi.push(toScreen(f, x, s[1]));
+      lo.unshift(toScreen(f, x, s[0]));
+    }
+    return hi.length > 1 ? hi.concat(lo) : null;
+  }
+  function geometry(f) {
+    var rect = [toFold(f, 0, 0), toFold(f, W, 0), toFold(f, W, H), toFold(f, 0, H)];
+    var half = (Math.PI * f.r) / 2, D = f.D;
+    return {
+      // uncovered past the rim of the roll: the eyes are clipped to it, so they stay under the page
+      beyond: clipU(rect, f.r).map(function (p) {
+        return toScreen(f, p[0], p[1]);
+      }),
+      // uncovered: everything past the fold
+      leaf: clipU(rect, 0).map(function (p) {
+        return toScreen(f, p[0], p[1]);
+      }),
+      // the underside of the roll (front of the page, mostly hidden under the top of the roll)
+      low: roll(f, rect, 0, Math.min(D, half)),
+      // the top of the roll (back of the page)
+      top: D > half ? roll(f, rect, half, Math.min(D, 2 * half)) : null,
+      // the flap lying back over the page, tucked a little under the roll so no seam shows
+      flat:
+        D > 2 * half
+          ? clipU(rect, 2 * half).map(function (p) {
+              return toScreen(f, p[0] === 2 * half ? 1.5 : 2 * half - p[0], p[1]);
+            })
+          : null,
     };
-    o.remove = function () {
-      orbs.splice(orbs.indexOf(o), 1);
-    };
-    orbs.push(o);
-    if (engine) {
-      setup(o);
-      if (!raf) tick();
-    }
-    return o;
   }
 
-  function setup(o) {
-    var dpr = Math.min(2, window.devicePixelRatio || 1);
-    o.canvas.width = o.canvas.height = Math.round(o.px * dpr);
-    o.scale = (dpr * o.px) / o.preset;
-    var p = engine.r(o.state, o.preset); // resolvePreset
-    o.frame = engine.M[p.mode]; // MODE_FRAMES
-    o.opts = p.opts;
-    o.speed = p.speed;
-    o.ready = true;
-    if (o.onready) o.onready();
-  }
+  var ctx = pageCv.getContext("2d");
+  var shCv = document.createElement("canvas");
+  var shCtx = shCv.getContext("2d");
+  var SH = 0.125; // the cast shadow is drawn at an eighth of the size and blurred on the way up
+  var alloc = { w: 0, h: 0 };
+  var drawn = { D: -1, phi: 0, W: 0, H: 0 };
+  var leafKey = "";
+  // Shading across the roll, fold (0) to rim (1), and along the flap, fold (0) to far edge (1).
+  var BACK = [246, 244, 238], FRONT = [255, 255, 255];
+  var TOP = [[0, 1], [0.3, 1.025], [0.58, 0.94], [0.82, 0.82], [0.95, 0.7], [1, 0.8]];
+  var LOW = [[0, 1], [1, 0.8]];
+  var FLAT = [[0, 1], [1, 0.955]];
 
-  function ink(w, a) {
-    w = Math.min(1, Math.max(0, w));
-    return "rgba(0,0,0," + (a == null ? 1 : a) * (1 - 0.8 * w) + ")";
+  function tint(base, k) {
+    return "rgb(" + Math.min(255, Math.round(base[0] * k)) + "," + Math.min(255, Math.round(base[1] * k)) + "," + Math.min(255, Math.round(base[2] * k)) + ")";
   }
-
-  function draw(o, t) {
-    var ctx = o.ctx;
-    var f = o.frame(o.preset, t * o.speed, o.opts);
-    ctx.setTransform(o.scale, 0, 0, o.scale, 0, 0);
-    ctx.clearRect(0, 0, o.preset, o.preset);
-    for (var i = 0; i < f.lines.length; i++) {
-      var l = f.lines[i];
-      ctx.strokeStyle = ink(l.white, l.a);
-      ctx.lineWidth = l.w;
-      ctx.beginPath();
-      ctx.moveTo(l.x1, l.y1);
-      ctx.lineTo(l.x2, l.y2);
-      ctx.stroke();
-    }
-    for (var j = 0; j < f.dots.length; j++) {
-      var d = f.dots[j];
-      ctx.fillStyle = ink(d.white, d.a);
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  function tick() {
-    var t = REDUCED ? 0.6 : performance.now() / 1000;
-    orbs.forEach(function (o) {
-      if (o.ready) draw(o, t);
+  function grad(a, b, prof, base) {
+    var g = ctx.createLinearGradient(a[0], a[1], b[0], b[1]);
+    prof.forEach(function (s) {
+      g.addColorStop(s[0], tint(base, s[1]));
     });
-    raf = REDUCED || document.visibilityState === "hidden" ? 0 : requestAnimationFrame(tick);
+    return g;
+  }
+  function trace(c, p) {
+    c.moveTo(p[0][0], p[0][1]);
+    for (var i = 1; i < p.length; i++) c.lineTo(p[i][0], p[i][1]);
+    c.closePath();
+  }
+  function fill(p, style) {
+    ctx.fillStyle = style;
+    ctx.beginPath();
+    trace(ctx, p);
+    ctx.fill();
+  }
+
+  // The canvas only covers the corner the curl reaches into; it grows while the page turns and
+  // shrinks back once the page lies still again.
+  function fit(w, h, shrink) {
+    w = Math.min(Math.ceil(W), Math.ceil(w / 64) * 64);
+    h = Math.min(Math.ceil(H), Math.ceil(h / 64) * 64);
+    var grow = w > alloc.w || h > alloc.h;
+    var cut = shrink && (alloc.w > w + 256 || alloc.h > h + 256);
+    if (!grow && !cut) return;
+    if (!cut) {
+      w = Math.max(w, alloc.w);
+      h = Math.max(h, alloc.h);
+    }
+    alloc.w = w;
+    alloc.h = h;
+    pageCv.width = Math.max(1, Math.round(w * DPR));
+    pageCv.height = Math.max(1, Math.round(h * DPR));
+    pageCv.style.width = w + "px";
+    pageCv.style.height = h + "px";
+    shCv.width = Math.ceil(w * SH) + 8;
+    shCv.height = Math.ceil(h * SH) + 8;
+  }
+
+  function clipLeaf(pts) {
+    var s =
+      pts.length > 2
+        ? "polygon(" + pts.map(function (p) { return p[0].toFixed(1) + "px " + p[1].toFixed(1) + "px"; }).join(",") + ")"
+        : "polygon(0 0,0 0,0 0)";
+    if (s === leafKey) return;
+    leafKey = s;
+    leaf.style.clipPath = s;
+    leaf.style.webkitClipPath = s;
+  }
+
+  function drawPage() {
+    var D = Math.max(0, pD.x), phi = pPhi.x;
+    if (Math.abs(D - drawn.D) < 0.04 && Math.abs(phi - drawn.phi) < 0.0004 && drawn.W === W && drawn.H === H) return;
+    drawn = { D: D, phi: phi, W: W, H: H };
+    var f = fold(D, phi), g = geometry(f);
+    clipLeaf(D > 0.5 ? g.leaf : []);
+    pal.beyond = D > 0.5 ? g.beyond : [];
+
+    var blur = 4 + 0.32 * f.r, off = 1.5 + 0.12 * f.r, m = blur * 2 + off + 8;
+    var minX = W, minY = H;
+    [g.low, g.top, g.flat].forEach(function (p) {
+      if (p) for (var i = 0; i < p.length; i++) {
+        minX = Math.min(minX, p[i][0]);
+        minY = Math.min(minY, p[i][1]);
+      }
+    });
+    fit(W - minX + m, H - minY + m, state === "idle");
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, pageCv.width, pageCv.height);
+    if (D <= 0.5 || !g.low) return;
+    var ox = W - alloc.w, oy = H - alloc.h;
+    ctx.setTransform(DPR, 0, 0, DPR, -ox * DPR, -oy * DPR);
+
+    // Cast shadow: the whole lifted silhouette, small and blurred, dropped down and to the right.
+    var pad = 4;
+    shCtx.setTransform(1, 0, 0, 1, 0, 0);
+    shCtx.clearRect(0, 0, shCv.width, shCv.height);
+    shCtx.setTransform(SH, 0, 0, SH, pad - ox * SH, pad - oy * SH);
+    shCtx.fillStyle = shCtx.shadowColor = "#000";
+    shCtx.shadowBlur = blur * SH * 2;
+    shCtx.beginPath();
+    [g.low, g.top, g.flat].forEach(function (p) {
+      if (p) trace(shCtx, p);
+    });
+    shCtx.fill();
+    ctx.save();
+    ctx.globalAlpha = 0.16 + 0.1 * Math.min(1, f.r / 60);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(shCv, ox - pad / SH + off * 0.55, oy - pad / SH + off * 0.8, shCv.width / SH, shCv.height / SH);
+    ctx.restore();
+
+    var a = toScreen(f, 0, 0), b = toScreen(f, f.r, 0);
+    fill(g.low, grad(a, b, LOW, FRONT));
+    if (g.top) fill(g.top, grad(a, b, TOP, BACK));
+    if (g.flat) fill(g.flat, grad(a, toScreen(f, -Math.max(2, D - Math.PI * f.r), 0), FLAT, BACK));
+  }
+
+  // ---- the onlooker ----
+  // A pair of eyes keeps watch from the dark under the bottom-right corner. They follow the
+  // pointer, read along as you type, watch the thought gather and the reply land, glance about
+  // when nothing happens, and blink now and then. (After the "live orb" shader.)
+  var pal = {
+    cv: root.querySelector(".pal"), gl: null, failed: false, size: 0, shown: false,
+    look: { x: 0, y: 0.08 }, glance: { x: 0, y: 0.08 }, nextGlance: 0, nextBlink: 0, blinkAt: -10, movedAt: -10,
+  };
+  var gaze = null; // somewhere worth looking at for a while: { x, y, until }
+  var PAL_VERT = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+  var PAL_FRAG =
+    "precision highp float;uniform vec2 u_res;uniform vec2 u_look;uniform float u_blink;uniform vec3 u_body;uniform vec3 u_eye;" +
+    "vec3 orient(vec3 p,vec2 l){float y=l.x*.92,q=-l.y*.78,cy=cos(y),sy=sin(y),cp=cos(q),sp=sin(q);" +
+    "vec3 a=vec3(p.x,p.y*cp-p.z*sp,p.y*sp+p.z*cp);return vec3(a.x*cy+a.z*sy,a.y,-a.x*sy+a.z*cy);}" +
+    "float eye(vec3 n,vec3 e,vec3 r,vec3 u,float h,float rad){float x=dot(n,r)-dot(e,r),y=dot(n,u)-dot(e,u);" +
+    "y-=clamp(y,-h,h);float d=length(vec2(x,y))-rad;return (1.-smoothstep(-.01,.01,d))*smoothstep(.12,.32,dot(n,e));}" +
+    "void main(){vec2 p=(gl_FragCoord.xy/u_res)*2.-1.;p/=.94;float r2=dot(p,p);" +
+    "float edge=1.-smoothstep(.985,1.012,sqrt(r2));if(edge<=.001){gl_FragColor=vec4(0.);return;}" +
+    "vec3 n=normalize(vec3(p,sqrt(max(1.-r2,0.))));vec2 l=u_look;if(length(l)>1.)l/=length(l);" +
+    "vec3 r=orient(vec3(1.,0.,0.),l),u=orient(vec3(0.,1.,0.),l);" +
+    "float h=mix(.128,.012,u_blink),rad=mix(.054,.062,u_blink);" +
+    "float e=max(eye(n,orient(normalize(vec3(-.32,.08,1.)),l),r,u,h,rad),eye(n,orient(normalize(vec3(.32,.08,1.)),l),r,u,h,rad));" +
+    "gl_FragColor=vec4(u_eye,e*edge);}";
+
+  // Built the first time the chat opens, so pages that never open it hold no WebGL context.
+  function palInit() {
+    if (pal.gl || pal.failed) return;
+    var gl = pal.cv.getContext("webgl", { alpha: true, antialias: false, depth: false, stencil: false, premultipliedAlpha: false });
+    var prog = gl && gl.createProgram();
+    if (!prog) return void (pal.failed = true);
+    [[gl.VERTEX_SHADER, PAL_VERT], [gl.FRAGMENT_SHADER, PAL_FRAG]].forEach(function (s) {
+      var sh = gl.createShader(s[0]);
+      gl.shaderSource(sh, s[1]);
+      gl.compileShader(sh);
+      gl.attachShader(prog, sh);
+    });
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return void (pal.failed = true);
+    gl.useProgram(prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(prog, "p");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    pal.u = {};
+    ["res", "look", "blink", "body", "eye"].forEach(function (k) {
+      pal.u[k] = gl.getUniformLocation(prog, "u_" + k);
+    });
+    pal.gl = gl;
+  }
+
+  // Only the eyes show: they live in the black under the bottom-right corner, behind the page,
+  // and are seen wherever the page is lifted off them.
+  var palClip = "";
+  function palFrame(dt) {
+    var at = EYES;
+    if (!pal.shown) {
+      pal.shown = true;
+      palInit();
+      pal.cv.classList.toggle("on", !!pal.gl);
+    }
+    var gl = pal.gl;
+    if (!gl) return;
+    var s = Math.round(at.s), dpr = Math.min(2, window.devicePixelRatio || 1);
+    if (s !== pal.size) {
+      pal.size = s;
+      pal.cv.width = pal.cv.height = Math.round(s * dpr);
+      pal.cv.style.width = pal.cv.style.height = s + "px";
+      gl.viewport(0, 0, pal.cv.width, pal.cv.height);
+    }
+    var x0 = at.x - s / 2, y0 = at.y - s / 2;
+    move(pal.cv, x0, y0);
+    var b = pal.beyond || [];
+    var clip = b.length > 2 ? "polygon(" + b.map(function (p) { return (p[0] - x0).toFixed(1) + "px " + (p[1] - y0).toFixed(1) + "px"; }).join(",") + ")" : "polygon(0 0,0 0,0 0)";
+    if (clip !== palClip) {
+      palClip = clip;
+      pal.cv.style.clipPath = pal.cv.style.webkitClipPath = clip;
+    }
+    // What it looks at: the thought while there is one, then the reply, the pointer, the writing,
+    // and otherwise wherever it likes.
+    var goal = pal.glance, t = null;
+    if (storm && storm.alive) t = { x: storm.cx, y: storm.cy };
+    else if (gaze && clock < gaze.until) t = gaze;
+    else if (ptr && clock - pal.movedAt < 3) t = ptr;
+    else if (draftF && clock - typedAt < 2.5) t = { x: draftF.px + draftF.w, y: draftF.py + draftF.h / 2 };
+    else if (clock > pal.nextGlance && !REDUCED) {
+      var back = Math.random() < 0.3;
+      pal.glance = { x: back ? 0 : (Math.random() * 2 - 1) * 0.8, y: back ? 0.08 : (Math.random() * 2 - 1) * 0.5 };
+      pal.nextGlance = clock + 0.9 + Math.random() * 2.1;
+    }
+    if (t) goal = { x: clamp((t.x - at.x) / 320, -1, 1), y: clamp((at.y - t.y) / 320, -1, 1) };
+    var k = REDUCED ? 1 : 1 - Math.exp(-dt * 10);
+    pal.look.x += (goal.x - pal.look.x) * k;
+    pal.look.y += (goal.y - pal.look.y) * k;
+    if (!REDUCED && clock > pal.nextBlink) {
+      pal.blinkAt = clock;
+      pal.nextBlink = clock + 2.2 + Math.random() * 3.8;
+    }
+    var bt = clock - pal.blinkAt, b = REDUCED ? 0 : bt < 0.055 ? bt / 0.055 : bt < 0.1 ? 1 : bt < 0.18 ? 1 - (bt - 0.1) / 0.08 : 0;
+    var body = [0, 0, 0], eye = [0.957, 0.957, 0.961];
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform2f(pal.u.res, pal.cv.width, pal.cv.height);
+    gl.uniform2f(pal.u.look, pal.look.x, pal.look.y);
+    gl.uniform1f(pal.u.blink, b);
+    gl.uniform3f(pal.u.body, body[0], body[1], body[2]);
+    gl.uniform3f(pal.u.eye, eye[0], eye[1], eye[2]);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+  }
+
+  // ---- floating words ----
+  // Everything said floats on its own: a slow drift, a little parallax against the pointer, and
+  // never past the edge of the space. Only the last exchange stays bright; the one before fades
+  // back, and anything older dissolves.
+  var floats = [];
+  var draftF = null, typedAt = -10;
+  function move(el, x, y) {
+    var s = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px)";
+    if (el._at === s) return;
+    el._at = s;
+    el.style.transform = s;
+  }
+  function float(el, x, y, amp) {
+    var f = { el: el, x: x, y: y, px: x, py: y, w: 0, h: 0, amp: amp == null ? 7 : amp, p1: Math.random() * 6.3, p2: Math.random() * 6.3, k1: 0.8 + Math.random() * 0.5, k2: 0.8 + Math.random() * 0.5, depth: 0.4 + Math.random() };
+    if (el) measureF(f);
+    floats.push(f);
+    return f;
+  }
+  function measureF(f) {
+    f.w = f.el.offsetWidth;
+    f.h = f.el.offsetHeight;
+  }
+  function drop(f) {
+    var i = floats.indexOf(f);
+    if (i >= 0) floats.splice(i, 1);
+    if (!f.el) return;
+    f.el.classList.add("bye");
+    setTimeout(function () {
+      f.el.remove();
+    }, 900);
+  }
+  function fitIn(x, y, w, h) {
+    return [clamp(x, SPACE.x0, Math.max(SPACE.x0, SPACE.x1 - w)), clamp(y, SPACE.y0, Math.max(SPACE.y0, SPACE.y1 - h))];
+  }
+  function maxW(cap) {
+    return Math.max(160, Math.min(cap, SPACE.x1 - SPACE.x0 - 8));
+  }
+  function rectOf(f) {
+    return { x: f.px, y: f.py, w: f.w, h: f.h };
+  }
+  // A free place for a w × h block: the best of a few dozen random tries, keeping clear of `avoid`.
+  function findSpot(w, h, avoid) {
+    var best = null, worst = Infinity;
+    for (var i = 0; i < 48 && worst > 0; i++) {
+      var x = SPACE.x0 + Math.random() * Math.max(0, SPACE.x1 - SPACE.x0 - w);
+      var y = SPACE.y0 + Math.random() * Math.max(0, SPACE.y1 - SPACE.y0 - h);
+      var score = 0;
+      avoid.forEach(function (r) {
+        var ox = Math.min(x + w, r.x + r.w + 28) - Math.max(x, r.x - 28), oy = Math.min(y + h, r.y + r.h + 28) - Math.max(y, r.y - 28);
+        if (ox > 0 && oy > 0) score += ox * oy;
+      });
+      if (score < worst) {
+        worst = score;
+        best = { x: x, y: y };
+      }
+    }
+    return best;
+  }
+  function others(skip) {
+    return floats
+      .filter(function (f) { return f !== skip; })
+      .map(rectOf)
+      .concat([{ x: EYES.x - EYES.s / 2, y: EYES.y - EYES.s / 2, w: EYES.s, h: EYES.s }]);
+  }
+
+  // The invitation, letter by letter: each letter knows where it scatters to.
+  var PROMPT = ["type anywhere", "ask anything"];
+  (function () {
+    var i = 0;
+    PROMPT.forEach(function (line) {
+      var b = document.createElement("b");
+      line.split("").forEach(function (c) {
+        var s = document.createElement("span"), a = Math.random() * Math.PI * 2, d = 30 + Math.random() * 80;
+        s.className = "ch";
+        s.style.cssText = "--i:" + i++ + ";--gx:" + (Math.cos(a) * d).toFixed(0) + "px;--gy:" + (Math.sin(a) * d - 24).toFixed(0) + "px;--gr:" + ((Math.random() - 0.5) * 90).toFixed(0) + "deg";
+        var t = document.createElement("i");
+        t.textContent = c === " " ? " " : c;
+        s.appendChild(t);
+        b.appendChild(s);
+      });
+      promptEl.appendChild(b);
+    });
+  })();
+  var promptOn = true, promptW = 0, promptH = 0, restUntil = 0, relocate = false;
+  var anchor = { x: 0, y: 0, p: 0, q: 0, next: 0 };
+  function showPrompt(on) {
+    if (on === promptOn) return;
+    promptOn = on;
+    promptEl.classList.toggle("gone", !on);
+  }
+  function newAnchor(avoid) {
+    var s = findSpot(promptW + 120, promptH + 80, avoid);
+    anchor = { x: s.x + 60, y: s.y + 40, p: Math.random() * 6.3, q: Math.random() * 6.3, next: clock + 18 + Math.random() * 10 };
+  }
+
+  var caretEl = document.createElement("span");
+  caretEl.className = "caret";
+  var pin = null; // where a click on the dark put the caret
+  // What is typed is written where the dark was clicked, else where the invitation was (or
+  // somewhere free, if it was away).
+  function mirror() {
+    var v = input.value;
+    if ((v || pin) && !draftF) {
+      var start = pin || (promptOn ? { x: fX.x, y: fY.x } : findSpot(maxW(320), 40, others()));
+      draftEl.style.maxWidth = maxW(320) + "px";
+      draftF = float(draftEl, start.x, start.y, 3);
+    }
+    if (!draftF) return;
+    // a new sentence begins: what was said before comes apart
+    if (v && !draftF.scattered && !busy) {
+      draftF.scattered = true;
+      floats.slice().forEach(function (f) {
+        if (f !== draftF && f.el && !(typer && typer.f === f)) disperse(f);
+      });
+    }
+    if (!v && !pin) {
+      // emptied: the invitation comes back where the writing was
+      fX.x = fX.t = draftF.px;
+      fY.x = fY.t = sink = draftF.py;
+      anchor.x = draftF.px;
+      anchor.y = draftF.py;
+      relocate = false;
+      draftEl.classList.remove("on");
+      var i = floats.indexOf(draftF);
+      if (i >= 0) floats.splice(i, 1);
+      draftF = null;
+      return;
+    }
+    var s = input.selectionStart == null ? v.length : input.selectionStart;
+    draftEl.textContent = v.slice(0, s);
+    draftEl.appendChild(caretEl);
+    draftEl.appendChild(document.createTextNode(v.slice(s)));
+    draftEl.classList.add("on");
+    measureF(draftF);
+    typedAt = clock;
+    wake();
+  }
+
+  // Words that have had their turn come apart: every letter is lifted out where it stands and flies
+  // off toward the nearer side of the dark, tumbling, blurring and fading.
+  function disperse(f) {
+    var i = floats.indexOf(f);
+    if (i >= 0) floats.splice(i, 1);
+    var el = f.el, cs = getComputedStyle(el), mid = (SPACE.x0 + SPACE.x1) / 2, range = document.createRange(), n = 0;
+    var layer = document.createElement("div");
+    layer.className = "dust";
+    ["fontFamily", "fontSize", "fontStyle", "fontWeight", "letterSpacing", "color", "opacity", "textShadow"].forEach(function (k) {
+      layer.style[k] = cs[k];
+    });
+    space.insertBefore(layer, input);
+    var walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), node;
+    while ((node = walk.nextNode())) {
+      for (var k = 0; k < node.data.length; k++) {
+        if (!node.data[k].trim()) continue;
+        range.setStart(node, k);
+        range.setEnd(node, k + 1);
+        var r = range.getBoundingClientRect();
+        if (!r.width) continue;
+        var c = document.createElement("span");
+        c.textContent = node.data[k];
+        c.style.left = r.left.toFixed(1) + "px";
+        c.style.top = r.top.toFixed(1) + "px";
+        layer.appendChild(c);
+        if (REDUCED || !c.animate) continue;
+        var side = r.left + r.width / 2 < mid ? -1 : 1, d = 140 + Math.random() * 340;
+        c.animate(
+          [
+            { transform: "none", opacity: 1, filter: "blur(0)" },
+            { transform: "translate(" + (side * d).toFixed(0) + "px," + ((Math.random() - 0.5) * 130 - 20).toFixed(0) + "px) rotate(" + ((Math.random() - 0.5) * 260).toFixed(0) + "deg)", opacity: 0, filter: "blur(3px)" },
+          ],
+          { duration: 900 + Math.random() * 700, delay: Math.min(n++ * 4, 500) + Math.random() * 120, easing: "cubic-bezier(.3,.6,.2,1)", fill: "both" }
+        );
+      }
+    }
+    el.remove();
+    setTimeout(function () {
+      layer.remove();
+    }, REDUCED ? 0 : 2400);
+  }
+
+  // ---- motion ----
+  function spring(x) {
+    return { x: x, v: 0, t: x, k: 100, c: 14 };
+  }
+  function tune(s, k, c) {
+    s.k = k;
+    s.c = c;
+  }
+  function step(s, dt) {
+    var n = Math.max(1, Math.ceil(dt * 240)), h = dt / n;
+    for (var i = 0; i < n; i++) {
+      s.v += (s.k * (s.t - s.x) - s.c * s.v) * h;
+      s.x += s.v * h;
+    }
+  }
+  function settled(s, e) {
+    return Math.abs(s.t - s.x) < e && Math.abs(s.v) < e * 6;
+  }
+
+  var pD = spring(0), pPhi = spring(45 * DEG); // the page: how far it is lifted, and at what angle
+  var fX = spring(0), fY = spring(0); // the invitation
+  var springs = [pD, pPhi, fX, fY];
+  var state = "idle"; // idle → near → open → closing → idle
+  var ptr = null; // the mouse, in viewport px
+  var armed = true; // the page may turn on hover (not again until the pointer has left the corner)
+  var peek = false; // the corner has keyboard focus
+  var dwell = 0, clock = 0, tOpen = 0, tClose = 0, gustAt = 5, shake = 0, jolt = 0;
+  var liveTimer = 0, focusTimer = 0;
+
+  var sink = null; // how far the invitation has sunk down the dark
+  function promptFade(o) {
+    var v = o >= 0.999 ? "" : o.toFixed(3);
+    if (promptEl.style.opacity !== v) promptEl.style.opacity = v;
+  }
+  function tuck(k, c) {
+    promptFade(1);
+    fX.t = TUCKP.x;
+    fY.t = TUCKP.y;
+    tune(fX, k, c);
+    tune(fY, k, c);
+  }
+
+  // Closed: the corner drifts in the draught, lifts toward a nearby pointer, and turns if the
+  // pointer rests on the words it uncovers.
+  function drift(dt) {
+    var near = 0, aim = 45 * DEG, wind = REDUCED ? 0 : 1;
+    if (ptr) {
+      near = Math.max(0, 1 - Math.hypot(W - ptr.x, H - ptr.y) / ZONE);
+      if (near > 0) aim = clamp(Math.atan2(H - ptr.y, W - ptr.x), 24 * DEG, 66 * DEG);
+    }
+    if (peek) near = Math.max(near, 0.9);
+    state = near > 0 ? "near" : "idle";
+    var e = 1 - Math.pow(1 - near, 3);
+    var D = IDLE_D * (1 + wind * (0.18 * noise(clock * 0.31) + 0.07 * noise(clock * 0.9 + 11.7)));
+    D += (NEAR_D - IDLE_D) * e;
+    var over = state === "near" && ptr && armed && foldU(ptr.x, ptr.y) > rOf(pD.x) + 6;
+    dwell = clamp(dwell + (over ? dt : -2 * dt), 0, DWELL);
+    pD.t = D + 56 * Math.pow(dwell / DWELL, 2);
+    pPhi.t = 45 * DEG + (aim - 45 * DEG) * Math.min(1, near * 1.6) + wind * 5 * DEG * noise(clock * 0.23 + 40.1) * (1 - near);
+    tune(pD, near ? 150 : 90, near ? 16 : 8);
+    tune(pPhi, 90, 13);
+    tuck(120, 19);
+    if (state === "idle" && wind && clock > gustAt) {
+      pD.v += 160 + Math.random() * 180;
+      pPhi.v += (Math.random() - 0.5) * 1.4;
+      gustAt = clock + 6 + Math.random() * 7;
+    }
+    if (dwell >= DWELL) open(false);
+  }
+
+  // Open: the page is held turned back. Over the turned page it sags a little, as if it would fall
+  // back if let go. The invitation wanders slowly about the dark while nothing is being typed.
+  function hold(dt) {
+    var f = fold(Math.max(0, pD.x), pPhi.x), sag = 0;
+    if (ptr) {
+      var u = toFold(f, ptr.x, ptr.y)[0];
+      sag = u < f.r && u > -(f.D - Math.PI * f.r) ? 1 : 0;
+    }
+    scrim.style.cursor = sag ? "pointer" : "";
+    pD.t = OPEN.D - 16 * sag;
+    pPhi.t = OPEN.phi;
+    tune(pD, 46, 11);
+    tune(pPhi, 40, 12);
+
+    var waiting = !input.value && !draftF && !busy && clock > restUntil;
+    // The invitation is only for the first question; after that a caret waits somewhere in the dark.
+    showPrompt(waiting && !asked);
+    if (waiting && asked) {
+      pin = findSpot(maxW(320), 30, others());
+      mirror();
+    }
+    var top = SPACE.y0, bottom = SPACE.y1 - promptH, fade = 1;
+    if (promptOn) {
+      if (relocate) {
+        // back after a reply: re-forms somewhere free
+        relocate = false;
+        newAnchor(others());
+        fX.x = fX.t = anchor.x;
+        fY.x = fY.t = sink = anchor.y;
+        fX.v = fY.v = 0;
+      }
+      // It sinks slowly from the top of the dark to the bottom, swaying a little, fades out at the
+      // bottom and comes in again from the top in a free lane.
+      var w = REDUCED ? 0 : 1;
+      if (sink == null) sink = top + (bottom - top) * (0.1 + Math.random() * 0.25);
+      sink += w * 26 * dt;
+      if (sink > bottom) {
+        newAnchor(others());
+        sink = top;
+        fX.x = fX.t = anchor.x;
+        fY.x = fY.t = top;
+        fX.v = fY.v = 0;
+      }
+      var p = fitIn(anchor.x + w * 48 * Math.sin(clock * 0.33 + anchor.p), sink, promptW, promptH);
+      fX.t = p[0];
+      fY.t = p[1];
+      tune(fX, 3, 3.4);
+      tune(fY, clock - tOpen < 1.5 ? 4 : 30, clock - tOpen < 1.5 ? 4 : 11);
+      if (w) fade = smooth(top, top + 70, fY.x) * (1 - smooth(bottom - 90, bottom, fY.x));
+    } else {
+      fX.t = fX.x;
+      fY.t = fY.x;
+    }
+    promptFade(fade);
+  }
+
+  // Let go: the words slip back under the corner, then the page falls under its own weight and
+  // lands with a slap and a small bounce.
+  function fall(dt) {
+    pPhi.t = 45 * DEG;
+    tune(pPhi, 50, 11);
+    tuck(60, 15);
+    if (REDUCED) {
+      state = "idle";
+      return false;
+    }
+    if (clock - tClose < 0.16) return false;
+    pD.v = Math.min(pD.v, 0) - 5600 * dt;
+    pD.x += pD.v * dt;
+    if (pD.x <= IDLE_D * 0.4) {
+      pD.x = IDLE_D * 0.4;
+      pD.v *= -0.22;
+      state = "idle";
+    }
+    return true;
+  }
+
+  function update(dt) {
+    clock += dt;
+    var falling = false;
+    if (state === "idle" || state === "near") drift(dt);
+    else if (state === "open") hold(dt);
+    else falling = fall(dt);
+    springs.forEach(function (s) {
+      if (s !== pD || !falling) step(s, dt);
+    });
+    if (REDUCED) springs.forEach(function (s) {
+      s.x = s.t;
+      s.v = 0;
+    });
+    if (storm) storm.update(dt);
+    typeStep(dt);
+    jolt *= Math.exp(-14 * dt);
+  }
+
+  var spaceShown = false;
+  function placeSpace() {
+    var show = state === "open" || state === "closing" || pD.x > (small ? 50 : 70);
+    if (show !== spaceShown) {
+      spaceShown = show;
+      space.style.visibility = show ? "visible" : "hidden";
+    }
+    if (!show) return;
+    var j = shake + jolt, px = 0, py = 0;
+    if (ptr && !REDUCED && state === "open") {
+      px = (ptr.x - (SPACE.x0 + SPACE.x1) / 2) * 0.012;
+      py = (ptr.y - (SPACE.y0 + SPACE.y1) / 2) * 0.012;
+    }
+    move(promptEl, fX.x, fY.x);
+    floats.forEach(function (f) {
+      var w = REDUCED ? 0 : 1;
+      var p = fitIn(
+        f.x + w * f.amp * Math.sin(clock * 0.37 * f.k1 + f.p1) + px * f.depth + (j > 0.02 ? (Math.random() - 0.5) * 2 * j : 0),
+        f.y + w * f.amp * 0.8 * Math.cos(clock * 0.29 * f.k2 + f.p2) + py * f.depth + (j > 0.02 ? (Math.random() - 0.5) * 2 * j : 0),
+        f.w,
+        f.h
+      );
+      f.px = p[0];
+      f.py = p[1];
+      if (f.el) move(f.el, p[0], p[1]);
+    });
+    // the hidden field follows the writing, so a phone keeps it in view
+    if (draftF) move(input, draftF.px, draftF.py);
+    else move(input, fX.x, fY.x);
+  }
+
+  var raf = 0, lastT = 0;
+  function wake() {
+    if (raf || document.visibilityState === "hidden") return;
+    lastT = performance.now();
+    raf = requestAnimationFrame(frame);
+  }
+  function frame(now) {
+    raf = 0;
+    var dt = Math.min(0.05, Math.max(0, (now - lastT) / 1000));
+    lastT = now;
+    update(dt);
+    drawPage();
+    placeSpace();
+    palFrame(dt);
+    if (storm) {
+      storm.draw();
+      if (!storm.alive) storm = null;
+    }
+    var moving = storm || typer || state === "closing" || !springs.every(function (s) { return settled(s, 0.02); });
+    if (!REDUCED || moving) raf = requestAnimationFrame(frame);
   }
   document.addEventListener("visibilitychange", function () {
     cancelAnimationFrame(raf);
     raf = 0;
-    if (engine && document.visibilityState !== "hidden") tick();
+    wake();
   });
 
-  // The button is the "solving" orb; the speech-bubble icon stays as the fallback.
-  var bubbleOrb = orb(bubble.querySelector("canvas"), "solving", 64, 56);
-  if (bubbleOrb) bubbleOrb.onready = function () { bubble.classList.add("orb"); };
-  // The header orb mirrors what the assistant is doing.
-  var headOrb = orb(root.querySelector(".head canvas"), "listening", 20, 34);
-  function status(state, text) {
-    if (headOrb) headOrb.set(state);
-    sub.textContent = text;
+  var greeted = false;
+  function open(keyboard) {
+    if (state === "open") return;
+    state = "open";
+    tOpen = clock;
+    dwell = 0;
+    armed = false;
+    peek = false;
+    book.classList.add("open");
+    corner.setAttribute("aria-expanded", "true");
+    space.removeAttribute("inert");
+    space.removeAttribute("aria-hidden");
+    sink = null;
+    if (!greeted) {
+      greeted = true;
+      newAnchor([]);
+      // coming back to an earlier conversation: its last reply is still there, faintly
+      var last = history[history.length - 1];
+      if (last && last.role === "assistant") {
+        var el = document.createElement("div");
+        el.className = "f a past";
+        el.style.maxWidth = maxW(320) + "px";
+        render(el, last.content);
+        space.insertBefore(el, input);
+        var f = float(el, 0, 0);
+        var s = findSpot(f.w, f.h, [{ x: anchor.x - 60, y: anchor.y - 40, w: promptW + 120, h: promptH + 80 }]);
+        f.x = f.px = s.x;
+        f.y = f.py = s.y;
+        f.past = true;
+      }
+    }
+    clearTimeout(liveTimer);
+    clearTimeout(focusTimer);
+    liveTimer = setTimeout(function () {
+      space.classList.add("live");
+    }, REDUCED ? 0 : 420);
+    // Phones: no keyboard popping up over the page while it turns; a tap on the dark brings it.
+    if (HOVER || keyboard) focusTimer = setTimeout(function () {
+      if (state === "open") input.focus({ preventScroll: true });
+    }, REDUCED ? 0 : 650);
+    wake();
+  }
+
+  function close() {
+    if (state !== "open") return;
+    var inside = space.contains(root.activeElement);
+    state = "closing";
+    tClose = clock;
+    clearTimeout(liveTimer);
+    clearTimeout(focusTimer);
+    book.classList.remove("open");
+    space.classList.remove("live");
+    space.setAttribute("inert", "");
+    space.setAttribute("aria-hidden", "true");
+    corner.setAttribute("aria-expanded", "false");
+    scrim.style.cursor = "";
+    pin = null;
+    mirror();
+    showPrompt(true);
+    if (inside) corner.focus({ preventScroll: true });
+    wake();
+  }
+
+  function measure() {
+    var b = host.getBoundingClientRect();
+    W = b.width || document.documentElement.clientWidth;
+    H = b.height || window.innerHeight;
+    small = W < 600;
+    DPR = Math.min(2, window.devicePixelRatio || 1);
+    IDLE_D = small ? 26 : 34;
+    NEAR_D = small ? 150 : 230;
+    var vv = window.visualViewport, vh = H;
+    TOP0 = 0;
+    if (small && vv) {
+      TOP0 = Math.max(0, vv.offsetTop);
+      vh = Math.min(H - TOP0, vv.height);
+    }
+    promptW = promptEl.offsetWidth;
+    promptH = promptEl.offsetHeight;
+    // Turn the page back far enough to leave a band of dark for the words (on a phone, all of it).
+    var phi = (small ? 3 : 6) * DEG, c = Math.cos(phi), s = Math.sin(phi), edge;
+    if (small) {
+      edge = 6;
+      SPACE = { x0: 18, y0: TOP0 + 100, x1: W - 18, y1: TOP0 + vh - 20 };
+      TUCKP = { x: W - 150, y: H - 64 };
+      EYES = { x: W - 42, y: H - 104, s: 52 };
+      move(closeEl, W - 44, TOP0 + 12);
+    } else {
+      var band = clamp(W * 0.36, 440, 600);
+      edge = W - band - 20;
+      SPACE = { x0: W - band + 12, y0: 44, x1: W - 28, y1: H - 40 };
+      TUCKP = { x: W - 200, y: H - 58 };
+      EYES = { x: W - 54, y: H - 126, s: 64 };
+      move(closeEl, SPACE.x1 - 18, 16);
+    }
+    // the roll's rim reaches `edge` at the top of the screen, where the turned page is narrowest
+    var need = (W - edge) * c + H * s, D = need;
+    for (var i = 0; i < 8; i++) D = need + rOf(D);
+    OPEN = { D: D, phi: phi };
+  }
+
+  function relayout() {
+    measure();
+    drawn.D = -1;
+    if (state !== "open") {
+      fX.x = fX.t = TUCKP.x;
+      fY.x = fY.t = TUCKP.y;
+      fX.v = fY.v = 0;
+    }
+    wake();
+  }
+
+  // ---- the thought ----
+  // Dots drawn out of the visitor's words gather on a sphere that spins faster and shrinks as it
+  // tightens (GATHER); once the reply is ready it collapses to a point (CRUNCH) and bursts.
+  // `centre()` says where the knot is (it drifts); everything is in viewport px.
+  var storm = null;
+  function Storm(centre, source) {
+    var cv = space.querySelector(".storm"), g = cv.getContext("2d");
+    var ox = Math.max(0, Math.floor(SPACE.x0 - 90)), pw = Math.ceil(W - ox), ph = Math.ceil(H);
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.style.left = ox + "px";
+    cv.style.width = pw + "px";
+    cv.style.height = ph + "px";
+    cv.width = Math.round(pw * dpr);
+    cv.height = Math.round(ph * dpr);
+    var sr = source.getBoundingClientRect();
+    var n = small ? 110 : 150, R0 = small ? 34 : 44, ps = [];
+    for (var i = 0; i < n; i++) {
+      ps.push({
+        d: fib(i, n), // its place on the sphere
+        sx: sr.left + Math.random() * sr.width, // where in the question it starts
+        sy: sr.top + Math.random() * sr.height,
+        at: 0.25 + Math.random(), // when it leaves the question
+        bend: (Math.random() - 0.5) * 150,
+        r: 0.6 + Math.random() * 1.2,
+        a: 0.4 + Math.random() * 0.6,
+        life: 0.55 + Math.random() * 0.6,
+        x: 0, y: 0, z: 0, vx: 0, vy: 0, vis: 0, home: false,
+      });
+    }
+    var c0 = centre();
+    var S = { alive: true, phase: "gather", t: 0, T: 0, q: 0, s: 0, yaw: 0, beat: 0, cx: c0.x, cy: c0.y, R: R0, want: false, done: null };
+
+    function inkA(a) {
+      return "rgba(244,242,236," + clamp(a, 0, 1).toFixed(3) + ")";
+    }
+    function line(x1, y1, x2, y2) {
+      g.beginPath();
+      g.moveTo(x1, y1);
+      g.lineTo(x2, y2);
+      g.stroke();
+    }
+    function circle(x, y, r) {
+      g.beginPath();
+      g.arc(x, y, Math.max(0, r), 0, Math.PI * 2);
+    }
+
+    function place() {
+      var T = S.T, q = S.q;
+      S.R = R0 * (1 - 0.45 * T) * (1 + 0.04 * Math.sin(S.t * 6.5)) * (1 - 0.92 * q * q * q);
+      var J = 0.15 + 1.3 * T * T * T + 3.2 * q * q;
+      var tilt = 0.45 + 0.25 * Math.sin(S.t * 0.7);
+      var cy = Math.cos(S.yaw), sy = Math.sin(S.yaw), ct = Math.cos(tilt), st = Math.sin(tilt);
+      for (var i = 0; i < n; i++) {
+        var p = ps[i], k = (S.t - p.at) / 1.2;
+        if (k <= 0) {
+          p.vis = 0;
+          continue;
+        }
+        k = Math.min(1, k);
+        var e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+        var x = p.d[0] * cy + p.d[2] * sy, z = p.d[2] * cy - p.d[0] * sy, y = p.d[1];
+        var y2 = y * ct - z * st, z2 = y * st + z * ct;
+        var dx = S.cx + x * S.R - p.sx, dy = S.cy + y2 * S.R - p.sy, len = Math.hypot(dx, dy) || 1;
+        var b = p.bend * Math.sin(Math.PI * e);
+        p.x = p.sx + dx * e - (dy / len) * b + (Math.random() - 0.5) * 2 * J * e;
+        p.y = p.sy + dy * e + (dx / len) * b + (Math.random() - 0.5) * 2 * J * e;
+        p.z = z2;
+        p.vis = Math.min(1, k * 5);
+        p.home = k >= 1;
+      }
+    }
+
+    function burst() {
+      S.phase = "burst";
+      S.s = 0;
+      ps.forEach(function (p) {
+        var dx = p.x - S.cx, dy = p.y - S.cy, len = Math.hypot(dx, dy);
+        if (len < 0.01) {
+          var a = Math.random() * Math.PI * 2;
+          dx = Math.cos(a);
+          dy = Math.sin(a);
+          len = 1;
+        }
+        var sp = (240 + Math.random() * 900) * (0.6 + 0.2 * (p.z + 1));
+        p.vx = (dx / len) * sp;
+        p.vy = (dy / len) * sp;
+      });
+      shake = 0;
+      jolt = 2.2;
+      // the blast stirs the page that is held open
+      if (state === "open") pD.v += 70;
+      pPhi.v += 0.12;
+      if (S.done) S.done({ x: S.cx, y: S.cy });
+    }
+
+    S.release = function () {
+      S.want = true;
+      return new Promise(function (resolve) {
+        S.done = resolve;
+      });
+    };
+    S.fizzle = function () {
+      if (S.phase === "burst" || S.phase === "fizzle") return;
+      S.phase = "fizzle";
+      S.s = 0;
+      shake = 0;
+      ps.forEach(function (p) {
+        p.vx = (Math.random() - 0.5) * 50;
+        p.vy = -10 - Math.random() * 40;
+      });
+    };
+
+    S.update = function (dt) {
+      S.t += dt;
+      if (S.phase === "gather" || S.phase === "crunch") {
+        var c = centre();
+        S.cx = c.x;
+        S.cy = c.y;
+      }
+      if (S.phase === "gather") {
+        S.T = smooth(0, 1, S.t / GATHER);
+        if (S.want && S.t >= GATHER) S.phase = "crunch";
+      } else if (S.phase === "crunch") {
+        S.q = Math.min(1, S.q + dt / CRUNCH);
+        if (S.q >= 1) burst();
+      } else {
+        S.s += dt;
+        var drag = Math.exp(-3 * dt), drop = S.phase === "fizzle" ? 380 : 30;
+        ps.forEach(function (p) {
+          p.vx *= drag;
+          p.vy = p.vy * drag + drop * dt;
+          p.x += p.vx * dt;
+          p.y += p.vy * dt;
+        });
+        if (S.s > 1.5) S.alive = false;
+      }
+      S.yaw += dt * (0.6 + 4 * S.T * S.T + 14 * S.q * S.q);
+      S.beat += dt * Math.PI * 2 * (1 + 3 * S.T * S.T + 8 * S.q);
+      if (S.phase === "gather" || S.phase === "crunch") place();
+      if (S.phase === "crunch") shake = 1.1 * S.q * S.q;
+    };
+
+    // Gathering: a spinning sphere of dots threaded to their neighbours, two orbits round it and
+    // a heart at the centre that beats faster as it tightens; spikes leak out just before it goes.
+    function knot() {
+      var T = S.T, q = S.q, cx = S.cx, cy = S.cy, R = S.R, i, p;
+      g.lineWidth = 0.5;
+      var la = 0.05 + 0.13 * T + 0.25 * q;
+      for (i = 0; i < n; i++) {
+        p = ps[i];
+        if (!p.home) continue;
+        for (var o = 13; o <= 21; o += 8) {
+          var nb = ps[i + o];
+          if (!nb || !nb.home) continue;
+          g.strokeStyle = inkA(la * (0.35 + (0.65 * (p.z + nb.z + 2)) / 4));
+          line(p.x, p.y, nb.x, nb.y);
+        }
+      }
+      var ra = (0.1 + 0.22 * T) * smooth(0.9, 2.2, S.t) * (1 - 0.6 * q);
+      if (ra > 0.005) {
+        g.lineWidth = 0.7;
+        g.strokeStyle = inkA(ra);
+        for (var k = 0; k < 2; k++) {
+          g.beginPath();
+          g.ellipse(cx, cy, R * 1.65, R * 1.65 * (k ? 0.36 : 0.2), S.yaw * (k ? -0.45 : 0.3) + k * 1.2, 0, Math.PI * 2);
+          g.stroke();
+        }
+      }
+      for (i = 0; i < n; i++) {
+        p = ps[i];
+        if (!p.vis) continue;
+        var dz = (p.z + 1) / 2;
+        g.fillStyle = inkA(p.a * p.vis * (0.35 + 0.65 * dz) * (1 + q));
+        circle(p.x, p.y, p.r * (0.7 + 0.6 * dz) * (1 - 0.25 * T));
+        g.fill();
+      }
+      var pulse = Math.pow(Math.max(0, Math.sin(S.beat)), 12);
+      var cr = (1 + 2.4 * T) * (1 + 0.7 * pulse) + 4 * q * q;
+      g.fillStyle = inkA(0.95);
+      circle(cx, cy, cr);
+      g.fill();
+      if (pulse > 0.03) {
+        g.lineWidth = 0.8;
+        g.strokeStyle = inkA(0.22 * pulse);
+        circle(cx, cy, cr + 4 + 10 * (1 - pulse));
+        g.stroke();
+      }
+      if (q > 0) {
+        g.lineWidth = 0.6;
+        for (var s = 0; s < 24; s++) {
+          var ang = (s / 24) * Math.PI * 2 + S.yaw * 0.2 + Math.random() * 0.08, r0 = cr + 3, len = (4 + Math.random() * 30) * q * q;
+          g.strokeStyle = inkA(0.45 * q * Math.random());
+          line(cx + Math.cos(ang) * r0, cy + Math.sin(ang) * r0, cx + Math.cos(ang) * (r0 + len), cy + Math.sin(ang) * (r0 + len));
+        }
+      }
+    }
+
+    // Bursting: every dot is flung out as a streak, two shock rings and a bloom spread from the
+    // centre. Fizzling (no reply): the dots simply drop away.
+    function scatter() {
+      var s = S.s, cx = S.cx, cy = S.cy, burstNow = S.phase === "burst";
+      g.lineCap = "round";
+      for (var i = 0; i < n; i++) {
+        var p = ps[i], life = burstNow ? 1 - s / p.life : 1 - s / 0.9;
+        if (life <= 0 || !p.vis) continue;
+        if (burstNow) {
+          g.strokeStyle = inkA(p.a * life);
+          g.lineWidth = p.r * 1.3 * (0.4 + 0.6 * life);
+          line(p.x - p.vx * 0.024, p.y - p.vy * 0.024, p.x, p.y);
+        } else {
+          g.fillStyle = inkA(p.a * p.vis * life);
+          circle(p.x, p.y, p.r);
+          g.fill();
+        }
+      }
+      if (!burstNow) return;
+      for (var k = 0; k < 2; k++) {
+        var sk = s - k * 0.09;
+        if (sk <= 0 || sk >= 0.8) continue;
+        var e = 1 - Math.pow(1 - sk / 0.8, 3);
+        g.lineWidth = 0.4 + 1.8 * (1 - sk / 0.8);
+        g.strokeStyle = inkA((k ? 0.22 : 0.42) * (1 - sk / 0.8));
+        circle(cx, cy, 6 + (k ? 170 : 280) * e);
+        g.stroke();
+      }
+      if (s < 0.2) {
+        g.fillStyle = inkA(0.2 * (1 - s / 0.2));
+        circle(cx, cy, 4 + 46 * (s / 0.2));
+        g.fill();
+      }
+    }
+
+    S.draw = function () {
+      g.setTransform(dpr, 0, 0, dpr, -ox * dpr, 0);
+      g.clearRect(ox, 0, pw, ph);
+      if (!S.alive) return;
+      if (S.phase === "gather" || S.phase === "crunch") knot();
+      else scatter();
+    };
+    return S;
   }
 
   // ---- messages ----
+
+  function link(url) {
+    var a = document.createElement("a");
+    a.href = url;
+    a.textContent = url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+    if (!/^https?:\/\/(www\.)?yezhang\.net/.test(url)) {
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    }
+    return a;
+  }
 
   // Plain text with bare URLs turned into links; never injects HTML.
   function render(el, text) {
@@ -237,91 +1267,249 @@
     while ((m = re.exec(text))) {
       var url = m[0].replace(/[.,;:!?'"]+$/, "");
       el.appendChild(document.createTextNode(text.slice(last, m.index)));
-      var a = document.createElement("a");
-      a.href = url;
-      a.textContent = url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
-      if (!/^https?:\/\/(www\.)?yezhang\.net/.test(url)) {
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-      }
-      el.appendChild(a);
+      el.appendChild(link(url));
       last = m.index + url.length;
     }
     el.appendChild(document.createTextNode(text.slice(last)));
   }
 
-  function add(role, text) {
-    var el = document.createElement("div");
-    el.className = "msg " + role;
-    render(el, text);
-    log.appendChild(el);
-    log.scrollTop = log.scrollHeight;
-    return el;
-  }
-
-  function paint() {
-    log.textContent = "";
-    add("bot", GREETING);
-    history.forEach(function (m) {
-      add(m.role === "user" ? "user" : "bot", m.content);
+  // The reply is typed out where it lands, a character at a time behind a caret, a little slower
+  // after punctuation; once it is all there it is set again with its links.
+  var typer = null;
+  function typeOut(f) {
+    var caret = document.createElement("span"), t = { f: f, text: document.createTextNode(""), n: 0, budget: 0, src: "", ended: false };
+    caret.className = "caret";
+    f.el.textContent = "";
+    f.el.appendChild(t.text);
+    f.el.appendChild(caret);
+    t.caret = caret;
+    t.done = new Promise(function (resolve) {
+      t.resolve = resolve;
     });
+    typer = t;
+    return t;
+  }
+  function typeStep(dt) {
+    var t = typer;
+    if (!t) return;
+    t.budget = REDUCED ? Infinity : t.budget + dt * 46;
+    var added = "";
+    while (t.budget >= 1 && t.n < t.src.length) {
+      var c = t.src[t.n++];
+      added += c;
+      t.budget -= 1;
+      if (/[.!?。！？]/.test(c)) t.budget -= 9;
+      else if (/[,;:，；：—\n]/.test(c)) t.budget -= 4;
+    }
+    if (t.n >= t.src.length) t.budget = Math.min(t.budget, 1);
+    if (added) {
+      t.text.data += added;
+      measureF(t.f);
+      var r = t.caret.getBoundingClientRect();
+      gaze = { x: r.left, y: r.top + r.height / 2, until: clock + 1.2 };
+    }
+    if (t.ended && t.n >= t.src.length) {
+      render(t.f.el, t.src);
+      measureF(t.f);
+      typer = null;
+      t.resolve();
+    }
   }
 
-  function toggle(open) {
-    panel.classList.toggle("open", open);
-    bubble.setAttribute("aria-expanded", String(open));
-    bubble.setAttribute("aria-label", open ? "Close chat" : "Open chat");
-    if (open) setTimeout(function () { input.focus(); }, 250);
+  // A new block of words, placed somewhere free in the dark.
+  function block(cls, avoid, fill) {
+    var el = document.createElement("div");
+    el.className = "f " + cls;
+    el.style.maxWidth = maxW(cls === "a" ? 320 : 280) + "px";
+    el.style.visibility = "hidden";
+    if (fill) fill(el);
+    space.insertBefore(el, input);
+    var f = float(el, 0, 0);
+    var s = findSpot(f.w, f.h, avoid);
+    f.x = f.px = s.x;
+    f.y = f.py = s.y;
+    move(el, s.x, s.y);
+    el.style.visibility = "";
+    return f;
   }
 
-  bubble.addEventListener("click", function () {
-    toggle(!panel.classList.contains("open"));
-  });
-  root.querySelector(".close").addEventListener("click", function () {
-    toggle(false);
-    bubble.focus();
-  });
-  panel.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") toggle(false);
+  // ---- wiring ----
+
+  document.addEventListener(
+    "pointermove",
+    function (e) {
+      if (e.pointerType === "touch") return;
+      // A page's own tools near the corner (marked data-chat-quiet) don't make the corner lift.
+      if (state !== "open" && e.target.closest && e.target.closest("[data-chat-quiet]")) {
+        if (ptr) (ptr = null), wake();
+        return;
+      }
+      ptr = { x: e.clientX, y: e.clientY };
+      pal.movedAt = clock;
+      if (!armed && Math.hypot(W - ptr.x, H - ptr.y) > ZONE * 0.85) armed = true;
+      wake();
+    },
+    { passive: true }
+  );
+  document.documentElement.addEventListener("mouseleave", function () {
+    ptr = null;
+    wake();
   });
 
-  function sync() {
-    send.disabled = busy || !input.value.trim();
-  }
-  input.addEventListener("input", function () {
-    input.style.height = "auto";
-    input.style.height = input.scrollHeight + "px";
-    sync();
+  // A press that starts among the words and ends on the page (selecting text) doesn't close it.
+  var downIn = false;
+  root.addEventListener("pointerdown", function (e) {
+    downIn = space.contains(e.target);
   });
+  // (Only from rest: the click that closes it from inside would otherwise bubble here and reopen it.)
+  leaf.addEventListener("click", function (e) {
+    if (state === "idle" || state === "near") open(e.detail === 0);
+  });
+  // Open, the dark is the writing surface: a click anywhere on it is ready to type (on the roll of
+  // the page itself, it lets go).
+  space.addEventListener("click", function (e) {
+    if (state !== "open" || (e.target.closest && e.target.closest("a,.close"))) return;
+    if (foldU(e.clientX, e.clientY) < rOf(pD.x) + 4) return close();
+    // a blinking caret where the dark was clicked; the writing (if any) moves there
+    pin = { x: e.clientX - 1, y: e.clientY - 14 };
+    if (draftF) {
+      draftF.x = pin.x;
+      draftF.y = pin.y;
+    }
+    input.focus({ preventScroll: true });
+    mirror();
+  });
+  scrim.addEventListener("click", function () {
+    if (state === "open" && !downIn) close();
+  });
+  corner.addEventListener("click", function (e) {
+    if (state === "open") close();
+    else open(e.detail === 0);
+  });
+  corner.addEventListener("focus", function () {
+    try {
+      peek = corner.matches(":focus-visible");
+    } catch (e) {
+      peek = true;
+    }
+    wake();
+  });
+  corner.addEventListener("blur", function () {
+    peek = false;
+    wake();
+  });
+  closeEl.addEventListener("click", close);
+  // Type anywhere: while it is open, any letter goes to the writing.
+  document.addEventListener("keydown", function (e) {
+    if (state !== "open") return;
+    if (e.key === "Escape") return close();
+    if (root.activeElement === input || e.ctrlKey || e.metaKey || e.altKey || e.key.length !== 1) return;
+    input.focus({ preventScroll: true });
+  });
+
+  // Scrolling the page is a draught too.
+  var scrollY0 = window.scrollY || 0;
+  addEventListener(
+    "scroll",
+    function () {
+      var y = window.scrollY || 0, d = Math.abs(y - scrollY0);
+      scrollY0 = y;
+      if (state !== "idle" || REDUCED) return;
+      pD.v = Math.min(260, pD.v + Math.min(d * 1.6, 90));
+      wake();
+    },
+    { passive: true }
+  );
+
+  addEventListener("resize", relayout);
+  if (window.visualViewport) window.visualViewport.addEventListener("resize", relayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+
+  input.addEventListener("input", mirror);
+  input.addEventListener("keyup", mirror);
   input.addEventListener("keydown", function (e) {
     if (e.key === "Enter" && !e.shiftKey && !e.isComposing) {
       e.preventDefault();
-      form.requestSubmit();
+      ask();
     }
   });
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+  async function ask() {
     var text = input.value.trim();
     if (!text || busy) return;
     busy = true;
+    asked = true;
     input.value = "";
-    input.style.height = "auto";
-    sync();
 
+    // The last exchange fades back and the one before it goes.
+    floats.slice().forEach(function (f) {
+      if (f === draftF) return;
+      if (f.past) drop(f);
+      else if (f.el) {
+        f.past = true;
+        f.el.classList.add("past");
+      }
+    });
+
+    // The writing becomes the question, a grey aside where it was written.
+    var qF = draftF;
+    draftF = null;
+    pin = null;
+    if (!qF) qF = block("q", others(), function (el) { el.textContent = text; });
+    else {
+      draftEl.className = "f q";
+      draftEl.textContent = text;
+      draftEl.style.maxWidth = maxW(280) + "px";
+      measureF(qF);
+      draftEl = document.createElement("div");
+      draftEl.className = "f draft";
+      draftEl.setAttribute("aria-hidden", "true");
+      space.insertBefore(draftEl, input);
+    }
+    var mine = qF.el;
+    qF.past = false;
     history.push({ role: "user", content: text });
-    add("user", text);
+    said.textContent = "thinking";
 
-    // Placeholder: a small solving orb until the first words arrive.
-    var el = document.createElement("div");
-    el.className = "msg bot thinking";
-    el.innerHTML = '<canvas aria-hidden="true"></canvas><span>thinking</span>';
-    log.appendChild(el);
-    log.scrollTop = log.scrollHeight;
-    var inline = orb(el.querySelector("canvas"), "solving", 20, 22);
-    status("solving", "thinking…");
+    // The thought gathers somewhere else in the dark.
+    var s = null, knotF = null;
+    if (!REDUCED) {
+      var k = findSpot(150, 150, [rectOf(qF)].concat(others(qF)));
+      knotF = float(null, k.x, k.y, 12);
+      knotF.w = knotF.h = 150;
+      s = storm = Storm(function () {
+        return { x: knotF.px + 75, y: knotF.py + 75 };
+      }, mine);
+      setTimeout(function () {
+        if (busy) mine.classList.add("read");
+      }, 500);
+    }
+    wake();
 
-    var answer = "";
+    var answer = "", ended = false, out = false, releasing = null, tw = null;
+    function reveal() {
+      out = true;
+      if (knotF) drop(knotF);
+      mine.classList.remove("read");
+      // placed by the size of what has arrived so far, then emptied and typed
+      var aF = block("a", [rectOf(qF)].concat(knotF ? [rectOf(knotF)] : [], others(qF)), function (el) {
+        el.textContent = answer;
+      });
+      tw = typeOut(aF);
+      more();
+    }
+    // Holds the reply back until the thought has gathered, then lets it burst out.
+    function ready() {
+      if (out || releasing || !answer) return;
+      if (s) releasing = s.release().then(reveal);
+      else reveal(null);
+    }
+    function more() {
+      tw.src = answer;
+      tw.ended = ended;
+      wake();
+    }
+
     try {
       var res = await fetch(API, {
         method: "POST",
@@ -338,31 +1526,58 @@
         var chunk = await reader.read();
         if (chunk.done) break;
         answer += decoder.decode(chunk.value, { stream: true });
-        if (inline) {
-          inline.remove();
-          inline = null;
-          el.className = "msg bot";
-          status("composing", "writing…");
-        }
-        render(el, answer);
-        log.scrollTop = log.scrollHeight;
+        if (out) more(false);
+        else ready();
       }
       if (!answer) throw new Error("");
+      ended = true;
+      ready();
+      if (releasing) await releasing;
+      more();
+      await tw.done;
+      said.textContent = answer;
       history.push({ role: "assistant", content: answer });
       save();
     } catch (err) {
       history.pop();
-      el.remove();
-      add("err", (err && err.message) || "couldn't reach the assistant — try again in a moment.");
+      if (s) s.fizzle();
+      if (knotF) drop(knotF);
+      mine.classList.remove("read");
+      var why = (err && err.message) || "couldn't reach the assistant — try again in a moment.";
+      // typed out somewhere in the dark, like a terminal
+      why = "> " + why;
+      typeOut(block("err", others(), function (el) { el.textContent = why; })).src = why;
+      typer.ended = true;
+      said.textContent = why;
     } finally {
-      if (inline) inline.remove();
-      status("listening", "ask anything about the site");
       busy = false;
-      sync();
-      input.focus();
+      restUntil = clock + 1.6;
+      relocate = true;
+      if (state === "open" && HOVER) input.focus({ preventScroll: true });
+      wake();
     }
-  });
+  }
 
-  paint();
   (document.body || document.documentElement).appendChild(host);
+  measure();
+  fX.x = fX.t = TUCKP.x;
+  fY.x = fY.t = TUCKP.y;
+  pD.x = pD.t = IDLE_D;
+  wake();
+
+  // Once a visit, a little while after the page settles, the corner catches a stronger draught.
+  var introduced = false;
+  try {
+    introduced = !!sessionStorage.getItem(INTRO_KEY);
+  } catch (e) {}
+  if (!introduced && !REDUCED) setTimeout(function () {
+    if (state === "idle") {
+      pD.v += 420;
+      pPhi.v -= 0.5;
+      wake();
+    }
+    try {
+      sessionStorage.setItem(INTRO_KEY, "1");
+    } catch (e) {}
+  }, 1800);
 })();

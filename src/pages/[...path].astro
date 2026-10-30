@@ -70,6 +70,7 @@ const formKind = page.slug === "order" ? "zine" : "contact";
 ---
 
 <Base title={info.title || page.title} description={info.description || page.description} image={firstImage && largest(mediaFor(firstImage.src))} noChat={page.noChat}>
+  {page.builder && <script is:inline>document.documentElement.classList.add("building")</script>}
   {views.map((v) => {
     const Wrap = v.hasForm ? "form" : "main";
     return (
@@ -97,4 +98,9 @@ const formKind = page.slug === "order" ? "zine" : "contact";
   <script>
     import "../scripts/interactions.js";
   </script>
+  {page.builder && (
+    <script>
+      import "../scripts/builder.js";
+    </script>
+  )}
 </Base>

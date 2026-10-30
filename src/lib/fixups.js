@@ -83,7 +83,8 @@ function fixNodes(nodes, page) {
 }
 
 // New entries on the /portfolio menu: the ZHAENG pages, the mini-apps and the blueprint figures
-// (public/how-to-rebuild-everything), styled like the existing "Clouds | Archive" row.
+// (public/how-to-rebuild-everything), styled like the existing "Clouds | Archive" row, and a BACK
+// in the empty band at the top centre, to /notice where CREATIVE and PROFESSIONAL are chosen.
 function addPortfolioEntries(page) {
   const entry = (like, label, href, box, labelW) => ({
     ...like, label, href, box,
@@ -97,6 +98,7 @@ function addPortfolioEntries(page) {
       entry(dLike, "ZHAENG", "/zhaeng", [174, 735, 128, 60], 80),
       entry(dLike, "Features", "/features/", [302, 735, 128, 60], 88),
       entry(dLike, "BLUEPRINT", "/how-to-rebuild-everything/", [174, 795, 256, 60], 118),
+      entry(dLike, "BACK", "/notice", [425, 34, 130, 60], 62),
     );
     if (dLine) d.nodes.push({ ...dLine, box: [dLine.box[0], 762, dLine.box[2], dLine.box[3]] });
   }
@@ -115,8 +117,32 @@ function addPortfolioEntries(page) {
       entry(mLike, "ZHAENG", "/zhaeng", [-2, 498, 201, 51], 42),
       entry(mLike, "Features", "/features/", [-2, 549, 201, 51], 46),
       entry(mLike, "BLUEPRINT", "/how-to-rebuild-everything/", [-2, 600, 201, 51], 59),
+      entry(mLike, "BACK", "/notice", [115, 6, 90, 36], 34),
     );
   }
+  // Under the copyright, a line in Courier.
+  for (const view of Object.values(page.views)) {
+    const c = view.nodes.find((n) => n.type === "text" && n.html?.includes("All Rights Reserved"));
+    if (!c) continue;
+    const small = view.canvas < 600, w = 300, x = c.box[0] + c.box[2] / 2 - w / 2;
+    view.nodes.push({
+      ...c,
+      box: [x, c.box[1] + c.box[3] + (small ? 2 : 1), w, small ? 14 : 16],
+      lines: 1,
+      html: `<p style="font-family:'Courier New', Courier, monospace;font-size:${small ? 10 : 11}px;text-align:center;letter-spacing:0.02em">Manually Designed and Cared by Ye</p>`,
+    });
+  }
+  // The page is built by the visitor (src/scripts/builder.js): every menu word, BACK and the figure
+  // are pieces that start in a tray; the footer stays put. The little bars between
+  // "Clouds | Archive" and "ZHAENG | Features" belong to the original layout only.
+  for (const view of Object.values(page.views)) {
+    for (const n of view.nodes) {
+      if (n.type === "button" && n.href) n.piece = n.label;
+      else if (n.type === "image" && /\/aboutme$/.test(n.href || "")) n.piece = "figure";
+      else if (n.type === "box" && n.rotate) n.joint = true;
+    }
+  }
+  page.builder = true;
 }
 
 // Motion measured on the live Wix pages (migration/scripts/motion_audit.mjs → apply_motion.mjs):

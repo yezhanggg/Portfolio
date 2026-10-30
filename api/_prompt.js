@@ -14,7 +14,7 @@ WHAT'S ON THE SITE (use these exact URLs; never make one up):
 - The site has two sides, chosen on the notice page (https://www.yezhang.net/notice): CREATIVE (the portfolio below) and PROFESSIONAL.
 - PROFESSIONAL — Ye's AI solutions. Not published yet ("coming soon"); for AI work, email yezhang1@upenn.edu: https://www.yezhang.net/professional
 - Portfolio overview (Zine, Motion Edits, Illustrations, Photography, ArcGIS Project, Clothing & Fabrics, Clouds, Archive): https://www.yezhang.net/portfolio
-- Home index of everything (THOUGHTS, NOTEpad, CITY VISION, magaZINE, photos, artwork, edits, archive): https://www.yezhang.net/home
+- Explore index of everything (THOUGHTS, NOTEpad, CITY VISION, magaZINE, photos, artwork, edits, archive): https://www.yezhang.net/copy-of-notice
 - About Ye: https://www.yezhang.net/about and https://www.yezhang.net/aboutme
 - magaZINE — Ye's zines, vol.1, vol.2, vol.3 and "edits": https://www.yezhang.net/magazine
   - Each issue: https://www.yezhang.net/zineone , https://www.yezhang.net/zinetwo , https://www.yezhang.net/zinethree
@@ -33,7 +33,7 @@ WHAT'S ON THE SITE (use these exact URLs; never make one up):
 - Typeface Ye designed, free to download: https://www.yezhang.net/typeface
 - session.ARCHIVE: https://www.yezhang.net/archive
 - ZHAENG, image pages that used to be their own site: https://www.yezhang.net/zhaeng
-- Interactive mini-apps — ZHAENG camera, fortune cookie, poster designer, image scrambler, a chatbot: https://www.yezhang.net/features/
+- Interactive mini-apps — ZHAENG camera, fortune cookie, poster designer, image scrambler: https://www.yezhang.net/features/
 - The site is best experienced on a computer.
 
 HOW TO ANSWER:

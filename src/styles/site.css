@@ -671,3 +671,388 @@ canvas.disperse {
 .vbox.apart {
   opacity: 0;
 }
+
+/* ---- /portfolio as a page the visitor builds (src/scripts/builder.js) ---------------------------- */
+/* Until the builder has set the page up, the pieces wait unseen (no flash of the old layout). */
+html.building [data-piece],
+html.building [data-joint] {
+  visibility: hidden;
+}
+:root {
+  --kit-mono: ui-monospace, "SF Mono", Menlo, "Courier New", monospace;
+}
+/* A piece hugs its word, so what is picked up and placed is the word itself. */
+.piece.btn {
+  width: auto !important;
+  height: auto !important;
+  padding: 4px 8px;
+}
+.piece.btn .lbl {
+  position: static;
+  display: block;
+  transform: none;
+}
+.piece {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+.piece.kit-off,
+.piece.kit-away,
+[data-joint].kit-off {
+  visibility: hidden;
+}
+html.kit-holding,
+html.kit-holding * {
+  cursor: crosshair !important;
+}
+html.kit-holding .kit,
+html.kit-holding .kit * {
+  cursor: default !important;
+}
+
+/* The marching dotted frame round what is held, with a handle at each corner. */
+.kit-ants {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  background:
+    linear-gradient(90deg, #000 50%, transparent 0) 0 0 / 8px 1px repeat-x,
+    linear-gradient(90deg, #000 50%, transparent 0) 0 100% / 8px 1px repeat-x,
+    linear-gradient(0deg, #000 50%, transparent 0) 0 0 / 1px 8px repeat-y,
+    linear-gradient(0deg, #000 50%, transparent 0) 100% 0 / 1px 8px repeat-y;
+  animation: kit-ants 0.7s linear infinite;
+}
+html.kit-holding .kit-ants {
+  display: block;
+}
+@keyframes kit-ants {
+  to {
+    background-position: 8px 0, -8px 100%, 0 -8px, 100% 8px;
+  }
+}
+.kit-ants i {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border: 1px solid #000;
+}
+.kit-ants i:nth-child(1) { left: -3px; top: -3px; }
+.kit-ants i:nth-child(2) { right: -3px; top: -3px; }
+.kit-ants i:nth-child(3) { left: -3px; bottom: -3px; }
+.kit-ants i:nth-child(4) { right: -3px; bottom: -3px; }
+
+/* What is held or flying lives in a layer over everything, at the page's scale. */
+.kit-layer {
+  position: fixed;
+  inset: 0;
+  zoom: var(--z);
+  z-index: 2147482000;
+  pointer-events: none;
+}
+.kit-ghost {
+  left: 0 !important;
+  top: 0 !important;
+  animation: none !important;
+  transform-origin: 50% 50%;
+  will-change: transform;
+  transition: opacity 0.2s ease;
+}
+.kit-ghost:not(.kit-flying) {
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.14));
+}
+.kit-read {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  padding: 2px 6px;
+  font: 10px/1.4 var(--kit-mono);
+  letter-spacing: 0.08em;
+  white-space: pre;
+  color: #fff;
+  background: #000;
+}
+html.kit-holding .kit-read {
+  display: block;
+}
+/* "Design is yourself", quietly in the middle of the empty page */
+.kit-hint {
+  position: absolute;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font: 400 34px/1.2 dinneuzeitgroteskltw01-_812426, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.02em;
+  color: #c7c7c7;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+html.kit-empty .kit-hint {
+  opacity: 1;
+}
+.kit-guides i {
+  position: absolute;
+  background: #000;
+  pointer-events: none;
+}
+.kit-guides .gx {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+.kit-guides .gy {
+  left: -2000px;
+  right: -2000px;
+  height: 1px;
+}
+
+/* The tray: a grey rounded box down the left of the window, clear of its edges, a tile for each
+   word to pick out. */
+.kit {
+  position: fixed;
+  top: 16px;
+  bottom: 16px;
+  left: 16px;
+  width: 212px;
+  z-index: 2147482500;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 14px;
+  background: #f4f4f4;
+  border-radius: 16px;
+  font: 10px/1.4 var(--kit-mono);
+  letter-spacing: 0.18em;
+  color: #000;
+}
+.kit-list {
+  flex: 0 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.kit-list::-webkit-scrollbar {
+  display: none;
+}
+.chip {
+  flex: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 38px;
+  padding: 6px 12px;
+  border: 1px solid #e4e4e4;
+  border-radius: 7px;
+  background: #fff;
+  font-size: 17px;
+  letter-spacing: 0;
+  color: #111;
+  gap: 10px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: grab;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.2s ease, min-height 0.35s cubic-bezier(0.22, 1, 0.36, 1), padding 0.35s ease, margin 0.35s ease, opacity 0.25s ease;
+}
+.chip:hover,
+.chip:focus-visible {
+  transform: translateY(-2px);
+  border-color: #000;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  outline: none;
+}
+.chip > span,
+.chip > img {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chip img {
+  object-fit: contain;
+}
+/* The little plus at the tile's right: just the two strokes. It turns a quarter under the pointer and
+   becomes a cross while its word is held. */
+.chip-plus {
+  position: relative;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  opacity: 0.45;
+  transition: opacity 0.2s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.chip-plus::before,
+.chip-plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 1.25px;
+  margin: -0.625px 0 0 -6px;
+  background: #000;
+}
+.chip-plus::after {
+  transform: rotate(90deg);
+}
+.chip:hover .chip-plus,
+.chip:focus-visible .chip-plus {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+.chip.held > .chip-plus {
+  opacity: 1;
+  transform: rotate(45deg);
+}
+.chip img {
+  height: 64px;
+  width: auto;
+}
+.chip.gone {
+  min-height: 0;
+  height: 0;
+  padding: 0;
+  margin-top: -6px;
+  border-width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+/* The one being held stays in the tray, an empty dotted slot, until it is set down. */
+.chip.held {
+  border: 1px dashed #000;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.chip.held > * {
+  opacity: 0.25;
+}
+/* an empty dotted slot, open for a word on its way back */
+.chip.slot {
+  border: 1px dashed #000;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.chip.slot > * {
+  opacity: 0;
+}
+.kit-say {
+  min-height: 14px;
+  margin: 8px 2px 0;
+  color: #8a8a8a;
+  font-size: 9px;
+}
+.kit-foot {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #e4e4e4;
+}
+/* RECIPE, ORIGINAL and CLEAR answer the pointer as the page's own links do (hover.json, yz__portfolio):
+   the word turns light grey, leans into italics, spreads out and is underlined, in 0.2 s. */
+.kit-help,
+.kit-more button {
+  border: 0;
+  background: none;
+  color: #000;
+  cursor: pointer;
+  text-decoration: underline transparent;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease, letter-spacing 0.2s ease, text-decoration-color 0.2s ease;
+}
+.kit-help:hover,
+.kit-help:focus-visible,
+.kit-more button:hover,
+.kit-more button:focus-visible {
+  color: #c7c7c7;
+  font-style: italic;
+  text-decoration-color: currentColor;
+  outline: none;
+}
+.kit-help {
+  display: inline-block;
+  padding: 2px 0 4px;
+  font: 400 26px/1.1 dinneuzeitgroteskltw01-_812426, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0;
+}
+.kit-help:hover,
+.kit-help:focus-visible {
+  letter-spacing: 3.5px;
+}
+.kit-help:active,
+.kit-more button:active {
+  opacity: 0.6;
+}
+.kit-more {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 0 2px;
+}
+.kit-more button {
+  padding: 4px 0;
+  font: inherit;
+  color: #8a8a8a;
+}
+.kit-more button:hover,
+.kit-more button:focus-visible {
+  letter-spacing: 0.26em;
+}
+@media (max-width: 749px) {
+  .kit {
+    top: 8px;
+    bottom: 8px;
+    left: 8px;
+    width: 116px;
+    padding: 10px 6px;
+    border-radius: 12px;
+    letter-spacing: 0.12em;
+  }
+  .kit-list {
+    gap: 5px;
+  }
+  .chip {
+    min-height: 32px;
+    padding: 4px 8px;
+    font-size: 13px;
+  }
+  .chip img {
+    height: 44px;
+  }
+  .chip {
+    gap: 6px;
+  }
+  .chip-plus {
+    width: 11px;
+    height: 11px;
+  }
+  .chip-plus::before,
+  .chip-plus::after {
+    width: 10px;
+    margin-left: -5px;
+  }
+  .kit-hint {
+    font-size: 22px;
+  }
+  .kit-help {
+    font-size: 19px;
+  }
+  .kit-more {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kit-ants {
+    animation: none;
+  }
+}

@@ -3,7 +3,12 @@ import media from "../data/media.json";
 import { applyFixups } from "./fixups.js";
 
 const modules = import.meta.glob("../data/pages/*.json", { eager: true });
-export const pages = Object.values(modules).map((m) => applyFixups(structuredClone(m.default ?? m)));
+// Pages taken off the site. Their data stays: /home's buttons still fill the explore box on
+// /copy-of-notice (src/lib/fixups.js).
+const REMOVED = new Set(["home"]);
+export const pages = Object.values(modules)
+  .map((m) => applyFixups(structuredClone(m.default ?? m)))
+  .filter((page) => !REMOVED.has(routeOf(page)));
 
 // yz index → "/", yz foo → "/foo", zhaeng index → "/zhaeng", zhaeng foo → "/zhaeng/foo"
 export function routeOf(page) {

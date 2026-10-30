@@ -12,7 +12,8 @@ const entering = n.anim && n.anim.some((a) => !a.loop);
 const fx = [...hv.cls, n.anim ? "anim" : "", entering ? "enter" : "", n.sticky ? "sticky" : "", n.hshow ? "hb-show" : ""].filter(Boolean);
 // data-mouse = how far (px) a picture travels when it follows the pointer; see interactions.js.
 // data-rate = how many times faster a looping animation runs under the pointer.
-const fxAttrs = { ...(n.mouse ? { "data-mouse": n.mouse.d, "data-mouse-ms": n.mouse.ms, "data-mouse-inset": n.mouse.inset } : {}), ...(n.scrollK ? { "data-scroll-k": n.scrollK } : {}), ...(n.rate ? { "data-rate": n.rate } : {}) };
+// data-piece / data-joint = a movable piece of a page the visitor builds (/portfolio; builder.js).
+const fxAttrs = { ...(n.mouse ? { "data-mouse": n.mouse.d, "data-mouse-ms": n.mouse.ms, "data-mouse-inset": n.mouse.inset } : {}), ...(n.scrollK ? { "data-scroll-k": n.scrollK } : {}), ...(n.rate ? { "data-rate": n.rate } : {}), ...(n.piece ? { "data-piece": n.piece, draggable: "false" } : {}), ...(n.joint ? { "data-joint": "" } : {}) };
 // A video that fills the page is a background; anything smaller is a "video box" the visitor can
 // click to play or pause, as on the original site. A box that plays by itself (the opening page)
 // has no controls: nothing the visitor does stops it.
@@ -77,7 +78,7 @@ const CubeTag = href ? "a" : "div";
 const SIDES = ["front", "back", "right", "left", "top", "bottom"];
 ---
 
-{n.type === "box" && <div class:list={["n", "bx", fx, { bleed }]} style={css({ ...frame, ...paint })} />}
+{n.type === "box" && <div class:list={["n", "bx", fx, { bleed }]} {...fxAttrs} style={css({ ...frame, ...paint })} />}
 
 {n.type === "hbox" && (
   <div class="n hbox" style={css({ ...frame, "--hb-ms": n.ms ? `${n.ms}ms` : undefined })}>
