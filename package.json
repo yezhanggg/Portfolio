@@ -5,7 +5,12 @@
   "engines": {
     "node": "22.x"
   },
-  "pnpm": { "onlyBuiltDependencies": ["esbuild", "sharp"] },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -13,6 +18,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
+    "@vercel/speed-insights": "^2.1.0",
     "astro": "^7.3.7",
     "photoswipe": "^5.4.4"
   },
