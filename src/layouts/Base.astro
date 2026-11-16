@@ -1,6 +1,7 @@
 ---
 import "../styles/fonts.css";
 import "../styles/site.css";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 const { title, description, image, noChat = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ""), Astro.site);
@@ -20,6 +21,7 @@ const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ""), Astro.site)
     <meta property="og:url" content={canonical} />
     {description && <meta property="og:description" content={description} />}
     {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    <SpeedInsights />
     <script is:inline>
       // Scale the fixed-width canvases (980 desktop / 320 phone) to the viewport before first paint.
       // On a laptop every page keeps the proportions it has at 1440 x 900, whatever the screen: --z
